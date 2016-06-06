@@ -100,7 +100,6 @@ public class KolodaView: UIView, DraggableCardDelegate {
     private(set) public var countOfCards = 0
     
     public var countOfVisibleCards = defaultCountOfVisibleCards
-    public var counter = 0
     private var visibleCards = [DraggableCardView]()
     private var animating = false
     
@@ -377,13 +376,13 @@ public class KolodaView: UIView, DraggableCardDelegate {
     
     //MARK: Private
     private func clear() {
-            currentCardNumber = 0
-            
-            for card in visibleCards {
-                card.removeFromSuperview()
-            }
-            
-            visibleCards.removeAll(keepCapacity: true)
+        currentCardNumber = 0
+        
+        for card in visibleCards {
+            card.removeFromSuperview()
+        }
+        
+        visibleCards.removeAll(keepCapacity: true)
         
     }
     
@@ -590,11 +589,9 @@ public class KolodaView: UIView, DraggableCardDelegate {
     }
     
     public func reloadData() {
-        
         guard let numberOfCards = dataSource?.koloda(kolodaNumberOfCards: self) where numberOfCards > 0 else {
             return
         }
- 
         countOfCards = Int(numberOfCards)
         
         let missingCards = min(countOfVisibleCards - visibleCards.count, countOfCards - (currentCardNumber + 1))

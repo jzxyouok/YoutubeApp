@@ -24,6 +24,7 @@ class VideoModel: NSObject {
     var keywordArray = [String] ()
     var keywordArray2 = [String] ()
     var categoryIdArray = [Int] ()
+    var done: Int = 0
     
     var delegate:VideoModelDelegate?
     
@@ -88,13 +89,34 @@ class VideoModel: NSObject {
     for interest in interestArray {
         
         if (interest=="biology" || interest=="chemistry" || interest=="physics") {
-            
+            /*
             Alamofire.request(.GET, "https://www.googleapis.com/youtube/v3/search", parameters: ["part":"snippet","regionCode":"US","q":keywordArray[Int(arc4random_uniform(UInt32(keywordArray.count)))],"maxResults":3,"type":"video","videoDuration":"short","videoCategoryId":28,"key":API_KEY], encoding: ParameterEncoding.URL, headers: nil).responseJSON{ (response) -> Void in
                     if let JSON = response.result.value as? NSDictionary {
                 let data: AnyObject? = JSON
                 completionHandler(data: data)
                 }
             }
+             */
+            
+            Alamofire.request(.GET, "https://www.googleapis.com/youtube/v3/search", parameters: ["part":"snippet","regionCode":"US","q":keywordArray[Int(arc4random_uniform(UInt32(keywordArray.count)))],"maxResults":3,"type":"video","videoDuration":"short","videoCategoryId":28,"key":API_KEY], encoding: ParameterEncoding.URL, headers: nil).responseObject { (response: Response<Video, NSError>) in
+                    let videoResponse = response.result.value as? NSDictionary
+                    let data: AnyObject? = videoResponse
+                    if let items = data?.items {
+                        for video in items {
+                            let videoObj = Video()
+                            videoObj.videoId=video.id.videoId
+                            videoObj.videoTitle=video.snippet.title
+                            videoObj.videoDescription=video.snippet.description
+                            videoObj.videoThumbnailUrl=video.snippet.thumbnails.Default.url
+                            videoArray.append(videoObj)
+                        }
+                        
+                        if self.model.delegate != nil {
+                            self.model.delegate!.dataReady()
+                        }
+                    }
+            }
+            self.done=1
         }
         
         
