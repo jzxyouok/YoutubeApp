@@ -46,28 +46,9 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
                 self.searchWords=searchWords
             
                 self.model.getFeedVideos(self.interestSelectionArray, keywordArray: searchWords) { data in
-                    if let items = data!["items"] as? NSArray {
-                        
-                        var arrayOfVideos = [Video]()
-                        
-                        for video in items {
-                            //Create Video objects off of the JSON response.
-                            let videoObj = Video()
-                            videoObj.videoId=video.valueForKeyPath("id.videoId") as! String
-                            videoObj.videoTitle=video.valueForKeyPath("snippet.title") as! String
-                            videoObj.videoDescription=video.valueForKeyPath("snippet.description") as! String
-                            videoObj.videoThumbnailUrl=video.valueForKeyPath("snippet.thumbnails.default.url") as! String
-                            
-                            arrayOfVideos.append(videoObj)
-                            
-                        }
-                        
-                        
-                        self.model.videoArray = arrayOfVideos
-                        //Notify the delegate that the data is ready
-                        if self.model.delegate != nil {
-                            self.model.delegate!.dataReady()
-                        }
+                    //Notify the delegate that the data is ready
+                    if self.model.delegate != nil {
+                        self.model.delegate!.dataReady()
                     }
                 }
                 self.done=1
@@ -113,7 +94,7 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     }
     
     func cacheLoad() {
-        if kolodaView?.currentCardNumber == 0 && counter<3 && videoCache != [] {
+        if kolodaView?.currentCardNumber == 0 && counter<3 && videoCache.count != 0 {
             counter=counter+1
             if !(Set(videoCache).isSubsetOf(Set(videos))) {
                 videos=videoCache+videos
@@ -125,15 +106,15 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     func koloda(koloda: KolodaView, viewForCardAtIndex index: UInt) -> UIView {
         if (self.done == 1 && videos.count > 2) {
             
-        let videoTitle = videos[Int(index)+self.value].videoTitle
+        let videoTitle = videos[Int(index)+self.value].snippet!.title
             
         let cell = NSBundle.mainBundle().loadNibNamed("Thumbnail", owner: self, options: nil).first as? Thumbnail
         cell?.videoLabel.text = videoTitle
         
-        let videoThumbnailUrlString = videos[Int(index)+self.value].videoThumbnailUrl
+        let videoThumbnailUrlString = videos[Int(index)+self.value].snippet!.thumbnailUrlString
             
             //Create an NSURL object
-        let videoThumbnailUrl = NSURL(string: videoThumbnailUrlString)
+        let videoThumbnailUrl = NSURL(string: videoThumbnailUrlString!)
             
         if videoThumbnailUrl != "" {
                 
@@ -218,30 +199,10 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     func getVideos() {
         for interest in interestSelectionArray {
             self.model.getFeedVideos(self.interestSelectionArray, keywordArray: searchWords) { data in
-                if let items = data!["items"] as? NSArray {
-                
-                    var arrayOfVideos = [Video]()
-                    
-                    for video in items {
-                    //Create Video objects off of the JSON response.
-                        let videoObj = Video()
-                        videoObj.videoId=video.valueForKeyPath("id.videoId") as! String
-                        videoObj.videoTitle=video.valueForKeyPath("snippet.title") as! String
-                        videoObj.videoDescription=video.valueForKeyPath("snippet.description") as! String
-                        videoObj.videoThumbnailUrl=video.valueForKeyPath("snippet.thumbnails.default.url") as! String
-                        
-                        arrayOfVideos.append(videoObj)
-                    
-                    }
-                    
-                    
-                    self.model.videoArray += arrayOfVideos
-                    //Notify the delegate that the data is ready
-                    if self.model.delegate != nil {
-                        self.model.delegate!.dataReady()
-                    }
+                //Notify the delegate that the data is ready
+                if self.model.delegate != nil {
+                    self.model.delegate!.dataReady()
                 }
-            
             }
             self.done=1
         }

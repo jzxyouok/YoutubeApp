@@ -7,46 +7,21 @@
 //
 
 import UIKit
+import ObjectMapper
+import AlamofireObjectMapper
 
-class Video: Mappable {
+class Video: NSObject, Mappable {
 
-    var items: [Item]?
-    
-    required init?(_ map: Map){
-        
-    }
-    
-    func mapping(map: Map) {
-        items <- map["items"]
-    }
-    
-}
-
-class Item: Mappable {
-    
-    var id: ID?
+    var videoId: String?
     var snippet: Snippet?
     
-    required init?(_ map: Map){
-        
+    convenience required init?(_ map: Map){
+        self.init()
     }
     
     func mapping(map: Map) {
-        id <- map["id"]
+        videoId <- map["id.videoId"]
         snippet <- map["snippet"]
-    }
-}
-
-class ID: Mappable {
-    
-    var videoId: String?
-    
-    required init?(_ map: Map){
-        
-    }
-    
-    func mapping(map: Map) {
-        videoId <- map["videoId"]
     }
     
 }
@@ -55,44 +30,16 @@ class Snippet: Mappable {
     
     var title: String?
     var description: String?
-    var thumbnails: Thumbnails?
+    var thumbnailUrlString: String?
     
-    required init?(_ map: Map){
-        
+    convenience required init?(_ map: Map){
+        self.init()
     }
     
     func mapping(map: Map) {
         title <- map["title"]
         description <- map["description"]
-        thumbnails <- map["thumbnails"]
+        thumbnailUrlString <- map["thumbnails.default.url"]
     }
     
-}
-
-class Thumbnails: Mappable {
-    
-    var Default: Default?
-    
-    required init?(_ map: Map){
-        
-    }
-    
-    func mapping(map: Map) {
-        Default <- map["default"]
-    }
-    
-}
-
-class Default: Mapping {
-    
-    var url: String?
-    
-    required init?(_ map: Map){
-        
-    }
-    
-    func mapping(map: Map) {
-        url <- map["url"]
-        }
-            
 }

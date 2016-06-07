@@ -35,8 +35,8 @@ class VideoDetailViewController: UIViewController {
         
         if let vid=self.selectedVideo {
             
-            self.titleLabel.text=vid.videoTitle
-            self.descriptionLabel.text=vid.videoDescription
+            self.titleLabel.text=vid.snippet!.title
+            self.descriptionLabel.text=vid.snippet!.description
             
             
             let width=self.view.frame.size.width
@@ -45,7 +45,9 @@ class VideoDetailViewController: UIViewController {
             //Adjust the height of the webview constraint.
             self.webViewHeightConstraint.constant=height
             
-            let videoEmbedString = "<html><head><style type=\"text/css\">body {background-color: transparent;color: white;}</style></head><body style=\"margin:0\"><iframe frameBorder=\"0\" height=\"" + String(height) + "\" width=\"" + String(width) + "\" src=\"http://www.youtube.com/embed/" + vid.videoId + "?showinfo=0&modestbranding=1&frameborder=0&rel=0\"></iframe></body></html>"
+            var videoEmbedString = "<html><head><style type=\"text/css\">body {background-color: transparent;color: white;}</style></head><body style=\"margin:0\"><iframe frameBorder=\"0\" height=\""
+            videoEmbedString += String(height) + "\" width=\"" + String(width)
+            videoEmbedString += "\" src=\"http://www.youtube.com/embed/" + vid.videoId! + "?showinfo=0&modestbranding=1&frameborder=0&rel=0\"></iframe></body></html>"
             
             self.webView.loadHTMLString(videoEmbedString, baseURL: nil)
         }

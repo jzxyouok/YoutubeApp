@@ -10,6 +10,8 @@ import UIKit
 import Alamofire
 import Kanna
 import Foundation
+import AlamofireObjectMapper
+import ObjectMapper
 
 protocol VideoModelDelegate {
     func dataReady()
@@ -101,22 +103,19 @@ class VideoModel: NSObject {
             Alamofire.request(.GET, "https://www.googleapis.com/youtube/v3/search", parameters: ["part":"snippet","regionCode":"US","q":keywordArray[Int(arc4random_uniform(UInt32(keywordArray.count)))],"maxResults":3,"type":"video","videoDuration":"short","videoCategoryId":28,"key":API_KEY], encoding: ParameterEncoding.URL, headers: nil).responseObject { (response: Response<Video, NSError>) in
                     let videoResponse = response.result.value as? NSDictionary
                     let data: AnyObject? = videoResponse
-                    if let items = data?.items {
-                        for video in items {
+                    if let videos = data!["items"] as? [Video] {
+                        for video in videos {
                             let videoObj = Video()
-                            videoObj.videoId=video.id.videoId
-                            videoObj.videoTitle=video.snippet.title
-                            videoObj.videoDescription=video.snippet.description
-                            videoObj.videoThumbnailUrl=video.snippet.thumbnails.Default.url
-                            videoArray.append(videoObj)
+                            videoObj.videoId=video.videoId
+                            videoObj.snippet!.title=video.snippet!.title
+                            videoObj.snippet!.description=video.snippet!.description
+                            videoObj.snippet!.thumbnailUrlString=video.snippet!.thumbnailUrlString
+                            self.videoArray.append(videoObj)
                         }
                         
-                        if self.model.delegate != nil {
-                            self.model.delegate!.dataReady()
-                        }
+                        completionHandler(data: data)
                     }
             }
-            self.done=1
         }
         
         
@@ -151,7 +150,7 @@ class VideoModel: NSObject {
 
     }
 }
-
+/*
     func getVideos() -> [Video] {
 
         //Create an empty array of Video objects
@@ -213,5 +212,5 @@ class VideoModel: NSObject {
         
         return videos
     }
-    
+*/
 }
