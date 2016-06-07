@@ -102,6 +102,7 @@ class VideoModel: NSObject {
             
             Alamofire.request(.GET, "https://www.googleapis.com/youtube/v3/search", parameters: ["part":"snippet","regionCode":"US","q":keywordArray[Int(arc4random_uniform(UInt32(keywordArray.count)))],"maxResults":3,"type":"video","videoDuration":"short","videoCategoryId":28,"key":API_KEY], encoding: ParameterEncoding.URL, headers: nil).responseObject { (response: Response<Video, NSError>) in
                     let videoResponse = response.result.value as? NSDictionary
+                    print(videoResponse)
                     let data: AnyObject? = videoResponse
                     if let videos = data!["items"] as? [Video] {
                         for video in videos {

@@ -44,6 +44,7 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
                     searchWords.append(word.valueForKeyPath("word") as! String)
                 }
                 self.searchWords=searchWords
+                print(searchWords)
             
                 self.model.getFeedVideos(self.interestSelectionArray, keywordArray: searchWords) { data in
                     //Notify the delegate that the data is ready
