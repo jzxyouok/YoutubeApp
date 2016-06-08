@@ -105,15 +105,7 @@ class VideoModel: NSObject {
                     print(videoResponse)
                     let data: AnyObject? = videoResponse
                     if let videos = data!["items"] as? [Video] {
-                        for video in videos {
-                            let videoObj = Video()
-                            videoObj.videoId=video.videoId
-                            videoObj.snippet!.title=video.snippet!.title
-                            videoObj.snippet!.description=video.snippet!.description
-                            videoObj.snippet!.thumbnailUrlString=video.snippet!.thumbnailUrlString
-                            self.videoArray.append(videoObj)
-                        }
-                        
+                        Mapper<Video>().map(videos)
                         completionHandler(data: data)
                     }
             }
