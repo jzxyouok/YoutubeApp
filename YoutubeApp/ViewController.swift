@@ -48,6 +48,9 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
             
                 self.model.getFeedVideos(self.interestSelectionArray, keywordArray: searchWords) { data in
                     //Notify the delegate that the data is ready
+                    
+                    self.videos=self.model.videoArray
+                    
                     if self.model.delegate != nil {
                         self.model.delegate!.dataReady()
                     }
@@ -200,6 +203,7 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     func getVideos() {
         for interest in interestSelectionArray {
             self.model.getFeedVideos(self.interestSelectionArray, keywordArray: searchWords) { data in
+                self.videos=self.model.videoArray
                 //Notify the delegate that the data is ready
                 if self.model.delegate != nil {
                     self.model.delegate!.dataReady()

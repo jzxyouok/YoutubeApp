@@ -10,6 +10,20 @@ import UIKit
 import ObjectMapper
 import AlamofireObjectMapper
 
+class VideoResponse: NSObject, Mappable {
+    
+    var videos: [Video] = []
+    
+    convenience required init?(_ map: Map){
+        self.init()
+    }
+    
+    func mapping(map: Map) {
+        videos <- map["items"]
+    }
+    
+}
+
 class Video: NSObject, Mappable {
 
     var videoId: String?
