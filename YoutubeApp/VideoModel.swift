@@ -91,18 +91,9 @@ class VideoModel: NSObject {
     for interest in interestArray {
         
         if (interest=="biology" || interest=="chemistry" || interest=="physics") {
-            /*
-            Alamofire.request(.GET, "https://www.googleapis.com/youtube/v3/search", parameters: ["part":"snippet","regionCode":"US","q":keywordArray[Int(arc4random_uniform(UInt32(keywordArray.count)))],"maxResults":3,"type":"video","videoDuration":"short","videoCategoryId":28,"key":API_KEY], encoding: ParameterEncoding.URL, headers: nil).responseJSON{ (response) -> Void in
-                    if let JSON = response.result.value as? NSDictionary {
-                let data: AnyObject? = JSON
-                completionHandler(data: data)
-                }
-            }
-             */
             
             Alamofire.request(.GET, "https://www.googleapis.com/youtube/v3/search", parameters: ["part":"snippet","regionCode":"US","q":keywordArray[Int(arc4random_uniform(UInt32(keywordArray.count)))],"maxResults":3,"type":"video","videoDuration":"short","videoCategoryId":28,"key":API_KEY], encoding: ParameterEncoding.URL, headers: nil).responseObject { (response: Response<VideoResponse, NSError>) in
                     let videoResponse = response.result.value
-                    print(videoResponse?.videos)
                     if let videos = videoResponse?.videos {
                         for video in videos {
                             self.videoArray.append(video)
@@ -114,97 +105,43 @@ class VideoModel: NSObject {
         
         
         if (interest=="philosophy" || interest == "mathematics" || interest == "geography") {
-            Alamofire.request(.GET, "https://www.googleapis.com/youtube/v3/search", parameters: ["part":"snippet","regionCode":"US","q":keywordArray[(counter*10)+Int(arc4random_uniform(UInt32(keywordArray.count)))],"maxResults":3,"type":"video","videoDuration":"short","videoCategoryId":27,"key":API_KEY], encoding: ParameterEncoding.URL, headers: nil).responseJSON{ (response) -> Void in
-                if let JSON = response.result.value as? NSDictionary {
-                    let data: AnyObject? = JSON
-                    completionHandler(data: data)
+            Alamofire.request(.GET, "https://www.googleapis.com/youtube/v3/search", parameters: ["part":"snippet","regionCode":"US","q":keywordArray[(counter*10)+Int(arc4random_uniform(UInt32(keywordArray.count)))],"maxResults":3,"type":"video","videoDuration":"short","videoCategoryId":27,"key":API_KEY], encoding: ParameterEncoding.URL, headers: nil).responseObject { (response: Response<VideoResponse, NSError>) in
+                let videoResponse = response.result.value
+                if let videos = videoResponse?.videos {
+                    for video in videos {
+                        self.videoArray.append(video)
+                    }
+                    completionHandler(data: videoResponse)
                 }
             }
         }
         
         
         if (interest=="history") {
-            Alamofire.request(.GET, "https://www.googleapis.com/youtube/v3/search", parameters: ["part":"snippet","regionCode":"US","maxResults":3,"q":keywordArray[(counter*10)+Int(arc4random_uniform(UInt32(keywordArray.count)))],"type":"video","videoDuration":"short","videoCategoryId":35,"key":API_KEY], encoding: ParameterEncoding.URL, headers: nil).responseJSON{ (response) -> Void in
-                if let JSON = response.result.value as? NSDictionary {
-                    let data: AnyObject? = JSON
-                    completionHandler(data: data)
+            Alamofire.request(.GET, "https://www.googleapis.com/youtube/v3/search", parameters: ["part":"snippet","regionCode":"US","maxResults":3,"q":keywordArray[(counter*10)+Int(arc4random_uniform(UInt32(keywordArray.count)))],"type":"video","videoDuration":"short","videoCategoryId":35,"key":API_KEY], encoding: ParameterEncoding.URL, headers: nil).responseObject { (response: Response<VideoResponse, NSError>) in
+                let videoResponse = response.result.value
+                if let videos = videoResponse?.videos {
+                    for video in videos {
+                        self.videoArray.append(video)
+                    }
+                    completionHandler(data: videoResponse)
                 }
             }
         }
 
         
         if (interest=="technology") {
-            Alamofire.request(.GET, "https://www.googleapis.com/youtube/v3/search", parameters: ["part":"snippet","regionCode":"US","maxResults":3,"q":keywordArray[(counter*10)+Int(arc4random_uniform(UInt32(keywordArray.count)))],"type":"video","videoDuration":"short","videoCategoryId":26,"key":API_KEY], encoding: ParameterEncoding.URL, headers: nil).responseJSON{ (response) -> Void in
-                if let JSON = response.result.value as? NSDictionary {
-                    let data: AnyObject? = JSON
-                    completionHandler(data: data)
+            Alamofire.request(.GET, "https://www.googleapis.com/youtube/v3/search", parameters: ["part":"snippet","regionCode":"US","maxResults":3,"q":keywordArray[(counter*10)+Int(arc4random_uniform(UInt32(keywordArray.count)))],"type":"video","videoDuration":"short","videoCategoryId":26,"key":API_KEY], encoding: ParameterEncoding.URL, headers: nil).responseObject { (response: Response<VideoResponse, NSError>) in
+                let videoResponse = response.result.value
+                if let videos = videoResponse?.videos {
+                    for video in videos {
+                        self.videoArray.append(video)
+                    }
+                    completionHandler(data: videoResponse)
                 }
             }
         }
 
     }
 }
-/*
-    func getVideos() -> [Video] {
-
-        //Create an empty array of Video objects
-        var videos = [Video]()
-        
-        //Create a video object
-        let video1 = Video()
-        
-        //Assign properties
-        video1.videoId="48kekFLZkXU"
-        video1.videoTitle="How To Make a YouTube Video App - Ep 03 - Creating the Video Data"
-        video1.videoDescription="Lesson 3: In this series, I'll show you guys how to build a video app that plays YouTube videos!"
-        //Append it into the videos array
-        videos.append(video1)
-        
-        
-        //Create a video object
-        let video2 = Video()
-        
-        //Assign properties
-        video2.videoId="wJVjuALsJ0g"
-        video2.videoTitle="How To Make an App - Ep 6 - Auto Layout in Xcode 7 (iOS 9)"
-        video2.videoDescription="Lesson 6: Auto Layout in Xcode 7. This lesson introduces auto layout in Xcode 7 as we create the user interface for our War card game."
-        //Append it into the videos array
-        videos.append(video2)
-        
-        
-        //Create a video object
-        let video3 = Video()
-        
-        //Assign properties
-        video3.videoId="wJVjuALsJ0g"
-        video3.videoTitle="How To Make an App - Ep 6 - Auto Layout in Xcode 7 (iOS 9)"
-        video3.videoDescription="Lesson 6: Auto Layout in Xcode 7. This lesson introduces auto layout in Xcode 7 as we create the user interface for our War card game."
-        //Append it into the videos array
-        videos.append(video3)
-        
-        
-        //Create a video object
-        let video4 = Video()
-        
-        //Assign properties
-        video4.videoId="wJVjuALsJ0g"
-        video4.videoTitle="How To Make an App - Ep 6 - Auto Layout in Xcode 7 (iOS 9)"
-        video4.videoDescription="Lesson 6: Auto Layout in Xcode 7. This lesson introduces auto layout in Xcode 7 as we create the user interface for our War card game."
-        //Append it into the videos array
-        videos.append(video4)
-        
-        
-        //Create a video object
-        let video5 = Video()
-        
-        //Assign properties
-        video5.videoId="wJVjuALsJ0g"
-        video5.videoTitle="How To Make an App - Ep 6 - Auto Layout in Xcode 7 (iOS 9)"
-        video5.videoDescription="Lesson 6: Auto Layout in Xcode 7. This lesson introduces auto layout in Xcode 7 as we create the user interface for our War card game."
-        //Append it into the videos array
-        videos.append(video5)
-        
-        return videos
-    }
-*/
 }
