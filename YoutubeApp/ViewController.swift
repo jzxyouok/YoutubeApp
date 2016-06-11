@@ -215,10 +215,10 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
 
     func koloda(koloda: KolodaView, didSwipedCardAtIndex index: UInt, inDirection direction: SwipeResultDirection) {
         //Example: loading more cards
-        if index>=2 {
-            numberOfCards = 3
-            kolodaView.reloadData()
-        }
+//        if index>=2 {
+//            numberOfCards = 3
+//            kolodaView.reloadData()
+//        }
     }
     
     func koloda(koloda: KolodaView, didSelectCardAtIndex index: UInt) {
