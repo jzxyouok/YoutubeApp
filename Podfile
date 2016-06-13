@@ -6,7 +6,6 @@ use_frameworks!
 target 'YoutubeApp' do
 
 pod 'Alamofire', '~> 3.0'
-pod 'Kanna', '~> 1.0.0'
 pod 'Koloda', '~> 2.0.10'
 pod 'AlamofireObjectMapper', '~> 3.0'
   

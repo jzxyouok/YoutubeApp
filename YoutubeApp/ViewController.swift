@@ -36,20 +36,15 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
 
         //Fire off request to get videos
         self.model.delegate = self
-        var searchWords: [String] = []
         
-        for interest in interestSelectionArray {
-            self.model.generateKeywords(interest) { data in
-                for word in data {
-                    searchWords.append(word.valueForKeyPath("word") as! String)
-                }
-                self.searchWords=searchWords
-                print(searchWords)
+            self.model.generateKeywords(interestSelectionArray) { data in
+                    self.searchWords=data
+                    print(self.searchWords)
             
-                self.model.getFeedVideos(self.interestSelectionArray, keywordArray: searchWords) { data in
+                self.model.getFeedVideos(self.interestSelectionArray, keywordArray: self.searchWords) { data in
                     //Notify the delegate that the data is ready
                     
-                    self.videos=self.model.videoArray
+                    self.videos=data as! [Video]
                     
                     if self.model.delegate != nil {
                         self.model.delegate!.dataReady()
@@ -57,8 +52,6 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
                 }
                 self.done=1
             }
-            
-        }
         
         self.kolodaView.dataSource = self
         self.kolodaView.delegate = self
@@ -203,7 +196,7 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     func getVideos() {
         for interest in interestSelectionArray {
             self.model.getFeedVideos(self.interestSelectionArray, keywordArray: searchWords) { data in
-                self.videos=self.model.videoArray
+                self.videos=data as! [Video]
                 //Notify the delegate that the data is ready
                 if self.model.delegate != nil {
                     self.model.delegate!.dataReady()
