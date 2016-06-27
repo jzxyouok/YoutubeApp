@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="VJU-5a-XNV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jIU-P8-7Ds">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -469,7 +468,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kBt-It-2a3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="187" y="290"/>
+            <point key="canvasLocation" x="278" y="290"/>
         </scene>
         <!--Discover-->
         <scene sceneID="tne-QT-ifu">
@@ -1481,6 +1480,56 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QPp-vV-n5f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="590" y="322"/>
+        </scene>
+        <!--Sign In View Controller-->
+        <scene sceneID="5Kf-JH-w6t">
+            <objects>
+                <viewController id="jIU-P8-7Ds" customClass="SignInViewController" customModule="YoutubeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yNT-Ji-Y5I"/>
+                        <viewControllerLayoutGuide type="bottom" id="H8N-US-re8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="agO-xX-Rbv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b52-ww-cKp" customClass="GIDSignInButton">
+                                <rect key="frame" x="225" y="278" width="150" height="44"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="JlP-yx-i96"/>
+                                    <constraint firstAttribute="width" constant="150" id="rwo-4u-NZB"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SzH-BV-rRl">
+                                <rect key="frame" x="165" y="71" width="270" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="NyE-Ss-Z4B"/>
+                                    <constraint firstAttribute="width" constant="270" id="vRg-6S-AcC"/>
+                                </constraints>
+                                <string key="text">Sign In with
+Google</string>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="24"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SzH-BV-rRl" firstAttribute="centerX" secondItem="b52-ww-cKp" secondAttribute="centerX" id="IR1-L1-WAc"/>
+                            <constraint firstAttribute="centerY" secondItem="b52-ww-cKp" secondAttribute="centerY" id="YB7-hv-QwP"/>
+                            <constraint firstAttribute="centerX" secondItem="b52-ww-cKp" secondAttribute="centerX" id="k9a-WY-eWc"/>
+                            <constraint firstItem="SzH-BV-rRl" firstAttribute="top" secondItem="yNT-Ji-Y5I" secondAttribute="bottom" constant="51" id="kwK-nf-3oW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="signInButton" destination="b52-ww-cKp" id="hUW-WM-Ss3"/>
+                        <segue destination="VJU-5a-XNV" kind="presentation" identifier="idSegueContent" id="upb-aM-hfP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VaT-He-BHw" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1184" y="290"/>
         </scene>
     </scenes>
     <resources>

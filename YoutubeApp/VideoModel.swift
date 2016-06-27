@@ -8,7 +8,6 @@
 
 import UIKit
 import Alamofire
-import Kanna
 import Foundation
 import AlamofireObjectMapper
 import ObjectMapper

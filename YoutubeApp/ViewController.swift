@@ -14,7 +14,7 @@ import pop
 //class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, VideoModelDelegate {
 
 class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate, VideoModelDelegate {
-
+    
     
     @IBOutlet weak var kolodaView: KolodaView!
     
@@ -33,30 +33,29 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-
+        
         //Fire off request to get videos
         self.model.delegate = self
         
-            self.model.generateKeywords(interestSelectionArray) { data in
-                    self.searchWords=data
-                    print(self.searchWords)
-            
-                self.model.getFeedVideos(self.interestSelectionArray, keywordArray: self.searchWords) { data in
-                    //Notify the delegate that the data is ready
-                    
-                    self.videos=data as! [Video]
-                    
-                    if self.model.delegate != nil {
-                        self.model.delegate!.dataReady()
-                    }
+        self.model.generateKeywords(interestSelectionArray) { data in
+            self.searchWords=data
+            print(self.searchWords)
+            self.model.getFeedVideos(self.interestSelectionArray, keywordArray: self.searchWords) { data in
+                //Notify the delegate that the data is ready
+                
+                self.videos=data as! [Video]
+                
+                if self.model.delegate != nil {
+                    self.model.delegate!.dataReady()
                 }
-                self.done=1
             }
+            self.done=1
+        }
         
         self.kolodaView.dataSource = self
         self.kolodaView.delegate = self
     }
-
+    
     //MARK: IBActions
     @IBAction func leftButtonTapped() {
         kolodaView?.swipe(SwipeResultDirection.Left)
@@ -72,7 +71,7 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         self.kolodaView.reloadData()
     }
     
-
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -103,42 +102,42 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     func koloda(koloda: KolodaView, viewForCardAtIndex index: UInt) -> UIView {
         if (self.done == 1 && videos.count > 2) {
             
-        let videoTitle = videos[Int(index)+self.value].snippet!.title
+            let videoTitle = videos[Int(index)+self.value].snippet!.title
             
-        let cell = NSBundle.mainBundle().loadNibNamed("Thumbnail", owner: self, options: nil).first as? Thumbnail
-        cell?.videoLabel.text = videoTitle
-        
-        let videoThumbnailUrlString = videos[Int(index)+self.value].snippet!.thumbnailUrlString
+            let cell = NSBundle.mainBundle().loadNibNamed("Thumbnail", owner: self, options: nil).first as? Thumbnail
+            cell?.videoLabel.text = videoTitle
+            
+            let videoThumbnailUrlString = videos[Int(index)+self.value].snippet!.thumbnailUrlString
             
             //Create an NSURL object
-        let videoThumbnailUrl = NSURL(string: videoThumbnailUrlString!)
+            let videoThumbnailUrl = NSURL(string: videoThumbnailUrlString!)
             
-        if videoThumbnailUrl != "" {
+            if videoThumbnailUrl != "" {
                 
-        //Create an NSURLRequest object
-        let request = NSURLRequest(URL: videoThumbnailUrl!)
+                //Create an NSURLRequest object
+                let request = NSURLRequest(URL: videoThumbnailUrl!)
                 
-        //Create an NSURLSession
-        let session = NSURLSession.sharedSession()
+                //Create an NSURLSession
+                let session = NSURLSession.sharedSession()
                 
-        //Create a datatask and pass in the request
-        let dataTask = session.dataTaskWithRequest(request, completionHandler: { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
+                //Create a datatask and pass in the request
+                let dataTask = session.dataTaskWithRequest(request, completionHandler: { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
                     
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         
-            
                         
-            //Create an image object from the data and assign it into the imageView
-            cell!.iv.image = UIImage(data: data!)
                         
-            })
-        })
+                        //Create an image object from the data and assign it into the imageView
+                        cell!.iv.image = UIImage(data: data!)
+                        
+                    })
+                })
                 
-        dataTask.resume()
-
+                dataTask.resume()
+                
             }
-        
-        return cell!
+            
+            return cell!
         } else {
             return UIView(frame: self.kolodaView.frame)
         }
@@ -157,13 +156,13 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     
     func koloda(kolodaDidRunOutOfCards koloda: KolodaView) {
         if (videos.count<4) {
-        //Example: reloading
+            //Example: reloading
             self.done=0
             var searchWords: [String] = self.searchWords
             self.videoCache=self.videos
             self.model.videoArray = []
             self.getVideos()
-        self.kolodaView.resetCurrentCardNumber()
+            self.kolodaView.resetCurrentCardNumber()
         } else {
             if (self.kolodaView.currentCardNumber == 3) {
                 self.numberOfCards = 6
@@ -178,20 +177,20 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
                 self.getVideos()
                 self.kolodaView.resetCurrentCardNumber()
             }
-    
+            
         }
     }
     
     func koloda(koloda: KolodaView, didShowCardAtIndex index: UInt) {
         
-//        if (self.done == 1 && videos.count > 2 && counter != 0 && index==0) {
-//            videos=videoCache
-//            if self.model.delegate != nil {
-//                kolodaView.counter = self.value
-//                self.model.delegate!.dataReady()
-//            }
-//            
-//        }
+        //        if (self.done == 1 && videos.count > 2 && counter != 0 && index==0) {
+        //            videos=videoCache
+        //            if self.model.delegate != nil {
+        //                kolodaView.counter = self.value
+        //                self.model.delegate!.dataReady()
+        //            }
+        //            
+        //        }
     }
     func getVideos() {
         for interest in interestSelectionArray {
@@ -205,18 +204,17 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
             self.done=1
         }
     }
-
+    
     func koloda(koloda: KolodaView, didSwipedCardAtIndex index: UInt, inDirection direction: SwipeResultDirection) {
         //Example: loading more cards
-//        if index>=2 {
-//            numberOfCards = 3
-//            kolodaView.reloadData()
-//        }
+        //        if index>=2 {
+        //            numberOfCards = 3
+        //            kolodaView.reloadData()
+        //        }
     }
     
     func koloda(koloda: KolodaView, didSelectCardAtIndex index: UInt) {
-        
-        self.selectedVideo = self.videos[Int(index)]
+        self.selectedVideo = self.videos[Int(index)+self.value]
         self.performSegueWithIdentifier("goToDetail", sender: self)
     }
     
@@ -225,74 +223,74 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     }
     
     /*
-    //MARK:- TableView Delegate Methods
-    
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        //Get the width of the screen to calculate the height of the row
-        return (self.view.frame.size.width / 320) * 180
-    }
-
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return videos.count
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("BasicCell")!
-        
-        let videoTitle = videos[indexPath.row].videoTitle
-        
-        //Customise the cell to display the video title.
-            //cell.textLabel?.text = videoTitle
-        
-        //Get the label for the cell.
-        let label = cell.viewWithTag(2) as! UILabel
-        
-        label.text = videoTitle
-        
-        //Construct the video thumbnail URL.
-        let videoThumbnailUrlString = videos[indexPath.row].videoThumbnailUrl
-        
-        //Create an NSURL object
-        let videoThumbnailUrl = NSURL(string: videoThumbnailUrlString)
-        
-        if videoThumbnailUrl != "" {
-        
-            //Create an NSURLRequest object
-            let request = NSURLRequest(URL: videoThumbnailUrl!)
-            
-            //Create an NSURLSession
-            let session = NSURLSession.sharedSession()
-            
-            //Create a datatask and pass in the request
-            let dataTask = session.dataTaskWithRequest(request, completionHandler: { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
-                
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                  
-                        //Get a reference to the imageView element of the cell.
-                        let imageView = cell.viewWithTag(1) as! UIImageView
-                        
-                        //Create an image object from the data and assign it into the imageView
-                        imageView.image = UIImage(data: data!)
-                        
-                    })
-                    
-            })
-            
-            dataTask.resume()
-            
-        }
-        
-        return cell
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //Take note of which video the user selected.
-        self.selectedVideo=self.videos[indexPath.row]
-        
-        //Call the segue
-        self.performSegueWithIdentifier("goToDetail", sender: self)
-    }
-    */
+     //MARK:- TableView Delegate Methods
+     
+     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+     //Get the width of the screen to calculate the height of the row
+     return (self.view.frame.size.width / 320) * 180
+     }
+     
+     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     return videos.count
+     }
+     
+     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+     let cell = tableView.dequeueReusableCellWithIdentifier("BasicCell")!
+     
+     let videoTitle = videos[indexPath.row].videoTitle
+     
+     //Customise the cell to display the video title.
+     //cell.textLabel?.text = videoTitle
+     
+     //Get the label for the cell.
+     let label = cell.viewWithTag(2) as! UILabel
+     
+     label.text = videoTitle
+     
+     //Construct the video thumbnail URL.
+     let videoThumbnailUrlString = videos[indexPath.row].videoThumbnailUrl
+     
+     //Create an NSURL object
+     let videoThumbnailUrl = NSURL(string: videoThumbnailUrlString)
+     
+     if videoThumbnailUrl != "" {
+     
+     //Create an NSURLRequest object
+     let request = NSURLRequest(URL: videoThumbnailUrl!)
+     
+     //Create an NSURLSession
+     let session = NSURLSession.sharedSession()
+     
+     //Create a datatask and pass in the request
+     let dataTask = session.dataTaskWithRequest(request, completionHandler: { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
+     
+     dispatch_async(dispatch_get_main_queue(), { () -> Void in
+     
+     //Get a reference to the imageView element of the cell.
+     let imageView = cell.viewWithTag(1) as! UIImageView
+     
+     //Create an image object from the data and assign it into the imageView
+     imageView.image = UIImage(data: data!)
+     
+     })
+     
+     })
+     
+     dataTask.resume()
+     
+     }
+     
+     return cell
+     }
+     
+     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+     //Take note of which video the user selected.
+     self.selectedVideo=self.videos[indexPath.row]
+     
+     //Call the segue
+     self.performSegueWithIdentifier("goToDetail", sender: self)
+     }
+     */
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         //Get a reference for the destination view controller.
         let detailViewController = segue.destinationViewController as! VideoDetailViewController

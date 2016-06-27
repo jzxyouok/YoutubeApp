@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4107211B07472069F8521C97 /* Pods_YoutubeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6CACAACEA1F7892C6351C0 /* Pods_YoutubeApp.framework */; };
+		4E12E21D1D21A52300F44DB9 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E12E21C1D21A52300F44DB9 /* SignInViewController.swift */; };
+		4E12E2231D21AB0500F44DB9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E12E2221D21AB0500F44DB9 /* GoogleService-Info.plist */; };
 		4E1B38091CEF6FA200568FB9 /* Thumbnail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E1B38081CEF6FA200568FB9 /* Thumbnail.xib */; };
 		4E1B380B1CF0FA3400568FB9 /* ExampleOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1B380A1CF0FA3400568FB9 /* ExampleOverlayView.swift */; };
 		4E1B380D1CF0FA8700568FB9 /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E1B380C1CF0FA8700568FB9 /* OverlayView.xib */; };
@@ -35,6 +37,9 @@
 /* Begin PBXFileReference section */
 		110906C6BF1B24CFE64C2637 /* Pods-YoutubeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoutubeApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-YoutubeApp/Pods-YoutubeApp.release.xcconfig"; sourceTree = "<group>"; };
 		3F6CACAACEA1F7892C6351C0 /* Pods_YoutubeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YoutubeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E12E21C1D21A52300F44DB9 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		4E12E2211D21A88700F44DB9 /* YoutubeApp-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YoutubeApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		4E12E2221D21AB0500F44DB9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4E1B38081CEF6FA200568FB9 /* Thumbnail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Thumbnail.xib; sourceTree = "<group>"; };
 		4E1B380A1CF0FA3400568FB9 /* ExampleOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleOverlayView.swift; sourceTree = "<group>"; };
 		4E1B380C1CF0FA8700568FB9 /* OverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayView.xib; sourceTree = "<group>"; };
@@ -82,6 +87,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4E12E2201D21A86E00F44DB9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4E12E2211D21A88700F44DB9 /* YoutubeApp-Bridging-Header.h */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		4E72B84A1C58230A004592E7 = {
 			isa = PBXGroup;
 			children = (
@@ -103,8 +116,10 @@
 		4E72B8551C58230B004592E7 /* YoutubeApp */ = {
 			isa = PBXGroup;
 			children = (
+				4E12E2221D21AB0500F44DB9 /* GoogleService-Info.plist */,
 				4E72B8561C58230B004592E7 /* AppDelegate.swift */,
 				4E2999C71C6E613F00563520 /* InterestsViewController.swift */,
+				4E12E2201D21A86E00F44DB9 /* Supporting Files */,
 				4E1B380A1CF0FA3400568FB9 /* ExampleOverlayView.swift */,
 				4E1B380C1CF0FA8700568FB9 /* OverlayView.xib */,
 				4EEC41191C7B90BA0085FD59 /* SkillsViewController.swift */,
@@ -115,6 +130,7 @@
 				4E88FF611C6B993400736678 /* VideoModel.swift */,
 				4E88FF631C6BDBF000736678 /* VideoDetailViewController.swift */,
 				4E72B85A1C58230B004592E7 /* Main.storyboard */,
+				4E12E21C1D21A52300F44DB9 /* SignInViewController.swift */,
 				4E72B85D1C58230B004592E7 /* Assets.xcassets */,
 				4EA8084A1C7116BD009398D3 /* history.jpg */,
 				4EFE25EE1C7377A7009E44CD /* geography.jpg */,
@@ -213,6 +229,7 @@
 				4E1B380D1CF0FA8700568FB9 /* OverlayView.xib in Resources */,
 				4E1B38091CEF6FA200568FB9 /* Thumbnail.xib in Resources */,
 				4EA808531C711EF0009398D3 /* philosophy.jpg in Resources */,
+				4E12E2231D21AB0500F44DB9 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +296,7 @@
 				4E1B380B1CF0FA3400568FB9 /* ExampleOverlayView.swift in Sources */,
 				4E2999C81C6E613F00563520 /* InterestsViewController.swift in Sources */,
 				4E6D8E051CECF95E00211D4B /* Thumbnail.swift in Sources */,
+				4E12E21D1D21A52300F44DB9 /* SignInViewController.swift in Sources */,
 				4E88FF621C6B993400736678 /* VideoModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,8 +418,9 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				INFOPLIST_FILE = YoutubeApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.self.YoutubeApp;
+				PRODUCT_BUNDLE_IDENTIFIER = pranav.kasetti.YoutubeApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "YoutubeApp/YoutubeApp-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -413,8 +432,9 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				INFOPLIST_FILE = YoutubeApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.self.YoutubeApp;
+				PRODUCT_BUNDLE_IDENTIFIER = pranav.kasetti.YoutubeApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "YoutubeApp/YoutubeApp-Bridging-Header.h";
 			};
 			name = Release;
 		};

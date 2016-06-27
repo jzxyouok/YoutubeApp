@@ -40,7 +40,6 @@ class InterestsViewController: UIViewController {
                 }
             }
         }
-        print(interestSelectionArray)
     }
     
     override func viewDidLoad() {
