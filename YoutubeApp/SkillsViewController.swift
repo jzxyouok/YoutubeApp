@@ -28,15 +28,15 @@ class SkillsViewController: UIViewController {
         numbersArray = []
         numbersArray2 = []
         skillSelectionArray = []
-
-            for swich in self.switchCollection2 {
-                if swich.on {
-                    numbersArray.append(swich.tag % 8)
-                    numbersArray2.append(swich.tag)
-                }
+        
+        for swich in self.switchCollection2 {
+            if swich.on {
+                numbersArray.append(swich.tag % 8)
+                numbersArray2.append(swich.tag)
             }
-            
-            let duplicates = Array(Set(numbersArray.filter({ (i: Int) in numbersArray.filter({ $0 == i }).count > 1})))
+        }
+        
+        let duplicates = Array(Set(numbersArray.filter({ (i: Int) in numbersArray.filter({ $0 == i }).count > 1})))
         
         if (duplicates != []){
             print("Please don't choose multiple skill levels for a skill!")
@@ -48,21 +48,21 @@ class SkillsViewController: UIViewController {
         }
         
         
-            if (duplicates == []) {
+        if (duplicates == []) {
             
             for element in numbersArray2 {
                 let index = element % 8
                 if ((element - (element % 8))/8==0) {
                     skillSelectionArray.append(initialArray[index]+"-Beginner")
-                    counter++
+                    counter += 1
                 }
                 if ((element - (element % 8))/8==1) {
                     skillSelectionArray.append(initialArray[index]+"-Intermediate")
-                    counter++
+                    counter += 1
                 }
                 if ((element - (element % 8))/8==2) {
                     skillSelectionArray.append(initialArray[index]+"-Expert")
-                    counter++
+                    counter += 1
                 }
             }
             //print(skillSelectionArray)
@@ -83,7 +83,7 @@ class SkillsViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var destViewController: ViewController = segue.destinationViewController as! ViewController
+        let destViewController: ViewController = segue.destinationViewController as! ViewController
         destViewController.interestSelectionArray = interestSelectionArray
     }
 }

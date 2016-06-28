@@ -12,19 +12,19 @@ class Thumbnail: UIView {
     
     // MARK: Properties
     /*
-    var rating = 0 {
-        didSet {
-            setNeedsLayout()
-        }
-    }
-    var ratingButtons = [UIButton]()
-    let spacing = 10
-    let starCount = 5
+     var rating = 0 {
+     didSet {
+     setNeedsLayout()
+     }
+     }
+     var ratingButtons = [UIButton]()
+     let spacing = 10
+     let starCount = 5
      */
     var iv = UIImageView()
     var videoLabel = UILabel()
     var videoImage = UIImage()
-
+    
     // MARK: Initialisation
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -38,23 +38,23 @@ class Thumbnail: UIView {
         addSubview(iv)
         addSubview(videoLabel)
         /*
-        let filledStarImage = UIImage(named: "filledStar")
-        let emptyStarImage = UIImage(named: "emptyStar")
-        
-        for _ in 0..<starCount {
-            let button = UIButton()
-
-            button.setImage(emptyStarImage, forState: .Normal)
-            button.setImage(filledStarImage, forState: .Selected)
-            button.setImage(filledStarImage, forState: [.Highlighted, .Selected])
-            button.adjustsImageWhenHighlighted = false
-            
-            button.addTarget(self, action: #selector(Thumbnail.ratingButtonTapped(_:)), forControlEvents: .TouchDown)
-            ratingButtons += [button]
-
-            addSubview(button)
-        }
-        */
+         let filledStarImage = UIImage(named: "filledStar")
+         let emptyStarImage = UIImage(named: "emptyStar")
+         
+         for _ in 0..<starCount {
+         let button = UIButton()
+         
+         button.setImage(emptyStarImage, forState: .Normal)
+         button.setImage(filledStarImage, forState: .Selected)
+         button.setImage(filledStarImage, forState: [.Highlighted, .Selected])
+         button.adjustsImageWhenHighlighted = false
+         
+         button.addTarget(self, action: #selector(Thumbnail.ratingButtonTapped(_:)), forControlEvents: .TouchDown)
+         ratingButtons += [button]
+         
+         addSubview(button)
+         }
+         */
     }
     
     override func layoutSubviews() {
@@ -62,16 +62,16 @@ class Thumbnail: UIView {
         let imageSize = Int(frame.size.width)
         let labelSize = Int(frame.size.height/3)
         
-        var imageFrame = CGRect(x: 0, y: 0, width: imageSize, height: imageSize)
+        let imageFrame = CGRect(x: 0, y: 0, width: imageSize, height: imageSize)
         /*
-        // Offset each button's origin by the length of the button plus spacing.
-        for (index, button) in ratingButtons.enumerate() {
-            buttonFrame.origin.x = CGFloat(index * (buttonSize + spacing))
-            button.frame = buttonFrame
-        }
-        */
+         // Offset each button's origin by the length of the button plus spacing.
+         for (index, button) in ratingButtons.enumerate() {
+         buttonFrame.origin.x = CGFloat(index * (buttonSize + spacing))
+         button.frame = buttonFrame
+         }
+         */
         
-        var labelFrame = CGRect(x: 0, y: imageSize-labelSize, width: imageSize, height: labelSize)
+        let labelFrame = CGRect(x: 0, y: imageSize-labelSize, width: imageSize, height: labelSize)
         
         self.iv.frame = imageFrame
         
@@ -81,37 +81,37 @@ class Thumbnail: UIView {
         
     }
     /*
-    override func intrinsicContentSize() -> CGSize {
-        let buttonSize = Int(frame.size.height/7)
-        let width = (buttonSize * starCount) + (spacing * (starCount - 1))
-        
-        return CGSize(width: width, height: buttonSize)
-    }
-    */
+     override func intrinsicContentSize() -> CGSize {
+     let buttonSize = Int(frame.size.height/7)
+     let width = (buttonSize * starCount) + (spacing * (starCount - 1))
+     
+     return CGSize(width: width, height: buttonSize)
+     }
+     */
     /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
+     // Only override drawRect: if you perform custom drawing.
+     // An empty implementation adversely affects performance during animation.
+     override func drawRect(rect: CGRect) {
+     // Drawing code
+     }
+     */
     /*
-    // MARK: Button Action
-    func ratingButtonTapped(button: UIButton) {
-        //print("Button pressed 👍")
-        rating = ratingButtons.indexOf(button)! + 1
-        
-        updateButtonSelectionStates()
-    }
-    */
+     // MARK: Button Action
+     func ratingButtonTapped(button: UIButton) {
+     //print("Button pressed 👍")
+     rating = ratingButtons.indexOf(button)! + 1
+     
+     updateButtonSelectionStates()
+     }
+     */
     /*
-    func updateButtonSelectionStates() {
-        
-        for (index, button) in ratingButtons.enumerate() {
-            // If the index of a button is less than the rating, that button should be selected.
-            button.selected = index < rating
-        }
-        
-    }
-    */
+     func updateButtonSelectionStates() {
+     
+     for (index, button) in ratingButtons.enumerate() {
+     // If the index of a button is less than the rating, that button should be selected.
+     button.selected = index < rating
+     }
+     
+     }
+     */
 }

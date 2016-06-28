@@ -15,6 +15,7 @@
 		4E1B380D1CF0FA8700568FB9 /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E1B380C1CF0FA8700568FB9 /* OverlayView.xib */; };
 		4E2999C81C6E613F00563520 /* InterestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2999C71C6E613F00563520 /* InterestsViewController.swift */; };
 		4E2999CA1C6E650100563520 /* maths.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4E2999C91C6E650100563520 /* maths.jpg */; };
+		4E676A661D228900007158ED /* InterestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E676A651D228900007158ED /* InterestView.swift */; };
 		4E6D8E051CECF95E00211D4B /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6D8E041CECF95E00211D4B /* Thumbnail.swift */; };
 		4E72B8571C58230B004592E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E72B8561C58230B004592E7 /* AppDelegate.swift */; };
 		4E72B8591C58230B004592E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E72B8581C58230B004592E7 /* ViewController.swift */; };
@@ -45,6 +46,7 @@
 		4E1B380C1CF0FA8700568FB9 /* OverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayView.xib; sourceTree = "<group>"; };
 		4E2999C71C6E613F00563520 /* InterestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestsViewController.swift; sourceTree = "<group>"; };
 		4E2999C91C6E650100563520 /* maths.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = maths.jpg; sourceTree = "<group>"; };
+		4E676A651D228900007158ED /* InterestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestView.swift; sourceTree = "<group>"; };
 		4E6D8E041CECF95E00211D4B /* Thumbnail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
 		4E72B8531C58230B004592E7 /* YoutubeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoutubeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E72B8561C58230B004592E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,21 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4E12E2241D2272F200F44DB9 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				4EFE25EE1C7377A7009E44CD /* geography.jpg */,
+				4E2999C91C6E650100563520 /* maths.jpg */,
+				4EA8084C1C711785009398D3 /* physics.jpg */,
+				4EA8084E1C711878009398D3 /* chemistry.jpg */,
+				4EA808501C711D00009398D3 /* biology.jpg */,
+				4EA808521C711EF0009398D3 /* philosophy.jpg */,
+				4EFE25F01C737B4A009E44CD /* technology.jpg */,
+				4EA8084A1C7116BD009398D3 /* history.jpg */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		4E72B84A1C58230A004592E7 = {
 			isa = PBXGroup;
 			children = (
@@ -130,16 +147,10 @@
 				4E88FF611C6B993400736678 /* VideoModel.swift */,
 				4E88FF631C6BDBF000736678 /* VideoDetailViewController.swift */,
 				4E72B85A1C58230B004592E7 /* Main.storyboard */,
+				4E676A651D228900007158ED /* InterestView.swift */,
 				4E12E21C1D21A52300F44DB9 /* SignInViewController.swift */,
 				4E72B85D1C58230B004592E7 /* Assets.xcassets */,
-				4EA8084A1C7116BD009398D3 /* history.jpg */,
-				4EFE25EE1C7377A7009E44CD /* geography.jpg */,
-				4E2999C91C6E650100563520 /* maths.jpg */,
-				4EA8084C1C711785009398D3 /* physics.jpg */,
-				4EA8084E1C711878009398D3 /* chemistry.jpg */,
-				4EA808501C711D00009398D3 /* biology.jpg */,
-				4EA808521C711EF0009398D3 /* philosophy.jpg */,
-				4EFE25F01C737B4A009E44CD /* technology.jpg */,
+				4E12E2241D2272F200F44DB9 /* images */,
 				4E72B85F1C58230B004592E7 /* LaunchScreen.storyboard */,
 				4E72B8621C58230B004592E7 /* Info.plist */,
 			);
@@ -290,6 +301,7 @@
 			files = (
 				4E72B8591C58230B004592E7 /* ViewController.swift in Sources */,
 				4E88FF601C6B97DC00736678 /* Video.swift in Sources */,
+				4E676A661D228900007158ED /* InterestView.swift in Sources */,
 				4E72B8571C58230B004592E7 /* AppDelegate.swift in Sources */,
 				4E88FF641C6BDBF100736678 /* VideoDetailViewController.swift in Sources */,
 				4EEC411A1C7B90BA0085FD59 /* SkillsViewController.swift in Sources */,
@@ -414,6 +426,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 566F074387311FAF7E3AB17F /* Pods-YoutubeApp.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				INFOPLIST_FILE = YoutubeApp/Info.plist;
@@ -428,6 +441,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 110906C6BF1B24CFE64C2637 /* Pods-YoutubeApp.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				INFOPLIST_FILE = YoutubeApp/Info.plist;

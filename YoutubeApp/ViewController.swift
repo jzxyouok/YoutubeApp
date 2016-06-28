@@ -83,7 +83,6 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     func dataReady() {
         
         //Access the video objects that have been downloaded.
-        self.videos = self.model.videoArray
         self.counter=0
         //Tell the tableview to reload
         self.kolodaView.reloadData()
@@ -158,7 +157,6 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         if (videos.count<4) {
             //Example: reloading
             self.done=0
-            var searchWords: [String] = self.searchWords
             self.videoCache=self.videos
             self.model.videoArray = []
             self.getVideos()
@@ -170,7 +168,6 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
             } else {
                 self.numberOfCards=3
                 self.videoCache = Array(videos[3..<6])
-                var searchWords: [String] = self.searchWords
                 self.value=0
                 self.done=0
                 self.model.videoArray=[]
@@ -181,19 +178,8 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         }
     }
     
-    func koloda(koloda: KolodaView, didShowCardAtIndex index: UInt) {
-        
-        //        if (self.done == 1 && videos.count > 2 && counter != 0 && index==0) {
-        //            videos=videoCache
-        //            if self.model.delegate != nil {
-        //                kolodaView.counter = self.value
-        //                self.model.delegate!.dataReady()
-        //            }
-        //            
-        //        }
-    }
     func getVideos() {
-        for interest in interestSelectionArray {
+        for _ in interestSelectionArray {
             self.model.getFeedVideos(self.interestSelectionArray, keywordArray: searchWords) { data in
                 self.videos=data as! [Video]
                 //Notify the delegate that the data is ready
@@ -205,13 +191,7 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         }
     }
     
-    func koloda(koloda: KolodaView, didSwipedCardAtIndex index: UInt, inDirection direction: SwipeResultDirection) {
-        //Example: loading more cards
-        //        if index>=2 {
-        //            numberOfCards = 3
-        //            kolodaView.reloadData()
-        //        }
-    }
+    
     
     func koloda(koloda: KolodaView, didSelectCardAtIndex index: UInt) {
         self.selectedVideo = self.videos[Int(index)+self.value]
