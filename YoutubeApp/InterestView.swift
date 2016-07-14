@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class InterestView: UIControl {
+class InterestView: UICollectionViewCell {
     
     private lazy var imageView : UIImageView = {
         let imgView = UIImageView()
@@ -19,6 +19,9 @@ class InterestView: UIControl {
     
     private lazy var label : UILabel = {
         let label = UILabel()
+        label.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.85)
+        label.textColor = UIColor.whiteColor()
+        label.textAlignment = .Center
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFontOfSize(17.0, weight: UIFontWeightRegular)
         return label
@@ -45,7 +48,7 @@ class InterestView: UIControl {
             return imageView.image
         }
         set(newImage) {
-            imageView.image = newImage?.imageWithRenderingMode(.AlwaysTemplate)
+            imageView.image = newImage?.imageWithRenderingMode(.AlwaysOriginal)
         }
     }
     
@@ -84,17 +87,25 @@ class InterestView: UIControl {
 extension InterestView {
     private func initialization() {
         translatesAutoresizingMaskIntoConstraints = false
-        addSubview(label)
         addSubview(imageView)
-        addSubview(swich)
+        imageView.addSubview(swich)
+        imageView.addSubview(label)
+        //self.userInteractionEnabled = true
+        imageView.userInteractionEnabled = true
+        
         
         NSLayoutConstraint.activateConstraints(
             [
+                imageView.topAnchor.constraintEqualToAnchor(self.topAnchor),
+                imageView.bottomAnchor.constraintEqualToAnchor(self.bottomAnchor),
+                imageView.leadingAnchor.constraintEqualToAnchor(self.leadingAnchor),
+                imageView.trailingAnchor.constraintEqualToAnchor(self.trailingAnchor),
                 imageView.heightAnchor.constraintEqualToConstant(150),
                 label.heightAnchor.constraintEqualToConstant(25),
+                label.leadingAnchor.constraintEqualToAnchor(imageView.leadingAnchor),
+                label.bottomAnchor.constraintEqualToAnchor(imageView.bottomAnchor, constant: 0),
                 label.trailingAnchor.constraintEqualToAnchor(imageView.trailingAnchor),
-                label.bottomAnchor.constraintEqualToAnchor(imageView.bottomAnchor, constant: spacing),
-                label.widthAnchor.constraintEqualToAnchor(imageView.widthAnchor),
+                label.topAnchor.constraintEqualToAnchor(swich.bottomAnchor, constant: 86),
                 imageView.trailingAnchor.constraintEqualToAnchor(swich.trailingAnchor, constant: 8),
                 swich.topAnchor.constraintEqualToAnchor(imageView.topAnchor, constant: 8)
             ]
