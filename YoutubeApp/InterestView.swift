@@ -27,7 +27,7 @@ class InterestView: UICollectionViewCell {
         return label
     }()
     
-    private lazy var swich : UISwitch = {
+    lazy var swich : UISwitch = {
         let swich = UISwitch()
         swich.translatesAutoresizingMaskIntoConstraints = false
         return swich
@@ -62,16 +62,6 @@ class InterestView: UICollectionViewCell {
         }
     }
     
-    @IBInspectable
-    override var tag: Int {
-        get {
-            return swich.tag
-        }
-        set(newTag) {
-            swich.tag = newTag
-        }
-    }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initialization()
@@ -80,6 +70,7 @@ class InterestView: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initialization()
+        
     }
     
 }
@@ -87,10 +78,10 @@ class InterestView: UICollectionViewCell {
 extension InterestView {
     private func initialization() {
         translatesAutoresizingMaskIntoConstraints = false
-        addSubview(imageView)
+        contentView.addSubview(imageView)
         imageView.addSubview(swich)
         imageView.addSubview(label)
-        //self.userInteractionEnabled = true
+        self.userInteractionEnabled = true
         imageView.userInteractionEnabled = true
         
         
@@ -100,15 +91,16 @@ extension InterestView {
                 imageView.bottomAnchor.constraintEqualToAnchor(self.bottomAnchor),
                 imageView.leadingAnchor.constraintEqualToAnchor(self.leadingAnchor),
                 imageView.trailingAnchor.constraintEqualToAnchor(self.trailingAnchor),
-                imageView.heightAnchor.constraintEqualToConstant(150),
-                label.heightAnchor.constraintEqualToConstant(25),
+                //imageView.heightAnchor.constraintEqualToConstant(150),
+                label.heightAnchor.constraintEqualToAnchor(imageView.heightAnchor, multiplier: 0.2),
                 label.leadingAnchor.constraintEqualToAnchor(imageView.leadingAnchor),
                 label.bottomAnchor.constraintEqualToAnchor(imageView.bottomAnchor, constant: 0),
                 label.trailingAnchor.constraintEqualToAnchor(imageView.trailingAnchor),
-                label.topAnchor.constraintEqualToAnchor(swich.bottomAnchor, constant: 86),
+                swich.heightAnchor.constraintEqualToConstant(31),
                 imageView.trailingAnchor.constraintEqualToAnchor(swich.trailingAnchor, constant: 8),
                 swich.topAnchor.constraintEqualToAnchor(imageView.topAnchor, constant: 8)
             ]
+            
         )
         
     }

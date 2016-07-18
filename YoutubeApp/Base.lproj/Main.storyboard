@@ -78,50 +78,6 @@
             </objects>
             <point key="canvasLocation" x="1573" y="-391"/>
         </scene>
-        <!--Collection View Controller-->
-        <scene sceneID="LKH-ps-dsV">
-            <objects>
-                <collectionViewController id="CaM-8l-dOl" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="76K-U5-sEP">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XtX-gB-QKR">
-                            <size key="itemSize" width="50" height="50"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="wDY-3N-chc" customClass="InterestView" customModule="YoutubeApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="philosophy.jpg"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Philosophy"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="tag">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="CaM-8l-dOl" id="szZ-ka-1ML"/>
-                            <outlet property="delegate" destination="CaM-8l-dOl" id="2cM-qU-oyF"/>
-                        </connections>
-                    </collectionView>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Bp2-NK-nlM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="329" y="-105"/>
-        </scene>
         <!--Interests View Controller-->
         <scene sceneID="2wo-cf-qs3">
             <objects>
@@ -150,219 +106,191 @@
                                     <constraint firstItem="5PU-Ry-2OS" firstAttribute="centerX" secondItem="gg4-Aw-J20" secondAttribute="centerX" id="w7f-j4-RKq"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l5z-ox-kuA">
-                                <rect key="frame" x="7" y="111" width="586" height="489"/>
-                                <subviews>
-                                    <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9IR-xd-tKy">
-                                        <rect key="frame" x="0.0" y="0.0" width="586" height="600"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e6P-n1-u7D" customClass="InterestView" customModule="YoutubeApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="293" height="150"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="philosophy.jpg"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Philosophy"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="tag">
-                                                        <integer key="value" value="0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <variation key="widthClass=regular" misplaced="YES">
-                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="150"/>
-                                                </variation>
-                                            </view>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qzP-rW-YOe" customClass="InterestView" customModule="YoutubeApp" customModuleProvider="target">
-                                                <rect key="frame" x="293" y="0.0" width="293" height="150"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="biology.jpg"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Biology"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="tag">
-                                                        <integer key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <variation key="widthClass=regular" misplaced="YES">
-                                                    <rect key="frame" x="393" y="0.0" width="393" height="150"/>
-                                                </variation>
-                                            </view>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8aS-ni-TkW" customClass="InterestView" customModule="YoutubeApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="150" width="293" height="150"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="chemistry.jpg"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Chemistry"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="tag">
-                                                        <integer key="value" value="2"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <variation key="widthClass=regular" misplaced="YES">
-                                                    <rect key="frame" x="0.0" y="150" width="393" height="150"/>
-                                                </variation>
-                                            </view>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dgm-by-RNK" customClass="InterestView" customModule="YoutubeApp" customModuleProvider="target">
-                                                <rect key="frame" x="293" y="150" width="293" height="150"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="physics.jpg"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Physics"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="tag">
-                                                        <integer key="value" value="3"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <variation key="widthClass=regular" misplaced="YES">
-                                                    <rect key="frame" x="393" y="150" width="393" height="150"/>
-                                                </variation>
-                                            </view>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fcr-Ix-9Ny" customClass="InterestView" customModule="YoutubeApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="300" width="293" height="150"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="history.jpg"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="History"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="tag">
-                                                        <integer key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <variation key="widthClass=regular" misplaced="YES">
-                                                    <rect key="frame" x="0.0" y="300" width="393" height="150"/>
-                                                </variation>
-                                            </view>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K5s-3s-ZCS" customClass="InterestView" customModule="YoutubeApp" customModuleProvider="target">
-                                                <rect key="frame" x="293" y="300" width="293" height="150"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="maths.jpg"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Mathematics"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="tag">
-                                                        <integer key="value" value="5"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <variation key="widthClass=regular" misplaced="YES">
-                                                    <rect key="frame" x="393" y="300" width="393" height="150"/>
-                                                </variation>
-                                            </view>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ik2-2L-mED" customClass="InterestView" customModule="YoutubeApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="450" width="293" height="150"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="geography.jpg"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Geography"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="tag">
-                                                        <integer key="value" value="6"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <variation key="widthClass=regular" misplaced="YES">
-                                                    <rect key="frame" x="0.0" y="450" width="393" height="150"/>
-                                                </variation>
-                                            </view>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nEB-xw-GrF" customClass="InterestView" customModule="YoutubeApp" customModuleProvider="target">
-                                                <rect key="frame" x="293" y="450" width="293" height="150"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="technology.jpg"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="Technology"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="tag">
-                                                        <integer key="value" value="7"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <variation key="widthClass=regular" misplaced="YES">
-                                                    <rect key="frame" x="393" y="450" width="393" height="150"/>
-                                                </variation>
-                                            </view>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="qzP-rW-YOe" secondAttribute="trailing" id="2LE-iG-cCs"/>
-                                            <constraint firstItem="8aS-ni-TkW" firstAttribute="width" secondItem="e6P-n1-u7D" secondAttribute="width" id="3MA-8i-CZJ"/>
-                                            <constraint firstItem="qzP-rW-YOe" firstAttribute="top" secondItem="9IR-xd-tKy" secondAttribute="top" id="3td-sa-r1w"/>
-                                            <constraint firstItem="8aS-ni-TkW" firstAttribute="leading" secondItem="9IR-xd-tKy" secondAttribute="leading" id="5Xz-Ip-uEz"/>
-                                            <constraint firstItem="nEB-xw-GrF" firstAttribute="width" secondItem="Ik2-2L-mED" secondAttribute="width" id="6Wo-TZ-0DS"/>
-                                            <constraint firstAttribute="trailing" secondItem="K5s-3s-ZCS" secondAttribute="trailing" id="6xv-D4-MwF"/>
-                                            <constraint firstAttribute="trailing" secondItem="dgm-by-RNK" secondAttribute="trailing" id="9Ed-No-rAR"/>
-                                            <constraint firstItem="Fcr-Ix-9Ny" firstAttribute="top" secondItem="8aS-ni-TkW" secondAttribute="bottom" id="ARw-c7-USl"/>
-                                            <constraint firstItem="qzP-rW-YOe" firstAttribute="width" secondItem="e6P-n1-u7D" secondAttribute="width" id="BVQ-oi-pv5"/>
-                                            <constraint firstItem="8aS-ni-TkW" firstAttribute="top" secondItem="e6P-n1-u7D" secondAttribute="bottom" id="BkH-A6-5Zk"/>
-                                            <constraint firstItem="e6P-n1-u7D" firstAttribute="leading" secondItem="9IR-xd-tKy" secondAttribute="leading" id="BtY-FM-IbW"/>
-                                            <constraint firstItem="K5s-3s-ZCS" firstAttribute="leading" secondItem="Fcr-Ix-9Ny" secondAttribute="trailing" id="LTQ-Ud-DNR"/>
-                                            <constraint firstItem="K5s-3s-ZCS" firstAttribute="top" secondItem="dgm-by-RNK" secondAttribute="bottom" id="LYX-2J-QWc"/>
-                                            <constraint firstItem="Ik2-2L-mED" firstAttribute="leading" secondItem="9IR-xd-tKy" secondAttribute="leading" id="OsM-kG-9Ve"/>
-                                            <constraint firstItem="nEB-xw-GrF" firstAttribute="leading" secondItem="Ik2-2L-mED" secondAttribute="trailing" id="Qrx-uw-bXs"/>
-                                            <constraint firstItem="dgm-by-RNK" firstAttribute="width" secondItem="qzP-rW-YOe" secondAttribute="width" id="S0T-Ib-gx9"/>
-                                            <constraint firstItem="nEB-xw-GrF" firstAttribute="top" secondItem="K5s-3s-ZCS" secondAttribute="bottom" id="XIj-xk-pXi"/>
-                                            <constraint firstItem="dgm-by-RNK" firstAttribute="top" secondItem="qzP-rW-YOe" secondAttribute="bottom" id="Y5Z-hV-mCE"/>
-                                            <constraint firstItem="Fcr-Ix-9Ny" firstAttribute="width" secondItem="8aS-ni-TkW" secondAttribute="width" id="Y77-ya-Cva"/>
-                                            <constraint firstItem="8aS-ni-TkW" firstAttribute="leading" secondItem="qzP-rW-YOe" secondAttribute="leading" id="bNb-y8-zlu"/>
-                                            <constraint firstItem="8aS-ni-TkW" firstAttribute="leading" secondItem="qzP-rW-YOe" secondAttribute="leading" id="cWK-3W-jDt"/>
-                                            <constraint firstItem="K5s-3s-ZCS" firstAttribute="width" secondItem="Fcr-Ix-9Ny" secondAttribute="width" id="ex3-9o-Fny"/>
-                                            <constraint firstItem="e6P-n1-u7D" firstAttribute="top" secondItem="9IR-xd-tKy" secondAttribute="top" id="hCP-8X-DJj"/>
-                                            <constraint firstItem="qzP-rW-YOe" firstAttribute="leading" secondItem="e6P-n1-u7D" secondAttribute="trailing" id="jRu-LC-XtM"/>
-                                            <constraint firstItem="dgm-by-RNK" firstAttribute="leading" secondItem="8aS-ni-TkW" secondAttribute="trailing" id="mHO-nn-MAD"/>
-                                            <constraint firstItem="Ik2-2L-mED" firstAttribute="top" secondItem="Fcr-Ix-9Ny" secondAttribute="bottom" id="mv7-Kh-cUE"/>
-                                            <constraint firstItem="Fcr-Ix-9Ny" firstAttribute="leading" secondItem="9IR-xd-tKy" secondAttribute="leading" id="npO-tR-tlY"/>
-                                            <constraint firstItem="Ik2-2L-mED" firstAttribute="width" secondItem="Fcr-Ix-9Ny" secondAttribute="width" id="qcZ-nB-Fj2"/>
-                                            <constraint firstAttribute="height" constant="600" id="spZ-gT-fWj"/>
-                                        </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="bNb-y8-zlu"/>
-                                                <exclude reference="cWK-3W-jDt"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="widthClass=regular" misplaced="YES">
-                                            <rect key="frame" x="0.0" y="0.0" width="786" height="600"/>
-                                            <mask key="constraints">
-                                                <exclude reference="5Xz-Ip-uEz"/>
-                                                <include reference="cWK-3W-jDt"/>
-                                                <exclude reference="2LE-iG-cCs"/>
-                                            </mask>
-                                        </variation>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="9IR-xd-tKy" secondAttribute="bottom" id="O6v-1A-Z2X"/>
-                                    <constraint firstItem="9IR-xd-tKy" firstAttribute="top" secondItem="l5z-ox-kuA" secondAttribute="top" id="OYn-uM-IZN"/>
-                                    <constraint firstAttribute="trailing" secondItem="9IR-xd-tKy" secondAttribute="trailing" id="gin-cK-oLR"/>
-                                    <constraint firstAttribute="trailing" secondItem="9IR-xd-tKy" secondAttribute="trailing" id="h1k-AW-Hvu"/>
-                                    <constraint firstItem="9IR-xd-tKy" firstAttribute="centerX" secondItem="l5z-ox-kuA" secondAttribute="centerX" id="jN5-Or-ltg"/>
-                                    <constraint firstItem="9IR-xd-tKy" firstAttribute="leading" secondItem="l5z-ox-kuA" secondAttribute="leading" id="kSA-Sf-De4"/>
-                                </constraints>
-                            </scrollView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cev-RK-XeY">
+                                <rect key="frame" x="20" y="111" width="560" height="489"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="roH-QV-HgG">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="0" id="VV8-jk-6Yp" customClass="InterestView" customModule="YoutubeApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <size key="customSize" width="150" height="150"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="image" value="philosophy.jpg"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="text" value="Philosophy"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="tag">
+                                                <integer key="value" value="0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </collectionViewCell>
+                                    <collectionViewCell autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" tag="1" contentMode="center" reuseIdentifier="1" id="uQZ-jy-PJO" customClass="InterestView" customModule="YoutubeApp" customModuleProvider="target">
+                                        <rect key="frame" x="205" y="0.0" width="150" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <size key="customSize" width="150" height="150"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="image" value="biology.jpg"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="text" value="Biology"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="tag">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </collectionViewCell>
+                                    <collectionViewCell autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" tag="2" contentMode="center" reuseIdentifier="2" id="bnM-yG-soA" customClass="InterestView" customModule="YoutubeApp" customModuleProvider="target">
+                                        <rect key="frame" x="410" y="0.0" width="150" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <size key="customSize" width="150" height="150"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="image" value="chemistry.jpg"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="text" value="Chemistry"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="tag">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </collectionViewCell>
+                                    <collectionViewCell autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" tag="3" contentMode="center" reuseIdentifier="3" id="WLJ-ZZ-CHZ" customClass="InterestView" customModule="YoutubeApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="150" width="150" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <size key="customSize" width="150" height="150"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="image" value="physics.jpg"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="text" value="Physics"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="tag">
+                                                <integer key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </collectionViewCell>
+                                    <collectionViewCell autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" tag="4" contentMode="center" reuseIdentifier="4" id="aDO-cJ-52h" customClass="InterestView" customModule="YoutubeApp" customModuleProvider="target">
+                                        <rect key="frame" x="205" y="150" width="150" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <size key="customSize" width="150" height="150"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="image" value="history.jpg"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="text" value="History"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="tag">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </collectionViewCell>
+                                    <collectionViewCell autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" tag="5" contentMode="center" reuseIdentifier="5" id="vTV-Rf-VFN" customClass="InterestView" customModule="YoutubeApp" customModuleProvider="target">
+                                        <rect key="frame" x="410" y="150" width="150" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <size key="customSize" width="150" height="150"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="image" value="maths.jpg"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="text" value="Maths"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="tag">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </collectionViewCell>
+                                    <collectionViewCell autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" tag="6" contentMode="center" reuseIdentifier="6" id="sX9-c4-W05" customClass="InterestView" customModule="YoutubeApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="300" width="150" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <size key="customSize" width="150" height="150"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="image" value="geography.jpg"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="text" value="Geography"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="tag">
+                                                <integer key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </collectionViewCell>
+                                    <collectionViewCell autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" tag="7" contentMode="center" reuseIdentifier="7" id="Yim-uR-5Q3" customClass="InterestView" customModule="YoutubeApp" customModuleProvider="target">
+                                        <rect key="frame" x="205" y="300" width="150" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <size key="customSize" width="150" height="150"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="image" value="technology.jpg"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="text" value="Technology"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="tag">
+                                                <integer key="value" value="7"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="delegate" destination="KBt-ey-Rcl" id="dAN-j8-YVa"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="l5z-ox-kuA" secondAttribute="trailing" constant="7" id="0nL-gs-neg"/>
                             <constraint firstAttribute="trailing" secondItem="gg4-Aw-J20" secondAttribute="trailing" id="0uc-bm-wyE"/>
                             <constraint firstItem="gg4-Aw-J20" firstAttribute="top" secondItem="oDb-2Q-vpu" secondAttribute="bottom" id="3Ib-ue-Fcd"/>
-                            <constraint firstAttribute="trailing" secondItem="gg4-Aw-J20" secondAttribute="trailing" id="AYr-Xy-18e"/>
+                            <constraint firstItem="noL-uz-QrR" firstAttribute="top" secondItem="cev-RK-XeY" secondAttribute="bottom" id="FUM-7z-xWT"/>
+                            <constraint firstItem="cev-RK-XeY" firstAttribute="top" secondItem="oDb-2Q-vpu" secondAttribute="bottom" constant="47" id="I1Y-8L-MqJ"/>
                             <constraint firstItem="gg4-Aw-J20" firstAttribute="leading" secondItem="bos-Rj-DyM" secondAttribute="leading" id="cKm-uR-IE5"/>
-                            <constraint firstAttribute="trailing" secondItem="gg4-Aw-J20" secondAttribute="trailing" id="e5V-4i-YvO"/>
-                            <constraint firstItem="l5z-ox-kuA" firstAttribute="leading" secondItem="bos-Rj-DyM" secondAttribute="leading" constant="7" id="fLk-7s-4ze"/>
-                            <constraint firstItem="noL-uz-QrR" firstAttribute="top" secondItem="l5z-ox-kuA" secondAttribute="bottom" id="iua-e2-r8n"/>
-                            <constraint firstItem="l5z-ox-kuA" firstAttribute="top" secondItem="gg4-Aw-J20" secondAttribute="bottom" id="jf7-II-J9z"/>
-                            <constraint firstItem="l5z-ox-kuA" firstAttribute="top" secondItem="bos-Rj-DyM" secondAttribute="top" constant="111" id="sed-Dp-bcX"/>
+                            <constraint firstItem="cev-RK-XeY" firstAttribute="leading" secondItem="bos-Rj-DyM" secondAttribute="leadingMargin" id="ddl-xS-kJw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cev-RK-XeY" secondAttribute="trailing" id="kON-1E-Tiq"/>
+                            <constraint firstItem="cev-RK-XeY" firstAttribute="top" secondItem="gg4-Aw-J20" secondAttribute="bottom" id="skM-WV-0aF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="CBj-8N-5a1">
@@ -380,7 +308,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="scrollView" destination="l5z-ox-kuA" id="KlS-V4-TjF"/>
+                        <outlet property="collectionView" destination="cev-RK-XeY" id="Xic-eF-UMp"/>
+                        <outlet property="collectionViewFlowLayout" destination="roH-QV-HgG" id="YYI-oR-QEE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kBt-It-2a3" userLabel="First Responder" sceneMemberID="firstResponder"/>

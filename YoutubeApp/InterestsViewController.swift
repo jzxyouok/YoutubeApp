@@ -16,37 +16,41 @@ extension Array where Element: Equatable {
     }
 }
 
-class InterestsViewController: UIViewController {
+class InterestsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var initialArray: [String] = ["philosophy","biology","chemistry","physics","mathematics","history","geography","technology"]
     var interestSelectionArray = [String]()
     
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
-    @IBOutlet var switchCollection: [UISwitch]!
+    @IBOutlet weak var collectionViewFlowLayout: UICollectionViewFlowLayout!
     
     @IBAction func nextButtonClicked(sender: AnyObject) {
+        
         if (interestSelectionArray == []){
-            for swich in self.switchCollection {
-                if swich.on {
-                    interestSelectionArray.append(initialArray[swich.tag])
+            for cell in self.collectionView.visibleCells() {
+                if (cell as! InterestView).swich.on {
+                    interestSelectionArray.append(initialArray[cell.tag])
                 }
             }
         } else {
             interestSelectionArray = []
-            for swich in self.switchCollection {
-                if swich.on {
-                    interestSelectionArray.append(initialArray[swich.tag])
+            for cell in self.collectionView.visibleCells() {
+                if (cell as! InterestView).swich.on {
+                    interestSelectionArray.append(initialArray[cell.tag])
                 }
             }
         }
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+        self.collectionView.backgroundColor = nil
+        //collectionView.delegate = self
+        collectionView.dataSource = self
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -60,6 +64,7 @@ class InterestsViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destViewController: SkillsViewController = segue.destinationViewController as! SkillsViewController
         destViewController.interestSelectionArray = interestSelectionArray
+        print(interestSelectionArray)
     }
     
     /*
@@ -71,5 +76,38 @@ class InterestsViewController: UIViewController {
      // Pass the selected object to the new view controller.
      }
      */
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 8
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(String(indexPath.row), forIndexPath: indexPath)
+        
+        return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let width = CGRectGetWidth(collectionView.frame)
+        print(width)
+        var number = CGFloat(2.0)
+        if width > 561 {
+            number = 3.0
+        }
+        return CGSize(width: ((width-(number-1)*(collectionViewFlowLayout.minimumInteritemSpacing))/number), height: ((width-(number-1)*(collectionViewFlowLayout.minimumInteritemSpacing))/number))
+    }
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransitionToSize(size, withTransitionCoordinator:coordinator)
+        self.collectionView.reloadData()
+    }
     
 }

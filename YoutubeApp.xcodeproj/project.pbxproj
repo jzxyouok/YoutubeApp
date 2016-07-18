@@ -136,7 +136,6 @@
 				4E12E2221D21AB0500F44DB9 /* GoogleService-Info.plist */,
 				4E72B8561C58230B004592E7 /* AppDelegate.swift */,
 				4E2999C71C6E613F00563520 /* InterestsViewController.swift */,
-				4E12E2201D21A86E00F44DB9 /* Supporting Files */,
 				4E1B380A1CF0FA3400568FB9 /* ExampleOverlayView.swift */,
 				4E1B380C1CF0FA8700568FB9 /* OverlayView.xib */,
 				4EEC41191C7B90BA0085FD59 /* SkillsViewController.swift */,
@@ -150,6 +149,7 @@
 				4E676A651D228900007158ED /* InterestView.swift */,
 				4E12E21C1D21A52300F44DB9 /* SignInViewController.swift */,
 				4E72B85D1C58230B004592E7 /* Assets.xcassets */,
+				4E12E2201D21A86E00F44DB9 /* Supporting Files */,
 				4E12E2241D2272F200F44DB9 /* images */,
 				4E72B85F1C58230B004592E7 /* LaunchScreen.storyboard */,
 				4E72B8621C58230B004592E7 /* Info.plist */,
@@ -434,6 +434,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pranav.kasetti.YoutubeApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "YoutubeApp/YoutubeApp-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -449,6 +450,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pranav.kasetti.YoutubeApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "YoutubeApp/YoutubeApp-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
