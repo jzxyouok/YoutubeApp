@@ -450,6 +450,29 @@
                                     <constraint firstItem="1k2-b9-hHv" firstAttribute="centerX" secondItem="qcD-cK-CbY" secondAttribute="centerX" id="gRi-gG-kGa"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1Ke-sf-26u">
+                                <rect key="frame" x="20" y="111" width="560" height="489"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="lF3-xw-sFl" style="IBUITableViewCellStyleDefault" id="Oig-zg-StH">
+                                        <rect key="frame" x="0.0" y="28" width="560" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Oig-zg-StH" id="lUy-Kg-Fvc">
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" id="lF3-xw-sFl">
+                                                    <rect key="frame" x="15" y="0.0" width="530" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SdD-Cw-RPa">
                                 <rect key="frame" x="7" y="111" width="586" height="489"/>
                                 <subviews>
@@ -1270,15 +1293,25 @@
                         <constraints>
                             <constraint firstItem="qcD-cK-CbY" firstAttribute="leading" secondItem="Iv9-Z1-WrJ" secondAttribute="leading" id="4nr-dn-gyI"/>
                             <constraint firstAttribute="trailing" secondItem="SdD-Cw-RPa" secondAttribute="trailing" constant="7" id="8iH-Hg-5Hg"/>
+                            <constraint firstItem="1Ke-sf-26u" firstAttribute="leading" secondItem="Iv9-Z1-WrJ" secondAttribute="leadingMargin" id="D2T-L9-aSK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1Ke-sf-26u" secondAttribute="trailing" id="FfC-o4-Xln"/>
                             <constraint firstItem="SdD-Cw-RPa" firstAttribute="top" secondItem="qcD-cK-CbY" secondAttribute="bottom" id="HDt-zV-vQ1"/>
                             <constraint firstItem="SdD-Cw-RPa" firstAttribute="leading" secondItem="Iv9-Z1-WrJ" secondAttribute="leading" constant="7" id="I5c-7M-Ih5"/>
                             <constraint firstAttribute="trailing" secondItem="qcD-cK-CbY" secondAttribute="trailing" id="IsR-NM-CwH"/>
                             <constraint firstAttribute="trailing" secondItem="qcD-cK-CbY" secondAttribute="trailing" id="S0m-xX-DTm"/>
+                            <constraint firstItem="WI3-SU-mZC" firstAttribute="top" secondItem="1Ke-sf-26u" secondAttribute="bottom" id="XTh-MX-z1a"/>
                             <constraint firstAttribute="trailing" secondItem="qcD-cK-CbY" secondAttribute="trailing" id="Yzw-sA-qeO"/>
+                            <constraint firstItem="1Ke-sf-26u" firstAttribute="top" secondItem="2Ov-PE-RNr" secondAttribute="bottom" constant="47" id="fnV-Cc-YTo"/>
+                            <constraint firstItem="1Ke-sf-26u" firstAttribute="top" secondItem="qcD-cK-CbY" secondAttribute="bottom" id="gOU-Fo-vL9"/>
                             <constraint firstItem="SdD-Cw-RPa" firstAttribute="top" secondItem="Iv9-Z1-WrJ" secondAttribute="top" constant="111" id="gn6-ai-R25"/>
                             <constraint firstItem="qcD-cK-CbY" firstAttribute="top" secondItem="2Ov-PE-RNr" secondAttribute="bottom" id="vCB-Ob-CpP"/>
                             <constraint firstItem="WI3-SU-mZC" firstAttribute="top" secondItem="SdD-Cw-RPa" secondAttribute="bottom" id="yep-bT-RVR"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="SdD-Cw-RPa"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="YXg-3g-ulD">
                         <barButtonItem key="rightBarButtonItem" style="done" id="Kpe-MB-dFW">
@@ -1295,31 +1328,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="scrollView" destination="SdD-Cw-RPa" id="L3t-DT-4U1"/>
-                        <outletCollection property="switchCollection2" destination="MFw-tp-9d9" collectionClass="NSMutableArray" id="XCi-eF-k6t"/>
-                        <outletCollection property="switchCollection2" destination="H3B-ba-cxj" collectionClass="NSMutableArray" id="NX7-l5-15m"/>
-                        <outletCollection property="switchCollection2" destination="lL5-M1-3fv" collectionClass="NSMutableArray" id="Ctc-8S-JDT"/>
-                        <outletCollection property="switchCollection2" destination="efC-vV-2AD" collectionClass="NSMutableArray" id="cHt-2e-TAP"/>
-                        <outletCollection property="switchCollection2" destination="BVO-2a-fP0" collectionClass="NSMutableArray" id="Gal-B0-djg"/>
-                        <outletCollection property="switchCollection2" destination="aGI-s2-9b3" collectionClass="NSMutableArray" id="2Ez-fU-GDW"/>
-                        <outletCollection property="switchCollection2" destination="k07-VF-T44" collectionClass="NSMutableArray" id="ksi-uG-lfv"/>
-                        <outletCollection property="switchCollection2" destination="2M4-4c-tKG" collectionClass="NSMutableArray" id="XCo-Wo-ofQ"/>
-                        <outletCollection property="switchCollection2" destination="OFm-CK-zsF" collectionClass="NSMutableArray" id="a0T-9G-v5c"/>
-                        <outletCollection property="switchCollection2" destination="xae-Kb-o87" collectionClass="NSMutableArray" id="0jU-nQ-qCg"/>
-                        <outletCollection property="switchCollection2" destination="rzo-8z-8uK" collectionClass="NSMutableArray" id="XXi-d1-bxq"/>
-                        <outletCollection property="switchCollection2" destination="wgo-dU-ScS" collectionClass="NSMutableArray" id="IOo-Ei-q9F"/>
-                        <outletCollection property="switchCollection2" destination="Sqh-7z-fMm" collectionClass="NSMutableArray" id="ZZm-NR-8vn"/>
-                        <outletCollection property="switchCollection2" destination="E5i-lf-LIM" collectionClass="NSMutableArray" id="fvC-LI-Hoy"/>
-                        <outletCollection property="switchCollection2" destination="UCM-cl-orw" collectionClass="NSMutableArray" id="6Ut-mu-hKY"/>
-                        <outletCollection property="switchCollection2" destination="seW-ow-qhI" collectionClass="NSMutableArray" id="Kcv-2u-W7B"/>
-                        <outletCollection property="switchCollection2" destination="1HN-aK-HQl" collectionClass="NSMutableArray" id="EQv-vY-Lk3"/>
-                        <outletCollection property="switchCollection2" destination="7Yu-5O-BHA" collectionClass="NSMutableArray" id="gjB-nx-r0g"/>
-                        <outletCollection property="switchCollection2" destination="Qfw-3d-nZf" collectionClass="NSMutableArray" id="CGr-0h-gBf"/>
-                        <outletCollection property="switchCollection2" destination="fe4-mD-v9N" collectionClass="NSMutableArray" id="urZ-S9-WAg"/>
-                        <outletCollection property="switchCollection2" destination="CtD-EN-jYY" collectionClass="NSMutableArray" id="qnq-Wi-HtU"/>
-                        <outletCollection property="switchCollection2" destination="4Bz-w6-mga" collectionClass="NSMutableArray" id="3Qo-ec-rHA"/>
-                        <outletCollection property="switchCollection2" destination="gsg-h1-Btb" collectionClass="NSMutableArray" id="KZE-k8-6ta"/>
-                        <outletCollection property="switchCollection2" destination="Rju-oP-dik" collectionClass="NSMutableArray" id="Xqs-hj-iuf"/>
+                        <outlet property="tableView" destination="1Ke-sf-26u" id="W98-Gd-kbO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QPp-vV-n5f" userLabel="First Responder" sceneMemberID="firstResponder"/>

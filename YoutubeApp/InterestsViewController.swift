@@ -28,16 +28,19 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
     @IBAction func nextButtonClicked(sender: AnyObject) {
         
         if (interestSelectionArray == []){
-            for cell in self.collectionView.visibleCells() {
-                if (cell as! InterestView).swich.on {
-                    interestSelectionArray.append(initialArray[cell.tag])
+            
+            for row in 0...(self.collectionView.numberOfItemsInSection(0)-1) {
+                let cell = self.collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: row, inSection: 0))
+                    if (cell as! InterestView).swich.on {
+                    interestSelectionArray.append(initialArray[cell!.tag])
                 }
             }
         } else {
             interestSelectionArray = []
-            for cell in self.collectionView.visibleCells() {
+            for row in 0...self.collectionView.numberOfItemsInSection(0) {
+                let cell = self.collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: row, inSection: 0))
                 if (cell as! InterestView).swich.on {
-                    interestSelectionArray.append(initialArray[cell.tag])
+                    interestSelectionArray.append(initialArray[cell!.tag])
                 }
             }
         }
@@ -97,7 +100,6 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let width = CGRectGetWidth(collectionView.frame)
-        print(width)
         var number = CGFloat(2.0)
         if width > 561 {
             number = 3.0
