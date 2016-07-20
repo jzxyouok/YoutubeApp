@@ -38,9 +38,9 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
         } else {
             interestSelectionArray = []
             for row in 0...self.collectionView.numberOfItemsInSection(0) {
-                let cell = self.collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: row, inSection: 0))
+                let cell = self.collectionView.dequeueReusableCellWithReuseIdentifier(String(row), forIndexPath: NSIndexPath(forItem: row, inSection: 0))
                 if (cell as! InterestView).swich.on {
-                    interestSelectionArray.append(initialArray[cell!.tag])
+                    interestSelectionArray.append(initialArray[cell.tag])
                 }
             }
         }
