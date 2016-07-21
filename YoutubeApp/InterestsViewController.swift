@@ -18,8 +18,10 @@ extension Array where Element: Equatable {
 
 class InterestsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    var initialArray: [String] = ["philosophy","biology","chemistry","physics","mathematics","history","geography","technology"]
+    var initialArray: [String] = ["philosophy","biology","chemistry","physics","history","mathematics","geography","technology"]
     var interestSelectionArray = [String]()
+    
+    var switchArray: [Int] = []
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -28,20 +30,13 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
     @IBAction func nextButtonClicked(sender: AnyObject) {
         
         if (interestSelectionArray == []){
-            
-            for row in 0...(self.collectionView.numberOfItemsInSection(0)-1) {
-                let cell = self.collectionView.dequeueReusableCellWithReuseIdentifier(String(row), forIndexPath: NSIndexPath(forItem: row, inSection: 0))
-                if (cell as! InterestView).swich.on {
-                    interestSelectionArray.append(initialArray[cell.tag])
-                }
+            for index in switchArray {
+                interestSelectionArray.append(initialArray[index])
             }
         } else {
             interestSelectionArray = []
-            for row in 0...self.collectionView.numberOfItemsInSection(0) {
-                let cell = self.collectionView.dequeueReusableCellWithReuseIdentifier(String(row), forIndexPath: NSIndexPath(forItem: row, inSection: 0))
-                if (cell as! InterestView).swich.on {
-                    interestSelectionArray.append(initialArray[cell.tag])
-                }
+            for index in switchArray {
+                interestSelectionArray.append(initialArray[index])
             }
         }
         
@@ -52,6 +47,7 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
         self.collectionView.backgroundColor = nil
         //collectionView.delegate = self
         collectionView.dataSource = self
+        
     }
     
     
@@ -85,9 +81,23 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(String(indexPath.row), forIndexPath: indexPath)
-        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(String(indexPath.row), forIndexPath: indexPath) as! InterestView
+        cell.swich.addTarget(self, action: #selector(InterestsViewController.switchChanged(_:)), forControlEvents: UIControlEvents.ValueChanged)
         return cell
+    }
+    
+    func switchChanged(swich: UISwitch) {
+        
+        if swich.on && switchArray.contains(swich.tag){
+            
+        } else if swich.on {
+            switchArray.append(swich.tag)
+        } else if !swich.on && switchArray.contains(swich.tag) {
+            switchArray = switchArray.filter{$0 != swich.tag}
+        } else {
+            
+        }
+        print(switchArray)
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {

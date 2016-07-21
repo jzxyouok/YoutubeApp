@@ -43,6 +43,13 @@ class InterestView: UICollectionViewCell {
     }
     
     @IBInspectable
+    override var tag: Int {
+        didSet {
+            swich.tag = tag
+        }
+    }
+    
+    @IBInspectable
     var image: UIImage? {
         get {
             return imageView.image
