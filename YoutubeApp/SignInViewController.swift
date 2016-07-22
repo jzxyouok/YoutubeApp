@@ -26,7 +26,7 @@ class SignInViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDele
         GIDSignIn.sharedInstance().scopes.append("https://www.googleapis.com/auth/plus.login")
         GIDSignIn.sharedInstance().scopes.append("https://www.googleapis.com/auth/plus.me")
         
-        GIDSignIn.sharedInstance().signInSilently()
+        //GIDSignIn.sharedInstance().signInSilently()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -40,7 +40,10 @@ class SignInViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDele
             print(error)
         }
         else {
-            performSegueWithIdentifier("idSegueContent", sender: self)
+            let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc : InterestsViewController = storyboard.instantiateViewControllerWithIdentifier("InterestsViewController") as! InterestsViewController
+            contentViewController = UINavigationController(rootViewController: vc)
+            self.presentViewController(contentViewController, animated: true, completion: nil)
         }
     }
     

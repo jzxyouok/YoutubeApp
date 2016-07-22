@@ -50,10 +50,11 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
          }
          }
          //print(skillSelectionArray)
-        
+         
          */
         
         for(index, element) in selectedData.enumerate() {
+            skillSelectionArray = []
             if element == 1 {
                 skillSelectionArray.append(initialArray[index]+"-Beginner")
             } else if element == 2 {
@@ -63,6 +64,10 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
         print(skillSelectionArray)
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc: ViewController = storyboard.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+        vc.interestSelectionArray=interestSelectionArray
+        self.presentViewController(vc, animated: true, completion: nil)
     }
     
     
