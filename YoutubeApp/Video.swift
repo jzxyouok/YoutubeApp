@@ -10,6 +10,21 @@ import UIKit
 import ObjectMapper
 import AlamofireObjectMapper
 
+class SkillsVideoResponse: NSObject, Mappable {
+    
+    var videos: [Video] = []
+    
+    convenience required init?(_ map: Map){
+        self.init()
+    }
+    
+    func mapping(map: Map) {
+        videos <- map["videos"]
+    }
+    
+}
+
+
 class VideoResponse: NSObject, Mappable {
     
     var videos: [Video] = []
@@ -25,7 +40,7 @@ class VideoResponse: NSObject, Mappable {
 }
 
 class Video: NSObject, Mappable {
-
+    
     var videoId: String?
     var snippet: Snippet?
     
@@ -35,6 +50,9 @@ class Video: NSObject, Mappable {
     
     func mapping(map: Map) {
         videoId <- map["id.videoId"]
+        if videoId == nil {
+            videoId <- map["id.videoid"]
+        }
         snippet <- map["snippet"]
     }
     

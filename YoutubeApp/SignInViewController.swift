@@ -26,7 +26,7 @@ class SignInViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDele
         GIDSignIn.sharedInstance().scopes.append("https://www.googleapis.com/auth/plus.login")
         GIDSignIn.sharedInstance().scopes.append("https://www.googleapis.com/auth/plus.me")
         
-        //GIDSignIn.sharedInstance().signInSilently()
+        GIDSignIn.sharedInstance().signInSilently()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

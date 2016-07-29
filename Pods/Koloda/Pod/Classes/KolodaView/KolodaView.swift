@@ -100,7 +100,7 @@ public class KolodaView: UIView, DraggableCardDelegate {
     private(set) public var countOfCards = 0
     
     public var countOfVisibleCards = defaultCountOfVisibleCards
-    private var visibleCards = [DraggableCardView]()
+    public var visibleCards = [DraggableCardView]()
     private var animating = false
     
     public var alphaValueOpaque: CGFloat = defaultAlphaValueOpaque
@@ -196,7 +196,7 @@ public class KolodaView: UIView, DraggableCardDelegate {
                     
                     let scale = cardParameters.scale
                     card.layer.transform = CATransform3DScale(CATransform3DIdentity, scale.width, scale.height, 1.0)
-
+                    
                     card.frame = cardParameters.frame
                 }
                 
@@ -231,7 +231,7 @@ public class KolodaView: UIView, DraggableCardDelegate {
         var scale = CGSize.zero
         scale.width = initialFrame.width / finalFrame.width
         scale.height = initialFrame.height / finalFrame.height
-
+        
         return (finalFrame, scale)
     }
     
@@ -261,7 +261,7 @@ public class KolodaView: UIView, DraggableCardDelegate {
                 let scale = cardParameters.scale
                 
                 let card = visibleCards[index]
-
+                
                 card.layer.transform = CATransform3DScale(CATransform3DIdentity, scale.width, scale.height, 1.0)
                 card.frame = cardParameters.frame
                 
@@ -341,21 +341,21 @@ public class KolodaView: UIView, DraggableCardDelegate {
         if visibleCards.count > 1 {
             
             UIView.animateWithDuration(backgroundCardFrameAnimationDuration,
-                delay: 0.0,
-                options: .CurveLinear,
-                animations: {
-                    self.moveOtherCardsWithFinishPercent(0)
+                                       delay: 0.0,
+                                       options: .CurveLinear,
+                                       animations: {
+                                        self.moveOtherCardsWithFinishPercent(0)
                 },
-                completion: {
-                    _ in
-                    self.animating = false
-                    
-                    for index in 1..<self.visibleCards.count {
-                        let card = self.visibleCards[index]
-                        if self.shouldTransparentize {
-                            card.alpha = index == 0 ? self.alphaValueOpaque : self.alphaValueSemiTransparent
-                        }
-                    }
+                                       completion: {
+                                        _ in
+                                        self.animating = false
+                                        
+                                        for index in 1..<self.visibleCards.count {
+                                            let card = self.visibleCards[index]
+                                            if self.shouldTransparentize {
+                                                card.alpha = index == 0 ? self.alphaValueOpaque : self.alphaValueSemiTransparent
+                                            }
+                                        }
             })
         } else {
             animating = false
@@ -406,7 +406,7 @@ public class KolodaView: UIView, DraggableCardDelegate {
                 
                 let lastCardFrame = frameForCardAtIndex(UInt(visibleCards.count))
                 let cardParameters = backgroundCardParametersForFrame(lastCardFrame)
-
+                
                 let lastCardView = DraggableCardView(frame: cardParameters.frame)
                 
                 
@@ -430,7 +430,7 @@ public class KolodaView: UIView, DraggableCardDelegate {
         }
         
         if !visibleCards.isEmpty {
-
+            
             for (index, currentCard) in visibleCards.enumerate() {
                 currentCard.removeAnimations()
                 

@@ -24,6 +24,7 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     let model:VideoModel = VideoModel()
     var searchWords: [String] = []
     var interestSelectionArray = [String]()
+    var skillSelectionArray = [String]()
     var done: Int = 0
     //New variables
     var counter: Int = 0
@@ -38,15 +39,21 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         self.model.delegate = self
         
         self.model.generateKeywords(interestSelectionArray) { data in
-            self.searchWords=data
+            self.searchWords+=data
             print(self.searchWords)
             self.model.getFeedVideos(self.interestSelectionArray, keywordArray: self.searchWords) { data in
                 //Notify the delegate that the data is ready
                 
-                self.videos=data as! [Video]
-                
-                if self.model.delegate != nil {
-                    self.model.delegate!.dataReady()
+                self.model.getSkillsFeedVideos(self.skillSelectionArray, keywordArray: self.searchWords) { data in
+                    
+                    self.videos = data as! [Video]
+                    
+                    if self.model.delegate != nil {
+                        self.numberOfCards = UInt(self.videos.count)
+                        self.koloda(kolodaNumberOfCards: self.kolodaView)
+                        self.model.delegate!.dataReady()
+                    }
+                    
                 }
             }
             self.done=1
@@ -89,17 +96,23 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     }
     
     func cacheLoad() {
-        if kolodaView?.currentCardNumber == 0 && counter<3 && videoCache.count != 0 {
+        if kolodaView?.currentCardNumber == 0 && counter<self.videos.count && videoCache.count != 0 {
             counter=counter+1
             if !(Set(videoCache).isSubsetOf(Set(videos))) {
                 videos=videoCache+videos
             }
-            self.value = 3 - counter
+            self.numberOfCards = UInt(counter)
+            self.koloda(kolodaNumberOfCards: self.kolodaView)
+            self.value = self.videoCache.count - counter
         }
     }
     
+    func kolodaShouldApplyAppearAnimation(koloda: KolodaView) -> Bool {
+        return false
+    }
+    
     func koloda(koloda: KolodaView, viewForCardAtIndex index: UInt) -> UIView {
-        if (self.done == 1 && videos.count > 2) {
+        if (self.done == 1 && videos.count > Int(self.kolodaView.countOfCards-1)) {
             
             let videoTitle = videos[Int(index)+self.value].snippet!.title
             
@@ -148,13 +161,22 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     
     func koloda(koloda: KolodaView, viewForCardOverlayAtIndex index: UInt) -> OverlayView? {
         
-        return NSBundle.mainBundle().loadNibNamed("OverlayView",
-                                                  owner: self, options: nil)[0] as? OverlayView
+        let overlay = NSBundle.mainBundle().loadNibNamed("OverlayView",
+                                                         owner: self, options: nil)[0] as? ExampleOverlayView
         
+        if (self.kolodaView.viewForCardAtIndex(self.kolodaView.currentCardNumber) != UIView(frame: self.kolodaView.frame) && self.kolodaView.delegate != nil && self.done==1 && self.kolodaView.countOfVisibleCards != 0 && self.kolodaView.visibleCards != []) {
+        
+        let image = (self.kolodaView.viewForCardAtIndex(self.kolodaView.currentCardNumber) as! Thumbnail).iv.image
+        
+        overlay?.overlayImageView.image = image
+        }
+        
+        return overlay
+ 
     }
     
     func koloda(kolodaDidRunOutOfCards koloda: KolodaView) {
-        if (videos.count<4) {
+        if (videos.count<Int(self.numberOfCards)+1) {
             //Example: reloading
             self.done=0
             self.videoCache=self.videos
@@ -162,29 +184,38 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
             self.getVideos()
             self.kolodaView.resetCurrentCardNumber()
         } else {
-            if (self.kolodaView.currentCardNumber == 3) {
-                self.numberOfCards = 6
-                self.value=0
+            if (self.kolodaView.currentCardNumber + self.value == self.videoCache.count) {
+                self.numberOfCards = UInt(self.videos.count-self.videoCache.count)
+                self.koloda(kolodaNumberOfCards: self.kolodaView)
+                self.value=self.videoCache.count
+                self.counter=0
+                self.kolodaView.resetCurrentCardNumber()
             } else {
-                self.numberOfCards=3
-                self.videoCache = Array(videos[3..<6])
+                self.videoCache = Array(videos[self.videoCache.count..<self.videos.count])
                 self.value=0
                 self.done=0
                 self.model.videoArray=[]
                 self.getVideos()
                 self.kolodaView.resetCurrentCardNumber()
             }
-            
         }
     }
     
     func getVideos() {
         for _ in interestSelectionArray {
-            self.model.getFeedVideos(self.interestSelectionArray, keywordArray: searchWords) { data in
-                self.videos=data as! [Video]
+            self.model.getFeedVideos(self.interestSelectionArray, keywordArray: self.searchWords) { data in
                 //Notify the delegate that the data is ready
-                if self.model.delegate != nil {
-                    self.model.delegate!.dataReady()
+                
+                self.model.getSkillsFeedVideos(self.skillSelectionArray, keywordArray: self.searchWords) { data in
+                    
+                    self.videos = data as! [Video]
+                    
+                    if self.model.delegate != nil {
+                        self.numberOfCards = UInt(self.videos.count)
+                        self.koloda(kolodaNumberOfCards: self.kolodaView)
+                        self.model.delegate!.dataReady()
+                    }
+                    
                 }
             }
             self.done=1
@@ -198,9 +229,6 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         self.performSegueWithIdentifier("goToDetail", sender: self)
     }
     
-    func kolodaShouldApplyAppearAnimation(koloda: KolodaView) -> Bool {
-        return false
-    }
     
     /*
      //MARK:- TableView Delegate Methods

@@ -12,7 +12,7 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var tableView: UITableView!
     
-    var initialArray: [String] = ["Philosophy","Biology","Chemistry","Physics","History","Mathematics","Geography","Technology"]
+    var initialArray: [String] = ["philosophy","biology","chemistry","physics","history","mathematics","geography","technology"]
     var imageArray: [String] = ["philosophy.jpg","biology.jpg","chemistry.jpg","physics.jpg","history.jpg","maths.jpg","geography.jpg","technology.jpg"]
     var selectedData = [0,0,0,0,0,0,0,0]
     var interestSelectionArray = [String]()
@@ -52,22 +52,43 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
          //print(skillSelectionArray)
          
          */
-        
-        for(index, element) in selectedData.enumerate() {
-            skillSelectionArray = []
-            if element == 1 {
-                skillSelectionArray.append(initialArray[index]+"-Beginner")
-            } else if element == 2 {
-                skillSelectionArray.append(initialArray[index]+"-Intermediate")
-            } else if element == 3 {
-                skillSelectionArray.append(initialArray[index]+"-Expert")
+        self.skillSelectionArray = []
+        for (index, element) in selectedData.enumerate() {
+            if element == Int(1) {
+                //skillSelectionArray.append(initialArray[index])
+            } else if element == Int(2) {
+                print("loop entered")
+                self.skillSelectionArray.append(initialArray[index])
+            } else if element == Int(3) {
+                self.skillSelectionArray.append(initialArray[index])
+            } else {
             }
         }
-        print(skillSelectionArray)
-        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc: ViewController = storyboard.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
-        vc.interestSelectionArray=interestSelectionArray
-        self.presentViewController(vc, animated: true, completion: nil)
+        print(self.skillSelectionArray)
+        
+        let alert = UIAlertController(title: "Keyword Entry", message: "Please enter keywords related to your interests and skills. Keywords should be all lowercase, and separated only by spaces with no other characters!", preferredStyle: .Alert)
+        
+        alert.addTextFieldWithConfigurationHandler { (textField: UITextField) in
+            textField.placeholder = "Your keywords..."
+        }
+        
+        alert.addAction(UIAlertAction(title: "Send", style: .Default, handler: { (action: UIAlertAction) in
+            let textField = alert.textFields?.first
+            
+            if textField?.text != "" {
+                var myStringArr = textField?.text!.componentsSeparatedByString(" ")
+                let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let nvc: UINavigationController = storyboard.instantiateViewControllerWithIdentifier("NavigationController") as! UINavigationController
+                (nvc.viewControllers.first as! ViewController).interestSelectionArray=self.interestSelectionArray+myStringArr!
+                (nvc.viewControllers.first as! ViewController).skillSelectionArray=self.skillSelectionArray
+                self.presentViewController(nvc, animated: true, completion: nil)
+            }
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     
