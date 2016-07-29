@@ -41,21 +41,21 @@ class ExampleOverlayView: OverlayView {
             switch overlayState {
             case .Left :
                 if leadingConstraint == nil {
-                leadingConstraint = extraOverlayImageView.leadingAnchor.constraintEqualToAnchor(self.leadingAnchor, constant: 50)
+                    leadingConstraint = extraOverlayImageView.leadingAnchor.constraintEqualToAnchor(self.leadingAnchor, constant: 20)
                 }
                 leadingConstraint!.active = false
                 if trailingConstraint == nil {
-                trailingConstraint = self.trailingAnchor.constraintEqualToAnchor(extraOverlayImageView.trailingAnchor, constant: 50)
+                    trailingConstraint = self.trailingAnchor.constraintEqualToAnchor(extraOverlayImageView.trailingAnchor, constant: 20)
                 }
                 trailingConstraint!.active = true
                 extraOverlayImageView.image = UIImage(named: overlayLeftImageName)
             case .Right :
                 if trailingConstraint == nil {
-                trailingConstraint = self.trailingAnchor.constraintEqualToAnchor(extraOverlayImageView.trailingAnchor, constant: 50)
+                    trailingConstraint = self.trailingAnchor.constraintEqualToAnchor(extraOverlayImageView.trailingAnchor, constant: 20)
                 }
                 trailingConstraint!.active = false
                 if leadingConstraint == nil {
-                leadingConstraint = extraOverlayImageView.leadingAnchor.constraintEqualToAnchor(self.leadingAnchor, constant: 50)
+                    leadingConstraint = extraOverlayImageView.leadingAnchor.constraintEqualToAnchor(self.leadingAnchor, constant: 20)
                 }
                 leadingConstraint!.active = true
                 extraOverlayImageView.image = UIImage(named: overlayRightImageName)
