@@ -165,14 +165,18 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
                                                          owner: self, options: nil)[0] as? ExampleOverlayView
         
         if (self.kolodaView.viewForCardAtIndex(self.kolodaView.currentCardNumber) != UIView(frame: self.kolodaView.frame) && self.kolodaView.delegate != nil && self.done==1 && self.kolodaView.countOfVisibleCards != 0 && self.kolodaView.visibleCards != []) {
-        
-        let image = (self.kolodaView.viewForCardAtIndex(self.kolodaView.currentCardNumber) as! Thumbnail).iv.image
-        
-        overlay?.overlayImageView.image = image
+            
+            let image = (self.kolodaView.viewForCardAtIndex(self.kolodaView.currentCardNumber) as! Thumbnail).iv.image
+            
+            overlay?.overlayImageView.image = image
         }
         
         return overlay
- 
+        
+    }
+    
+    func koloda(kolodaShouldTransparentizeNextCard koloda: KolodaView) -> Bool {
+        return false
     }
     
     func koloda(kolodaDidRunOutOfCards koloda: KolodaView) {

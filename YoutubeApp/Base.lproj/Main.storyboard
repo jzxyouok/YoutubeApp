@@ -331,7 +331,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="Dx5-xH-q70" customClass="KolodaView" customModule="Koloda">
                                 <rect key="frame" x="125" y="125" width="350" height="350"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Dx5-xH-q70" secondAttribute="height" multiplier="175:175" id="4EZ-io-rjD"/>
                                     <constraint firstAttribute="height" constant="350" id="eAb-d2-wNL"/>
