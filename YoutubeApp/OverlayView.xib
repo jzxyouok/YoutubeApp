@@ -16,7 +16,7 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gSY-6j-tp7">
-                    <rect key="frame" x="-4" y="50" width="180" height="180"/>
+                    <rect key="frame" x="0.0" y="50" width="180" height="180"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -24,10 +24,10 @@
                 <constraint firstItem="PPr-LY-5qH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="2JQ-G9-ZKv"/>
                 <constraint firstAttribute="bottom" secondItem="PPr-LY-5qH" secondAttribute="bottom" id="Dct-nl-WNr"/>
                 <constraint firstAttribute="trailing" secondItem="PPr-LY-5qH" secondAttribute="trailing" id="Hba-6M-nuJ"/>
-                <constraint firstItem="gSY-6j-tp7" firstAttribute="height" secondItem="PPr-LY-5qH" secondAttribute="height" multiplier="0.3" id="QvI-0i-0WB"/>
+                <constraint firstItem="gSY-6j-tp7" firstAttribute="height" secondItem="PPr-LY-5qH" secondAttribute="height" multiplier="0.25" id="QvI-0i-0WB"/>
                 <constraint firstItem="gSY-6j-tp7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="njR-FQ-UB8"/>
                 <constraint firstItem="PPr-LY-5qH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="qfU-pI-hQi"/>
-                <constraint firstItem="gSY-6j-tp7" firstAttribute="width" secondItem="PPr-LY-5qH" secondAttribute="width" multiplier="0.3" id="u6u-3I-XXo"/>
+                <constraint firstItem="gSY-6j-tp7" firstAttribute="width" secondItem="PPr-LY-5qH" secondAttribute="width" multiplier="0.25" id="u6u-3I-XXo"/>
             </constraints>
             <connections>
                 <outlet property="extraOverlayImageView" destination="gSY-6j-tp7" id="GqE-3A-Xym"/>
