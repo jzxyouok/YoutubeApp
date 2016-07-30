@@ -38,6 +38,14 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         //Fire off request to get videos
         self.model.delegate = self
         
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        if userDefaults.objectForKey("InterestsArray") as? [String] == nil && userDefaults.objectForKey("SkillsArray") as? String == nil {
+            userDefaults.setObject(self.interestSelectionArray, forKey: "InterestsArray")
+            userDefaults.setObject(self.skillSelectionArray, forKey: "SkillsArray")
+        } else if userDefaults.objectForKey("InterestsArray") as? [String] != nil && userDefaults.objectForKey("SkillsArray") as? String != nil{
+            self.interestSelectionArray=userDefaults.objectForKey("InterestsArray") as! [String]
+            self.skillSelectionArray=userDefaults.objectForKey("SkillsArray") as! [String]
+        }
         self.model.generateKeywords(interestSelectionArray) { data in
             self.searchWords+=data
             print(self.searchWords)

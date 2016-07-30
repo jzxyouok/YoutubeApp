@@ -79,6 +79,70 @@
             </objects>
             <point key="canvasLocation" x="1573" y="-391"/>
         </scene>
+        <!--KeywordVC-->
+        <scene sceneID="ehV-H3-v9q">
+            <objects>
+                <viewController id="yeq-fj-wpC" customClass="KeywordVC" customModule="YoutubeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vUL-WO-nD5"/>
+                        <viewControllerLayoutGuide type="bottom" id="sDx-1N-aQL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bg4-qJ-vTy">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wj7-Sh-pXf">
+                                <rect key="frame" x="0.0" y="64" width="600" height="47"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter interest or skill related keywords:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhd-o8-EHZ">
+                                        <rect key="frame" x="75" y="10" width="450" height="26"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.75" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="vhd-o8-EHZ" firstAttribute="centerX" secondItem="Wj7-Sh-pXf" secondAttribute="centerX" id="6zZ-0K-yNp"/>
+                                    <constraint firstItem="vhd-o8-EHZ" firstAttribute="centerY" secondItem="Wj7-Sh-pXf" secondAttribute="centerY" id="PDD-5m-Xgf"/>
+                                    <constraint firstAttribute="height" constant="47" id="laA-FI-4mz"/>
+                                </constraints>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kMr-In-Sva">
+                                <rect key="frame" x="0.0" y="111" width="600" height="445"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="kMr-In-Sva" secondAttribute="trailing" id="0Ps-aO-1uz"/>
+                            <constraint firstItem="Wj7-Sh-pXf" firstAttribute="top" secondItem="vUL-WO-nD5" secondAttribute="bottom" id="3BM-J2-KNK"/>
+                            <constraint firstItem="kMr-In-Sva" firstAttribute="top" secondItem="Wj7-Sh-pXf" secondAttribute="bottom" id="QKQ-Is-Lh6"/>
+                            <constraint firstItem="sDx-1N-aQL" firstAttribute="top" secondItem="kMr-In-Sva" secondAttribute="bottom" id="i1o-LW-W9r"/>
+                            <constraint firstItem="kMr-In-Sva" firstAttribute="leading" secondItem="bg4-qJ-vTy" secondAttribute="leading" id="ooY-NT-f96"/>
+                            <constraint firstItem="Wj7-Sh-pXf" firstAttribute="leading" secondItem="bg4-qJ-vTy" secondAttribute="leading" id="rKQ-db-zDo"/>
+                            <constraint firstAttribute="trailing" secondItem="Wj7-Sh-pXf" secondAttribute="trailing" id="s0w-85-GRO"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="GNU-KK-tHO">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="Bw1-fH-ei3">
+                            <connections>
+                                <action selector="nextButtonClicked:" destination="yeq-fj-wpC" id="FSF-va-kVT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="textView" destination="kMr-In-Sva" id="zox-pI-LlS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Aq-Gb-939" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1552" y="304"/>
+        </scene>
         <!--Interests View Controller-->
         <scene sceneID="2wo-cf-qs3">
             <objects>
@@ -435,22 +499,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qcD-cK-CbY">
-                                <rect key="frame" x="0.0" y="64" width="600" height="47"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select all your skills:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1k2-b9-hHv">
-                                        <rect key="frame" x="166" y="10" width="268" height="26"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.75" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="1k2-b9-hHv" firstAttribute="centerY" secondItem="qcD-cK-CbY" secondAttribute="centerY" id="eYB-MS-4Ik"/>
-                                    <constraint firstItem="1k2-b9-hHv" firstAttribute="centerX" secondItem="qcD-cK-CbY" secondAttribute="centerX" id="gRi-gG-kGa"/>
-                                </constraints>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1Ke-sf-26u">
                                 <rect key="frame" x="20" y="111" width="560" height="489"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1289,6 +1337,22 @@
                                     <constraint firstItem="rud-IG-TQw" firstAttribute="top" secondItem="SdD-Cw-RPa" secondAttribute="top" id="xIA-kJ-2pE"/>
                                 </constraints>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qcD-cK-CbY">
+                                <rect key="frame" x="0.0" y="64" width="600" height="47"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select all your skills:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1k2-b9-hHv">
+                                        <rect key="frame" x="166" y="10" width="268" height="26"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.75" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="1k2-b9-hHv" firstAttribute="centerY" secondItem="qcD-cK-CbY" secondAttribute="centerY" id="eYB-MS-4Ik"/>
+                                    <constraint firstItem="1k2-b9-hHv" firstAttribute="centerX" secondItem="qcD-cK-CbY" secondAttribute="centerX" id="gRi-gG-kGa"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1323,6 +1387,7 @@
                                 <state key="normal" title="Next"/>
                                 <connections>
                                     <action selector="nextButtonClicked:" destination="9HB-Tt-MgF" eventType="touchUpInside" id="rZM-hI-9Gc"/>
+                                    <segue destination="yeq-fj-wpC" kind="show" identifier="showKeyword" id="H7d-YN-rJj"/>
                                 </connections>
                             </button>
                         </barButtonItem>

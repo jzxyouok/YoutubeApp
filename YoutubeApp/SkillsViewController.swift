@@ -22,73 +22,44 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var counter: Int = 0
     
     @IBAction func nextButtonClicked(sender: AnyObject) {
-        /*
-         numbersArray = []
-         numbersArray2 = []
-         skillSelectionArray = []
-         
-         for swich in self.switchCollection2 {
-         if swich.on {
-         numbersArray.append(swich.tag % 8)
-         numbersArray2.append(swich.tag)
-         }
-         }
-         
-         for element in numbersArray2 {
-         let index = element % 8
-         if ((element - (element % 8))/8==0) {
-         skillSelectionArray.append(initialArray[index]+"-Beginner")
-         counter += 1
-         }
-         if ((element - (element % 8))/8==1) {
-         skillSelectionArray.append(initialArray[index]+"-Intermediate")
-         counter += 1
-         }
-         if ((element - (element % 8))/8==2) {
-         skillSelectionArray.append(initialArray[index]+"-Expert")
-         counter += 1
-         }
-         }
-         //print(skillSelectionArray)
-         
-         */
+        
         self.skillSelectionArray = []
         for (index, element) in selectedData.enumerate() {
             if element == Int(1) {
                 //skillSelectionArray.append(initialArray[index])
             } else if element == Int(2) {
-                print("loop entered")
                 self.skillSelectionArray.append(initialArray[index])
             } else if element == Int(3) {
                 self.skillSelectionArray.append(initialArray[index])
             } else {
             }
         }
-        print(self.skillSelectionArray)
         
-        let alert = UIAlertController(title: "Keyword Entry", message: "Please enter keywords related to your interests and skills. Keywords should be all lowercase, and separated only by spaces with no other characters!", preferredStyle: .Alert)
-        
-        alert.addTextFieldWithConfigurationHandler { (textField: UITextField) in
-            textField.placeholder = "Your keywords..."
-        }
-        
-        alert.addAction(UIAlertAction(title: "Send", style: .Default, handler: { (action: UIAlertAction) in
-            let textField = alert.textFields?.first
-            
-            if textField?.text != "" {
-                var myStringArr = textField?.text!.componentsSeparatedByString(" ")
-                let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let nvc: UINavigationController = storyboard.instantiateViewControllerWithIdentifier("NavigationController") as! UINavigationController
-                (nvc.viewControllers.first as! ViewController).interestSelectionArray=self.interestSelectionArray+myStringArr!
-                (nvc.viewControllers.first as! ViewController).skillSelectionArray=self.skillSelectionArray
-                self.presentViewController(nvc, animated: true, completion: nil)
-            }
-            
-        }))
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-        
-        self.presentViewController(alert, animated: true, completion: nil)
+        /*
+         let alert = UIAlertController(title: "Keyword Entry", message: "Please enter keywords related to your interests and skills. Keywords should be all lowercase, and separated only by spaces with no other characters!", preferredStyle: .Alert)
+         
+         alert.addTextFieldWithConfigurationHandler { (textField: UITextField) in
+         textField.placeholder = "Your keywords..."
+         }
+         
+         alert.addAction(UIAlertAction(title: "Send", style: .Default, handler: { (action: UIAlertAction) in
+         let textField = alert.textFields?.first
+         
+         if textField?.text != "" {
+         var myStringArr = textField?.text!.componentsSeparatedByString(" ")
+         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+         let nvc: UINavigationController = storyboard.instantiateViewControllerWithIdentifier("NavigationController") as! UINavigationController
+         (nvc.viewControllers.first as! ViewController).interestSelectionArray=self.interestSelectionArray+myStringArr!
+         (nvc.viewControllers.first as! ViewController).skillSelectionArray=self.skillSelectionArray
+         self.presentViewController(nvc, animated: true, completion: nil)
+         }
+         
+         }))
+         
+         alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+         
+         self.presentViewController(alert, animated: true, completion: nil)
+         */
     }
     
     
@@ -103,7 +74,8 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let title = initialArray[section]
+        let string = initialArray[section]
+        let title = string.capitalizedString
         
         // Dequeue with the reuse identifier
         let cell = self.tableView.dequeueReusableHeaderFooterViewWithIdentifier("TableSectionHeader")
@@ -161,7 +133,8 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destViewController: ViewController = segue.destinationViewController as! ViewController
-        destViewController.interestSelectionArray = interestSelectionArray
+        let destViewController: KeywordVC = segue.destinationViewController as! KeywordVC
+        destViewController.interestSelectionArray = self.interestSelectionArray
+        destViewController.skillSelectionArray=self.skillSelectionArray
     }
 }
