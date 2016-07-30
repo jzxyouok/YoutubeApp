@@ -42,11 +42,11 @@ class SignInViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDele
         else {
             let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let userDefaults = NSUserDefaults.standardUserDefaults()
-            if userDefaults.objectForKey("InterestsArray") as? [String] == nil && userDefaults.objectForKey("SkillsArray") as? String == nil {
+            if userDefaults.objectForKey("InterestsArray") as? [String] == nil && userDefaults.objectForKey("SkillsArray") as? [String] == nil {
                 let vc : InterestsViewController = storyboard.instantiateViewControllerWithIdentifier("InterestsViewController") as! InterestsViewController
                 contentViewController = UINavigationController(rootViewController: vc)
                 self.presentViewController(contentViewController, animated: true, completion: nil)
-            } else if userDefaults.objectForKey("InterestsArray") as? [String] != nil && userDefaults.objectForKey("SkillsArray") as? String != nil {
+            } else if userDefaults.objectForKey("InterestsArray") as? [String] != nil && userDefaults.objectForKey("SkillsArray") as? [String] != nil {
                 let nvc: UINavigationController = storyboard.instantiateViewControllerWithIdentifier("NavigationController") as! UINavigationController
                 self.presentViewController(nvc, animated: true, completion: nil)
             }

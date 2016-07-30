@@ -20,13 +20,16 @@ class KeywordVC: UIViewController, UITextViewDelegate {
     @IBAction func nextButtonClicked(sender: UIBarButtonItem) {
         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let nvc: UINavigationController = storyboard.instantiateViewControllerWithIdentifier("NavigationController") as! UINavigationController
-        let textRange = textView.textRangeFromPosition(textView.beginningOfDocument, toPosition: textView.endOfDocument)
-        let start = textRange?.start
-        let end = textRange?.end
-        let location: NSInteger = textView.offsetFromPosition(start!, toPosition:start!)
-        let length: NSInteger = textView.offsetFromPosition(start!, toPosition:end!)
-        let range: Range<String.Index> = textView.text.Range(NSMakeRange(location, length))!
-        print(range)
+        let start =  textView.text.startIndex
+        let end = textView.text.endIndex
+        print(start)
+        print(end)
+        var range: Range<String.Index> = Range<String.Index>(start..<end)
+        while range.startIndex != end {
+            keywords.append(textView.text.collectWord(&range))
+            while textView.text.skipWhitespace(&range) {
+            }
+        }
         (nvc.viewControllers.first as! ViewController).interestSelectionArray=self.interestSelectionArray+keywords
         (nvc.viewControllers.first as! ViewController).skillSelectionArray=self.skillSelectionArray
         self.presentViewController(nvc, animated: true, completion: nil)

@@ -39,16 +39,16 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         self.model.delegate = self
         
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        if userDefaults.objectForKey("InterestsArray") as? [String] == nil && userDefaults.objectForKey("SkillsArray") as? String == nil {
+        if userDefaults.objectForKey("InterestsArray") as? [String] == nil && userDefaults.objectForKey("SkillsArray") as? [String] == nil {
             userDefaults.setObject(self.interestSelectionArray, forKey: "InterestsArray")
             userDefaults.setObject(self.skillSelectionArray, forKey: "SkillsArray")
-        } else if userDefaults.objectForKey("InterestsArray") as? [String] != nil && userDefaults.objectForKey("SkillsArray") as? String != nil{
+        } else if userDefaults.objectForKey("InterestsArray") as? [String] != nil && userDefaults.objectForKey("SkillsArray") as? [String] != nil{
             self.interestSelectionArray=userDefaults.objectForKey("InterestsArray") as! [String]
             self.skillSelectionArray=userDefaults.objectForKey("SkillsArray") as! [String]
         }
+        print(interestSelectionArray)
         self.model.generateKeywords(interestSelectionArray) { data in
             self.searchWords+=data
-            print(self.searchWords)
             self.model.getFeedVideos(self.interestSelectionArray, keywordArray: self.searchWords) { data in
                 //Notify the delegate that the data is ready
                 
