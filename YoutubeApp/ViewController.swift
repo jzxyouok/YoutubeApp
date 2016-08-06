@@ -15,11 +15,13 @@ import pop
 
 class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate, VideoModelDelegate {
     
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var kolodaView: KolodaView!
     
     var videos:[Video]=[Video]()
     var videoCache:[Video]=[Video]()
+    var selectedVideos=[Video]()
     var selectedVideo:Video?
     let model:VideoModel = VideoModel()
     var searchWords: [String] = []
@@ -30,6 +32,7 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     var counter: Int = 0
     var value: Int = 0
     var numberOfCards: UInt = 3
+    var data: NSData = NSData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,8 +118,8 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         }
     }
     
-    func kolodaShouldApplyAppearAnimation(koloda: KolodaView) -> Bool {
-        return false
+    func koloda(kolodaShouldApplyAppearAnimation koloda: KolodaView) -> Bool {
+        return self.kolodaView.currentCardNumber==0
     }
     
     func koloda(koloda: KolodaView, viewForCardAtIndex index: UInt) -> UIView {
@@ -165,6 +168,25 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     
     func koloda(kolodaNumberOfCards koloda:KolodaView) -> UInt {
         return self.numberOfCards
+    }
+    
+    func koloda(koloda: KolodaView, didSwipedCardAtIndex index: UInt, inDirection direction: SwipeResultDirection) {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        if userDefaults.objectForKey("SelectedVideos") as? NSData != nil {
+            self.data=(userDefaults.objectForKey("SelectedVideos") as? NSData)!
+            VideoStatus.selectedVideos=NSKeyedUnarchiver.unarchiveObjectWithData(self.data) as! [Video]
+            self.selectedVideos=VideoStatus.selectedVideos
+        }
+        if direction == .Right {
+            if !self.selectedVideos.contains(videos[Int(index)+self.value]) {
+                self.selectedVideos.append(videos[Int(index)+self.value])
+            }
+        }
+        VideoStatus.selectedVideos=self.selectedVideos
+        print(VideoStatus.selectedVideos)
+        self.data = NSKeyedArchiver.archivedDataWithRootObject(VideoStatus.selectedVideos)
+        userDefaults.setObject(self.data, forKey: "SelectedVideos")
+        
     }
     
     func koloda(koloda: KolodaView, viewForCardOverlayAtIndex index: UInt) -> OverlayView? {

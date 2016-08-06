@@ -10,6 +10,10 @@ import UIKit
 import ObjectMapper
 import AlamofireObjectMapper
 
+class VideoStatus: NSObject {
+    static var selectedVideos = [Video]()
+}
+
 class SkillsVideoResponse: NSObject, Mappable {
     
     var videos: [Video] = []
@@ -39,13 +43,27 @@ class VideoResponse: NSObject, Mappable {
     
 }
 
-class Video: NSObject, Mappable {
+class Video: NSObject, NSCoding, Mappable {
     
     var videoId: String?
     var snippet: Snippet?
     
+    override init() {}
+    
     convenience required init?(_ map: Map){
         self.init()
+        mapping(map)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        
+        self.videoId = aDecoder.decodeObjectForKey("videoId") as? String
+        self.snippet = aDecoder.decodeObjectForKey("snippet") as? Snippet
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(self.videoId, forKey: "videoId")
+        aCoder.encodeObject(self.snippet, forKey: "snippet")
     }
     
     func mapping(map: Map) {
@@ -58,19 +76,35 @@ class Video: NSObject, Mappable {
     
 }
 
-class Snippet: Mappable {
+class Snippet: NSObject, NSCoding, Mappable {
     
     var title: String?
-    var description: String?
+    var descriptionn: String?
     var thumbnailUrlString: String?
+    
+    override init() {}
     
     convenience required init?(_ map: Map){
         self.init()
+        mapping(map)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        
+        self.title = aDecoder.decodeObjectForKey("title") as? String
+        self.descriptionn = aDecoder.decodeObjectForKey("description") as? String
+        self.thumbnailUrlString = aDecoder.decodeObjectForKey("thumbnailUrlString") as? String
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(self.title, forKey: "title")
+        aCoder.encodeObject(self.descriptionn, forKey: "description")
+        aCoder.encodeObject(self.thumbnailUrlString, forKey: "thumbnailUrlString")
     }
     
     func mapping(map: Map) {
         title <- map["title"]
-        description <- map["description"]
+        descriptionn <- map["description"]
         thumbnailUrlString <- map["thumbnails.default.url"]
     }
     

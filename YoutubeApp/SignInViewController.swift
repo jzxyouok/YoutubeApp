@@ -47,8 +47,8 @@ class SignInViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDele
                 contentViewController = UINavigationController(rootViewController: vc)
                 self.presentViewController(contentViewController, animated: true, completion: nil)
             } else if userDefaults.objectForKey("InterestsArray") as? [String] != nil && userDefaults.objectForKey("SkillsArray") as? [String] != nil {
-                let nvc: UINavigationController = storyboard.instantiateViewControllerWithIdentifier("NavigationController") as! UINavigationController
-                self.presentViewController(nvc, animated: true, completion: nil)
+                let tbc: UITabBarController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
+                self.presentViewController(tbc, animated: true, completion: nil)
             }
         }
     }

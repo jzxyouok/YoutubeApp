@@ -24,6 +24,7 @@ class KeywordVC: UIViewController, UITextViewDelegate {
         let end = textView.text.endIndex
         print(start)
         print(end)
+        textView.text=textView.text.lowercaseString
         var range: Range<String.Index> = Range<String.Index>(start..<end)
         while range.startIndex != end {
             keywords.append(textView.text.collectWord(&range))
