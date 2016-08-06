@@ -27,7 +27,7 @@ class SavedVideosViewController: UITableViewController {
     
     @IBAction func syncButtonPressed(sender: UIBarButtonItem) {
         
-        //The header contains 
+        //The request below is to get an OAuthAccesss token for uploading videos to a personal watch later playlist.
         
         var token = ""
         
