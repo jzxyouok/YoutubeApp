@@ -25,6 +25,7 @@ class SignInViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDele
         
         GIDSignIn.sharedInstance().scopes.append("https://www.googleapis.com/auth/plus.login")
         GIDSignIn.sharedInstance().scopes.append("https://www.googleapis.com/auth/plus.me")
+        GIDSignIn.sharedInstance().scopes.append("https://www.googleapis.com/auth/youtube.upload")
         
         GIDSignIn.sharedInstance().signInSilently()
     }
@@ -40,6 +41,10 @@ class SignInViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDele
             print(error)
         }
         else {
+            if (GIDSignIn.sharedInstance().currentUser != nil) {
+                
+                VideoStatus.authToken = GIDSignIn.sharedInstance().currentUser.authentication.accessToken
+            }
             let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let userDefaults = NSUserDefaults.standardUserDefaults()
             if userDefaults.objectForKey("InterestsArray") as? [String] == nil && userDefaults.objectForKey("SkillsArray") as? [String] == nil {

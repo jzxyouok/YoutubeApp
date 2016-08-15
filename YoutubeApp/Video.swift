@@ -12,6 +12,7 @@ import AlamofireObjectMapper
 
 class VideoStatus: NSObject {
     static var selectedVideos = [Video]()
+    static var authToken = String()
 }
 
 class SkillsVideoResponse: NSObject, Mappable {

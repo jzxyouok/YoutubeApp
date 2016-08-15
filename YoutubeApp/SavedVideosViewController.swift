@@ -29,34 +29,32 @@ class SavedVideosViewController: UITableViewController {
         
         //The request below is to get an OAuthAccesss token for uploading videos to a personal watch later playlist.
         
-        var token = ""
+        /*
         
         Alamofire.request(.GET, "https://accounts.google.com/o/oauth2/auth", parameters: ["client_id": "192877572614-k4ljl168palm9oq5skbgonsagf17t20h.apps.googleusercontent.com", "redirect_uri": "http://localhost/oauth2callback", "scope": "https://www.googleapis.com/auth/youtube.upload", "response_type": "code"], encoding: ParameterEncoding.URL, headers: nil).responseJSON{ (response) -> Void in
             print(response)
             token=String(response)
         }
-        
-        let headers = ["Authorization": "Bearer \(token)"]
-        /*
-         upload(
-         .POST,
-         "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet",
-         headers: headers,
-         multipartFormData: { multipartFormData in
-         multipartFormData.appendBodyPart(data:"{'snippet':{'playlistId' : 'WL', 'resourceId': {'videoId' : 'a7SouU3ECpU', 'kind': 'youtube#video'}, 'position' : 0}}".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"snippet", mimeType: "application/json")
-         },
-         encodingCompletion: { encodingResult in
-         switch encodingResult {
-         case .Success(let upload, _, _):
-         upload.responseJSON { (response: Response<AnyObject, NSError>) in
-         print(response)
-         
-         }
-         case .Failure(_):
-         print("Failed")
-         }
-         })
-         */
+        */
+        let headers = ["Authorization": "Bearer \(VideoStatus.authToken)"]
+        upload(
+            .POST,
+            "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet",
+            headers: headers,
+            multipartFormData: { multipartFormData in
+                multipartFormData.appendBodyPart(data:"{'snippet':{'playlistId' : 'WL', 'resourceId': {'videoId' : 'a7SouU3ECpU', 'kind': 'youtube#video'}, 'position' : 0}}".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"snippet", mimeType: "application/json")
+            },
+            encodingCompletion: { encodingResult in
+                switch encodingResult {
+                case .Success(let upload, _, _):
+                    upload.responseJSON { (response: Response<AnyObject, NSError>) in
+                        print(response)
+                        
+                    }
+                case .Failure(_):
+                    print("Failed")
+                }
+        })
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
