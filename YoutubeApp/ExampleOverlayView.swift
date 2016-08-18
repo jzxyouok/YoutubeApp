@@ -12,7 +12,7 @@ import Koloda
 private let overlayRightImageName = "overlay_like"
 private let overlayLeftImageName = "overlay_skip"
 
-
+//test
 
 class ExampleOverlayView: OverlayView {
     @IBOutlet lazy var overlayImageView: UIImageView! = {

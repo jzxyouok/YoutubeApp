@@ -5,6 +5,7 @@
 //  Created by Pranav Kasetti on 06/08/2016.
 //  Copyright © 2016 Pranav Kasetti. All rights reserved.
 //
+//test
 
 import UIKit
 import Alamofire
@@ -30,12 +31,12 @@ class SavedVideosViewController: UITableViewController {
         //The request below is to get an OAuthAccesss token for uploading videos to a personal watch later playlist.
         
         /*
-        
-        Alamofire.request(.GET, "https://accounts.google.com/o/oauth2/auth", parameters: ["client_id": "192877572614-k4ljl168palm9oq5skbgonsagf17t20h.apps.googleusercontent.com", "redirect_uri": "http://localhost/oauth2callback", "scope": "https://www.googleapis.com/auth/youtube.upload", "response_type": "code"], encoding: ParameterEncoding.URL, headers: nil).responseJSON{ (response) -> Void in
-            print(response)
-            token=String(response)
-        }
-        */
+         
+         Alamofire.request(.GET, "https://accounts.google.com/o/oauth2/auth", parameters: ["client_id": "192877572614-k4ljl168palm9oq5skbgonsagf17t20h.apps.googleusercontent.com", "redirect_uri": "http://localhost/oauth2callback", "scope": "https://www.googleapis.com/auth/youtube.upload", "response_type": "code"], encoding: ParameterEncoding.URL, headers: nil).responseJSON{ (response) -> Void in
+         print(response)
+         token=String(response)
+         }
+         */
         let headers = ["Authorization": "Bearer \(VideoStatus.authToken)"]
         upload(
             .POST,
