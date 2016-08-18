@@ -27,6 +27,8 @@
 		4E72B8611C58230B004592E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E72B85F1C58230B004592E7 /* LaunchScreen.storyboard */; };
 		4E76B2AC1D55DF2C00223078 /* SavedVideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E76B2AB1D55DF2C00223078 /* SavedVideosViewController.swift */; };
 		4E856F4E1D4D403C00BED6D7 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E856F4D1D4D403C00BED6D7 /* NavigationController.swift */; };
+		4E86BFEF1D61EEBE004EC44D /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E86BFEE1D61EEBE004EC44D /* WebView.swift */; };
+		4E86BFF11D61F178004EC44D /* OAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E86BFF01D61F178004EC44D /* OAuthController.swift */; };
 		4E88FF601C6B97DC00736678 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E88FF5F1C6B97DC00736678 /* Video.swift */; };
 		4E88FF621C6B993400736678 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E88FF611C6B993400736678 /* VideoModel.swift */; };
 		4E88FF641C6BDBF100736678 /* VideoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E88FF631C6BDBF000736678 /* VideoDetailViewController.swift */; };
@@ -66,6 +68,8 @@
 		4E72B8621C58230B004592E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E76B2AB1D55DF2C00223078 /* SavedVideosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedVideosViewController.swift; sourceTree = "<group>"; };
 		4E856F4D1D4D403C00BED6D7 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		4E86BFEE1D61EEBE004EC44D /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		4E86BFF01D61F178004EC44D /* OAuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthController.swift; sourceTree = "<group>"; };
 		4E88FF5F1C6B97DC00736678 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		4E88FF611C6B993400736678 /* VideoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
 		4E88FF631C6BDBF000736678 /* VideoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoDetailViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +155,7 @@
 				4E2999C71C6E613F00563520 /* InterestsViewController.swift */,
 				4E1B380A1CF0FA3400568FB9 /* ExampleOverlayView.swift */,
 				4E1B380C1CF0FA8700568FB9 /* OverlayView.xib */,
+				4E86BFEE1D61EEBE004EC44D /* WebView.swift */,
 				4EEC41191C7B90BA0085FD59 /* SkillsViewController.swift */,
 				4E1C99CB1D3D12720009F799 /* TableSectionHeader.swift */,
 				4E1C99CD1D3D12C60009F799 /* TableSectionHeader.xib */,
@@ -166,6 +171,7 @@
 				4E856F4D1D4D403C00BED6D7 /* NavigationController.swift */,
 				4E676A651D228900007158ED /* InterestView.swift */,
 				4E12E21C1D21A52300F44DB9 /* SignInViewController.swift */,
+				4E86BFF01D61F178004EC44D /* OAuthController.swift */,
 				4E72B85D1C58230B004592E7 /* Assets.xcassets */,
 				4E12E2201D21A86E00F44DB9 /* Supporting Files */,
 				4E12E2241D2272F200F44DB9 /* images */,
@@ -321,9 +327,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E72B8591C58230B004592E7 /* ViewController.swift in Sources */,
+				4E86BFEF1D61EEBE004EC44D /* WebView.swift in Sources */,
 				4E76B2AC1D55DF2C00223078 /* SavedVideosViewController.swift in Sources */,
 				4E1C99CC1D3D12720009F799 /* TableSectionHeader.swift in Sources */,
 				4E88FF601C6B97DC00736678 /* Video.swift in Sources */,
+				4E86BFF11D61F178004EC44D /* OAuthController.swift in Sources */,
 				4E676A661D228900007158ED /* InterestView.swift in Sources */,
 				4E72B8571C58230B004592E7 /* AppDelegate.swift in Sources */,
 				4E856F4E1D4D403C00BED6D7 /* NavigationController.swift in Sources */,

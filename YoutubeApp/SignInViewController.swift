@@ -25,7 +25,6 @@ class SignInViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDele
         
         GIDSignIn.sharedInstance().scopes.append("https://www.googleapis.com/auth/plus.login")
         GIDSignIn.sharedInstance().scopes.append("https://www.googleapis.com/auth/plus.me")
-        GIDSignIn.sharedInstance().scopes.append("https://www.googleapis.com/auth/youtube.upload")
         
         GIDSignIn.sharedInstance().signInSilently()
     }
@@ -45,16 +44,19 @@ class SignInViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDele
                 
                 VideoStatus.authToken = GIDSignIn.sharedInstance().currentUser.authentication.accessToken
             }
-            let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let userDefaults = NSUserDefaults.standardUserDefaults()
-            if userDefaults.objectForKey("InterestsArray") as? [String] == nil && userDefaults.objectForKey("SkillsArray") as? [String] == nil {
-                let vc : InterestsViewController = storyboard.instantiateViewControllerWithIdentifier("InterestsViewController") as! InterestsViewController
-                contentViewController = UINavigationController(rootViewController: vc)
-                self.presentViewController(contentViewController, animated: true, completion: nil)
-            } else if userDefaults.objectForKey("InterestsArray") as? [String] != nil && userDefaults.objectForKey("SkillsArray") as? [String] != nil {
-                let tbc: UITabBarController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
-                self.presentViewController(tbc, animated: true, completion: nil)
-            }
+            self.presentViewController(OAuthController(), animated: true, completion: nil)
+            /*
+             let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+             let userDefaults = NSUserDefaults.standardUserDefaults()
+             if userDefaults.objectForKey("InterestsArray") as? [String] == nil && userDefaults.objectForKey("SkillsArray") as? [String] == nil {
+             let vc : InterestsViewController = storyboard.instantiateViewControllerWithIdentifier("InterestsViewController") as! InterestsViewController
+             contentViewController = UINavigationController(rootViewController: vc)
+             self.presentViewController(contentViewController, animated: true, completion: nil)
+             } else if userDefaults.objectForKey("InterestsArray") as? [String] != nil && userDefaults.objectForKey("SkillsArray") as? [String] != nil {
+             let tbc: UITabBarController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
+             self.presentViewController(tbc, animated: true, completion: nil)
+             }
+             */
         }
     }
     
@@ -74,4 +76,3 @@ class SignInViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDele
     
     
 }
-
