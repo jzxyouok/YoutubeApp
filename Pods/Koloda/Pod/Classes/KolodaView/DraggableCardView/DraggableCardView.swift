@@ -207,7 +207,7 @@ public class DraggableCardView: UIView {
             let rotationAngle = animationDirection * defaultRotationAngle * rotationStrength
             let scaleStrength = 1 - ((1 - scaleMin) * fabs(rotationStrength))
             let scale = max(scaleStrength, scaleMin)
-    
+            
             var transform = CATransform3DIdentity
             transform = CATransform3DScale(transform, scale, scale, 1)
             transform = CATransform3DRotate(transform, rotationAngle, 0, 0, 1)
@@ -242,7 +242,7 @@ public class DraggableCardView: UIView {
             overlayView.overlayState = percent > 0.0 ? OverlayMode.Right : OverlayMode.Left
             //Overlay is fully visible on half way
             let overlayStrength = min(fabs(2 * percent), 1.0)
-            overlayView.alpha = overlayStrength
+            overlayView.alpha = 1
         }
     }
     

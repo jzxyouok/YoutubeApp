@@ -8,188 +8,211 @@
 
 import UIKit
 import Alamofire
-import Kanna
 import Foundation
+import AlamofireObjectMapper
+import ObjectMapper
+import GTMOAuth2
+import GoogleAPIClientForREST
 
 protocol VideoModelDelegate {
     func dataReady()
 }
 
 class VideoModel: NSObject {
-
-    let API_KEY = "AIzaSyD0PN3sI5uWai__bJ_Xv-IV83XnSQ15s48"
+    
+    //let API_KEY = "AIzaSyD0PN3sI5uWai__bJ_Xv-IV83XnSQ15s48"
     let UPLOADS_PLAYLIST_ID="PLkhUBDAcva4YFHjhFqyG0hY4E6_wW-7uM"
+    var service = GTLRYouTubeService()
     
     var videoArray = [Video] ()
     var keywordArray = [String] ()
     var keywordArray2 = [String] ()
     var categoryIdArray = [Int] ()
+    var done: Int = 0
+    var queries: [GTLRYouTubeQuery_PlaylistItemsInsert] = []
+    var timer: NSTimer!
+    let query = GTLRYouTubeQuery_VideosList.queryWithPart("snippet")
+    var problems: [String] = ["3D reconstruction","Abrasion","Absorption","Acceleration","Acid rain","Acoustics","Adaptation to global warming","Adhesion","Aeroacoustics","Aeroelasticity","Ageing","Aggression","Agribusiness","Agriculture","Air pollution","Air quality","Alternative energy","Analysis of algorithms","Anticancer treatment","Aquatic ecosystems","Atmospheric correction","Battery recycling","Bifurcation theory","Big data","Biodegradation","Biological dispersal","Biomagnification", "Bird conservation", "Boredom", "Brownout", "Brute-force search", "Bullying", "Bycatch", "Calcification", "Capacity utilization", "Capital punishment", "Carbon capture and storage", "Carbon dioxide scrubbers", "Carbon footprints", "Carbon leakage", "Carbon sinks", "Cheap energy sources", "Chromatic aberration", "Class discrimination", "Clean energy sources", "Cleaning up water", "Climate change", "Climate engineering", "Climate pattern", "Clustering high-dimensional data", "CO2 emissions", "Cohesion", "Colony collapse disorder", "Compression", "Compulsive overeating", "Computer performance", "Computer security", "Computer viruses", "Condensation", "Consumption of edible insects", "Contaminated land", "Convergent evolution", "Corrosion", "CPU power dissipation", "Cyberbullying", "Data corruption", "Data harmonization", "Data loss", "Data maintenance", "DataPortability", "Deforestation", "Demographic transition", "Denaturation", "Density estimation", "Desertification", "Diffraction", "Disarmament", "Disaster recovery", "Discrimination", "Distribution of wealth", "Divergence", "Domestic Fire", "Drought", "Drug tolerance", "Dry rot", "Dryland salinity", "Ecological health", "Ecology", "Economic inequality", "Economic stagnation", "Efficient energy use", "Efficient medical body sensors", "Eigenvalues and eigenvectors", "Electricity delivery", "Electromagnetic fields", "Electromagnetic interference", "Electromotive force", "Emotional insecurity", "encryption algorithms", "Endangered species", "Energy conservation", "Energy development", "Energy efficiency", "Energy poverty", "Energy security", "Energy storage", "Energy supply", "Entropy", "Environmental monitoring", "Environmental protection", "Environmental quality", "Estimation", "Evaporation", "Evolution", "Exponential growth", "Extinction", "Factorization", "Famine", "Fault detection and isolation", "Fermentation in food processing", "Ferromagnetic resonance", "Fertility", "Floods", "Fluid mechanics", "Folate deficiency", "Food contamination", "Food preservation", "Food waste", "forest degradation", "Forest Fire", "Forest fragmentation", "Forest protection", "Fossil fuels", "Fractures", "Fuel cells", "Fuel efficiency", "Genetically modified food", "Global cooling", "Global warming", "Gravitational collapse", "Grazing pressure", "Great Pacific garbage patch", "Greenhouse gas", "Habitat conservation", "Habitat destruction", "Habitat fragmentation", "Harassment", "Hazardous waste", "Homelessness", "Hunger", "Hydrocarbon exploration", "Hygiene", "Impact of building works on nature", "Inertia", "Information privacy", "Landfill", "Landslides", "Large deviations theory", "Latency", "Lattices", "Light pollution", "Link rot", "Litter", "Malware", "Mathematical optimization", "Measuring poverty", "Memory", "Memory corruption", "Mineral deficiency", "Mineral uptake", "Mobile electricity generators", "Monocropping", "Mutation", "Natural resource extraction", "navigation for visually impaired people", "Net neutrality", "Network congestion", "network signals", "Noise", "Noise pollution", "Noise reduction", "Nuclear accidents", "Nuclear meltdown", "Nuclear power", "Nuclear proliferation", "Nuclear technology", "Obsolescence", "Ocean acidification", "Offshore drilling", "Oil depletion", "Oil spills", "Orbital decay", "Orbital inclination", "Overconsumption", "Overfishing", "Overgrazing", "Overheating", "Ozone depletion", "Ozone layer", "Parallel computing", "Partition tables", "Pathfinding", "Pattern matching", "Perishability", "Petroleum free plastic", "Phase transitions", "Phishing", "Photophobia", "Pollution", "Pollution prevention", "Poor posture", "Population ageing", "Post-harvest losses", "Poverty", "Poverty in Africa", "Power outage", "Power transmission", "Predictability", "Producing light without electricity", "Productivity", "Projectile motion", "Proximity effect", "Quantum nonlocality", "Quantum tunnelling", "Randomization", "Rare-earth content in magnets", "Recycling", "Recycling energy to aerate water", "Recyling waste paper", "Reducing water pollutants", "Reflection", "Reionization", "Renewable Energy", "Resource depletion", "Road Safety", "Rolling blackouts", "Rust", "Salinity", "Sanitation", "Scarcity", "Sea level rises", "Sewage disposal", "Sewage treatment", "Signal integrity", "Siltation", "Smog", "Smuggling", "Snakebites", "Software bugs", "Software quality", "Software versioning", "Soil conservation", "Soil contamination", "Soil salinity", "Sound pressure", "Space debris", "Space exploration", "Spaceflight", "Spaghetti code", "Spam", "Spyware", "Starvation", "Statistical inference", "Stopping power", "Storms", "Subsidence", "Subsoil", "Suction", "Suspension", "Sustainability", "Sustainable energy", "Sustainable living", "the Accelerating universe", "the Carbon cycle", "the Digital divide", "the Effects of global warming", "the efficiency of Solar Cells", "the Energy crisis", "the Greenhouse effect", "the Lower Atmosphere", "the Shrinking ice cap", "the Upper Atmosphere", "Thermal breaks", "Torsion", "Traffic", "Traffic bottlenecks", "Traffic Collisions", "Traffic congestion", "Traffic flow", "Traffic jams", "Triangulation", "Tropical rainforest conservation", "Tropospheric ozone", "Turbulence modeling", "Type I and type II errors", "Underwater vehicles", "Urban heat islands", "Van Allen radiation belt", "Vehicle accident safety", "Viscoelasticity", "Vitamin A deficiency", "Vitamin B12 deficiency", "Voter turnout", "Waste management", "Water conservation", "Water distribution on Earth", "Water fluoridation", "Water pollution", "Water quality", "Water reclamation", "Water resources", "Water scarcity", "Water treatment", "Water wastage", "Wave propagation", "Wetland conservation", "Wildlife conservation", "Wildlife corridors", "Wildlife management", "Wind power", "Zero population growth"]
+    var physics: [String] = ["physics","food science","fauna and flora","inventions and innovation","energy and space","earth and environmental studies"]
+    var biology: [String] = ["biology","food science","fauna and flora","inventions and innovation","energy and space","earth and environmental studies"]
+    var chemistry: [String] = ["chemistry","food science","fauna and flora","inventions and innovation","energy and space","earth and environmental studies"]
+    var philosophy: [String] = ["behavioural and social science"]
+    var mathematics: [String] = ["computer science and math","fauna and flora","earth and environmental studies"]
+    var geography: [String] = ["inventions and innovation","energy and space","earth and environmental studies"]
+    var history: [String] = ["energy and space","earth and environmental studies","electricity and electronics","computer science and math","fauna and flora","biology","chemistry","physics","food science"]
+    var technology: [String] = ["electricity and electronics","computer science and math","inventions and innovation","energy and space","earth and environmental studies"]
     
     var delegate:VideoModelDelegate?
     
-    func generateKeywords(keyword: String, completionHandler:(data: [AnyObject]) -> ()) -> () {
+    func generateKeywords(keywordArray: [String], completionHandler:(data: [String]) -> ()) -> () {
         
-        //let myURLString = "https://api.datamuse.com/words"
-        
-        //let myURL = NSURL(string: myURLString)
-        
-        let letters : NSString = "abcdefghijklmnopqrstuvwxyz"
-        
-        var randomString : NSMutableString = NSMutableString(capacity: 1)
-        
-        for (var i=0; i < 1; i += 1){
-            var length = UInt32 (letters.length)
-            var rand = arc4random_uniform(length)
-            randomString.appendFormat("%C", letters.characterAtIndex(Int(rand)))
+        for i in 0..<keywordArray.count {
+            
+            makeKeywordsRequest(keywordArray, i: i, completionHandler: completionHandler)
+            
         }
         
-        Alamofire.request(.GET, "https://api.datamuse.com/words", parameters: ["ml": keyword, "sp": "*"+(randomString as String)], encoding: ParameterEncoding.URL, headers: nil).responseJSON{ (response) -> Void in
+    }
+    
+    func getFeedVideos(interestArray: [String], keywordArray: [String], completionHandler:(data: AnyObject?) -> ()) -> () {
+        
+        //Category Id's: 35 - Documentary, 34 - Comedy, 28 - Science & Technology, 27 - Education, 26 - Howto & Style, 21 - Videoblogging, 2 - Autos & Vehicles,
+        
+        for interest in interestArray {
+            
+            if (interest=="biology" || interest=="chemistry" || interest=="physics") {
+                makeVideosRequest(28, keywordArray: keywordArray, completionHandler: completionHandler)
+            }
+            
+            
+            if (interest=="philosophy" || interest == "mathematics" || interest == "geography") {
+                makeVideosRequest(27, keywordArray: keywordArray, completionHandler: completionHandler)
+            }
+            
+            
+            if (interest=="history") {
+                makeVideosRequest(35, keywordArray: keywordArray, completionHandler: completionHandler)
+            }
+            
+            
+            if (interest=="technology") {
+                makeVideosRequest(26, keywordArray: keywordArray, completionHandler: completionHandler)
+            }
+            
+        }
+    }
+    
+    func makeVideosRequest(categoryId: Int, keywordArray: [String], completionHandler:(data: AnyObject?) -> ()) -> () {
+        Alamofire.request(.GET, "https://www.googleapis.com/youtube/v3/search", parameters: ["part":"snippet","regionCode":"US","q":keywordArray[Int(arc4random_uniform(UInt32(keywordArray.count)))],"maxResults":3,"type":"video","videoDuration":"short","videoCategoryId":categoryId], encoding: ParameterEncoding.URL, headers: nil).responseObject { (response: Response<VideoResponse, NSError>) in
+            let videoResponse = response.result.value
+            if let videos = videoResponse?.videos {
+                for video in videos {
+                    self.videoArray.append(video)
+                }
+                print("InterestsVideos: \(self.videoArray.count)")
+                completionHandler(data: self.videoArray)
+            }
+        }
+    }
+    
+    func getSkillsFeedVideos(skillArray: [String], keywordArray: [String], completionHandler:(data: AnyObject?) -> ()) -> () {
+        for skill in skillArray {
+            switch skill{
+            case "biology":
+                makeSkillsVideosRequest(biology, keywordArray: keywordArray, completionHandler: completionHandler)
+            case "chemistry":
+                makeSkillsVideosRequest(chemistry, keywordArray: keywordArray, completionHandler: completionHandler)
+            case "physics":
+                makeSkillsVideosRequest(physics, keywordArray: keywordArray, completionHandler: completionHandler)
+            case "philosophy":
+                makeSkillsVideosRequest(philosophy, keywordArray: keywordArray, completionHandler: completionHandler)
+            case "mathematics":
+                makeSkillsVideosRequest(mathematics, keywordArray: keywordArray, completionHandler: completionHandler)
+            case "geography":
+                makeSkillsVideosRequest(geography, keywordArray: keywordArray, completionHandler: completionHandler)
+            case "history":
+                makeSkillsVideosRequest(history, keywordArray: keywordArray, completionHandler: completionHandler)
+            case "technology":
+                makeSkillsVideosRequest(technology, keywordArray: keywordArray, completionHandler: completionHandler)
+            default: break
+            }
+            
+        }
+    }
+    
+    func makeSkillsVideosRequest(skillArray: [String], keywordArray: [String], completionHandler:(data: AnyObject?) -> ()) -> () {
+        Alamofire.request(.GET, "https://www.googlesciencefair.com/make-better-generator/api", parameters: ["hl":"en","skill":skillArray[Int(arc4random_uniform(UInt32(skillArray.count)))],"love":keywordArray[Int(arc4random_uniform(UInt32(keywordArray.count)))],"problem":problems[Int(arc4random_uniform(UInt32(problems.count)))]], encoding: ParameterEncoding.URL, headers: nil).responseObject { (response: Response<SkillsVideoResponse, NSError>) in
+            let videoResponse = response.result.value
+            if let videos = videoResponse?.videos {
+                for video in videos {
+                    self.videoArray.append(video)
+                }
+                print("SkillsVideos: \(self.videoArray.count)")
+                completionHandler(data: self.videoArray)
+            }
+        }
+        
+    }
+    
+    func makeKeywordsRequest(keywordArray: [String], i: Int, completionHandler:(data: [String]) -> ()) -> () {
+        
+        let letters : NSString = "abcdefghiklmnoprstuvwxy"
+        let randomString : NSMutableString = NSMutableString(capacity: 1)
+        let length = UInt32 (letters.length)
+        let rand = arc4random_uniform(length)
+        randomString.appendFormat("%C", letters.characterAtIndex(Int(rand)))
+        
+        Alamofire.request(.GET, "https://api.datamuse.com/words", parameters: ["ml": keywordArray[i], "sp": "*"+(randomString as String)], encoding: ParameterEncoding.URL, headers: nil).responseJSON{ (response) -> Void in
             if let JSON = response.result.value as? [AnyObject] {
-                completionHandler(data: JSON)
+                for word in JSON {
+                    self.keywordArray2.append(word.valueForKeyPath("word") as! String)
+                }
+                if self.keywordArray2.count < 10 {
+                    self.makeKeywordsRequest(keywordArray, i: i, completionHandler: completionHandler)
+                } else {
+                    completionHandler(data: self.keywordArray2)
+                }
             } else {
                 if let error = response.result.error {
                     print (error)
                 }
             }
         }
-        
-        
-        /*
-        do {
-            let myHTMLString = try NSString(contentsOfURL: myURL!, encoding: NSUTF8StringEncoding)
-            
-            if let doc = Kanna.HTML(html: myHTMLString as String, encoding: NSUTF8StringEncoding) {
-                // Search for nodes by XPath
-                for link in doc.body!.xpath("//span[@class[contains(.,'res res')]]") {
-                    let string = (link.text)!.substringToIndex((link.text)!.startIndex.advancedBy(50, limit: (link.text)!.endIndex))
-                    self.keywordArray.append(string)
-                }
-                var counter=10
-                while (counter>0) {
-                    let index = Int(arc4random_uniform(UInt32(self.keywordArray.count)))
-                    (self.keywordArray2).append((self.keywordArray)[index])
-                    counter--
-                }
-            }
-            
-        } catch _ {
-            let myHTMLString = ""
-        }
-        */
-    }
-    func getFeedVideos(interestArray: [String], keywordArray: [String], completionHandler:(data: AnyObject?) -> ()) -> () {
-    
-    //Category Id's: 35 - Documentary, 34 - Comedy, 28 - Science & Technology, 27 - Education, 26 - Howto & Style, 21 - Videoblogging, 2 - Autos & Vehicles,
-    
-    var counter = 0
-    
-    var arrayOfVideos = [Video]()
-    
-    for interest in interestArray {
-        
-        if (interest=="biology" || interest=="chemistry" || interest=="physics") {
-            
-            Alamofire.request(.GET, "https://www.googleapis.com/youtube/v3/search", parameters: ["part":"snippet","regionCode":"US","q":keywordArray[Int(arc4random_uniform(UInt32(keywordArray.count)))],"maxResults":3,"type":"video","videoDuration":"short","videoCategoryId":28,"key":API_KEY], encoding: ParameterEncoding.URL, headers: nil).responseJSON{ (response) -> Void in
-                    if let JSON = response.result.value as? NSDictionary {
-                let data: AnyObject? = JSON
-                completionHandler(data: data)
-                }
-            }
-        }
-        
-        
-        if (interest=="philosophy" || interest == "mathematics" || interest == "geography") {
-            Alamofire.request(.GET, "https://www.googleapis.com/youtube/v3/search", parameters: ["part":"snippet","regionCode":"US","q":keywordArray[(counter*10)+Int(arc4random_uniform(UInt32(keywordArray.count)))],"maxResults":3,"type":"video","videoDuration":"short","videoCategoryId":27,"key":API_KEY], encoding: ParameterEncoding.URL, headers: nil).responseJSON{ (response) -> Void in
-                if let JSON = response.result.value as? NSDictionary {
-                    let data: AnyObject? = JSON
-                    completionHandler(data: data)
-                }
-            }
-        }
-        
-        
-        if (interest=="history") {
-            Alamofire.request(.GET, "https://www.googleapis.com/youtube/v3/search", parameters: ["part":"snippet","regionCode":"US","maxResults":3,"q":keywordArray[(counter*10)+Int(arc4random_uniform(UInt32(keywordArray.count)))],"type":"video","videoDuration":"short","videoCategoryId":35,"key":API_KEY], encoding: ParameterEncoding.URL, headers: nil).responseJSON{ (response) -> Void in
-                if let JSON = response.result.value as? NSDictionary {
-                    let data: AnyObject? = JSON
-                    completionHandler(data: data)
-                }
-            }
-        }
-
-        
-        if (interest=="technology") {
-            Alamofire.request(.GET, "https://www.googleapis.com/youtube/v3/search", parameters: ["part":"snippet","regionCode":"US","maxResults":3,"q":keywordArray[(counter*10)+Int(arc4random_uniform(UInt32(keywordArray.count)))],"type":"video","videoDuration":"short","videoCategoryId":26,"key":API_KEY], encoding: ParameterEncoding.URL, headers: nil).responseJSON{ (response) -> Void in
-                if let JSON = response.result.value as? NSDictionary {
-                    let data: AnyObject? = JSON
-                    completionHandler(data: data)
-                }
-            }
-        }
-
-    }
-}
-
-    func getVideos() -> [Video] {
-
-        //Create an empty array of Video objects
-        var videos = [Video]()
-        
-        //Create a video object
-        let video1 = Video()
-        
-        //Assign properties
-        video1.videoId="48kekFLZkXU"
-        video1.videoTitle="How To Make a YouTube Video App - Ep 03 - Creating the Video Data"
-        video1.videoDescription="Lesson 3: In this series, I'll show you guys how to build a video app that plays YouTube videos!"
-        //Append it into the videos array
-        videos.append(video1)
-        
-        
-        //Create a video object
-        let video2 = Video()
-        
-        //Assign properties
-        video2.videoId="wJVjuALsJ0g"
-        video2.videoTitle="How To Make an App - Ep 6 - Auto Layout in Xcode 7 (iOS 9)"
-        video2.videoDescription="Lesson 6: Auto Layout in Xcode 7. This lesson introduces auto layout in Xcode 7 as we create the user interface for our War card game."
-        //Append it into the videos array
-        videos.append(video2)
-        
-        
-        //Create a video object
-        let video3 = Video()
-        
-        //Assign properties
-        video3.videoId="wJVjuALsJ0g"
-        video3.videoTitle="How To Make an App - Ep 6 - Auto Layout in Xcode 7 (iOS 9)"
-        video3.videoDescription="Lesson 6: Auto Layout in Xcode 7. This lesson introduces auto layout in Xcode 7 as we create the user interface for our War card game."
-        //Append it into the videos array
-        videos.append(video3)
-        
-        
-        //Create a video object
-        let video4 = Video()
-        
-        //Assign properties
-        video4.videoId="wJVjuALsJ0g"
-        video4.videoTitle="How To Make an App - Ep 6 - Auto Layout in Xcode 7 (iOS 9)"
-        video4.videoDescription="Lesson 6: Auto Layout in Xcode 7. This lesson introduces auto layout in Xcode 7 as we create the user interface for our War card game."
-        //Append it into the videos array
-        videos.append(video4)
-        
-        
-        //Create a video object
-        let video5 = Video()
-        
-        //Assign properties
-        video5.videoId="wJVjuALsJ0g"
-        video5.videoTitle="How To Make an App - Ep 6 - Auto Layout in Xcode 7 (iOS 9)"
-        video5.videoDescription="Lesson 6: Auto Layout in Xcode 7. This lesson introduces auto layout in Xcode 7 as we create the user interface for our War card game."
-        //Append it into the videos array
-        videos.append(video5)
-        
-        return videos
     }
     
+    func addVideosToPlaylist(videos: [Video]) {
+        
+        for video in videos {
+            let playlistItem = GTLRYouTube_PlaylistItem()
+            playlistItem.snippet = GTLRYouTube_PlaylistItemSnippet()
+            playlistItem.snippet!.playlistId="WL"
+            let resourceId = GTLRYouTube_ResourceId()
+            resourceId.kind="youtube#video"
+            resourceId.videoId=video.videoId
+            playlistItem.snippet!.resourceId = resourceId
+            let query3 = GTLRYouTubeQuery_PlaylistItemsInsert.queryWithObject(playlistItem, part: "snippet")
+            self.queries.append(query3)
+            if self.timer==nil {
+                self.timer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(0.5), target: self, selector: #selector(executeQuery(_:)), userInfo: nil, repeats: true)
+            }
+        }
+    }
+    
+    func executeQuery(timer: NSTimer) {
+        if self.queries == [] {
+            timer.invalidate()
+        }
+        if self.queries != [] {
+            if !self.queries[self.queries.endIndex-1].queryInvalid {
+                service.executeQuery(self.queries[self.queries.endIndex-1], delegate: self, didFinishSelector: "displayResultWithTicket:finishedWithVideo:error:")
+                self.queries.popLast()
+            }
+        }
+    }
+    
+    func displayResultWithTicket(ticket : GTLRServiceTicket,
+                                 finishedWithVideo playlistItem: GTLRYouTube_PlaylistItem,
+                                                   error : NSError?) {
+        if let error = error {
+            showAlert("Error", message: error.localizedDescription)
+            return
+        }
+        print(playlistItem.snippet?.resourceId?.videoId!)
+        print("added playlist item")
+    }
+    
+    func showAlert(title : String, message: String) {
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: UIAlertControllerStyle.Alert
+        )
+        let ok = UIAlertAction(
+            title: "OK",
+            style: UIAlertActionStyle.Default,
+            handler: nil
+        )
+        alert.addAction(ok)
+        print(alert)
+    }
 }
