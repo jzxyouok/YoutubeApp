@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jIU-P8-7Ds">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jIU-P8-7Ds">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -464,7 +464,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="7OR-ef-jCW" secondAttribute="trailing" id="5nH-Wn-ZMr"/>
                                     <constraint firstItem="7OR-ef-jCW" firstAttribute="leading" secondItem="7EK-M4-b28" secondAttribute="leading" id="7Bl-8a-tSI"/>
@@ -482,7 +482,13 @@
                             <constraint firstItem="7EK-M4-b28" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="quT-rF-uOL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Discover" id="zYF-fG-nNB"/>
+                    <navigationItem key="navigationItem" title="Discover" id="zYF-fG-nNB">
+                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="Ryg-jh-zu2">
+                            <connections>
+                                <action selector="signOutButtonPressed:" destination="BYZ-38-t0r" id="CrR-Fq-7ma"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="kolodaView" destination="Dx5-xH-q70" id="FRe-vC-hTA"/>
                         <outlet property="scrollView" destination="7EK-M4-b28" id="tLs-fm-oH4"/>
@@ -523,10 +529,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="gC5-SL-8Va" kind="show" identifier="goToDetail2" id="Rp0-Tt-WVq"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IWG-Hi-72E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3416" y="1183"/>
+            <point key="canvasLocation" x="2345" y="-391"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="x6e-R2-4s6">
@@ -637,7 +646,7 @@
         <!--Sign In View Controller-->
         <scene sceneID="5Kf-JH-w6t">
             <objects>
-                <viewController id="jIU-P8-7Ds" customClass="SignInViewController" customModule="YoutubeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInViewController" id="jIU-P8-7Ds" customClass="SignInViewController" customModule="YoutubeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yNT-Ji-Y5I"/>
                         <viewControllerLayoutGuide type="bottom" id="H8N-US-re8"/>
@@ -652,14 +661,6 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ohE-3x-XQ8">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b52-ww-cKp" customClass="GIDSignInButton">
-                                        <rect key="frame" x="225" y="108" width="150" height="44"/>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="JlP-yx-i96"/>
-                                            <constraint firstAttribute="width" constant="150" id="rwo-4u-NZB"/>
-                                        </constraints>
-                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In With" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SzH-BV-rRl">
                                         <rect key="frame" x="165" y="30" width="270" height="70"/>
                                         <constraints>
@@ -741,17 +742,25 @@
                                             <constraint firstAttribute="width" constant="1" id="8f9-hm-rSK"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dms-Hl-8tO">
+                                        <rect key="frame" x="232" y="115" width="136" height="30"/>
+                                        <state key="normal" title="Sign In With Google"/>
+                                        <connections>
+                                            <action selector="signInButtonPressed:" destination="jIU-P8-7Ds" eventType="touchUpInside" id="Tvw-bZ-yxm"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="b52-ww-cKp" firstAttribute="centerX" secondItem="ohE-3x-XQ8" secondAttribute="centerX" id="1lX-yH-qcE"/>
                                     <constraint firstItem="IEl-LD-Rif" firstAttribute="centerX" secondItem="ohE-3x-XQ8" secondAttribute="centerX" id="2Rc-LU-631"/>
                                     <constraint firstItem="KCv-kW-Txg" firstAttribute="top" secondItem="gw3-20-OT2" secondAttribute="bottom" constant="20" id="2qF-rW-tZu"/>
                                     <constraint firstItem="eoO-30-nAb" firstAttribute="centerX" secondItem="s3a-nm-dqU" secondAttribute="centerX" id="4BG-TX-Luu"/>
                                     <constraint firstItem="L1d-p5-Mi1" firstAttribute="leading" secondItem="ohE-3x-XQ8" secondAttribute="leading" constant="20" id="5ue-tV-ZhF"/>
                                     <constraint firstItem="IEl-LD-Rif" firstAttribute="leading" secondItem="Ob8-ZU-d4g" secondAttribute="leading" id="8X3-oJ-Ogn"/>
+                                    <constraint firstItem="hdf-Lh-E06" firstAttribute="top" secondItem="dms-Hl-8tO" secondAttribute="bottom" constant="39" id="9Bn-So-6M2"/>
                                     <constraint firstItem="Ob8-ZU-d4g" firstAttribute="top" secondItem="hdf-Lh-E06" secondAttribute="bottom" constant="32" id="AgQ-PI-BQd"/>
                                     <constraint firstItem="gw3-20-OT2" firstAttribute="top" secondItem="dOS-E8-DZy" secondAttribute="bottom" constant="32" id="B4s-Q0-MKe"/>
                                     <constraint firstItem="gw3-20-OT2" firstAttribute="centerX" secondItem="ohE-3x-XQ8" secondAttribute="centerX" id="CTG-SP-lM2"/>
+                                    <constraint firstItem="dms-Hl-8tO" firstAttribute="top" secondItem="SzH-BV-rRl" secondAttribute="bottom" constant="15" id="CVR-Mm-0g8"/>
                                     <constraint firstItem="dOS-E8-DZy" firstAttribute="centerX" secondItem="ohE-3x-XQ8" secondAttribute="centerX" id="CZr-7b-Tfm"/>
                                     <constraint firstItem="IEl-LD-Rif" firstAttribute="top" secondItem="Ob8-ZU-d4g" secondAttribute="bottom" constant="32" id="IE3-GZ-Ljo"/>
                                     <constraint firstItem="eoO-30-nAb" firstAttribute="centerY" secondItem="hdf-Lh-E06" secondAttribute="centerY" id="Ix4-gx-vLb"/>
@@ -763,17 +772,16 @@
                                     <constraint firstItem="s3a-nm-dqU" firstAttribute="top" secondItem="gw3-20-OT2" secondAttribute="bottom" constant="32" id="St9-Cg-fKh"/>
                                     <constraint firstAttribute="bottom" secondItem="KCv-kW-Txg" secondAttribute="bottom" constant="20" id="U36-th-FUi"/>
                                     <constraint firstItem="Ob8-ZU-d4g" firstAttribute="centerX" secondItem="ohE-3x-XQ8" secondAttribute="centerX" id="VD4-rN-JaD"/>
-                                    <constraint firstItem="L1d-p5-Mi1" firstAttribute="top" secondItem="b52-ww-cKp" secondAttribute="bottom" constant="67" id="Xby-Lq-UmX"/>
                                     <constraint firstAttribute="trailing" secondItem="Ob8-ZU-d4g" secondAttribute="trailing" constant="60" id="Xkh-sa-jmf"/>
                                     <constraint firstAttribute="trailing" secondItem="eoO-30-nAb" secondAttribute="trailing" constant="20" id="eCu-2n-P2E"/>
                                     <constraint firstItem="SzH-BV-rRl" firstAttribute="centerX" secondItem="ohE-3x-XQ8" secondAttribute="centerX" id="fBR-wL-2n3"/>
-                                    <constraint firstItem="b52-ww-cKp" firstAttribute="top" secondItem="SzH-BV-rRl" secondAttribute="bottom" constant="8" symbolic="YES" id="faj-UQ-Tlt"/>
                                     <constraint firstItem="KCv-kW-Txg" firstAttribute="centerX" secondItem="ohE-3x-XQ8" secondAttribute="centerX" id="hQG-lN-7QV"/>
                                     <constraint firstItem="SzH-BV-rRl" firstAttribute="top" secondItem="ohE-3x-XQ8" secondAttribute="top" constant="30" id="hpZ-BK-aAv"/>
                                     <constraint firstItem="eoO-30-nAb" firstAttribute="width" secondItem="L1d-p5-Mi1" secondAttribute="width" id="hqe-BQ-AyO"/>
                                     <constraint firstItem="eoO-30-nAb" firstAttribute="width" secondItem="ohE-3x-XQ8" secondAttribute="width" multiplier="0.4" id="iL2-OV-fgC"/>
                                     <constraint firstItem="L1d-p5-Mi1" firstAttribute="leading" secondItem="gw3-20-OT2" secondAttribute="leading" id="oTr-ox-p1i"/>
                                     <constraint firstAttribute="bottom" secondItem="s3a-nm-dqU" secondAttribute="bottom" constant="52" id="oXS-Tz-WQ9"/>
+                                    <constraint firstItem="dms-Hl-8tO" firstAttribute="centerX" secondItem="ohE-3x-XQ8" secondAttribute="centerX" id="otT-iu-CBO"/>
                                     <constraint firstItem="dOS-E8-DZy" firstAttribute="top" secondItem="IEl-LD-Rif" secondAttribute="bottom" constant="32" id="qhM-d8-3Qq"/>
                                     <constraint firstItem="IEl-LD-Rif" firstAttribute="leading" secondItem="ohE-3x-XQ8" secondAttribute="leading" constant="60" id="u8o-be-SnP"/>
                                     <constraint firstItem="L1d-p5-Mi1" firstAttribute="centerX" secondItem="4Q5-pE-31c" secondAttribute="centerX" id="xVd-Fl-yAu"/>
@@ -792,13 +800,10 @@
                             <constraint firstItem="kAm-HQ-LCv" firstAttribute="leading" secondItem="agO-xX-Rbv" secondAttribute="leading" id="xnz-Rb-OSW"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="signInButton" destination="b52-ww-cKp" id="hUW-WM-Ss3"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VaT-He-BHw" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1142" y="358"/>
+            <point key="canvasLocation" x="-1146" y="380"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="WuS-ET-Mk4">
@@ -871,4 +876,7 @@
         <image name="physics.jpg" width="1920" height="960"/>
         <image name="technology.jpg" width="1698" height="1131"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Wy3-tc-8qd"/>
+    </inferredMetricsTieBreakers>
 </document>

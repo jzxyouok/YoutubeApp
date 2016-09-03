@@ -20,7 +20,7 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
     
     var initialArray: [String] = ["philosophy","biology","chemistry","physics","history","mathematics","geography","technology"]
     var interestSelectionArray = [String]()
-    
+    var model = VideoModel()
     var switchArray: [Int] = []
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -63,6 +63,7 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destViewController: SkillsViewController = segue.destinationViewController as! SkillsViewController
         destViewController.interestSelectionArray = interestSelectionArray
+        destViewController.model=self.model
         print(interestSelectionArray)
     }
     

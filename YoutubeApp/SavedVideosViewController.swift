@@ -9,20 +9,29 @@
 
 import UIKit
 import Alamofire
+import GTMOAuth2
+import GoogleAPIClientForREST
 
-class SavedVideosViewController: UITableViewController {
+class SavedVideosViewController: UITableViewController, VideoModelDelegate {
     
     var videos: [Video] = []
     var finished = 0
+    let model = VideoModel()
+    var selectedVideo = Video()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Uncomment the following line to preserve selection between presentations
         self.clearsSelectionOnViewWillAppear = false
+        self.model.delegate=self
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+    }
+    
+    func dataReady() {
         
     }
     
@@ -30,32 +39,7 @@ class SavedVideosViewController: UITableViewController {
         
         //The request below is to get an OAuthAccesss token for uploading videos to a personal watch later playlist.
         
-        /*
-         
-         Alamofire.request(.GET, "https://accounts.google.com/o/oauth2/auth", parameters: ["client_id": "192877572614-k4ljl168palm9oq5skbgonsagf17t20h.apps.googleusercontent.com", "redirect_uri": "http://localhost/oauth2callback", "scope": "https://www.googleapis.com/auth/youtube.upload", "response_type": "code"], encoding: ParameterEncoding.URL, headers: nil).responseJSON{ (response) -> Void in
-         print(response)
-         token=String(response)
-         }
-         */
-        let headers = ["Authorization": "Bearer \(VideoStatus.authToken)"]
-        upload(
-            .POST,
-            "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet",
-            headers: headers,
-            multipartFormData: { multipartFormData in
-                multipartFormData.appendBodyPart(data:"{'snippet':{'playlistId' : 'WL', 'resourceId': {'videoId' : 'a7SouU3ECpU', 'kind': 'youtube#video'}, 'position' : 0}}".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"snippet", mimeType: "application/json")
-            },
-            encodingCompletion: { encodingResult in
-                switch encodingResult {
-                case .Success(let upload, _, _):
-                    upload.responseJSON { (response: Response<AnyObject, NSError>) in
-                        print(response)
-                        
-                    }
-                case .Failure(_):
-                    print("Failed")
-                }
-        })
+        self.model.addVideosToPlaylist(videos)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -68,7 +52,6 @@ class SavedVideosViewController: UITableViewController {
             let data=(userDefaults.objectForKey("SelectedVideos") as? NSData)!
             VideoStatus.selectedVideos=NSKeyedUnarchiver.unarchiveObjectWithData(data) as! [Video]
             self.videos=VideoStatus.selectedVideos
-            
         }
         print(self.finished)
         tableView.reloadData()
@@ -141,6 +124,11 @@ class SavedVideosViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.selectedVideo=videos[indexPath.row]
+        performSegueWithIdentifier("goToDetail2", sender: self)
+    }
+    
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
@@ -154,9 +142,7 @@ class SavedVideosViewController: UITableViewController {
         if editingStyle == .Delete {
             // Delete the row from the data source
             VideoStatus.selectedVideos.removeAtIndex(indexPath.row)
-            let userDefaults = NSUserDefaults.standardUserDefaults()
-            let data = NSKeyedArchiver.archivedDataWithRootObject(VideoStatus.selectedVideos)
-            userDefaults.setObject(data, forKey: "SelectedVideos")
+            self.videos=VideoStatus.selectedVideos
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -186,5 +172,14 @@ class SavedVideosViewController: UITableViewController {
      // Pass the selected object to the new view controller.
      }
      */
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        //Get a reference for the destination view controller.
+        let detailViewController = segue.destinationViewController as! VideoDetailViewController
+        
+        //Set the selectedVideo property of the destination view controller.
+        detailViewController.selectedVideo = self.selectedVideo
+        
+    }
     
 }

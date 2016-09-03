@@ -14,12 +14,20 @@ class KeywordVC: UIViewController, UITextViewDelegate {
     var interestSelectionArray = [String]()
     var skillSelectionArray = [String]()
     var keywords = [String]()
+    var model = VideoModel()
     
     @IBOutlet weak var textView: UITextView!
     
     @IBAction func nextButtonClicked(sender: UIBarButtonItem) {
         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let nvc: UINavigationController = storyboard.instantiateViewControllerWithIdentifier("NavigationController") as! UINavigationController
+        let tbc: UITabBarController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
+        (((tbc.viewControllers![1] as! UINavigationController).viewControllers[0]) as! SavedVideosViewController).model.service=self.model.service
+        let userDefaults=NSUserDefaults.standardUserDefaults()
+        if userDefaults.objectForKey("SelectedVideos") as? NSData == nil {
+            VideoStatus.selectedVideos=[]
+            (((tbc.viewControllers![1] as! UINavigationController).viewControllers[0]) as! SavedVideosViewController).videos=VideoStatus.selectedVideos
+            
+        }
         let start =  textView.text.startIndex
         let end = textView.text.endIndex
         print(start)
@@ -31,9 +39,11 @@ class KeywordVC: UIViewController, UITextViewDelegate {
             while textView.text.skipWhitespace(&range) {
             }
         }
-        (nvc.viewControllers.first as! ViewController).interestSelectionArray=self.interestSelectionArray+keywords
-        (nvc.viewControllers.first as! ViewController).skillSelectionArray=self.skillSelectionArray
-        self.presentViewController(nvc, animated: true, completion: nil)
+        
+        ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).interestSelectionArray=self.interestSelectionArray+keywords
+        ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).skillSelectionArray=self.skillSelectionArray
+        ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).model=self.model
+        self.presentViewController(tbc, animated: true, completion: nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()

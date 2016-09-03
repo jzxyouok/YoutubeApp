@@ -20,6 +20,7 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var numbersArray = [Int]()
     var numbersArray2 = [Int]()
     var counter: Int = 0
+    var model = VideoModel()
     
     @IBAction func nextButtonClicked(sender: AnyObject) {
         
@@ -136,5 +137,6 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let destViewController: KeywordVC = segue.destinationViewController as! KeywordVC
         destViewController.interestSelectionArray = self.interestSelectionArray
         destViewController.skillSelectionArray=self.skillSelectionArray
+        destViewController.model=self.model
     }
 }

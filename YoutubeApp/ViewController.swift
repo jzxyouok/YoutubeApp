@@ -10,6 +10,7 @@ import UIKit
 import Foundation
 import Koloda
 import pop
+import GTMOAuth2
 
 //class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, VideoModelDelegate {
 
@@ -19,11 +20,23 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     
     @IBOutlet weak var kolodaView: KolodaView!
     
+    @IBAction func signOutButtonPressed(sender: UIBarButtonItem) {
+        GTMOAuth2ViewControllerTouch.removeAuthFromKeychainForName(kKeychainItemName)
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        userDefaults.setObject(nil, forKey: "InterestsArray")
+        userDefaults.setObject(nil, forKey: "SkillsArray")
+        userDefaults.setObject(nil, forKey: "SelectedVideos")
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc : SignInViewController = storyboard.instantiateViewControllerWithIdentifier("SignInViewController") as! SignInViewController
+        self.presentViewController(vc, animated: true, completion: nil)
+    }
+    
+    private let kKeychainItemName = "YouTube Data API"
     var videos:[Video]=[Video]()
     var videoCache:[Video]=[Video]()
     var selectedVideos=[Video]()
     var selectedVideo:Video?
-    let model:VideoModel = VideoModel()
+    var model:VideoModel = VideoModel()
     var searchWords: [String] = []
     var interestSelectionArray = [String]()
     var skillSelectionArray = [String]()
@@ -42,7 +55,7 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         self.model.delegate = self
         
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        if userDefaults.objectForKey("InterestsArray") as? [String] == nil && userDefaults.objectForKey("SkillsArray") as? [String] == nil {
+        if userDefaults.objectForKey("InterestsArray") as? [String] == nil || userDefaults.objectForKey("SkillsArray") as? [String] == nil {
             userDefaults.setObject(self.interestSelectionArray, forKey: "InterestsArray")
             userDefaults.setObject(self.skillSelectionArray, forKey: "SkillsArray")
         } else if userDefaults.objectForKey("InterestsArray") as? [String] != nil && userDefaults.objectForKey("SkillsArray") as? [String] != nil{
@@ -184,8 +197,8 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         }
         VideoStatus.selectedVideos=self.selectedVideos
         print(VideoStatus.selectedVideos)
-        self.data = NSKeyedArchiver.archivedDataWithRootObject(VideoStatus.selectedVideos)
-        userDefaults.setObject(self.data, forKey: "SelectedVideos")
+        //        self.data = NSKeyedArchiver.archivedDataWithRootObject(VideoStatus.selectedVideos)
+        //        userDefaults.setObject(self.data, forKey: "SelectedVideos")
         
     }
     

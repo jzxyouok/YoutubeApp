@@ -11,8 +11,13 @@ import ObjectMapper
 import AlamofireObjectMapper
 
 class VideoStatus: NSObject {
-    static var selectedVideos = [Video]()
-    static var authToken = String()
+    static var selectedVideos = [Video]() {
+        didSet {
+            let userDefaults = NSUserDefaults.standardUserDefaults()
+            let data = NSKeyedArchiver.archivedDataWithRootObject(selectedVideos)
+            userDefaults.setObject(data, forKey: "SelectedVideos")
+        }
+    }
 }
 
 class SkillsVideoResponse: NSObject, Mappable {
