@@ -21,7 +21,7 @@ protocol VideoModelDelegate {
 class VideoModel: NSObject {
     
     //let API_KEY = "AIzaSyD0PN3sI5uWai__bJ_Xv-IV83XnSQ15s48"
-    let UPLOADS_PLAYLIST_ID="PLkhUBDAcva4YFHjhFqyG0hY4E6_wW-7uM"
+    //let UPLOADS_PLAYLIST_ID="PLkhUBDAcva4YFHjhFqyG0hY4E6_wW-7uM"
     var service = GTLRYouTubeService()
     
     var videoArray = [Video] ()

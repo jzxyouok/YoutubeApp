@@ -103,7 +103,11 @@ class SavedVideosViewController: UITableViewController, VideoModelDelegate {
             
             //Create a datatask and pass in the request
             let dataTask = session.dataTaskWithRequest(request, completionHandler: { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
-                
+                /*
+                guard data == nil {
+                    return
+                } else {
+ */
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     
                     //Create an image object from the data and assign it into the imageView
@@ -114,6 +118,7 @@ class SavedVideosViewController: UITableViewController, VideoModelDelegate {
                         self.tableView.reloadData()
                     }
                 })
+                //}
             })
             
             dataTask.resume()

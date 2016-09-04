@@ -6,10 +6,14 @@ use_frameworks!
 target 'YoutubeApp' do
     
     pod 'Alamofire', '~> 3.0'
-    pod 'Koloda', '~> 2.0.10'
+    pod 'Koloda', :git => 'https://github.com/LemonSpike/Koloda.git'
     pod 'AlamofireObjectMapper', '~> 3.0'
     pod 'GoogleAPIClientForREST/YouTube', :git => 'https://github.com/google/google-api-objectivec-client-for-rest.git'
     pod 'GTMOAuth2', '~> 1.1.0'
+    
+    post_install do |installer|
+        `find Pods -regex 'Pods/pop.*\\.h' -print0 | xargs -0 sed -i '' 's/\\(<\\)pop\\/\\(.*\\)\\(>\\)/\\"\\2\\"/'`
+    end
     
 end
 

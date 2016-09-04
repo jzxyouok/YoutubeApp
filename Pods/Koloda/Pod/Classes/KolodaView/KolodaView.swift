@@ -220,7 +220,7 @@ public class KolodaView: UIView, DraggableCardDelegate {
         return frame
     }
     
-    private func frameForTopCard() -> CGRect {
+    public func frameForTopCard() -> CGRect {
         return frameForCardAtIndex(0)
     }
     
@@ -235,7 +235,7 @@ public class KolodaView: UIView, DraggableCardDelegate {
         return (finalFrame, scale)
     }
     
-    private func moveOtherCardsWithFinishPercent(percent: CGFloat) {
+    public func moveOtherCardsWithFinishPercent(percent: CGFloat) {
         if visibleCards.count > 1 {
             
             for index in 1..<visibleCards.count {
