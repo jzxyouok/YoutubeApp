@@ -11,10 +11,14 @@ import Foundation
 import Koloda
 import pop
 import GTMOAuth2
+import SystemConfiguration
+import ReachabilitySwift
+import StatefulViewController
+import NVActivityIndicatorView
 
 //class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, VideoModelDelegate {
 
-class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate, VideoModelDelegate {
+class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate, VideoModelDelegate, StatefulViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -46,6 +50,66 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     var value: Int = 0
     var numberOfCards: UInt = 3
     var data: NSData = NSData()
+    var reachability: Reachability?
+    
+    override func viewDidAppear(animated: Bool) {
+        do {
+            self.reachability = try Reachability.reachabilityForInternetConnection()
+        } catch {
+            print("Unable to create Reachability")
+            return
+        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        self.reachability!.whenReachable = { reachability in
+            if reachability.isReachableViaWiFi() {
+                dispatch_async(dispatch_get_main_queue()) {
+                    let alertController = UIAlertController(title: "Alert", message: "Reachable via WiFi", preferredStyle: .Alert)
+                    
+                    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                    alertController.addAction(defaultAction)
+                    
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                    
+                    if self.videos.isEmpty {
+                        setupInitialViewState()
+                    }
+                }
+            } else {
+                dispatch_async(dispatch_get_main_queue()) {
+                    let alertController = UIAlertController(title: "Alert", message: "Reachable via Cellular", preferredStyle: .Alert)
+                    
+                    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                    alertController.addAction(defaultAction)
+                    
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                    
+                    if self.videos.isEmpty {
+                        setupInitialViewState()
+                    }
+                }
+            }
+        }
+        self.reachability!.whenUnreachable = { reachability in
+            dispatch_async(dispatch_get_main_queue()) {
+                let alertController = UIAlertController(title: "Alert", message: "Not Reachable", preferredStyle: .Alert)
+                
+                let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                alertController.addAction(defaultAction)
+                
+                self.presentViewController(alertController, animated: true, completion: nil)
+            }
+        }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(VideoDetailViewController.reachabilityChanged(_:)),name: ReachabilityChangedNotification,object: reachability)
+        do {
+            try self.reachability!.startNotifier()
+        } catch {
+            print("Unable to start notifier")
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,24 +127,34 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
             self.skillSelectionArray=userDefaults.objectForKey("SkillsArray") as! [String]
         }
         print(interestSelectionArray)
-        self.model.generateKeywords(interestSelectionArray) { data in
-            self.searchWords+=data
-            self.model.getFeedVideos(self.interestSelectionArray, keywordArray: self.searchWords) { data in
-                //Notify the delegate that the data is ready
-                
-                self.model.getSkillsFeedVideos(self.skillSelectionArray, keywordArray: self.searchWords) { data in
+        
+        loadingView = LoadingViewController()
+        emptyView = EmptyViewController()
+        
+        
+        if Reachability.isConnectedToNetwork() {
+            
+            self.model.generateKeywords(interestSelectionArray) { data in
+                self.searchWords+=data
+                self.model.getFeedVideos(self.interestSelectionArray, keywordArray: self.searchWords) { data in
+                    //Notify the delegate that the data is ready
                     
-                    self.videos = data as! [Video]
-                    
-                    if self.model.delegate != nil {
-                        self.numberOfCards = UInt(self.videos.count)
-                        self.koloda(kolodaNumberOfCards: self.kolodaView)
-                        self.model.delegate!.dataReady()
+                    self.model.getSkillsFeedVideos(self.skillSelectionArray, keywordArray: self.searchWords) { data in
+                        
+                        self.videos = data as! [Video]
+                        
+                        if self.model.delegate != nil {
+                            self.numberOfCards = UInt(self.videos.count)
+                            self.koloda(kolodaNumberOfCards: self.kolodaView)
+                            self.model.delegate!.dataReady()
+                        }
+                        
                     }
-                    
                 }
+                self.done=1
             }
-            self.done=1
+        } else {
+            self.presentViewController(LoadingViewController(), animated: true, completion: nil)
         }
         
         self.kolodaView.dataSource = self
@@ -161,6 +235,9 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
                     
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         
+                        guard data != nil else {
+                            return
+                        }
                         
                         
                         //Create an image object from the data and assign it into the imageView
@@ -197,8 +274,6 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         }
         VideoStatus.selectedVideos=self.selectedVideos
         print(VideoStatus.selectedVideos)
-        //        self.data = NSKeyedArchiver.archivedDataWithRootObject(VideoStatus.selectedVideos)
-        //        userDefaults.setObject(self.data, forKey: "SelectedVideos")
         
     }
     
@@ -228,7 +303,11 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
             self.done=0
             self.videoCache=self.videos
             self.model.videoArray = []
-            self.getVideos()
+            if Reachability.isConnectedToNetwork() {
+                self.getVideos()
+            } else {
+                self.presentViewController(LoadingViewController(), animated: true, completion: nil)
+            }
             self.kolodaView.resetCurrentCardNumber()
         } else {
             if (self.kolodaView.currentCardNumber + self.value == self.videoCache.count) {
@@ -242,7 +321,11 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
                 self.value=0
                 self.done=0
                 self.model.videoArray=[]
-                self.getVideos()
+                if Reachability.isConnectedToNetwork() {
+                    self.getVideos()
+                } else {
+                    self.presentViewController(LoadingViewController(), animated: true, completion: nil)
+                }
                 self.kolodaView.resetCurrentCardNumber()
             }
         }

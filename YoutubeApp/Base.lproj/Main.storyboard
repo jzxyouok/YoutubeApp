@@ -5,6 +5,7 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Video Detail View Controller-->
@@ -522,14 +523,21 @@
                             <outlet property="delegate" destination="Gmk-04-Jz3" id="FuH-rE-nTY"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Saved Videos" id="98w-vL-fKb">
-                        <barButtonItem key="rightBarButtonItem" title="Sync with YouTube" id="GTZ-TJ-VWa">
+                        <leftBarButtonItems>
+                            <barButtonItem width="11" id="5qk-t5-fvY"/>
+                            <barButtonItem image="settings-24.png" width="24" id="0CI-3e-SiB"/>
+                        </leftBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="GTZ-TJ-VWa">
                             <connections>
                                 <action selector="syncButtonPressed:" destination="Gmk-04-Jz3" id="RN1-fb-ih0"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="settingsBarButtonItem" destination="0CI-3e-SiB" id="2le-6G-qJo"/>
                         <segue destination="gC5-SL-8Va" kind="show" identifier="goToDetail2" id="Rp0-Tt-WVq"/>
                     </connections>
                 </tableViewController>
@@ -554,6 +562,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e4P-Mp-T4z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-439" y="290"/>
+        </scene>
+        <!--Loading View Controller-->
+        <scene sceneID="Pr6-k2-V6N">
+            <objects>
+                <viewController id="cl4-8M-evX" customClass="LoadingViewController" customModule="YoutubeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jLY-BP-y0e"/>
+                        <viewControllerLayoutGuide type="bottom" id="Q0p-VN-bal"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lvX-wz-6Qf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dyw-G8-qHX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="930" y="-300"/>
         </scene>
         <!--Skills View Controller-->
         <scene sceneID="AIg-Wg-mfZ">
@@ -861,6 +887,24 @@
             </objects>
             <point key="canvasLocation" x="2651" y="1183"/>
         </scene>
+        <!--Empty View Controller-->
+        <scene sceneID="6sd-z4-5nG">
+            <objects>
+                <viewController id="aZF-wx-4qA" customClass="EmptyViewController" customModule="YoutubeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="q3H-de-8fF"/>
+                        <viewControllerLayoutGuide type="bottom" id="vy9-TZ-JYw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cMv-Y3-RtA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mCf-uT-FI7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="310" y="-295"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Background@3x.png" width="1280" height="640"/>
@@ -874,9 +918,10 @@
         <image name="maths.jpg" width="620" height="387"/>
         <image name="philosophy.jpg" width="1280" height="640"/>
         <image name="physics.jpg" width="1920" height="960"/>
+        <image name="settings-24.png" width="24" height="24"/>
         <image name="technology.jpg" width="1698" height="1131"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Wy3-tc-8qd"/>
+        <segue reference="Rp0-Tt-WVq"/>
     </inferredMetricsTieBreakers>
 </document>

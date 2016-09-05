@@ -19,8 +19,11 @@ class SavedVideosViewController: UITableViewController, VideoModelDelegate {
     let model = VideoModel()
     var selectedVideo = Video()
     
+    @IBOutlet weak var settingsBarButtonItem: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         // Uncomment the following line to preserve selection between presentations
         self.clearsSelectionOnViewWillAppear = false
@@ -37,7 +40,7 @@ class SavedVideosViewController: UITableViewController, VideoModelDelegate {
     
     @IBAction func syncButtonPressed(sender: UIBarButtonItem) {
         
-        //The request below is to get an OAuthAccesss token for uploading videos to a personal watch later playlist.
+        //The request below is for uploading videos to a personal watch later playlist.
         
         self.model.addVideosToPlaylist(videos)
     }
@@ -93,7 +96,7 @@ class SavedVideosViewController: UITableViewController, VideoModelDelegate {
         
         //Create an NSURL object
         let videoThumbnailUrl = NSURL(string: videoThumbnailUrlString!)
-        if videoThumbnailUrl != "" {
+        if videoThumbnailUrl != nil {
             
             //Create an NSURLRequest object
             let request = NSURLRequest(URL: videoThumbnailUrl!)
@@ -103,11 +106,11 @@ class SavedVideosViewController: UITableViewController, VideoModelDelegate {
             
             //Create a datatask and pass in the request
             let dataTask = session.dataTaskWithRequest(request, completionHandler: { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
-                /*
-                guard data == nil {
+                
+                guard data != nil else {
                     return
-                } else {
- */
+                }
+                
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     
                     //Create an image object from the data and assign it into the imageView
@@ -118,7 +121,7 @@ class SavedVideosViewController: UITableViewController, VideoModelDelegate {
                         self.tableView.reloadData()
                     }
                 })
-                //}
+                
             })
             
             dataTask.resume()

@@ -10,6 +10,9 @@ target 'YoutubeApp' do
     pod 'AlamofireObjectMapper', '~> 3.0'
     pod 'GoogleAPIClientForREST/YouTube', :git => 'https://github.com/google/google-api-objectivec-client-for-rest.git'
     pod 'GTMOAuth2', '~> 1.1.0'
+    pod 'ReachabilitySwift'
+    pod 'StatefulViewController', '~> 1.0'
+    pod 'NVActivityIndicatorView'
     
     post_install do |installer|
         `find Pods -regex 'Pods/pop.*\\.h' -print0 | xargs -0 sed -i '' 's/\\(<\\)pop\\/\\(.*\\)\\(>\\)/\\"\\2\\"/'`
