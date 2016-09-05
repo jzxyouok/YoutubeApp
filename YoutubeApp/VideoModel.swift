@@ -46,11 +46,12 @@ class VideoModel: NSObject {
     
     func generateKeywords(keywordArray: [String], completionHandler:(data: [String]) -> ()) -> () {
         
-        for i in 0..<keywordArray.count {
+        for i in 0..<keywordArray.count-1 {
             
-            makeKeywordsRequest(keywordArray, i: i, completionHandler: completionHandler)
+            makeSubKeywordsRequest(keywordArray, i: i)
             
         }
+        makeKeywordsRequest(keywordArray, i: keywordArray.count-1, completionHandler: completionHandler)
         
     }
     
@@ -61,29 +62,52 @@ class VideoModel: NSObject {
         for interest in interestArray {
             
             if (interest=="biology" || interest=="chemistry" || interest=="physics") {
+                if interest==interestArray.last {
                 makeVideosRequest(28, keywordArray: keywordArray, completionHandler: completionHandler)
-            }
-            
-            
-            if (interest=="philosophy" || interest == "mathematics" || interest == "geography") {
+                } else {
+                    makeSubVideosRequest(28, keywordArray: keywordArray)
+                }
+            } else if (interest=="philosophy" || interest == "mathematics" || interest == "geography") {
+                if interest==interestArray.last {
                 makeVideosRequest(27, keywordArray: keywordArray, completionHandler: completionHandler)
-            }
-            
-            
-            if (interest=="history") {
+                } else {
+                    makeSubVideosRequest(27, keywordArray: keywordArray)
+                }
+            } else if (interest=="history") {
+                if interest==interestArray.last {
                 makeVideosRequest(35, keywordArray: keywordArray, completionHandler: completionHandler)
+            } else {
+                makeSubVideosRequest(35, keywordArray: keywordArray)
             }
-            
-            
-            if (interest=="technology") {
+            } else if (interest=="technology") {
+                if interest==interestArray.last {
                 makeVideosRequest(26, keywordArray: keywordArray, completionHandler: completionHandler)
+                } else {
+                    makeSubVideosRequest(26, keywordArray: keywordArray)
+                }
+            } else {
+                if interest==interestArray.last {
+                    makeVideosRequest(21, keywordArray: keywordArray, completionHandler: completionHandler)
+                } else {
+                    makeSubVideosRequest(21, keywordArray: keywordArray)
+                }
             }
-            
+        }
+    }
+    
+    func makeSubVideosRequest(categoryId: Int, keywordArray: [String]) {
+        Alamofire.request(.GET, "https://www.googleapis.com/youtube/v3/search", parameters: ["part":"snippet","regionCode":"US","q":keywordArray[Int(arc4random_uniform(UInt32(keywordArray.count)))],"maxResults":3,"type":"video","videoDuration":"short","videoCategoryId":categoryId, "key": self.API_KEY], encoding: ParameterEncoding.URL, headers: nil).responseObject { (response: Response<VideoResponse, NSError>) in
+        let videoResponse = response.result.value
+        if let videos = videoResponse?.videos {
+        for video in videos {
+        self.videoArray.append(video)
+        }
+    }
         }
     }
     
     func makeVideosRequest(categoryId: Int, keywordArray: [String], completionHandler:(data: AnyObject?) -> ()) -> () {
-        Alamofire.request(.GET, "https://www.googleapis.com/youtube/v3/search", parameters: ["part":"snippet","regionCode":"US","q":keywordArray[Int(arc4random_uniform(UInt32(keywordArray.count)))],"maxResults":3,"type":"video","videoDuration":"short","videoCategoryId":categoryId, "key": API_KEY], encoding: ParameterEncoding.URL, headers: nil).responseObject { (response: Response<VideoResponse, NSError>) in
+        Alamofire.request(.GET, "https://www.googleapis.com/youtube/v3/search", parameters: ["part":"snippet","regionCode":"US","q":keywordArray[Int(arc4random_uniform(UInt32(keywordArray.count)))],"maxResults":3,"type":"video","videoDuration":"short","videoCategoryId":categoryId, "key": self.API_KEY], encoding: ParameterEncoding.URL, headers: nil).responseObject { (response: Response<VideoResponse, NSError>) in
             let videoResponse = response.result.value
             if let videos = videoResponse?.videos {
                 for video in videos {
@@ -99,21 +123,54 @@ class VideoModel: NSObject {
         for skill in skillArray {
             switch skill{
             case "biology":
+                if skill==skillArray.last {
                 makeSkillsVideosRequest(biology, keywordArray: keywordArray, completionHandler: completionHandler)
+                } else {
+                    makeSubSkillsVideosRequest(biology, keywordArray: keywordArray)
+                }
             case "chemistry":
+                if skill==skillArray.last {
                 makeSkillsVideosRequest(chemistry, keywordArray: keywordArray, completionHandler: completionHandler)
+                } else {
+                    makeSubSkillsVideosRequest(chemistry, keywordArray: keywordArray)
+                }
             case "physics":
+                if skill==skillArray.last {
                 makeSkillsVideosRequest(physics, keywordArray: keywordArray, completionHandler: completionHandler)
+                } else {
+                    makeSubSkillsVideosRequest(physics, keywordArray: keywordArray)
+                }
             case "philosophy":
+                if skill==skillArray.last {
                 makeSkillsVideosRequest(philosophy, keywordArray: keywordArray, completionHandler: completionHandler)
+                } else {
+                    makeSubSkillsVideosRequest(philosophy, keywordArray: keywordArray)
+                }
             case "mathematics":
+                if skill==skillArray.last {
                 makeSkillsVideosRequest(mathematics, keywordArray: keywordArray, completionHandler: completionHandler)
+                } else {
+                makeSubSkillsVideosRequest(physics, keywordArray: keywordArray)
+                }
             case "geography":
+                if skill==skillArray.last {
                 makeSkillsVideosRequest(geography, keywordArray: keywordArray, completionHandler: completionHandler)
+                } else {
+                    makeSubSkillsVideosRequest(geography, keywordArray: keywordArray)
+                }
+                
             case "history":
+                    if skill==skillArray.last {
                 makeSkillsVideosRequest(history, keywordArray: keywordArray, completionHandler: completionHandler)
+                    } else {
+                        makeSubSkillsVideosRequest(history, keywordArray: keywordArray)
+                }
             case "technology":
+                        if skill==skillArray.last {
                 makeSkillsVideosRequest(technology, keywordArray: keywordArray, completionHandler: completionHandler)
+                        } else {
+                            makeSubSkillsVideosRequest(technology, keywordArray: keywordArray)
+                }
             default: break
             }
             
@@ -129,6 +186,19 @@ class VideoModel: NSObject {
                 }
                 print("SkillsVideos: \(self.videoArray.count)")
                 completionHandler(data: self.videoArray)
+            }
+        }
+        
+    }
+    
+    func makeSubSkillsVideosRequest(skillArray: [String], keywordArray: [String]) {
+        Alamofire.request(.GET, "https://www.googlesciencefair.com/make-better-generator/api", parameters: ["hl":"en","skill":skillArray[Int(arc4random_uniform(UInt32(skillArray.count)))],"love":keywordArray[Int(arc4random_uniform(UInt32(keywordArray.count)))],"problem":problems[Int(arc4random_uniform(UInt32(problems.count)))]], encoding: ParameterEncoding.URL, headers: nil).responseObject { (response: Response<SkillsVideoResponse, NSError>) in
+            let videoResponse = response.result.value
+            if let videos = videoResponse?.videos {
+                for video in videos {
+                    self.videoArray.append(video)
+                }
+                print("SkillsVideos: \(self.videoArray.count)")
             }
         }
         
@@ -151,6 +221,30 @@ class VideoModel: NSObject {
                     self.makeKeywordsRequest(keywordArray, i: i, completionHandler: completionHandler)
                 } else {
                     completionHandler(data: self.keywordArray2)
+                }
+            } else {
+                if let error = response.result.error {
+                    print (error)
+                }
+            }
+        }
+    }
+    
+    func makeSubKeywordsRequest(keywordArray: [String], i: Int) {
+        
+        let letters : NSString = "abcdefghiklmnoprstuvwxy"
+        let randomString : NSMutableString = NSMutableString(capacity: 1)
+        let length = UInt32 (letters.length)
+        let rand = arc4random_uniform(length)
+        randomString.appendFormat("%C", letters.characterAtIndex(Int(rand)))
+        
+        Alamofire.request(.GET, "https://api.datamuse.com/words", parameters: ["ml": keywordArray[i], "sp": "*"+(randomString as String)], encoding: ParameterEncoding.URL, headers: nil).responseJSON{ (response) -> Void in
+            if let JSON = response.result.value as? [AnyObject] {
+                for word in JSON {
+                    self.keywordArray2.append(word.valueForKeyPath("word") as! String)
+                }
+                if self.keywordArray2.count < 10 {
+                    self.makeSubKeywordsRequest(keywordArray, i: i)
                 }
             } else {
                 if let error = response.result.error {

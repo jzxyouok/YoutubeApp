@@ -6,10 +6,9 @@
 //  Copyright © 2016 Pranav Kasetti. All rights reserved.
 //
 
-import Cocoa
 import UIKit
 
-class EmptyViewController: UIViewController {
+class EmptyView: BasicPlaceholderView {
     
     let label = UILabel()
     

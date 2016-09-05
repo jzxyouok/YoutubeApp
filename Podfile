@@ -11,7 +11,7 @@ target 'YoutubeApp' do
     pod 'GoogleAPIClientForREST/YouTube', :git => 'https://github.com/google/google-api-objectivec-client-for-rest.git'
     pod 'GTMOAuth2', '~> 1.1.0'
     pod 'ReachabilitySwift'
-    pod 'StatefulViewController', '~> 1.0'
+    pod 'StatefulViewController', :git => 'https://github.com/aschuch/StatefulViewController.git'
     pod 'NVActivityIndicatorView'
     
     post_install do |installer|

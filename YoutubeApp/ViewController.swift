@@ -51,43 +51,45 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     var numberOfCards: UInt = 3
     var data: NSData = NSData()
     var reachability: Reachability?
+    //let refreshControl = UIRefreshControl()
     
     override func viewDidAppear(animated: Bool) {
+    }
+    
+    override func viewWillAppear(animated: Bool) {
         do {
             self.reachability = try Reachability.reachabilityForInternetConnection()
         } catch {
             print("Unable to create Reachability")
             return
         }
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        
         self.reachability!.whenReachable = { reachability in
             if reachability.isReachableViaWiFi() {
                 dispatch_async(dispatch_get_main_queue()) {
-                    let alertController = UIAlertController(title: "Alert", message: "Reachable via WiFi", preferredStyle: .Alert)
-                    
-                    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-                    alertController.addAction(defaultAction)
-                    
-                    self.presentViewController(alertController, animated: true, completion: nil)
+//                    let alertController = UIAlertController(title: "Alert", message: "Reachable via WiFi", preferredStyle: .Alert)
+//                    
+//                    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+//                    alertController.addAction(defaultAction)
+//                    
+//                    self.presentViewController(alertController, animated: true, completion: nil)
                     
                     if self.videos.isEmpty {
-                        setupInitialViewState()
+                        self.setupInitialViewState()
+                        self.refresh()
                     }
                 }
             } else {
                 dispatch_async(dispatch_get_main_queue()) {
-                    let alertController = UIAlertController(title: "Alert", message: "Reachable via Cellular", preferredStyle: .Alert)
-                    
-                    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-                    alertController.addAction(defaultAction)
-                    
-                    self.presentViewController(alertController, animated: true, completion: nil)
+//                    let alertController = UIAlertController(title: "Alert", message: "Reachable via Cellular", preferredStyle: .Alert)
+//                    
+//                    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+//                    alertController.addAction(defaultAction)
+//                    
+//                    self.presentViewController(alertController, animated: true, completion: nil)
                     
                     if self.videos.isEmpty {
-                        setupInitialViewState()
+                        self.setupInitialViewState()
+                        self.refresh()
                     }
                 }
             }
@@ -111,6 +113,21 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         }
     }
     
+    func reachabilityChanged(note: NSNotification) {
+        
+        let reachability = note.object as! Reachability
+        
+        if reachability.isReachable() {
+            if reachability.isReachableViaWiFi() {
+                print("Reachable via WiFi")
+            } else {
+                print("Reachable via Cellular")
+            }
+        } else {
+            print("Network not reachable")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -128,34 +145,10 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         }
         print(interestSelectionArray)
         
-        loadingView = LoadingViewController()
-        emptyView = EmptyViewController()
-        
-        
-        if Reachability.isConnectedToNetwork() {
-            
-            self.model.generateKeywords(interestSelectionArray) { data in
-                self.searchWords+=data
-                self.model.getFeedVideos(self.interestSelectionArray, keywordArray: self.searchWords) { data in
-                    //Notify the delegate that the data is ready
-                    
-                    self.model.getSkillsFeedVideos(self.skillSelectionArray, keywordArray: self.searchWords) { data in
-                        
-                        self.videos = data as! [Video]
-                        
-                        if self.model.delegate != nil {
-                            self.numberOfCards = UInt(self.videos.count)
-                            self.koloda(kolodaNumberOfCards: self.kolodaView)
-                            self.model.delegate!.dataReady()
-                        }
-                        
-                    }
-                }
-                self.done=1
-            }
-        } else {
-            self.presentViewController(LoadingViewController(), animated: true, completion: nil)
-        }
+        loadingView = LoadingView(frame: self.view.frame)
+        emptyView = EmptyView(frame: self.view.frame)
+        //refreshControl.addTarget(self, action: #selector(refresh), forControlEvents: .ValueChanged)
+        //self.view.addSubview(refreshControl)
         
         self.kolodaView.dataSource = self
         self.kolodaView.delegate = self
@@ -185,12 +178,49 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     
     //MARK:- VideoModel Delegate Methods
     
+    func hasContent() -> Bool {
+        return self.done==1
+    }
+    
     func dataReady() {
         
         //Access the video objects that have been downloaded.
         self.counter=0
         //Tell the tableview to reload
         self.kolodaView.reloadData()
+    }
+    
+    func refresh() {
+        
+        if (lastState == .Loading) { return }
+        
+        startLoading()
+        
+        if Reachability.isConnectedToNetwork() {
+            
+            self.model.generateKeywords(interestSelectionArray) { data in
+                self.searchWords+=data
+                self.model.getFeedVideos(self.interestSelectionArray, keywordArray: self.searchWords) { data in
+                    //Notify the delegate that the data is ready
+                    print("test")
+                    print(self.skillSelectionArray)
+                    self.model.getSkillsFeedVideos(self.skillSelectionArray, keywordArray: self.searchWords) { data in
+                        
+                        self.videos = data as! [Video]
+                        
+                        if self.model.delegate != nil {
+                            self.numberOfCards = UInt(self.videos.count)
+                            self.koloda(kolodaNumberOfCards: self.kolodaView)
+                            self.model.delegate!.dataReady()
+                            self.endLoading()
+                        }
+                        print("endLoading -> loadingState: \(self.lastState.rawValue)")
+                        //self.refreshControl.endRefreshing()
+                    }
+                }
+                self.done=1
+            }
+        }
     }
     
     func cacheLoad() {
@@ -305,8 +335,6 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
             self.model.videoArray = []
             if Reachability.isConnectedToNetwork() {
                 self.getVideos()
-            } else {
-                self.presentViewController(LoadingViewController(), animated: true, completion: nil)
             }
             self.kolodaView.resetCurrentCardNumber()
         } else {
@@ -323,8 +351,6 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
                 self.model.videoArray=[]
                 if Reachability.isConnectedToNetwork() {
                     self.getVideos()
-                } else {
-                    self.presentViewController(LoadingViewController(), animated: true, completion: nil)
                 }
                 self.kolodaView.resetCurrentCardNumber()
             }

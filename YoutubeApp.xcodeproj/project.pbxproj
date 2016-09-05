@@ -20,7 +20,8 @@
 		4E322D581D7D971E00E5B1F6 /* settings-16.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E322D571D7D971E00E5B1F6 /* settings-16.png */; };
 		4E322D5A1D7D97A300E5B1F6 /* settings-24.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E322D591D7D97A300E5B1F6 /* settings-24.png */; };
 		4E322D5C1D7DC92200E5B1F6 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E322D5B1D7DC92200E5B1F6 /* LoadingViewController.swift */; };
-		4E322D5E1D7DF36F00E5B1F6 /* EmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E322D5D1D7DF36F00E5B1F6 /* EmptyViewController.swift */; };
+		4E322D5E1D7DF36F00E5B1F6 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E322D5D1D7DF36F00E5B1F6 /* EmptyView.swift */; };
+		4E322D601D7E1AD600E5B1F6 /* BasicPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E322D5F1D7E1AD600E5B1F6 /* BasicPlaceholderView.swift */; };
 		4E676A661D228900007158ED /* InterestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E676A651D228900007158ED /* InterestView.swift */; };
 		4E6D8E051CECF95E00211D4B /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6D8E041CECF95E00211D4B /* Thumbnail.swift */; };
 		4E72B8571C58230B004592E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E72B8561C58230B004592E7 /* AppDelegate.swift */; };
@@ -59,7 +60,8 @@
 		4E322D571D7D971E00E5B1F6 /* settings-16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-16.png"; sourceTree = "<group>"; };
 		4E322D591D7D97A300E5B1F6 /* settings-24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-24.png"; sourceTree = "<group>"; };
 		4E322D5B1D7DC92200E5B1F6 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
-		4E322D5D1D7DF36F00E5B1F6 /* EmptyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyViewController.swift; sourceTree = "<group>"; };
+		4E322D5D1D7DF36F00E5B1F6 /* EmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		4E322D5F1D7E1AD600E5B1F6 /* BasicPlaceholderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicPlaceholderView.swift; sourceTree = "<group>"; };
 		4E676A651D228900007158ED /* InterestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestView.swift; sourceTree = "<group>"; };
 		4E6D8E041CECF95E00211D4B /* Thumbnail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
 		4E72B8531C58230B004592E7 /* YoutubeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoutubeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,7 +170,7 @@
 				4E88FF611C6B993400736678 /* VideoModel.swift */,
 				4E88FF631C6BDBF000736678 /* VideoDetailViewController.swift */,
 				4E72B85A1C58230B004592E7 /* Main.storyboard */,
-				4E322D5D1D7DF36F00E5B1F6 /* EmptyViewController.swift */,
+				4E322D5D1D7DF36F00E5B1F6 /* EmptyView.swift */,
 				4E76B2AB1D55DF2C00223078 /* SavedVideosViewController.swift */,
 				4E856F4D1D4D403C00BED6D7 /* NavigationController.swift */,
 				4E676A651D228900007158ED /* InterestView.swift */,
@@ -178,6 +180,7 @@
 				4E12E2241D2272F200F44DB9 /* images */,
 				4E72B85F1C58230B004592E7 /* LaunchScreen.storyboard */,
 				4E72B8621C58230B004592E7 /* Info.plist */,
+				4E322D5F1D7E1AD600E5B1F6 /* BasicPlaceholderView.swift */,
 			);
 			path = YoutubeApp;
 			sourceTree = "<group>";
@@ -338,9 +341,10 @@
 				4E856F4E1D4D403C00BED6D7 /* NavigationController.swift in Sources */,
 				4E88FF641C6BDBF100736678 /* VideoDetailViewController.swift in Sources */,
 				4EEC411A1C7B90BA0085FD59 /* SkillsViewController.swift in Sources */,
-				4E322D5E1D7DF36F00E5B1F6 /* EmptyViewController.swift in Sources */,
+				4E322D5E1D7DF36F00E5B1F6 /* EmptyView.swift in Sources */,
 				4E1B380B1CF0FA3400568FB9 /* ExampleOverlayView.swift in Sources */,
 				4E2999C81C6E613F00563520 /* InterestsViewController.swift in Sources */,
+				4E322D601D7E1AD600E5B1F6 /* BasicPlaceholderView.swift in Sources */,
 				4E6D8E051CECF95E00211D4B /* Thumbnail.swift in Sources */,
 				4E12E21D1D21A52300F44DB9 /* SignInViewController.swift in Sources */,
 				4EAF1C7B1D4CD3F7003F4B0D /* KeywordVC.swift in Sources */,
