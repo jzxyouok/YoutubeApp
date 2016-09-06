@@ -42,6 +42,7 @@
 		4EA808511C711D00009398D3 /* biology.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4EA808501C711D00009398D3 /* biology.jpg */; };
 		4EA808531C711EF0009398D3 /* philosophy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4EA808521C711EF0009398D3 /* philosophy.jpg */; };
 		4EAF1C7B1D4CD3F7003F4B0D /* KeywordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAF1C7A1D4CD3F7003F4B0D /* KeywordVC.swift */; };
+		4EC1FB731D7F2115009D9F91 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EC1FB721D7F2115009D9F91 /* Icon.png */; };
 		4EEC411A1C7B90BA0085FD59 /* SkillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC41191C7B90BA0085FD59 /* SkillsViewController.swift */; };
 		4EFE25EF1C7377A7009E44CD /* geography.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4EFE25EE1C7377A7009E44CD /* geography.jpg */; };
 		4EFE25F11C737B4A009E44CD /* technology.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4EFE25F01C737B4A009E44CD /* technology.jpg */; };
@@ -86,6 +87,7 @@
 		4EA808501C711D00009398D3 /* biology.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = biology.jpg; sourceTree = "<group>"; };
 		4EA808521C711EF0009398D3 /* philosophy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = philosophy.jpg; sourceTree = "<group>"; };
 		4EAF1C7A1D4CD3F7003F4B0D /* KeywordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordVC.swift; sourceTree = "<group>"; };
+		4EC1FB721D7F2115009D9F91 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		4EEC41191C7B90BA0085FD59 /* SkillsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillsViewController.swift; sourceTree = "<group>"; };
 		4EFE25EE1C7377A7009E44CD /* geography.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = geography.jpg; sourceTree = "<group>"; };
 		4EFE25F01C737B4A009E44CD /* technology.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = technology.jpg; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		4E12E2241D2272F200F44DB9 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				4EC1FB721D7F2115009D9F91 /* Icon.png */,
 				4E03E3911D47AD6E00872719 /* Background@3x.png */,
 				4EFE25EE1C7377A7009E44CD /* geography.jpg */,
 				4E2999C91C6E650100563520 /* maths.jpg */,
@@ -175,9 +178,9 @@
 				4E88FF631C6BDBF000736678 /* VideoDetailViewController.swift */,
 				4E72B85A1C58230B004592E7 /* Main.storyboard */,
 				4E322D651D7EE2FE00E5B1F6 /* SettingsViewController.swift */,
+				4E76B2AB1D55DF2C00223078 /* SavedVideosViewController.swift */,
 				4E322D5D1D7DF36F00E5B1F6 /* EmptyView.swift */,
 				4E322D611D7E4DF800E5B1F6 /* ErrorView.swift */,
-				4E76B2AB1D55DF2C00223078 /* SavedVideosViewController.swift */,
 				4E856F4D1D4D403C00BED6D7 /* NavigationController.swift */,
 				4E676A651D228900007158ED /* InterestView.swift */,
 				4E12E21C1D21A52300F44DB9 /* SignInViewController.swift */,
@@ -262,6 +265,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EC1FB731D7F2115009D9F91 /* Icon.png in Resources */,
 				4E72B8611C58230B004592E7 /* LaunchScreen.storyboard in Resources */,
 				4EA8084D1C711785009398D3 /* physics.jpg in Resources */,
 				4EA8084F1C711878009398D3 /* chemistry.jpg in Resources */,

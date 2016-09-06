@@ -33,11 +33,6 @@ class SavedVideosViewController: UITableViewController, VideoModelDelegate {
         self.tableView.reloadData()
     }
     
-    
-    @IBAction func settingsButtonPressed(sender: UIBarButtonItem) {
-        performSegueWithIdentifier("goToSettings", sender: self)
-    }
-    
     @IBAction func syncButtonPressed(sender: UIBarButtonItem) {
         
         //The request below is for uploading videos to a personal watch later playlist.
