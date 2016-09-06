@@ -19,8 +19,6 @@ class SavedVideosViewController: UITableViewController, VideoModelDelegate {
     let model = VideoModel()
     var selectedVideo = Video()
     
-    @IBOutlet weak var settingsBarButtonItem: UIBarButtonItem!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,13 +27,15 @@ class SavedVideosViewController: UITableViewController, VideoModelDelegate {
         self.clearsSelectionOnViewWillAppear = false
         self.model.delegate=self
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
     }
     
     func dataReady() {
-        
+        self.tableView.reloadData()
+    }
+    
+    
+    @IBAction func settingsButtonPressed(sender: UIBarButtonItem) {
+        performSegueWithIdentifier("goToSettings", sender: self)
     }
     
     @IBAction func syncButtonPressed(sender: UIBarButtonItem) {
@@ -183,11 +183,14 @@ class SavedVideosViewController: UITableViewController, VideoModelDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         //Get a reference for the destination view controller.
-        let detailViewController = segue.destinationViewController as! VideoDetailViewController
-        
-        //Set the selectedVideo property of the destination view controller.
-        detailViewController.selectedVideo = self.selectedVideo
-        
+        if segue.identifier == "goToDetail2" {
+            let detailViewController = segue.destinationViewController as! VideoDetailViewController
+            
+            //Set the selectedVideo property of the destination view controller.
+            detailViewController.selectedVideo = self.selectedVideo
+        } else if segue.identifier == "goToSettings" {
+            
+        }
     }
     
 }
