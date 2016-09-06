@@ -87,14 +87,35 @@ class VideoDetailViewController: UIViewController {
                 return
             }
             
-    }
-    
-    func viewWillAppear(animated: Bool) {
+        }
         
-        self.reachability!.whenReachable = { reachability in
-            if reachability.isReachableViaWiFi() {
+        func viewWillAppear(animated: Bool) {
+            
+            self.reachability!.whenReachable = { reachability in
+                if reachability.isReachableViaWiFi() {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        let alertController = UIAlertController(title: "Alert", message: "Reachable via WiFi", preferredStyle: .Alert)
+                        
+                        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                        alertController.addAction(defaultAction)
+                        
+                        self.presentViewController(alertController, animated: true, completion: nil)
+                    }
+                }
+                else {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        let alertController = UIAlertController(title: "Alert", message: "Reachable via Cellular", preferredStyle: .Alert)
+                        
+                        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                        alertController.addAction(defaultAction)
+                        
+                        self.presentViewController(alertController, animated: true, completion: nil)
+                    }
+                }
+            }
+            self.reachability!.whenUnreachable = { reachability in
                 dispatch_async(dispatch_get_main_queue()) {
-                    let alertController = UIAlertController(title: "Alert", message: "Reachable via WiFi", preferredStyle: .Alert)
+                    let alertController = UIAlertController(title: "Alert", message: "Not Reachable", preferredStyle: .Alert)
                     
                     let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
                     alertController.addAction(defaultAction)
@@ -102,28 +123,7 @@ class VideoDetailViewController: UIViewController {
                     self.presentViewController(alertController, animated: true, completion: nil)
                 }
             }
-            else {
-                dispatch_async(dispatch_get_main_queue()) {
-                    let alertController = UIAlertController(title: "Alert", message: "Reachable via Cellular", preferredStyle: .Alert)
-                    
-                    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-                    alertController.addAction(defaultAction)
-                    
-                    self.presentViewController(alertController, animated: true, completion: nil)
-                }
-            }
-        }
-        self.reachability!.whenUnreachable = { reachability in
-            dispatch_async(dispatch_get_main_queue()) {
-                let alertController = UIAlertController(title: "Alert", message: "Not Reachable", preferredStyle: .Alert)
-                
-                let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-                alertController.addAction(defaultAction)
-                
-                self.presentViewController(alertController, animated: true, completion: nil)
-            }
-        }
-        
+            
         }
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(VideoDetailViewController.reachabilityChanged(_:)),name: ReachabilityChangedNotification,object: reachability)
@@ -133,18 +133,7 @@ class VideoDetailViewController: UIViewController {
             print("Unable to start notifier")
         }
     }
-    /*
-    func startNotifier() {
-        print("--- start notifier")
-        do {
-            try reachability?.startNotifier()
-        } catch {
-            //networkStatus.textColor = UIColor.redColor()
-            //networkStatus.text = "Unable to start\nnotifier"
-            return
-        }
-    }
-    */
+    
     func reachabilityChanged(note: NSNotification) {
         
         let reachability = note.object as! Reachability

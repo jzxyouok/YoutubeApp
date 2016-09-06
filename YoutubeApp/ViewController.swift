@@ -66,12 +66,12 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         self.reachability!.whenReachable = { reachability in
             if reachability.isReachableViaWiFi() {
                 dispatch_async(dispatch_get_main_queue()) {
-//                    let alertController = UIAlertController(title: "Alert", message: "Reachable via WiFi", preferredStyle: .Alert)
-//                    
-//                    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-//                    alertController.addAction(defaultAction)
-//                    
-//                    self.presentViewController(alertController, animated: true, completion: nil)
+                    //                    let alertController = UIAlertController(title: "Alert", message: "Reachable via WiFi", preferredStyle: .Alert)
+                    //                    
+                    //                    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                    //                    alertController.addAction(defaultAction)
+                    //                    
+                    //                    self.presentViewController(alertController, animated: true, completion: nil)
                     
                     if self.videos.isEmpty {
                         self.setupInitialViewState()
@@ -80,12 +80,12 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
                 }
             } else {
                 dispatch_async(dispatch_get_main_queue()) {
-//                    let alertController = UIAlertController(title: "Alert", message: "Reachable via Cellular", preferredStyle: .Alert)
-//                    
-//                    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-//                    alertController.addAction(defaultAction)
-//                    
-//                    self.presentViewController(alertController, animated: true, completion: nil)
+                    //                    let alertController = UIAlertController(title: "Alert", message: "Reachable via Cellular", preferredStyle: .Alert)
+                    //                    
+                    //                    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                    //                    alertController.addAction(defaultAction)
+                    //                    
+                    //                    self.presentViewController(alertController, animated: true, completion: nil)
                     
                     if self.videos.isEmpty {
                         self.setupInitialViewState()
@@ -147,6 +147,7 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         
         loadingView = LoadingView(frame: self.view.frame)
         emptyView = EmptyView(frame: self.view.frame)
+        errorView = ErrorView(frame: self.view.frame)
         //refreshControl.addTarget(self, action: #selector(refresh), forControlEvents: .ValueChanged)
         //self.view.addSubview(refreshControl)
         
@@ -179,7 +180,13 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     //MARK:- VideoModel Delegate Methods
     
     func hasContent() -> Bool {
-        return self.done==1
+        return self.videos.count>0
+    }
+    
+    func handleErrorWhenContentAvailable(error: ErrorType) {
+        let alertController = UIAlertController(title: "Ooops", message: "Something went wrong.", preferredStyle: .Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     func dataReady() {
@@ -207,8 +214,10 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
                     self.model.getSkillsFeedVideos(self.skillSelectionArray, keywordArray: self.searchWords) { data in
                         
                         self.videos = data as! [Video]
-                        
-                        if self.model.delegate != nil {
+                        if self.videos.isEmpty {
+                            self.endLoading(error: nil)
+                            
+                        } else if self.model.delegate != nil {
                             self.numberOfCards = UInt(self.videos.count)
                             self.koloda(kolodaNumberOfCards: self.kolodaView)
                             self.model.delegate!.dataReady()
@@ -298,7 +307,11 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
             self.selectedVideos=VideoStatus.selectedVideos
         }
         if direction == .Right {
-            if !self.selectedVideos.contains(videos[Int(index)+self.value]) {
+            var videoIds: [String] = []
+            for video in self.selectedVideos {
+                videoIds.append(video.videoId!)
+            }
+            if !videoIds.contains(videos[Int(index)+self.value].videoId!) {
                 self.selectedVideos.append(videos[Int(index)+self.value])
             }
         }

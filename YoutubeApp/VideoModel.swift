@@ -87,9 +87,9 @@ class VideoModel: NSObject {
                 }
             } else {
                 if interest==interestArray.last {
-                    makeVideosRequest(21, keywordArray: keywordArray, completionHandler: completionHandler)
+                    makeVideosRequest(27, keywordArray: keywordArray, completionHandler: completionHandler)
                 } else {
-                    makeSubVideosRequest(21, keywordArray: keywordArray)
+                    makeSubVideosRequest(27, keywordArray: keywordArray)
                 }
             }
         }
@@ -193,6 +193,7 @@ class VideoModel: NSObject {
                         self.videoArray.append(video)
                     }
                     print(self.videoArray)
+                    
                     print("SkillsVideos: \(self.videoArray.count)")
                     completionHandler(data: self.videoArray)
                 }

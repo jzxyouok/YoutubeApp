@@ -18,27 +18,27 @@ class LoadingView: BasicPlaceholderView, StatefulPlaceholderView, NVActivityIndi
         
         self.backgroundColor = UIColor(red: CGFloat(237 / 255.0), green: CGFloat(85 / 255.0), blue: CGFloat(101 / 255.0), alpha: 1)
         
-        let cols = 4
+        let cols = 3
         let rows = 8
         let cellWidth = Int(self.frame.width / CGFloat(cols))
         let cellHeight = Int(self.frame.height / CGFloat(rows))
         
-        (NVActivityIndicatorType.BallPulse.rawValue ... NVActivityIndicatorType.LineScaleParty.rawValue).forEach {
-            let x = ($0 - 1) % cols * cellWidth
-            let y = ($0 - 1) / cols * cellHeight
+            let loader = NVActivityIndicatorType.LineScale.rawValue
+            let x = 1 * cellWidth
+            let y = 2 * cellHeight
             let frame = CGRect(x: x, y: y, width: cellWidth, height: cellHeight)
             let activityIndicatorView = NVActivityIndicatorView(frame: frame,
-                type: NVActivityIndicatorType(rawValue: $0)!)
+                type: NVActivityIndicatorType(rawValue: loader)!)
             let animationTypeLabel = UILabel(frame: frame)
-            
-            animationTypeLabel.text = String($0)
+            animationTypeLabel.text = "Please wait while your videos are loading."
             animationTypeLabel.sizeToFit()
+            animationTypeLabel.numberOfLines=0
             animationTypeLabel.textColor = UIColor.whiteColor()
-            animationTypeLabel.frame.origin.x += 5
-            animationTypeLabel.frame.origin.y += CGFloat(cellHeight) - animationTypeLabel.frame.size.height
+            animationTypeLabel.frame.origin.x = (self.frame.width-animationTypeLabel.frame.width)/2
+            animationTypeLabel.frame.origin.y += CGFloat(cellHeight)
             
             activityIndicatorView.padding = 20
-            if ($0 == NVActivityIndicatorType.SemiCircleSpin.rawValue) {
+            if (loader == NVActivityIndicatorType.SemiCircleSpin.rawValue) {
                 activityIndicatorView.padding = 0
             }
             
@@ -47,12 +47,12 @@ class LoadingView: BasicPlaceholderView, StatefulPlaceholderView, NVActivityIndi
             activityIndicatorView.startAnimation()
             
             let button:UIButton = UIButton(frame: frame)
-            button.tag = $0
+            button.tag = loader
             button.addTarget(self,
                 action: #selector(buttonTapped(_:)),
                 forControlEvents: UIControlEvents.TouchUpInside)
             self.addSubview(button)
-        }
+        
     }
     
     func buttonTapped(sender: UIButton) {
@@ -97,7 +97,10 @@ class LoadingView: BasicPlaceholderView, StatefulPlaceholderView, NVActivityIndi
     }
     
     func delayedStopActivity() {
-        //stopActivityAnimating()
+        for item in self.subviews
+            where item.restorationIdentifier == "NVActivityIndicatorViewContainer" {
+                item.removeFromSuperview()
+        }
     }
     
 }
