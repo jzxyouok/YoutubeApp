@@ -27,6 +27,11 @@ class SavedVideosViewController: UITableViewController, VideoModelDelegate {
         self.clearsSelectionOnViewWillAppear = false
         self.model.delegate=self
         
+        navigationController!.navigationBar.barTintColor = UIColor.blackColor()
+        navigationController!.navigationBar.tintColor=UIColor.whiteColor()
+        navigationController!.navigationBar.titleTextAttributes=[NSForegroundColorAttributeName : UIColor.whiteColor()]
+        navigationController!.navigationBar.opaque=true
+        self.navigationController!.navigationBar.barStyle = .Black
     }
     
     func dataReady() {
@@ -36,8 +41,25 @@ class SavedVideosViewController: UITableViewController, VideoModelDelegate {
     @IBAction func syncButtonPressed(sender: UIBarButtonItem) {
         
         //The request below is for uploading videos to a personal watch later playlist.
-        
-        self.model.addVideosToPlaylist(videos)
+        if let authorizer = self.model.service.authorizer,
+            canAuth = authorizer.canAuthorize where canAuth {
+            let alert = UIAlertController(title: "Sync Saved Videos to YouTube", message: "Click Sync to add your saved videos with your YouTube Watch Later Playlist", preferredStyle: .Alert)
+            
+            alert.addAction(UIAlertAction(title: "Sync", style: .Default, handler: { (action: UIAlertAction) in
+                self.model.addVideosToPlaylist(self.videos)
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+        } else {
+            let alert = UIAlertController(title: "Sync Saved Videos to YouTube", message: "Please sign in to Google first in settings", preferredStyle: .Alert)
+            
+            alert.addAction(UIAlertAction(title: "Ok", style: .Cancel, handler: nil))
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -51,7 +73,7 @@ class SavedVideosViewController: UITableViewController, VideoModelDelegate {
             VideoStatus.selectedVideos=NSKeyedUnarchiver.unarchiveObjectWithData(data) as! [Video]
             self.videos=VideoStatus.selectedVideos
         }
-        print(self.finished)
+        print(self.model.service.authorizer?.canAuthorize)
         tableView.reloadData()
     }
     
@@ -184,7 +206,8 @@ class SavedVideosViewController: UITableViewController, VideoModelDelegate {
             //Set the selectedVideo property of the destination view controller.
             detailViewController.selectedVideo = self.selectedVideo
         } else if segue.identifier == "goToSettings" {
-            
+            let settingsViewController = segue.destinationViewController as! SettingsViewController
+            settingsViewController.model.service = self.model.service
         }
     }
     

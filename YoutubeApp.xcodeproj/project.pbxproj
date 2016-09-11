@@ -43,6 +43,15 @@
 		4EA808531C711EF0009398D3 /* philosophy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4EA808521C711EF0009398D3 /* philosophy.jpg */; };
 		4EAF1C7B1D4CD3F7003F4B0D /* KeywordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAF1C7A1D4CD3F7003F4B0D /* KeywordVC.swift */; };
 		4EC1FB731D7F2115009D9F91 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EC1FB721D7F2115009D9F91 /* Icon.png */; };
+		4ECA0C571D842C0900E7EA88 /* BG-Image.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ECA0C561D842C0900E7EA88 /* BG-Image.png */; };
+		4ECA0C591D842D1E00E7EA88 /* Sign-In-Google.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ECA0C581D842D1E00E7EA88 /* Sign-In-Google.png */; };
+		4ECA0C5B1D842D9C00E7EA88 /* Log In Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ECA0C5A1D842D9C00E7EA88 /* Log In Button.png */; };
+		4ECA0C5D1D8431D700E7EA88 /* pwrdByYT-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ECA0C5C1D8431D700E7EA88 /* pwrdByYT-white.png */; };
+		4ECA0C611D8433EB00E7EA88 /* Log In Button Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ECA0C601D8433EB00E7EA88 /* Log In Button Highlighted.png */; };
+		4ECA0C641D8434EA00E7EA88 /* SSCheckmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECA0C631D8434EA00E7EA88 /* SSCheckmark.m */; };
+		4ECA0C671D858F6900E7EA88 /* InsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECA0C661D858F6900E7EA88 /* InsetLabel.swift */; };
+		4ECA0C6B1D85D63600E7EA88 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECA0C6A1D85D63600E7EA88 /* Security.framework */; };
+		4ECA0C6D1D85D65400E7EA88 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECA0C6C1D85D65400E7EA88 /* SystemConfiguration.framework */; };
 		4EEC411A1C7B90BA0085FD59 /* SkillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC41191C7B90BA0085FD59 /* SkillsViewController.swift */; };
 		4EFE25EF1C7377A7009E44CD /* geography.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4EFE25EE1C7377A7009E44CD /* geography.jpg */; };
 		4EFE25F11C737B4A009E44CD /* technology.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4EFE25F01C737B4A009E44CD /* technology.jpg */; };
@@ -88,6 +97,17 @@
 		4EA808521C711EF0009398D3 /* philosophy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = philosophy.jpg; sourceTree = "<group>"; };
 		4EAF1C7A1D4CD3F7003F4B0D /* KeywordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordVC.swift; sourceTree = "<group>"; };
 		4EC1FB721D7F2115009D9F91 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		4ECA0C561D842C0900E7EA88 /* BG-Image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BG-Image.png"; sourceTree = "<group>"; };
+		4ECA0C581D842D1E00E7EA88 /* Sign-In-Google.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Sign-In-Google.png"; sourceTree = "<group>"; };
+		4ECA0C5A1D842D9C00E7EA88 /* Log In Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Log In Button.png"; sourceTree = "<group>"; };
+		4ECA0C5C1D8431D700E7EA88 /* pwrdByYT-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pwrdByYT-white.png"; sourceTree = "<group>"; };
+		4ECA0C601D8433EB00E7EA88 /* Log In Button Highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Log In Button Highlighted.png"; sourceTree = "<group>"; };
+		4ECA0C621D8434EA00E7EA88 /* YoutubeApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YoutubeApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		4ECA0C631D8434EA00E7EA88 /* SSCheckmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSCheckmark.m; sourceTree = "<group>"; };
+		4ECA0C651D84351500E7EA88 /* SSCheckmark.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSCheckmark.h; sourceTree = "<group>"; };
+		4ECA0C661D858F6900E7EA88 /* InsetLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsetLabel.swift; sourceTree = "<group>"; };
+		4ECA0C6A1D85D63600E7EA88 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		4ECA0C6C1D85D65400E7EA88 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4EEC41191C7B90BA0085FD59 /* SkillsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillsViewController.swift; sourceTree = "<group>"; };
 		4EFE25EE1C7377A7009E44CD /* geography.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = geography.jpg; sourceTree = "<group>"; };
 		4EFE25F01C737B4A009E44CD /* technology.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = technology.jpg; sourceTree = "<group>"; };
@@ -99,6 +119,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4ECA0C6D1D85D65400E7EA88 /* SystemConfiguration.framework in Frameworks */,
+				4ECA0C6B1D85D63600E7EA88 /* Security.framework in Frameworks */,
 				4107211B07472069F8521C97 /* Pods_YoutubeApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,6 +131,8 @@
 		0A176624DCB95C70460E2C5F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4ECA0C6C1D85D65400E7EA88 /* SystemConfiguration.framework */,
+				4ECA0C6A1D85D63600E7EA88 /* Security.framework */,
 				3F6CACAACEA1F7892C6351C0 /* Pods_YoutubeApp.framework */,
 			);
 			name = Frameworks;
@@ -124,6 +148,11 @@
 		4E12E2241D2272F200F44DB9 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				4ECA0C601D8433EB00E7EA88 /* Log In Button Highlighted.png */,
+				4ECA0C5C1D8431D700E7EA88 /* pwrdByYT-white.png */,
+				4ECA0C5A1D842D9C00E7EA88 /* Log In Button.png */,
+				4ECA0C581D842D1E00E7EA88 /* Sign-In-Google.png */,
+				4ECA0C561D842C0900E7EA88 /* BG-Image.png */,
 				4EC1FB721D7F2115009D9F91 /* Icon.png */,
 				4E03E3911D47AD6E00872719 /* Background@3x.png */,
 				4EFE25EE1C7377A7009E44CD /* geography.jpg */,
@@ -171,12 +200,15 @@
 				4E72B8581C58230B004592E7 /* ViewController.swift */,
 				4E322D5B1D7DC92200E5B1F6 /* LoadingViewController.swift */,
 				4E6D8E041CECF95E00211D4B /* Thumbnail.swift */,
+				4ECA0C661D858F6900E7EA88 /* InsetLabel.swift */,
 				4E1B38081CEF6FA200568FB9 /* Thumbnail.xib */,
 				4E88FF5F1C6B97DC00736678 /* Video.swift */,
 				4EAF1C7A1D4CD3F7003F4B0D /* KeywordVC.swift */,
 				4E88FF611C6B993400736678 /* VideoModel.swift */,
 				4E88FF631C6BDBF000736678 /* VideoDetailViewController.swift */,
 				4E72B85A1C58230B004592E7 /* Main.storyboard */,
+				4ECA0C631D8434EA00E7EA88 /* SSCheckmark.m */,
+				4ECA0C651D84351500E7EA88 /* SSCheckmark.h */,
 				4E322D651D7EE2FE00E5B1F6 /* SettingsViewController.swift */,
 				4E76B2AB1D55DF2C00223078 /* SavedVideosViewController.swift */,
 				4E322D5D1D7DF36F00E5B1F6 /* EmptyView.swift */,
@@ -190,6 +222,7 @@
 				4E72B85F1C58230B004592E7 /* LaunchScreen.storyboard */,
 				4E72B8621C58230B004592E7 /* Info.plist */,
 				4E322D5F1D7E1AD600E5B1F6 /* BasicPlaceholderView.swift */,
+				4ECA0C621D8434EA00E7EA88 /* YoutubeApp-Bridging-Header.h */,
 			);
 			path = YoutubeApp;
 			sourceTree = "<group>";
@@ -232,7 +265,7 @@
 		4E72B84B1C58230A004592E7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Pranav Kasetti";
 				TargetAttributes = {
@@ -267,12 +300,16 @@
 			files = (
 				4EC1FB731D7F2115009D9F91 /* Icon.png in Resources */,
 				4E72B8611C58230B004592E7 /* LaunchScreen.storyboard in Resources */,
+				4ECA0C571D842C0900E7EA88 /* BG-Image.png in Resources */,
 				4EA8084D1C711785009398D3 /* physics.jpg in Resources */,
+				4ECA0C5D1D8431D700E7EA88 /* pwrdByYT-white.png in Resources */,
 				4EA8084F1C711878009398D3 /* chemistry.jpg in Resources */,
 				4E1C99CE1D3D12C60009F799 /* TableSectionHeader.xib in Resources */,
 				4E2999CA1C6E650100563520 /* maths.jpg in Resources */,
+				4ECA0C5B1D842D9C00E7EA88 /* Log In Button.png in Resources */,
 				4EFE25EF1C7377A7009E44CD /* geography.jpg in Resources */,
 				4EA8084B1C7116BD009398D3 /* history.jpg in Resources */,
+				4ECA0C611D8433EB00E7EA88 /* Log In Button Highlighted.png in Resources */,
 				4E322D581D7D971E00E5B1F6 /* settings-16.png in Resources */,
 				4E72B85E1C58230B004592E7 /* Assets.xcassets in Resources */,
 				4EFE25F11C737B4A009E44CD /* technology.jpg in Resources */,
@@ -280,6 +317,7 @@
 				4E72B85C1C58230B004592E7 /* Main.storyboard in Resources */,
 				4EA808511C711D00009398D3 /* biology.jpg in Resources */,
 				4E1B380D1CF0FA8700568FB9 /* OverlayView.xib in Resources */,
+				4ECA0C591D842D1E00E7EA88 /* Sign-In-Google.png in Resources */,
 				4E1B38091CEF6FA200568FB9 /* Thumbnail.xib in Resources */,
 				4EA808531C711EF0009398D3 /* philosophy.jpg in Resources */,
 				4E03E3921D47AD6E00872719 /* Background@3x.png in Resources */,
@@ -343,11 +381,13 @@
 			files = (
 				4E72B8591C58230B004592E7 /* ViewController.swift in Sources */,
 				4E76B2AC1D55DF2C00223078 /* SavedVideosViewController.swift in Sources */,
+				4ECA0C641D8434EA00E7EA88 /* SSCheckmark.m in Sources */,
 				4E322D621D7E4DF800E5B1F6 /* ErrorView.swift in Sources */,
 				4E322D661D7EE2FE00E5B1F6 /* SettingsViewController.swift in Sources */,
 				4E1C99CC1D3D12720009F799 /* TableSectionHeader.swift in Sources */,
 				4E322D5C1D7DC92200E5B1F6 /* LoadingViewController.swift in Sources */,
 				4E88FF601C6B97DC00736678 /* Video.swift in Sources */,
+				4ECA0C671D858F6900E7EA88 /* InsetLabel.swift in Sources */,
 				4E676A661D228900007158ED /* InterestView.swift in Sources */,
 				4E72B8571C58230B004592E7 /* AppDelegate.swift in Sources */,
 				4E856F4E1D4D403C00BED6D7 /* NavigationController.swift in Sources */,
@@ -480,6 +520,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = YoutubeApp/Info.plist;
@@ -487,7 +528,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pranav.kasetti.YoutubeApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "YoutubeApp/YoutubeApp-Bridging-Header.h";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "YoutubeApp/YoutubeApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -499,6 +542,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = YoutubeApp/Info.plist;
@@ -506,6 +550,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pranav.kasetti.YoutubeApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "YoutubeApp/YoutubeApp-Bridging-Header.h";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "YoutubeApp/YoutubeApp-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

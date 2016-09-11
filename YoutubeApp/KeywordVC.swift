@@ -39,7 +39,13 @@ class KeywordVC: UIViewController, UITextViewDelegate {
             while textView.text.skipWhitespace(&range) {
             }
         }
-        
+        userDefaults.setObject(keywords, forKey: "KeywordsArray")
+        if self.interestSelectionArray != [] {
+            userDefaults.setObject(self.interestSelectionArray, forKey: "InterestsArray")
+        }
+        if self.skillSelectionArray != [] {
+            userDefaults.setObject(self.skillSelectionArray, forKey: "SkillsArray")
+        }
         ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).interestSelectionArray=self.interestSelectionArray+keywords
         ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).skillSelectionArray=self.skillSelectionArray
         ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).model=self.model
@@ -49,10 +55,35 @@ class KeywordVC: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         print(interestSelectionArray)
         print(skillSelectionArray)
+        let userDefaults=NSUserDefaults.standardUserDefaults()
+        if userDefaults.objectForKey("SkillsArray") != nil {
+            self.navigationItem.hidesBackButton=true
+        }
         textView.text = "Please enter some keywords!"
         textView.textColor = UIColor.lightGrayColor()
         textView.delegate=self
+        
+        navigationController!.navigationBar.barTintColor = UIColor.blackColor()
+        navigationController!.navigationBar.tintColor=UIColor.whiteColor()
+        navigationController!.navigationBar.titleTextAttributes=[NSForegroundColorAttributeName : UIColor.whiteColor()]
+        navigationController!.navigationBar.opaque=true
+        self.navigationController!.navigationBar.barStyle = .Black
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        if userDefaults.objectForKey("SkillsArray") != nil {
+            self.navigationItem.hidesBackButton=true
+        }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        let alert = UIAlertController(title: "Keyword Entry", message: "Please enter keywords related to your interests and skills. Keywords should be separated only by spaces and contain no special characters!", preferredStyle: .Alert)
+        
+        alert.addAction(UIAlertAction(title: "Got it!", style: .Cancel, handler: nil))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     func textViewDidBeginEditing(textView: UITextView) {

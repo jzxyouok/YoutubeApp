@@ -6,3 +6,5 @@
 //
 //
 
+#import "SSCheckmark.h"
+#import "SSCheckmark.m"

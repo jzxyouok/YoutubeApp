@@ -13,6 +13,9 @@ import GTMOAuth2
 
 class SignInViewController: UIViewController {
     
+    var checked: Int = 0
+    
+    @IBOutlet weak var googleSignInButton: UIButton!
     
     @IBAction func signInButtonPressed(sender: UIButton) {
         presentViewController(
@@ -22,6 +25,20 @@ class SignInViewController: UIViewController {
         )
     }
     
+    @IBAction func signInGuestPressed(sender: UIButton) {
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        if userDefaults.objectForKey("InterestsArray") as? [String] == nil || userDefaults.objectForKey("SkillsArray") as? [String] == nil {
+            let vc : InterestsViewController = storyboard.instantiateViewControllerWithIdentifier("InterestsViewController") as! InterestsViewController
+            vc.model.service=self.service
+            contentViewController = UINavigationController(rootViewController: vc)
+            self.presentViewController(contentViewController, animated: true, completion: nil)
+        } else if userDefaults.objectForKey("InterestsArray") as? [String] != nil && userDefaults.objectForKey("SkillsArray") as? [String] != nil {
+            let tbc: UITabBarController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
+            (((tbc.viewControllers![1] as! UINavigationController).viewControllers[0]) as! SavedVideosViewController).model.service=self.service
+            self.presentViewController(tbc, animated: true, completion: nil)
+        }
+    }
     // Change Bundle Identifier for this client ID in Google Developer Console.
     private let kKeychainItemName = "YouTube Data API"
     private let kClientID = "192877572614-k4ljl168palm9oq5skbgonsagf17t20h.apps.googleusercontent.com"
@@ -47,10 +64,10 @@ class SignInViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let userDefaults = NSUserDefaults.standardUserDefaults()
         if let authorizer = service.authorizer,
             canAuth = authorizer.canAuthorize where canAuth {
-            let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let userDefaults = NSUserDefaults.standardUserDefaults()
             if userDefaults.objectForKey("InterestsArray") as? [String] == nil || userDefaults.objectForKey("SkillsArray") as? [String] == nil {
                 let vc : InterestsViewController = storyboard.instantiateViewControllerWithIdentifier("InterestsViewController") as! InterestsViewController
                 vc.model.service=self.service
@@ -61,8 +78,12 @@ class SignInViewController: UIViewController {
                 (((tbc.viewControllers![1] as! UINavigationController).viewControllers[0]) as! SavedVideosViewController).model.service=self.service
                 self.presentViewController(tbc, animated: true, completion: nil)
             }
-        } else {
-            
+        } else if userDefaults.objectForKey("InterestsArray") as? [String] != nil && userDefaults.objectForKey("SkillsArray") as? [String] != nil && checked==0 {
+            let tbc: UITabBarController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
+            (((tbc.viewControllers![1] as! UINavigationController).viewControllers[0]) as! SavedVideosViewController).model.service=self.service
+            self.presentViewController(tbc, animated: true, completion: nil)
+        } else if userDefaults.objectForKey("InterestsArray") as? [String] != nil && userDefaults.objectForKey("SkillsArray") as? [String] != nil && checked==1 {
+            self.signInButtonPressed(self.googleSignInButton)
         }
     }
     

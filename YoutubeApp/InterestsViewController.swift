@@ -39,7 +39,33 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
                 interestSelectionArray.append(initialArray[index])
             }
         }
+        let userDefaults=NSUserDefaults.standardUserDefaults()
         
+        if userDefaults.objectForKey("SkillsArray") as? [String] != nil {
+            let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let tbc: UITabBarController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
+            if userDefaults.objectForKey("InterestsArray") == nil {
+                userDefaults.setObject(self.interestSelectionArray, forKey: "InterestsArray")
+            }
+            (((tbc.viewControllers![1] as! UINavigationController).viewControllers[0]) as! SavedVideosViewController).model.service=self.model.service
+            ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).skillSelectionArray=(userDefaults.objectForKey("SkillsArray") as? [String])!
+            if userDefaults.objectForKey("SelectedVideos") as? NSData == nil {
+                VideoStatus.selectedVideos=[]
+                (((tbc.viewControllers![1] as! UINavigationController).viewControllers[0]) as! SavedVideosViewController).videos=VideoStatus.selectedVideos
+                
+            }
+            let keywords=userDefaults.objectForKey("KeywordsArray") as? [String]
+            print(keywords)
+            if keywords != nil {
+                ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).interestSelectionArray=self.interestSelectionArray+keywords!
+            } else {
+                ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).interestSelectionArray=self.interestSelectionArray
+            }
+            ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).model=self.model
+            self.presentViewController(tbc, animated: true, completion: nil)
+        } else {
+            self.performSegueWithIdentifier("showSkills", sender: self)
+        }
     }
     
     override func viewDidLoad() {
@@ -47,6 +73,12 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
         self.collectionView.backgroundColor = nil
         //collectionView.delegate = self
         collectionView.dataSource = self
+        
+        navigationController!.navigationBar.barTintColor = UIColor.blackColor()
+        navigationController!.navigationBar.tintColor=UIColor.whiteColor()
+        navigationController!.navigationBar.titleTextAttributes=[NSForegroundColorAttributeName : UIColor.whiteColor()]
+        navigationController!.navigationBar.opaque=true
+        self.navigationController!.navigationBar.barStyle = .Black
         
     }
     
@@ -86,6 +118,7 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
         cell.swich.addTarget(self, action: #selector(InterestsViewController.switchChanged(_:)), forControlEvents: UIControlEvents.ValueChanged)
         return cell
     }
+    
     
     func switchChanged(swich: UISwitch) {
         

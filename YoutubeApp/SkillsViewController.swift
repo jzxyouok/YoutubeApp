@@ -35,6 +35,20 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             } else {
             }
         }
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        if userDefaults.objectForKey("KeywordsArray") == nil {
+            self.performSegueWithIdentifier("showKeywords", sender: self)
+        } else {
+            let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let tbc: UITabBarController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
+            (((tbc.viewControllers![1] as! UINavigationController).viewControllers[0]) as! SavedVideosViewController).model.service=self.model.service
+            let interests = userDefaults.objectForKey("InterestsArray") as! [String]
+            ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).interestSelectionArray = interests
+            userDefaults.setObject(self.skillSelectionArray, forKey: "SkillsArray")
+            ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).skillSelectionArray=self.skillSelectionArray
+            ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).model=self.model
+            self.presentViewController(tbc, animated: true, completion: nil)
+        }
         
         /*
          let alert = UIAlertController(title: "Keyword Entry", message: "Please enter keywords related to your interests and skills. Keywords should be all lowercase, and separated only by spaces with no other characters!", preferredStyle: .Alert)
@@ -71,6 +85,20 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.tableView.allowsMultipleSelection = true
         let nib = UINib(nibName: "TableSectionHeader", bundle: nil)
         tableView.registerNib(nib, forHeaderFooterViewReuseIdentifier: "TableSectionHeader")
+        //self.tableView.backgroundColor=UIColor.blackColor()
+        
+        navigationController!.navigationBar.barTintColor = UIColor.blackColor()
+        navigationController!.navigationBar.tintColor=UIColor.whiteColor()
+        navigationController!.navigationBar.titleTextAttributes=[NSForegroundColorAttributeName : UIColor.whiteColor()]
+        navigationController!.navigationBar.opaque=true
+        self.navigationController!.navigationBar.barStyle = .Black
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        if userDefaults.objectForKey("InterestsArray") != nil {
+            self.navigationItem.hidesBackButton=true
+        }
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -98,6 +126,10 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        
+        //cell.textLabel?.textColor=UIColor.whiteColor()
+        //cell.backgroundColor=UIColor.blackColor()
+        
         if indexPath.row % 3 == 0 {
             cell.textLabel!.text = "Beginner"
         } else if indexPath.row % 3 == 1 {
@@ -134,9 +166,11 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destViewController: KeywordVC = segue.destinationViewController as! KeywordVC
-        destViewController.interestSelectionArray = self.interestSelectionArray
-        destViewController.skillSelectionArray=self.skillSelectionArray
-        destViewController.model=self.model
+        if segue.identifier=="showKeywords" {
+            let destViewController: KeywordVC = segue.destinationViewController as! KeywordVC
+            destViewController.interestSelectionArray = self.interestSelectionArray
+            destViewController.skillSelectionArray=self.skillSelectionArray
+            destViewController.model=self.model
+        }
     }
 }

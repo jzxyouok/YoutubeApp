@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import QuartzCore
 
 class Thumbnail: UIView {
     
@@ -21,8 +22,9 @@ class Thumbnail: UIView {
      let spacing = 10
      let starCount = 5
      */
+    var border = UIView()
     var iv = UIImageView()
-    var videoLabel = UILabel()
+    var videoLabel = InsetLabel()
     var videoImage = UIImage()
     
     // MARK: Initialisation
@@ -30,13 +32,18 @@ class Thumbnail: UIView {
         super.init(coder: aDecoder)
         
         iv.image = videoImage
+        self.border.backgroundColor=UIColor.clearColor()
+        self.border.layer.borderColor=UIColor.orangeColor().CGColor
+        self.border.layer.borderWidth=3
         videoLabel.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.8)
         videoLabel.textColor = UIColor.init(red: 255, green: 255, blue: 255, alpha: 1)
         videoLabel.font = UIFont(name: "Helvetica", size: 20)
+        videoLabel.textAlignment = .Center
         videoLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
         videoLabel.numberOfLines = 0
         addSubview(iv)
-        addSubview(videoLabel)
+        addSubview(border)
+        border.addSubview(videoLabel)
         /*
          let filledStarImage = UIImage(named: "filledStar")
          let emptyStarImage = UIImage(named: "emptyStar")
@@ -70,8 +77,10 @@ class Thumbnail: UIView {
          button.frame = buttonFrame
          }
          */
+        let borderFrame = CGRectInset(imageFrame, 10, 10)
+        let labelFrame = CGRect(x: 0, y: imageSize-labelSize-10, width: Int(borderFrame.width), height: labelSize-10)
         
-        let labelFrame = CGRect(x: 0, y: imageSize-labelSize, width: imageSize, height: labelSize)
+        self.border.frame=borderFrame
         
         self.iv.frame = imageFrame
         

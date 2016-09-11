@@ -29,6 +29,7 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         let userDefaults = NSUserDefaults.standardUserDefaults()
         userDefaults.setObject(nil, forKey: "InterestsArray")
         userDefaults.setObject(nil, forKey: "SkillsArray")
+        userDefaults.setObject(nil, forKey: "KeywordsArray")
         userDefaults.setObject(nil, forKey: "SelectedVideos")
         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc : SignInViewController = storyboard.instantiateViewControllerWithIdentifier("SignInViewController") as! SignInViewController
@@ -56,13 +57,40 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     override func viewDidAppear(animated: Bool) {
     }
     
+    override func prefersStatusBarHidden() -> Bool {
+        return false
+    }
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
+    
     override func viewWillAppear(animated: Bool) {
+        navigationController!.navigationBar.barTintColor = UIColor.blackColor()
+        navigationController!.navigationBar.tintColor=UIColor.whiteColor()
+        navigationController!.navigationBar.titleTextAttributes=[NSForegroundColorAttributeName : UIColor.whiteColor()]
+        navigationController!.navigationBar.opaque=true
+        self.navigationController!.navigationBar.barStyle = .Black
+        
         do {
             self.reachability = try Reachability.reachabilityForInternetConnection()
         } catch {
             print("Unable to create Reachability")
             return
         }
+        
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        if userDefaults.objectForKey("InterestsArray") as? [String] == nil || userDefaults.objectForKey("SkillsArray") as? [String] == nil || userDefaults.objectForKey("KeywordsArray") as? [String] == nil {
+            /*
+             userDefaults.setObject(self.interestSelectionArray, forKey: "InterestsArray")
+             userDefaults.setObject(self.skillSelectionArray, forKey: "SkillsArray")
+             */
+        } else if userDefaults.objectForKey("InterestsArray") as? [String] != nil && userDefaults.objectForKey("SkillsArray") as? [String] != nil && userDefaults.objectForKey("KeywordsArray") as? [String] != nil {
+            self.interestSelectionArray=(userDefaults.objectForKey("InterestsArray") as! [String])+(userDefaults.objectForKey("KeywordsArray") as! [String])
+            self.skillSelectionArray=userDefaults.objectForKey("SkillsArray") as! [String]
+        }
+        
+        print(interestSelectionArray)
+        
         self.reachability!.whenReachable = { reachability in
             if reachability.isReachableViaWiFi() {
                 dispatch_async(dispatch_get_main_queue()) {
@@ -134,16 +162,6 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         
         //Fire off request to get videos
         self.model.delegate = self
-        
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        if userDefaults.objectForKey("InterestsArray") as? [String] == nil || userDefaults.objectForKey("SkillsArray") as? [String] == nil {
-            userDefaults.setObject(self.interestSelectionArray, forKey: "InterestsArray")
-            userDefaults.setObject(self.skillSelectionArray, forKey: "SkillsArray")
-        } else if userDefaults.objectForKey("InterestsArray") as? [String] != nil && userDefaults.objectForKey("SkillsArray") as? [String] != nil{
-            self.interestSelectionArray=userDefaults.objectForKey("InterestsArray") as! [String]
-            self.skillSelectionArray=userDefaults.objectForKey("SkillsArray") as! [String]
-        }
-        print(interestSelectionArray)
         
         loadingView = LoadingView(frame: self.view.frame)
         emptyView = EmptyView(frame: self.view.frame)
@@ -327,7 +345,7 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         
         if (self.kolodaView.viewForCardAtIndex(self.kolodaView.currentCardNumber) != UIView(frame: self.kolodaView.frame) && self.kolodaView.delegate != nil && self.done==1 && self.kolodaView.countOfVisibleCards != 0 && self.kolodaView.visibleCards != []) {
             
-            let image = (self.kolodaView.viewForCardAtIndex(self.kolodaView.currentCardNumber) as! Thumbnail).iv.image
+            let image = (self.kolodaView.viewForCardAtIndex(self.kolodaView.currentCardNumber+self.value) as! Thumbnail).iv.image
             
             overlay?.overlayImageView.image = image
         }

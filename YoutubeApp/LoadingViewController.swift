@@ -16,42 +16,42 @@ class LoadingView: BasicPlaceholderView, StatefulPlaceholderView, NVActivityIndi
     override func setupView() {
         super.setupView()
         
-        self.backgroundColor = UIColor(red: CGFloat(237 / 255.0), green: CGFloat(85 / 255.0), blue: CGFloat(101 / 255.0), alpha: 1)
+        self.backgroundColor = UIColor.lightGrayColor()
         
         let cols = 3
         let rows = 8
         let cellWidth = Int(self.frame.width / CGFloat(cols))
         let cellHeight = Int(self.frame.height / CGFloat(rows))
         
-            let loader = NVActivityIndicatorType.LineScale.rawValue
-            let x = 1 * cellWidth
-            let y = 2 * cellHeight
-            let frame = CGRect(x: x, y: y, width: cellWidth, height: cellHeight)
-            let activityIndicatorView = NVActivityIndicatorView(frame: frame,
-                type: NVActivityIndicatorType(rawValue: loader)!)
-            let animationTypeLabel = UILabel(frame: frame)
-            animationTypeLabel.text = "Please wait while your videos are loading."
-            animationTypeLabel.sizeToFit()
-            animationTypeLabel.numberOfLines=0
-            animationTypeLabel.textColor = UIColor.whiteColor()
-            animationTypeLabel.frame.origin.x = (self.frame.width-animationTypeLabel.frame.width)/2
-            animationTypeLabel.frame.origin.y += CGFloat(cellHeight)
-            
-            activityIndicatorView.padding = 20
-            if (loader == NVActivityIndicatorType.SemiCircleSpin.rawValue) {
-                activityIndicatorView.padding = 0
-            }
-            
-            self.addSubview(activityIndicatorView)
-            self.addSubview(animationTypeLabel)
-            activityIndicatorView.startAnimation()
-            
-            let button:UIButton = UIButton(frame: frame)
-            button.tag = loader
-            button.addTarget(self,
-                action: #selector(buttonTapped(_:)),
-                forControlEvents: UIControlEvents.TouchUpInside)
-            self.addSubview(button)
+        let loader = NVActivityIndicatorType.LineScale.rawValue
+        let x = 1 * cellWidth
+        let y = 2 * cellHeight
+        let frame = CGRect(x: x, y: y, width: cellWidth, height: cellHeight)
+        let activityIndicatorView = NVActivityIndicatorView(frame: frame,
+                                                            type: NVActivityIndicatorType(rawValue: loader)!)
+        let animationTypeLabel = UILabel(frame: frame)
+        animationTypeLabel.text = "Please wait while your videos are loading."
+        animationTypeLabel.sizeToFit()
+        animationTypeLabel.numberOfLines=0
+        animationTypeLabel.textColor = UIColor.whiteColor()
+        animationTypeLabel.frame.origin.x = (self.frame.width-animationTypeLabel.frame.width)/2
+        animationTypeLabel.frame.origin.y += CGFloat(cellHeight)
+        
+        activityIndicatorView.padding = 20
+        if (loader == NVActivityIndicatorType.SemiCircleSpin.rawValue) {
+            activityIndicatorView.padding = 0
+        }
+        
+        self.addSubview(activityIndicatorView)
+        self.addSubview(animationTypeLabel)
+        activityIndicatorView.startAnimation()
+        
+        let button:UIButton = UIButton(frame: frame)
+        button.tag = loader
+        button.addTarget(self,
+                         action: #selector(buttonTapped(_:)),
+                         forControlEvents: UIControlEvents.TouchUpInside)
+        self.addSubview(button)
         
     }
     
