@@ -32,8 +32,8 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         userDefaults.setObject(nil, forKey: "KeywordsArray")
         userDefaults.setObject(nil, forKey: "SelectedVideos")
         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc : SignInViewController = storyboard.instantiateViewControllerWithIdentifier("SignInViewController") as! SignInViewController
-        self.presentViewController(vc, animated: true, completion: nil)
+        let nvc : UINavigationController = storyboard.instantiateViewControllerWithIdentifier("NavController") as! UINavigationController
+        self.presentViewController(nvc, animated: true, completion: nil)
     }
     
     private let kKeychainItemName = "YouTube Data API"

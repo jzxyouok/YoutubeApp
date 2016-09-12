@@ -18,11 +18,7 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var googleSignInButton: UIButton!
     
     @IBAction func signInButtonPressed(sender: UIButton) {
-        presentViewController(
-            createAuthController(),
-            animated: true,
-            completion: nil
-        )
+        self.navigationController!.pushViewController(createAuthController(), animated: true)
     }
     
     @IBAction func signInGuestPressed(sender: UIButton) {
@@ -61,6 +57,14 @@ class SignInViewController: UIViewController {
             service.authorizer = auth
             service.shouldFetchNextPages = false
         }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController!.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.navigationController!.setNavigationBarHidden(false, animated: false)
     }
     
     override func viewDidAppear(animated: Bool) {
