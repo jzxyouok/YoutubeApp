@@ -13,6 +13,9 @@ target 'YoutubeApp' do
     pod 'ReachabilitySwift'
     pod 'StatefulViewController', :git => 'https://github.com/aschuch/StatefulViewController.git'
     pod 'NVActivityIndicatorView'
+    pod 'Fabric'
+    pod 'TwitterKit'
+    pod 'TwitterCore'
     
     post_install do |installer|
         `find Pods -regex 'Pods/pop.*\\.h' -print0 | xargs -0 sed -i '' 's/\\(<\\)pop\\/\\(.*\\)\\(>\\)/\\"\\2\\"/'`

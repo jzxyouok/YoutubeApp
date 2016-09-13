@@ -52,6 +52,10 @@
 		4ECA0C671D858F6900E7EA88 /* InsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECA0C661D858F6900E7EA88 /* InsetLabel.swift */; };
 		4ECA0C6B1D85D63600E7EA88 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECA0C6A1D85D63600E7EA88 /* Security.framework */; };
 		4ECA0C6D1D85D65400E7EA88 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECA0C6C1D85D65400E7EA88 /* SystemConfiguration.framework */; };
+		4ECA0C701D8836E900E7EA88 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECA0C6F1D8836E900E7EA88 /* FBSDKCoreKit.framework */; };
+		4ECA0C721D8836F300E7EA88 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECA0C711D8836F200E7EA88 /* FBSDKShareKit.framework */; };
+		4ECA0C741D8836FD00E7EA88 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECA0C731D8836FD00E7EA88 /* FBSDKLoginKit.framework */; };
+		4ECA0C761D883A4E00E7EA88 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECA0C751D883A4E00E7EA88 /* Bolts.framework */; };
 		4EEC411A1C7B90BA0085FD59 /* SkillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC41191C7B90BA0085FD59 /* SkillsViewController.swift */; };
 		4EFE25EF1C7377A7009E44CD /* geography.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4EFE25EE1C7377A7009E44CD /* geography.jpg */; };
 		4EFE25F11C737B4A009E44CD /* technology.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4EFE25F01C737B4A009E44CD /* technology.jpg */; };
@@ -108,6 +112,10 @@
 		4ECA0C661D858F6900E7EA88 /* InsetLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsetLabel.swift; sourceTree = "<group>"; };
 		4ECA0C6A1D85D63600E7EA88 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4ECA0C6C1D85D65400E7EA88 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4ECA0C6F1D8836E900E7EA88 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		4ECA0C711D8836F200E7EA88 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		4ECA0C731D8836FD00E7EA88 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		4ECA0C751D883A4E00E7EA88 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		4EEC41191C7B90BA0085FD59 /* SkillsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillsViewController.swift; sourceTree = "<group>"; };
 		4EFE25EE1C7377A7009E44CD /* geography.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = geography.jpg; sourceTree = "<group>"; };
 		4EFE25F01C737B4A009E44CD /* technology.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = technology.jpg; sourceTree = "<group>"; };
@@ -120,8 +128,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4ECA0C6D1D85D65400E7EA88 /* SystemConfiguration.framework in Frameworks */,
+				4ECA0C701D8836E900E7EA88 /* FBSDKCoreKit.framework in Frameworks */,
+				4ECA0C741D8836FD00E7EA88 /* FBSDKLoginKit.framework in Frameworks */,
+				4ECA0C721D8836F300E7EA88 /* FBSDKShareKit.framework in Frameworks */,
 				4ECA0C6B1D85D63600E7EA88 /* Security.framework in Frameworks */,
 				4107211B07472069F8521C97 /* Pods_YoutubeApp.framework in Frameworks */,
+				4ECA0C761D883A4E00E7EA88 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +143,10 @@
 		0A176624DCB95C70460E2C5F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4ECA0C751D883A4E00E7EA88 /* Bolts.framework */,
+				4ECA0C731D8836FD00E7EA88 /* FBSDKLoginKit.framework */,
+				4ECA0C711D8836F200E7EA88 /* FBSDKShareKit.framework */,
+				4ECA0C6F1D8836E900E7EA88 /* FBSDKCoreKit.framework */,
 				4ECA0C6C1D85D65400E7EA88 /* SystemConfiguration.framework */,
 				4ECA0C6A1D85D63600E7EA88 /* Security.framework */,
 				3F6CACAACEA1F7892C6351C0 /* Pods_YoutubeApp.framework */,
@@ -249,6 +265,7 @@
 				4E72B8511C58230A004592E7 /* Resources */,
 				9097580298A165DA280726C1 /* 📦 Embed Pods Frameworks */,
 				B4B78201DE1671E29DA415B7 /* 📦 Copy Pods Resources */,
+				4ECA0C771D8854E500E7EA88 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -327,6 +344,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4ECA0C771D8854E500E7EA88 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" b92bf746efb613cf8988e7aa537eee425f7dde13 51681f508126a369ea722a1bbd0af8e8b225b8a219ed4451027e6dfd83353223";
+		};
 		9097580298A165DA280726C1 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -523,6 +553,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = YoutubeApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pranav.kasetti.YoutubeApp;
@@ -545,6 +579,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = YoutubeApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pranav.kasetti.YoutubeApp;

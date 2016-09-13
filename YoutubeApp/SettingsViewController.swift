@@ -7,14 +7,26 @@
 //
 
 import UIKit
+import Social
+import FBSDKLoginKit
+import FBSDKShareKit
+import TwitterCore
+import TwitterKit
 
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var tableView: UITableView!
     
     var model = VideoModel()
     
     override func viewDidLoad() {
         self.automaticallyAdjustsScrollViewInsets=false
         print(self.model.service.authorizer?.canAuthorize)
+    }
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransitionToSize(size, withTransitionCoordinator:coordinator)
+        self.tableView.reloadData()
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -38,20 +50,42 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             if (indexPath.row == 5) {
                 cell.textLabel!.text = "Sign In With Google"
             }
+            return cell
         } else if indexPath.section==1 {
             if (indexPath.row == 0){
-                cell.textLabel!.text = "Rate us on the App Store!"
-                cell.accessoryType = .DisclosureIndicator
+                let cell2 = tableView.dequeueReusableCellWithIdentifier("Cell2")!
+                cell2.textLabel!.text = "Rate us on the App Store!"
+                cell2.accessoryType = .DisclosureIndicator
+                return cell2
             }
             if (indexPath.row == 1){
-                cell.textLabel!.text = "Share this app on Facebook!"
-                cell.accessoryType = .DisclosureIndicator
+                let cell3 = tableView.dequeueReusableCellWithIdentifier("Cell3")!
+                cell3.textLabel!.text = "Share this app on Facebook!"
+                let shareButton = FBSDKShareButton()
+                shareButton.translatesAutoresizingMaskIntoConstraints = false
+                let shareCont = FBSDKShareLinkContent()
+                shareCont.contentURL=NSURL(string:"https://itunes.apple.com/us/app/discovr-youtube-video-discovery/id1154077470")
+                shareCont.contentTitle="Check out this awesome app!"
+                shareButton.shareContent = shareCont
+                cell3.addSubview(shareButton)
+                cell3.addConstraint(NSLayoutConstraint(item: cell3, attribute: .Trailing, relatedBy: .Equal, toItem: shareButton, attribute: .Trailing, multiplier: 1.0, constant: 30))
+                cell3.addConstraint(NSLayoutConstraint(item: shareButton, attribute: .CenterY, relatedBy: .Equal, toItem: cell3, attribute: .CenterY, multiplier: 1.0, constant: 0))
+                return cell3
+                /*
+                 let loginButton = FBSDKLoginButton()
+                 loginButton.center = (cell.center)
+                 cell.addSubview(loginButton)
+                 */
+                //cell.accessoryType = .DisclosureIndicator
             }
             if (indexPath.row==2) {
-                cell.textLabel!.text = "Share this app on Twitter!"
-                cell.accessoryType = .DisclosureIndicator
+                let cell4 = tableView.dequeueReusableCellWithIdentifier("Cell4")!
+                cell4.textLabel!.text = "Share this app on Twitter!"
+                cell4.accessoryType = .DisclosureIndicator
+                return cell4
             }
         }
+        
         return cell
     }
     
@@ -86,6 +120,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let userDefaults = NSUserDefaults.standardUserDefaults()
         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
         if indexPath.section == 0 {
             if indexPath.row == 0 {
                 userDefaults.setObject(nil, forKey: "InterestsArray")
@@ -114,7 +149,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                 self.presentViewController(nvc, animated: true, completion: nil)
             } else if indexPath.row == 4 {
                 VideoStatus.selectedVideos=[]
-                tableView.deselectRowAtIndexPath(indexPath, animated: true)
             } else if indexPath.row == 5 {
                 if ((self.model.service.authorizer?.canAuthorize) == true) {
                     let alert = UIAlertController(title: "Error", message: "You are already signed in! If you wish to sign in with a different account, please sign out and sign in with different credentials.", preferredStyle: .Alert)
@@ -123,10 +157,61 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                     
                     self.presentViewController(alert, animated: true, completion: nil)
                 } else {
-                let sivc = storyboard.instantiateViewControllerWithIdentifier("SignInViewController") as! SignInViewController
-                sivc.checked=1
-                self.presentViewController(sivc, animated: true, completion: nil)
+                    let sivc = storyboard.instantiateViewControllerWithIdentifier("SignInViewController") as! SignInViewController
+                    sivc.checked=1
+                    self.presentViewController(sivc, animated: true, completion: nil)
                 }
+            }
+            
+        } else if indexPath.section==1 {
+            if indexPath.row==1 {
+                
+                /*
+                 if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
+                 let fbShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+                 fbShare.setInitialText("Check out this awesome app!")
+                 fbShare.addURL(NSURL(string: "https://itunes.apple.com/us/app/discovr-youtube-video-discovery/id1154077470"))
+                 self.presentViewController(fbShare, animated: true, completion: nil)
+                 
+                 } else {
+                 let alert = UIAlertController(title: "Accounts", message: "Please login to a Facebook account to share.", preferredStyle: UIAlertControllerStyle.Alert)
+                 
+                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                 self.presentViewController(alert, animated: true, completion: nil)
+                 }
+                 */
+            } else if indexPath.row==2 {
+                let composer = TWTRComposer()
+                
+                composer.setText("Check out this cool new app!")
+                composer.setURL(NSURL(string: "https://itunes.apple.com/us/app/discovr-youtube-video-discovery/id1154077470"))
+                
+                // Called from a UIViewController
+                composer.showFromViewController(self) { result in
+                    if (result == TWTRComposerResult.Cancelled) {
+                        print("Tweet composition cancelled")
+                    }
+                    else {
+                        print("Sending tweet!")
+                    }
+                }
+                /*
+                 if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter) {
+                 
+                 let tweetShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+                 tweetShare.setInitialText("Check out this awesome app!")
+                 tweetShare.addURL(NSURL(string: "https://itunes.apple.com/us/app/discovr-youtube-video-discovery/id1154077470"))
+                 self.presentViewController(tweetShare, animated: true, completion: nil)
+                 
+                 } else {
+                 
+                 let alert = UIAlertController(title: "Accounts", message: "Please login to a Twitter account to tweet.", preferredStyle: UIAlertControllerStyle.Alert)
+                 
+                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                 
+                 self.presentViewController(alert, animated: true, completion: nil)
+                 }
+                 */
             }
         }
     }
