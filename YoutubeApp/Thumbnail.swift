@@ -32,14 +32,14 @@ class Thumbnail: UIView {
         super.init(coder: aDecoder)
         
         iv.image = videoImage
-        self.border.backgroundColor=UIColor.clearColor()
-        self.border.layer.borderColor=UIColor.orangeColor().CGColor
+        self.border.backgroundColor=UIColor.clear
+        self.border.layer.borderColor=UIColor.orange.cgColor
         self.border.layer.borderWidth=3
         videoLabel.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.8)
         videoLabel.textColor = UIColor.init(red: 255, green: 255, blue: 255, alpha: 1)
         videoLabel.font = UIFont(name: "Helvetica", size: 20)
-        videoLabel.textAlignment = .Center
-        videoLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        videoLabel.textAlignment = .center
+        videoLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         videoLabel.numberOfLines = 0
         addSubview(iv)
         addSubview(border)
@@ -77,7 +77,7 @@ class Thumbnail: UIView {
          button.frame = buttonFrame
          }
          */
-        let borderFrame = CGRectInset(imageFrame, 10, 10)
+        let borderFrame = imageFrame.insetBy(dx: 10, dy: 10)
         let labelFrame = CGRect(x: 0, y: imageSize-labelSize-10, width: Int(borderFrame.width), height: labelSize-10)
         
         self.border.frame=borderFrame

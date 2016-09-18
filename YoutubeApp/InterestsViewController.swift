@@ -9,17 +9,17 @@
 import UIKit
 
 extension Array where Element: Equatable {
-    mutating func removeObject(object: Element) {
-        if let index = self.indexOf(object) {
-            self.removeAtIndex(index)
+    mutating func removeObject(_ object: Element) {
+        if let index = self.index(of: object) {
+            self.remove(at: index)
         }
     }
 }
 
 class InterestsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    var initialArray: [String] = ["philosophy","biology","chemistry","physics","history","mathematics","geography","technology"]
-    var interestSelectionArray = [String]()
+    var initialArray: [NSString] = ["philosophy","biology","chemistry","physics","history","mathematics","geography","technology"]
+    var interestSelectionArray = [NSString]()
     var model = VideoModel()
     var switchArray: [Int] = []
     
@@ -27,7 +27,7 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
     
     @IBOutlet weak var collectionViewFlowLayout: UICollectionViewFlowLayout!
     
-    @IBAction func nextButtonClicked(sender: AnyObject) {
+    @IBAction func nextButtonClicked(_ sender: AnyObject) {
         
         if (interestSelectionArray == []){
             for index in switchArray {
@@ -39,22 +39,22 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
                 interestSelectionArray.append(initialArray[index])
             }
         }
-        let userDefaults=NSUserDefaults.standardUserDefaults()
+        let userDefaults=UserDefaults.standard
         
-        if userDefaults.objectForKey("SkillsArray") as? [String] != nil {
+        if userDefaults.object(forKey: "SkillsArray") as? [NSString] != nil {
             let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let tbc: UITabBarController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
-            if userDefaults.objectForKey("InterestsArray") == nil {
-                userDefaults.setObject(self.interestSelectionArray, forKey: "InterestsArray")
+            let tbc: UITabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+            if userDefaults.object(forKey: "InterestsArray") as? [NSString] == nil {
+                userDefaults.set(self.interestSelectionArray as [NSString], forKey: "InterestsArray")
             }
             (((tbc.viewControllers![1] as! UINavigationController).viewControllers[0]) as! SavedVideosViewController).model.service=self.model.service
-            ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).skillSelectionArray=(userDefaults.objectForKey("SkillsArray") as? [String])!
-            if userDefaults.objectForKey("SelectedVideos") as? NSData == nil {
+            ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).skillSelectionArray=(userDefaults.object(forKey: "SkillsArray") as? [NSString])!
+            if userDefaults.object(forKey: "SelectedVideos") as? Data == nil {
                 VideoStatus.selectedVideos=[]
                 (((tbc.viewControllers![1] as! UINavigationController).viewControllers[0]) as! SavedVideosViewController).videos=VideoStatus.selectedVideos
                 
             }
-            let keywords=userDefaults.objectForKey("KeywordsArray") as? [String]
+            let keywords=userDefaults.object(forKey: "KeywordsArray") as? [NSString]
             print(keywords)
             if keywords != nil {
                 ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).interestSelectionArray=self.interestSelectionArray+keywords!
@@ -62,9 +62,10 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
                 ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).interestSelectionArray=self.interestSelectionArray
             }
             ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).model=self.model
-            self.presentViewController(tbc, animated: true, completion: nil)
+            self.present(tbc, animated: true, completion: nil)
         } else {
-            self.performSegueWithIdentifier("showSkills", sender: self)
+            userDefaults.set(self.interestSelectionArray as [NSString], forKey: "InterestsArray")
+            self.performSegue(withIdentifier: "showSkills", sender: self)
         }
     }
     
@@ -74,11 +75,11 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
         //collectionView.delegate = self
         collectionView.dataSource = self
         
-        navigationController!.navigationBar.barTintColor = UIColor.blackColor()
-        navigationController!.navigationBar.tintColor=UIColor.whiteColor()
-        navigationController!.navigationBar.titleTextAttributes=[NSForegroundColorAttributeName : UIColor.whiteColor()]
-        navigationController!.navigationBar.opaque=true
-        self.navigationController!.navigationBar.barStyle = .Black
+        navigationController!.navigationBar.barTintColor = UIColor.black
+        navigationController!.navigationBar.tintColor=UIColor.white
+        navigationController!.navigationBar.titleTextAttributes=[NSForegroundColorAttributeName : UIColor.white]
+        navigationController!.navigationBar.isOpaque=true
+        self.navigationController!.navigationBar.barStyle = .black
         
     }
     
@@ -92,8 +93,8 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
         
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destViewController: SkillsViewController = segue.destinationViewController as! SkillsViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destViewController: SkillsViewController = segue.destination as! SkillsViewController
         destViewController.interestSelectionArray = interestSelectionArray
         destViewController.model=self.model
         print(interestSelectionArray)
@@ -109,24 +110,24 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
      }
      */
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 8
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(String(indexPath.row), forIndexPath: indexPath) as! InterestView
-        cell.swich.addTarget(self, action: #selector(InterestsViewController.switchChanged(_:)), forControlEvents: UIControlEvents.ValueChanged)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String((indexPath as NSIndexPath).row), for: indexPath) as! InterestView
+        cell.swich.addTarget(self, action: #selector(InterestsViewController.switchChanged(_:)), for: UIControlEvents.valueChanged)
         return cell
     }
     
     
-    func switchChanged(swich: UISwitch) {
+    func switchChanged(_ swich: UISwitch) {
         
-        if swich.on && switchArray.contains(swich.tag){
+        if swich.isOn && switchArray.contains(swich.tag){
             
-        } else if swich.on {
+        } else if swich.isOn {
             switchArray.append(swich.tag)
-        } else if !swich.on && switchArray.contains(swich.tag) {
+        } else if !swich.isOn && switchArray.contains(swich.tag) {
             switchArray = switchArray.filter{$0 != swich.tag}
         } else {
             
@@ -134,16 +135,16 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
         print(switchArray)
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let width = CGRectGetWidth(collectionView.frame)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.frame.width
         var number = CGFloat(2.0)
         if width > 561 {
             number = 3.0
@@ -151,8 +152,8 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
         return CGSize(width: ((width-(number-1)*(collectionViewFlowLayout.minimumInteritemSpacing))/number), height: ((width-(number-1)*(collectionViewFlowLayout.minimumInteritemSpacing))/number))
     }
     
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransitionToSize(size, withTransitionCoordinator:coordinator)
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with:coordinator)
         self.collectionView.reloadData()
     }
     

@@ -24,76 +24,71 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     
     @IBOutlet weak var kolodaView: KolodaView!
     
-    @IBAction func signOutButtonPressed(sender: UIBarButtonItem) {
-        GTMOAuth2ViewControllerTouch.removeAuthFromKeychainForName(kKeychainItemName)
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        userDefaults.setObject(nil, forKey: "InterestsArray")
-        userDefaults.setObject(nil, forKey: "SkillsArray")
-        userDefaults.setObject(nil, forKey: "KeywordsArray")
-        userDefaults.setObject(nil, forKey: "SelectedVideos")
+    @IBAction func signOutButtonPressed(_ sender: UIBarButtonItem) {
+        GTMOAuth2ViewControllerTouch.removeAuthFromKeychain(forName: kKeychainItemName)
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(nil, forKey: "InterestsArray")
+        userDefaults.set(nil, forKey: "SkillsArray")
+        userDefaults.set(nil, forKey: "KeywordsArray")
+        userDefaults.set(nil, forKey: "SelectedVideos")
         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let nvc : UINavigationController = storyboard.instantiateViewControllerWithIdentifier("NavController") as! UINavigationController
-        self.presentViewController(nvc, animated: true, completion: nil)
+        let nvc : UINavigationController = storyboard.instantiateViewController(withIdentifier: "NavController") as! UINavigationController
+        self.present(nvc, animated: true, completion: nil)
     }
     
-    private let kKeychainItemName = "YouTube Data API"
+    fileprivate let kKeychainItemName = "YouTube Data API"
     var videos:[Video]=[Video]()
     var videoCache:[Video]=[Video]()
     var selectedVideos=[Video]()
     var selectedVideo:Video?
     var model:VideoModel = VideoModel()
     var searchWords: [String] = []
-    var interestSelectionArray = [String]()
-    var skillSelectionArray = [String]()
+    var interestSelectionArray = [NSString]()
+    var skillSelectionArray = [NSString]()
     var done: Int = 0
     //New variables
     var counter: Int = 0
     var value: Int = 0
     var numberOfCards: UInt = 3
-    var data: NSData = NSData()
+    var data: Data = Data()
     var reachability: Reachability?
     //let refreshControl = UIRefreshControl()
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
     }
     
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return false
     }
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
     
-    override func viewWillAppear(animated: Bool) {
-        navigationController!.navigationBar.barTintColor = UIColor.blackColor()
-        navigationController!.navigationBar.tintColor=UIColor.whiteColor()
-        navigationController!.navigationBar.titleTextAttributes=[NSForegroundColorAttributeName : UIColor.whiteColor()]
-        navigationController!.navigationBar.opaque=true
-        self.navigationController!.navigationBar.barStyle = .Black
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController!.navigationBar.barTintColor = UIColor.black
+        navigationController!.navigationBar.tintColor=UIColor.white
+        navigationController!.navigationBar.titleTextAttributes=[NSForegroundColorAttributeName : UIColor.white]
+        navigationController!.navigationBar.isOpaque=true
+        self.navigationController!.navigationBar.barStyle = .black
         
-        do {
-            self.reachability = try Reachability.reachabilityForInternetConnection()
-        } catch {
-            print("Unable to create Reachability")
-            return
-        }
+        self.reachability = Reachability()
         
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        if userDefaults.objectForKey("InterestsArray") as? [String] == nil || userDefaults.objectForKey("SkillsArray") as? [String] == nil || userDefaults.objectForKey("KeywordsArray") as? [String] == nil {
+        let userDefaults = UserDefaults.standard
+        if userDefaults.object(forKey: "InterestsArray") as? [NSString] == nil || userDefaults.object(forKey: "SkillsArray") as? [NSString] == nil || userDefaults.object(forKey: "KeywordsArray") as? [NSString] == nil {
             /*
              userDefaults.setObject(self.interestSelectionArray, forKey: "InterestsArray")
              userDefaults.setObject(self.skillSelectionArray, forKey: "SkillsArray")
              */
-        } else if userDefaults.objectForKey("InterestsArray") as? [String] != nil && userDefaults.objectForKey("SkillsArray") as? [String] != nil && userDefaults.objectForKey("KeywordsArray") as? [String] != nil {
-            self.interestSelectionArray=(userDefaults.objectForKey("InterestsArray") as! [String])+(userDefaults.objectForKey("KeywordsArray") as! [String])
-            self.skillSelectionArray=userDefaults.objectForKey("SkillsArray") as! [String]
+        } else if userDefaults.object(forKey: "InterestsArray") as? [NSString] != nil && userDefaults.object(forKey: "SkillsArray") as? [NSString] != nil && userDefaults.object(forKey: "KeywordsArray") as? [NSString] != nil {
+            self.interestSelectionArray=(userDefaults.object(forKey: "InterestsArray") as! [NSString])+(userDefaults.object(forKey: "KeywordsArray") as! [NSString])
+            self.skillSelectionArray=userDefaults.object(forKey: "SkillsArray") as! [NSString]
         }
         
         print(interestSelectionArray)
         
         self.reachability!.whenReachable = { reachability in
-            if reachability.isReachableViaWiFi() {
-                dispatch_async(dispatch_get_main_queue()) {
+            if reachability.isReachableViaWiFi {
+                DispatchQueue.main.async {
                     //                    let alertController = UIAlertController(title: "Alert", message: "Reachable via WiFi", preferredStyle: .Alert)
                     //                    
                     //                    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
@@ -107,7 +102,7 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
                     }
                 }
             } else {
-                dispatch_async(dispatch_get_main_queue()) {
+                DispatchQueue.main.async {
                     //                    let alertController = UIAlertController(title: "Alert", message: "Reachable via Cellular", preferredStyle: .Alert)
                     //                    
                     //                    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
@@ -123,17 +118,17 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
             }
         }
         self.reachability!.whenUnreachable = { reachability in
-            dispatch_async(dispatch_get_main_queue()) {
-                let alertController = UIAlertController(title: "Alert", message: "Not Reachable", preferredStyle: .Alert)
+            DispatchQueue.main.async {
+                let alertController = UIAlertController(title: "Alert", message: "Not Reachable", preferredStyle: .alert)
                 
-                let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                 alertController.addAction(defaultAction)
                 
-                self.presentViewController(alertController, animated: true, completion: nil)
+                self.present(alertController, animated: true, completion: nil)
             }
         }
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(VideoDetailViewController.reachabilityChanged(_:)),name: ReachabilityChangedNotification,object: reachability)
+        NotificationCenter.default.addObserver(self, selector: #selector(VideoDetailViewController.reachabilityChanged(_:)),name: ReachabilityChangedNotification,object: reachability)
         do {
             try self.reachability!.startNotifier()
         } catch {
@@ -141,12 +136,12 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         }
     }
     
-    func reachabilityChanged(note: NSNotification) {
+    func reachabilityChanged(_ note: Notification) {
         
         let reachability = note.object as! Reachability
         
-        if reachability.isReachable() {
-            if reachability.isReachableViaWiFi() {
+        if reachability.isReachable {
+            if reachability.isReachableViaWiFi {
                 print("Reachable via WiFi")
             } else {
                 print("Reachable via Cellular")
@@ -175,11 +170,11 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     
     //MARK: IBActions
     @IBAction func leftButtonTapped() {
-        kolodaView?.swipe(SwipeResultDirection.Left)
+        kolodaView?.swipe(SwipeResultDirection.left)
     }
     
     @IBAction func rightButtonTapped() {
-        kolodaView?.swipe(SwipeResultDirection.Right)
+        kolodaView?.swipe(SwipeResultDirection.right)
     }
     
     @IBAction func undoButtonTapped() {
@@ -201,10 +196,10 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         return self.videos.count>0
     }
     
-    func handleErrorWhenContentAvailable(error: ErrorType) {
-        let alertController = UIAlertController(title: "Ooops", message: "Something went wrong.", preferredStyle: .Alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-        self.presentViewController(alertController, animated: true, completion: nil)
+    func handleErrorWhenContentAvailable(_ error: Error) {
+        let alertController = UIAlertController(title: "Ooops", message: "Something went wrong.", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func dataReady() {
@@ -223,13 +218,13 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         
         if Reachability.isConnectedToNetwork() {
             
-            self.model.generateKeywords(interestSelectionArray) { data in
+            self.model.generateKeywords(interestSelectionArray as [String]) { data in
                 self.searchWords+=data
-                self.model.getFeedVideos(self.interestSelectionArray, keywordArray: self.searchWords) { data in
+                self.model.getFeedVideos(self.interestSelectionArray as [String], keywordArray: self.searchWords) { data in
                     //Notify the delegate that the data is ready
                     print("test")
                     print(self.skillSelectionArray)
-                    self.model.getSkillsFeedVideos(self.skillSelectionArray, keywordArray: self.searchWords) { data in
+                    self.model.getSkillsFeedVideos(self.skillSelectionArray as [String], keywordArray: self.searchWords) { data in
                         
                         self.videos = data as! [Video]
                         if self.videos.isEmpty {
@@ -253,7 +248,7 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     func cacheLoad() {
         if kolodaView?.currentCardNumber == 0 && counter<self.videos.count && videoCache.count != 0 {
             counter=counter+1
-            if !(Set(videoCache).isSubsetOf(Set(videos))) {
+            if !(Set(videoCache).isSubset(of: Set(videos))) {
                 videos=videoCache+videos
             }
             self.numberOfCards = UInt(counter)
@@ -266,31 +261,31 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         return self.kolodaView.currentCardNumber==0
     }
     
-    func koloda(koloda: KolodaView, viewForCardAtIndex index: UInt) -> UIView {
+    func koloda(_ koloda: KolodaView, viewForCardAtIndex index: UInt) -> UIView {
         if (self.done == 1 && videos.count > Int(self.kolodaView.countOfCards-1)) {
             
             let videoTitle = videos[Int(index)+self.value].snippet!.title
             
-            let cell = NSBundle.mainBundle().loadNibNamed("Thumbnail", owner: self, options: nil).first as? Thumbnail
+            let cell = Bundle.main.loadNibNamed("Thumbnail", owner: self, options: nil)?.first as? Thumbnail
             cell?.videoLabel.text = videoTitle
             
             let videoThumbnailUrlString = videos[Int(index)+self.value].snippet!.thumbnailUrlString
             
             //Create an NSURL object
-            let videoThumbnailUrl = NSURL(string: videoThumbnailUrlString!)
+            let videoThumbnailUrl = URL(string: videoThumbnailUrlString!)
             
-            if videoThumbnailUrl != "" {
+            if videoThumbnailUrl != URL(string: "") {
                 
                 //Create an NSURLRequest object
-                let request = NSURLRequest(URL: videoThumbnailUrl!)
+                let request = URLRequest(url: videoThumbnailUrl!)
                 
                 //Create an NSURLSession
-                let session = NSURLSession.sharedSession()
+                let session = URLSession.shared
                 
                 //Create a datatask and pass in the request
-                let dataTask = session.dataTaskWithRequest(request, completionHandler: { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
+                let dataTask = session.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) -> Void in
                     
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    DispatchQueue.main.async(execute: { () -> Void in
                         
                         guard data != nil else {
                             return
@@ -301,7 +296,7 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
                         cell!.iv.image = UIImage(data: data!)
                         
                     })
-                })
+                } as! (Data?, URLResponse?, Error?) -> Void)
                 
                 dataTask.resume()
                 
@@ -317,14 +312,14 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         return self.numberOfCards
     }
     
-    func koloda(koloda: KolodaView, didSwipedCardAtIndex index: UInt, inDirection direction: SwipeResultDirection) {
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        if userDefaults.objectForKey("SelectedVideos") as? NSData != nil {
-            self.data=(userDefaults.objectForKey("SelectedVideos") as? NSData)!
-            VideoStatus.selectedVideos=NSKeyedUnarchiver.unarchiveObjectWithData(self.data) as! [Video]
+    func koloda(_ koloda: KolodaView, didSwipedCardAtIndex index: UInt, inDirection direction: SwipeResultDirection) {
+        let userDefaults = UserDefaults.standard
+        if userDefaults.object(forKey: "SelectedVideos") as? Data != nil {
+            self.data=(userDefaults.object(forKey: "SelectedVideos") as? Data)!
+            VideoStatus.selectedVideos=NSKeyedUnarchiver.unarchiveObject(with: self.data) as! [Video]
             self.selectedVideos=VideoStatus.selectedVideos
         }
-        if direction == .Right {
+        if direction == .right {
             var videoIds: [String] = []
             for video in self.selectedVideos {
                 videoIds.append(video.videoId!)
@@ -338,10 +333,10 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         
     }
     
-    func koloda(koloda: KolodaView, viewForCardOverlayAtIndex index: UInt) -> OverlayView? {
+    func koloda(_ koloda: KolodaView, viewForCardOverlayAtIndex index: UInt) -> OverlayView? {
         
-        let overlay = NSBundle.mainBundle().loadNibNamed("OverlayView",
-                                                         owner: self, options: nil)[0] as? ExampleOverlayView
+        let overlay = Bundle.main.loadNibNamed("OverlayView",
+                                                         owner: self, options: nil)?[0] as? ExampleOverlayView
         
         if (self.kolodaView.viewForCardAtIndex(self.kolodaView.currentCardNumber) != UIView(frame: self.kolodaView.frame) && self.kolodaView.delegate != nil && self.done==1 && self.kolodaView.countOfVisibleCards != 0 && self.kolodaView.visibleCards != []) {
             
@@ -390,10 +385,10 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     
     func getVideos() {
         for _ in interestSelectionArray {
-            self.model.getFeedVideos(self.interestSelectionArray, keywordArray: self.searchWords) { data in
+            self.model.getFeedVideos(self.interestSelectionArray as [String], keywordArray: self.searchWords) { data in
                 //Notify the delegate that the data is ready
                 
-                self.model.getSkillsFeedVideos(self.skillSelectionArray, keywordArray: self.searchWords) { data in
+                self.model.getSkillsFeedVideos(self.skillSelectionArray as [String], keywordArray: self.searchWords) { data in
                     
                     self.videos = data as! [Video]
                     
@@ -411,9 +406,9 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     
     
     
-    func koloda(koloda: KolodaView, didSelectCardAtIndex index: UInt) {
+    func koloda(_ koloda: KolodaView, didSelectCardAtIndex index: UInt) {
         self.selectedVideo = self.videos[Int(index)+self.value]
-        self.performSegueWithIdentifier("goToDetail", sender: self)
+        self.performSegue(withIdentifier: "goToDetail", sender: self)
     }
     
     
@@ -486,9 +481,9 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
      self.performSegueWithIdentifier("goToDetail", sender: self)
      }
      */
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //Get a reference for the destination view controller.
-        let detailViewController = segue.destinationViewController as! VideoDetailViewController
+        let detailViewController = segue.destination as! VideoDetailViewController
         
         //Set the selectedVideo property of the destination view controller.
         detailViewController.selectedVideo = self.selectedVideo

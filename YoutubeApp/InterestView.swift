@@ -11,19 +11,19 @@ import UIKit
 @IBDesignable
 class InterestView: UICollectionViewCell {
     
-    private lazy var imageView : UIImageView = {
+    fileprivate lazy var imageView : UIImageView = {
         let imgView = UIImageView()
         imgView.translatesAutoresizingMaskIntoConstraints = false
         return imgView
     }()
     
-    private lazy var label : UILabel = {
+    fileprivate lazy var label : UILabel = {
         let label = UILabel()
         label.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.85)
-        label.textColor = UIColor.whiteColor()
-        label.textAlignment = .Center
+        label.textColor = UIColor.white
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFontOfSize(17.0, weight: UIFontWeightRegular)
+        label.font = UIFont.systemFont(ofSize: 17.0, weight: UIFontWeightRegular)
         return label
     }()
     /*
@@ -53,7 +53,7 @@ class InterestView: UICollectionViewCell {
         return swich
     }()
     
-    private var spaceConstraint : NSLayoutConstraint!
+    fileprivate var spaceConstraint : NSLayoutConstraint!
     
     @IBInspectable
     var spacing: CGFloat = 0.0 {
@@ -75,7 +75,7 @@ class InterestView: UICollectionViewCell {
             return imageView.image
         }
         set(newImage) {
-            imageView.image = newImage?.imageWithRenderingMode(.AlwaysOriginal)
+            imageView.image = newImage?.withRenderingMode(.alwaysOriginal)
         }
     }
     
@@ -103,34 +103,34 @@ class InterestView: UICollectionViewCell {
 }
 
 extension InterestView {
-    private func initialization() {
+    fileprivate func initialization() {
         translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(imageView)
         //imageView.addSubview(checkmark)
         imageView.addSubview(swich)
         imageView.addSubview(label)
-        self.userInteractionEnabled = true
-        imageView.userInteractionEnabled = true
+        self.isUserInteractionEnabled = true
+        imageView.isUserInteractionEnabled = true
         
         
-        NSLayoutConstraint.activateConstraints(
+        NSLayoutConstraint.activate(
             [
-                imageView.topAnchor.constraintEqualToAnchor(self.topAnchor),
-                imageView.bottomAnchor.constraintEqualToAnchor(self.bottomAnchor),
-                imageView.leadingAnchor.constraintEqualToAnchor(self.leadingAnchor),
-                imageView.trailingAnchor.constraintEqualToAnchor(self.trailingAnchor),
+                imageView.topAnchor.constraint(equalTo: self.topAnchor),
+                imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+                imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+                imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
                 //imageView.heightAnchor.constraintEqualToConstant(150),
-                label.heightAnchor.constraintEqualToAnchor(imageView.heightAnchor, multiplier: 0.2),
-                label.leadingAnchor.constraintEqualToAnchor(imageView.leadingAnchor),
-                label.bottomAnchor.constraintEqualToAnchor(imageView.bottomAnchor, constant: 0),
-                label.trailingAnchor.constraintEqualToAnchor(imageView.trailingAnchor),
+                label.heightAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: 0.2),
+                label.leadingAnchor.constraint(equalTo: imageView.leadingAnchor),
+                label.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 0),
+                label.trailingAnchor.constraint(equalTo: imageView.trailingAnchor),
                 //checkmark.heightAnchor.constraintEqualToConstant(31),
                 //checkmark.widthAnchor.constraintEqualToConstant(31),
-                swich.heightAnchor.constraintEqualToConstant(31),
+                swich.heightAnchor.constraint(equalToConstant: 31),
                 //imageView.trailingAnchor.constraintEqualToAnchor(checkmark.trailingAnchor, constant: 8),
                 //checkmark.topAnchor.constraintEqualToAnchor(imageView.topAnchor, constant: 8)
-                imageView.trailingAnchor.constraintEqualToAnchor(swich.trailingAnchor, constant: 8),
-                swich.topAnchor.constraintEqualToAnchor(imageView.topAnchor, constant: 8)
+                imageView.trailingAnchor.constraint(equalTo: swich.trailingAnchor, constant: 8),
+                swich.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 8)
             ]
             
         )

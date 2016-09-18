@@ -1,8 +1,8 @@
 PODS:
-  - Alamofire (3.4.0)
-  - AlamofireObjectMapper (3.0.0):
-    - Alamofire (~> 3.2)
-    - ObjectMapper (~> 1.0)
+  - Alamofire (4.0.0)
+  - AlamofireObjectMapper (4.0.0):
+    - Alamofire (~> 4.0)
+    - ObjectMapper (~> 2.0)
   - Fabric (1.6.7)
   - GoogleAPIClientForREST/Core (1.0.3):
     - GTMSessionFetcher (>= 1.1.3, ~> 1.1)
@@ -19,9 +19,10 @@ PODS:
   - Koloda (3.1.1):
     - pop (~> 1.0)
   - NVActivityIndicatorView (2.7)
-  - ObjectMapper (1.3.0)
+  - ObjectMapper (2.0.0)
+  - PEGKit (0.4.2)
   - pop (1.0.9)
-  - ReachabilitySwift (2.3.3)
+  - ReachabilitySwift (3)
   - StatefulViewController (1.2)
   - TwitterCore (2.1.1):
     - Fabric
@@ -29,29 +30,45 @@ PODS:
     - TwitterCore (= 2.1.1)
 
 DEPENDENCIES:
-  - Alamofire (~> 3.0)
-  - AlamofireObjectMapper (~> 3.0)
+  - Alamofire (from `https://github.com/Alamofire/Alamofire`)
+  - AlamofireObjectMapper (from `https://github.com/tristanhimmelman/AlamofireObjectMapper.git`)
   - Fabric
   - GoogleAPIClientForREST/YouTube (from `https://github.com/google/google-api-objectivec-client-for-rest.git`)
   - GTMOAuth2 (from `https://github.com/google/gtm-oauth2.git`)
   - Koloda (from `https://github.com/LemonSpike/Koloda.git`)
   - NVActivityIndicatorView
-  - ReachabilitySwift
+  - ObjectMapper (from `https://github.com/Hearst-DD/ObjectMapper.git`)
+  - PEGKit (~> 0.4.2)
+  - ReachabilitySwift (from `https://github.com/ashleymills/Reachability.swift.git`)
   - StatefulViewController (from `https://github.com/aschuch/StatefulViewController.git`)
   - TwitterCore
   - TwitterKit
 
 EXTERNAL SOURCES:
+  Alamofire:
+    :git: https://github.com/Alamofire/Alamofire
+  AlamofireObjectMapper:
+    :git: https://github.com/tristanhimmelman/AlamofireObjectMapper.git
   GoogleAPIClientForREST:
     :git: https://github.com/google/google-api-objectivec-client-for-rest.git
   GTMOAuth2:
     :git: https://github.com/google/gtm-oauth2.git
   Koloda:
     :git: https://github.com/LemonSpike/Koloda.git
+  ObjectMapper:
+    :git: https://github.com/Hearst-DD/ObjectMapper.git
+  ReachabilitySwift:
+    :git: https://github.com/ashleymills/Reachability.swift.git
   StatefulViewController:
     :git: https://github.com/aschuch/StatefulViewController.git
 
 CHECKOUT OPTIONS:
+  Alamofire:
+    :commit: 0ac38d7e312e87aeea608d384e44401f3d8a6b3d
+    :git: https://github.com/Alamofire/Alamofire
+  AlamofireObjectMapper:
+    :commit: b03ecca284d413225e0435d870da345d64458cc0
+    :git: https://github.com/tristanhimmelman/AlamofireObjectMapper.git
   GoogleAPIClientForREST:
     :commit: 3228d6447ec133a583a2befda8aaed6146fa664c
     :git: https://github.com/google/google-api-objectivec-client-for-rest.git
@@ -61,26 +78,33 @@ CHECKOUT OPTIONS:
   Koloda:
     :commit: 39215f0db5e4cbf2e8aa1191e567a9ee80bac53e
     :git: https://github.com/LemonSpike/Koloda.git
+  ObjectMapper:
+    :commit: ddf2c721a9f6b63d4bfa97c1065c31d5fa8548d5
+    :git: https://github.com/Hearst-DD/ObjectMapper.git
+  ReachabilitySwift:
+    :commit: 610027bd13fe1b832eea98025658ead5ddf112ae
+    :git: https://github.com/ashleymills/Reachability.swift.git
   StatefulViewController:
     :commit: 72f108f3da92741a34f51c49b332f5ec944396ee
     :git: https://github.com/aschuch/StatefulViewController.git
 
 SPEC CHECKSUMS:
-  Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
-  AlamofireObjectMapper: 2d16585d06177be0116d76de73497e77437798af
+  Alamofire: fef59f00388f267e52d9b432aa5d93dc97190f14
+  AlamofireObjectMapper: 9faa3ce5a240efda1b209009a2d6e1e949227abc
   Fabric: caf7580c725e64db144f610ac65cd60956911dc7
   GoogleAPIClientForREST: 0b72399da5a108ba42a7fe0f8559edd7c49ea96a
   GTMOAuth2: 1707e2f7fe3a6d7240223c23c473ba5a2d104474
   GTMSessionFetcher: 174bc61d5238f81f9ddb807b0b0170420f67de85
   Koloda: 782e61549cafec9fd69fc70c4a8b54bce997894d
   NVActivityIndicatorView: dc80f18fb27ac92f0aa87246cc13dc39ed3e9ee0
-  ObjectMapper: 4eb08a726e9791a93b2632049951b56a7c17e471
+  ObjectMapper: aed2570edabbd3c9b26c939e1cabdb6558f933e0
+  PEGKit: 9563952b2f19f5f0c979ecf635c8410369bfe3e9
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
-  ReachabilitySwift: e0f6b6f280effb47731acfaaa2d5ffe223703793
+  ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
   StatefulViewController: 58a8134ea4a2f43504a9671700385f699450d018
   TwitterCore: abc46da2bc4b76e2c68a74cd8671a071a8e3abbf
   TwitterKit: 38232c31f622db1f26a5952436eaa88d10763fd0
 
-PODFILE CHECKSUM: 21d5f6adee4543c84e1c2023b242d642bf434635
+PODFILE CHECKSUM: 8d073f376a3f292b6a48f9d1aad6b59cf464631d
 
 COCOAPODS: 1.0.0

@@ -39,25 +39,25 @@ class ExampleOverlayView: OverlayView {
     override var overlayState:OverlayMode  {
         didSet {
             switch overlayState {
-            case .Left :
+            case .left :
                 if leadingConstraint == nil {
-                    leadingConstraint = extraOverlayImageView.leadingAnchor.constraintEqualToAnchor(self.leadingAnchor, constant: 20)
+                    leadingConstraint = extraOverlayImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20)
                 }
-                leadingConstraint!.active = false
+                leadingConstraint!.isActive = false
                 if trailingConstraint == nil {
-                    trailingConstraint = self.trailingAnchor.constraintEqualToAnchor(extraOverlayImageView.trailingAnchor, constant: 20)
+                    trailingConstraint = self.trailingAnchor.constraint(equalTo: extraOverlayImageView.trailingAnchor, constant: 20)
                 }
-                trailingConstraint!.active = true
+                trailingConstraint!.isActive = true
                 extraOverlayImageView.image = UIImage(named: overlayLeftImageName)
-            case .Right :
+            case .right :
                 if trailingConstraint == nil {
-                    trailingConstraint = self.trailingAnchor.constraintEqualToAnchor(extraOverlayImageView.trailingAnchor, constant: 20)
+                    trailingConstraint = self.trailingAnchor.constraint(equalTo: extraOverlayImageView.trailingAnchor, constant: 20)
                 }
-                trailingConstraint!.active = false
+                trailingConstraint!.isActive = false
                 if leadingConstraint == nil {
-                    leadingConstraint = extraOverlayImageView.leadingAnchor.constraintEqualToAnchor(self.leadingAnchor, constant: 20)
+                    leadingConstraint = extraOverlayImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20)
                 }
-                leadingConstraint!.active = true
+                leadingConstraint!.isActive = true
                 extraOverlayImageView.image = UIImage(named: overlayRightImageName)
             default:
                 extraOverlayImageView.image = nil

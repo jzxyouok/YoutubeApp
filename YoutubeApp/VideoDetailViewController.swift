@@ -16,10 +16,12 @@ extension Reachability {
     
     class func isConnectedToNetwork() -> Bool {
         var zeroAddress = sockaddr_in()
-        zeroAddress.sin_len = UInt8(sizeofValue(zeroAddress))
+        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
         zeroAddress.sin_family = sa_family_t(AF_INET)
-        let defaultRouteReachability = withUnsafePointer(&zeroAddress) {
-            SCNetworkReachabilityCreateWithAddress(nil, UnsafePointer($0))
+        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
+                $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {zeroSockAddress in
+                    SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
+                }
         }
         var flags = SCNetworkReachabilityFlags()
         if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
@@ -58,7 +60,7 @@ class VideoDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         
         if let vid=self.selectedVideo {
             
@@ -74,59 +76,54 @@ class VideoDetailViewController: UIViewController {
             
             if Reachability.isConnectedToNetwork() {
                 var videoEmbedString = "<html><head><style type=\"text/css\">body {background-color: transparent;color: white;}</style></head><body style=\"margin:0\"><iframe frameBorder=\"0\" height=\""
-                videoEmbedString += String(height) + "\" width=\"" + String(width)
+                videoEmbedString += String(describing: height) + "\" width=\"" + String(describing: width)
                 videoEmbedString += "\" src=\"http://www.youtube.com/embed/" + vid.videoId! + "?showinfo=0&modestbranding=1&frameborder=0&rel=0\"></iframe></body></html>"
                 
                 self.webView.loadHTMLString(videoEmbedString, baseURL: nil)
             }
             
-            do {
-                self.reachability = try Reachability.reachabilityForInternetConnection()
-            } catch {
-                print("Unable to create Reachability")
-                return
-            }
+                self.reachability = try Reachability()
             
         }
         
-        func viewWillAppear(animated: Bool) {
+        func viewWillAppear(_ animated: Bool) {
             
             self.reachability!.whenReachable = { reachability in
-                if reachability.isReachableViaWiFi() {
-                    dispatch_async(dispatch_get_main_queue()) {
-                        let alertController = UIAlertController(title: "Alert", message: "Reachable via WiFi", preferredStyle: .Alert)
+                if reachability.isReachableViaWiFi {
+                    DispatchQueue.main.async {
+                        let alertController = UIAlertController(title: "Alert", message: "Reachable via WiFi", preferredStyle: .alert)
                         
-                        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                         alertController.addAction(defaultAction)
                         
-                        self.presentViewController(alertController, animated: true, completion: nil)
+                        self.present(alertController, animated: true, completion: nil)
                     }
                 }
                 else {
-                    dispatch_async(dispatch_get_main_queue()) {
-                        let alertController = UIAlertController(title: "Alert", message: "Reachable via Cellular", preferredStyle: .Alert)
+                    DispatchQueue.main.async {
+                        let alertController = UIAlertController(title: "Alert", message: "Reachable via Cellular", preferredStyle: .alert)
                         
-                        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                         alertController.addAction(defaultAction)
                         
-                        self.presentViewController(alertController, animated: true, completion: nil)
+                        self.present(alertController, animated: true, completion: nil)
                     }
                 }
             }
             self.reachability!.whenUnreachable = { reachability in
-                dispatch_async(dispatch_get_main_queue()) {
-                    let alertController = UIAlertController(title: "Alert", message: "Not Reachable", preferredStyle: .Alert)
+                DispatchQueue.main.async {
+                    let alertController = UIAlertController(title: "Alert", message: "Not Reachable", preferredStyle: .alert)
                     
-                    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                    let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                     alertController.addAction(defaultAction)
                     
-                    self.presentViewController(alertController, animated: true, completion: nil)
+                    self.present(alertController, animated: true, completion: nil)
                 }
             }
             
         }
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(VideoDetailViewController.reachabilityChanged(_:)),name: ReachabilityChangedNotification,object: reachability)
+        NotificationCenter.default.addObserver(self, selector: #selector(VideoDetailViewController.reachabilityChanged(_:)),name: ReachabilityChangedNotification,object: reachability)
         do {
             try self.reachability!.startNotifier()
         } catch {
@@ -134,12 +131,12 @@ class VideoDetailViewController: UIViewController {
         }
     }
     
-    func reachabilityChanged(note: NSNotification) {
+    func reachabilityChanged(_ note: Notification) {
         
         let reachability = note.object as! Reachability
         
-        if reachability.isReachable() {
-            if reachability.isReachableViaWiFi() {
+        if reachability.isReachable {
+            if reachability.isReachableViaWiFi {
                 print("Reachable via WiFi")
             } else {
                 print("Reachable via Cellular")

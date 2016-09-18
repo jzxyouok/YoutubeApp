@@ -17,31 +17,31 @@ class SignInViewController: UIViewController {
     
     @IBOutlet weak var googleSignInButton: UIButton!
     
-    @IBAction func signInButtonPressed(sender: UIButton) {
+    @IBAction func signInButtonPressed(_ sender: UIButton) {
         self.navigationController!.pushViewController(createAuthController(), animated: true)
     }
     
-    @IBAction func signInGuestPressed(sender: UIButton) {
+    @IBAction func signInGuestPressed(_ sender: UIButton) {
         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        if userDefaults.objectForKey("InterestsArray") as? [String] == nil || userDefaults.objectForKey("SkillsArray") as? [String] == nil {
-            let vc : InterestsViewController = storyboard.instantiateViewControllerWithIdentifier("InterestsViewController") as! InterestsViewController
+        let userDefaults = UserDefaults.standard
+        if userDefaults.object(forKey: "InterestsArray") as? [NSString] == nil || userDefaults.object(forKey: "SkillsArray") as? [NSString] == nil {
+            let vc : InterestsViewController = storyboard.instantiateViewController(withIdentifier: "InterestsViewController") as! InterestsViewController
             vc.model.service=self.service
             contentViewController = UINavigationController(rootViewController: vc)
-            self.presentViewController(contentViewController, animated: true, completion: nil)
-        } else if userDefaults.objectForKey("InterestsArray") as? [String] != nil && userDefaults.objectForKey("SkillsArray") as? [String] != nil {
-            let tbc: UITabBarController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
+            self.present(contentViewController, animated: true, completion: nil)
+        } else if userDefaults.object(forKey: "InterestsArray") as? [NSString] != nil && userDefaults.object(forKey: "SkillsArray") as? [NSString] != nil {
+            let tbc: UITabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
             (((tbc.viewControllers![1] as! UINavigationController).viewControllers[0]) as! SavedVideosViewController).model.service=self.service
-            self.presentViewController(tbc, animated: true, completion: nil)
+            self.present(tbc, animated: true, completion: nil)
         }
     }
     // Change Bundle Identifier for this client ID in Google Developer Console.
-    private let kKeychainItemName = "YouTube Data API"
-    private let kClientID = "192877572614-k4ljl168palm9oq5skbgonsagf17t20h.apps.googleusercontent.com"
+    fileprivate let kKeychainItemName = "YouTube Data API"
+    fileprivate let kClientID = "192877572614-k4ljl168palm9oq5skbgonsagf17t20h.apps.googleusercontent.com"
     
     // If modifying these scopes, delete your previously saved credentials by
     // resetting the iOS simulator or uninstall the app.
-    private let scopes = [kGTLRAuthScopeYouTubeUpload, kGTLRAuthScopeYouTube]
+    fileprivate let scopes = [kGTLRAuthScopeYouTubeUpload, kGTLRAuthScopeYouTube]
     
     let service = GTLRYouTubeService()
     
@@ -50,8 +50,8 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        if let auth = GTMOAuth2ViewControllerTouch.authForGoogleFromKeychainForName(
-            kKeychainItemName,
+        if let auth = GTMOAuth2ViewControllerTouch.authForGoogleFromKeychain(
+            forName: kKeychainItemName,
             clientID: kClientID,
             clientSecret: nil) {
             service.authorizer = auth
@@ -59,63 +59,63 @@ class SignInViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         self.navigationController!.setNavigationBarHidden(true, animated: false)
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         self.navigationController!.setNavigationBarHidden(false, animated: false)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let userDefaults = UserDefaults.standard
         if let authorizer = service.authorizer,
-            canAuth = authorizer.canAuthorize where canAuth {
-            if userDefaults.objectForKey("InterestsArray") as? [String] == nil || userDefaults.objectForKey("SkillsArray") as? [String] == nil {
-                let vc : InterestsViewController = storyboard.instantiateViewControllerWithIdentifier("InterestsViewController") as! InterestsViewController
+            let canAuth = authorizer.canAuthorize , canAuth {
+            if userDefaults.object(forKey: "InterestsArray") as? [NSString] == nil || userDefaults.object(forKey: "SkillsArray") as? [NSString] == nil {
+                let vc : InterestsViewController = storyboard.instantiateViewController(withIdentifier: "InterestsViewController") as! InterestsViewController
                 vc.model.service=self.service
                 contentViewController = UINavigationController(rootViewController: vc)
-                self.presentViewController(contentViewController, animated: true, completion: nil)
-            } else if userDefaults.objectForKey("InterestsArray") as? [String] != nil && userDefaults.objectForKey("SkillsArray") as? [String] != nil {
-                let tbc: UITabBarController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
+                self.present(contentViewController, animated: true, completion: nil)
+            } else if userDefaults.object(forKey: "InterestsArray") as? [NSString] != nil && userDefaults.object(forKey: "SkillsArray") as? [String] != nil {
+                let tbc: UITabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
                 (((tbc.viewControllers![1] as! UINavigationController).viewControllers[0]) as! SavedVideosViewController).model.service=self.service
-                self.presentViewController(tbc, animated: true, completion: nil)
+                self.present(tbc, animated: true, completion: nil)
             }
-        } else if userDefaults.objectForKey("InterestsArray") as? [String] != nil && userDefaults.objectForKey("SkillsArray") as? [String] != nil && checked==0 {
-            let tbc: UITabBarController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
+        } else if userDefaults.object(forKey: "InterestsArray") as? [NSString] != nil && userDefaults.object(forKey: "SkillsArray") as? [String] != nil && checked==0 {
+            let tbc: UITabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
             (((tbc.viewControllers![1] as! UINavigationController).viewControllers[0]) as! SavedVideosViewController).model.service=self.service
-            self.presentViewController(tbc, animated: true, completion: nil)
-        } else if userDefaults.objectForKey("InterestsArray") as? [String] != nil && userDefaults.objectForKey("SkillsArray") as? [String] != nil && checked==1 {
+            self.present(tbc, animated: true, completion: nil)
+        } else if userDefaults.object(forKey: "InterestsArray") as? [NSString] != nil && userDefaults.object(forKey: "SkillsArray") as? [String] != nil && checked==1 {
             self.signInButtonPressed(self.googleSignInButton)
         }
     }
     
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "idSegueContent" {
-            contentViewController = segue.destinationViewController as! UINavigationController
+            contentViewController = segue.destination as! UINavigationController
         }
     }
     
     // Creates the auth controller for authorizing access to Gmail API
-    private func createAuthController() -> GTMOAuth2ViewControllerTouch {
-        let scopeString = scopes.joinWithSeparator(" ")
+    fileprivate func createAuthController() -> GTMOAuth2ViewControllerTouch {
+        let scopeString = scopes.joined(separator: " ")
         return GTMOAuth2ViewControllerTouch(
             scope: scopeString,
             clientID: kClientID,
             clientSecret: nil,
             keychainItemName: kKeychainItemName,
             delegate: self,
-            finishedSelector: "viewController:finishedWithAuth:error:"
+            finishedSelector: #selector(SignInViewController.viewController(_:finishedWithAuth:error:))
         )
         
     }
     
     // Handle completion of the authorization process, and update the Gmail API
     // with the new credentials.
-    func viewController(vc : UIViewController,
+    func viewController(_ vc : UIViewController,
                         finishedWithAuth authResult : GTMOAuth2Authentication, error : NSError?) {
         
         if let error = error {
@@ -125,23 +125,23 @@ class SignInViewController: UIViewController {
         }
         
         service.authorizer = authResult
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     // Helper for showing an alert
-    func showAlert(title : String, message: String) {
+    func showAlert(_ title : String, message: String) {
         let alert = UIAlertController(
             title: title,
             message: message,
-            preferredStyle: UIAlertControllerStyle.Alert
+            preferredStyle: UIAlertControllerStyle.alert
         )
         let ok = UIAlertAction(
             title: "OK",
-            style: UIAlertActionStyle.Default,
+            style: UIAlertActionStyle.default,
             handler: nil
         )
         alert.addAction(ok)
-        presentViewController(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {

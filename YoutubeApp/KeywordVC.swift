@@ -8,22 +8,23 @@
 
 import UIKit
 import Foundation
+import PEGKit
 
 class KeywordVC: UIViewController, UITextViewDelegate {
     
-    var interestSelectionArray = [String]()
-    var skillSelectionArray = [String]()
-    var keywords = [String]()
+    var interestSelectionArray = [NSString]()
+    var skillSelectionArray = [NSString]()
+    var keywords = [NSString]()
     var model = VideoModel()
     
     @IBOutlet weak var textView: UITextView!
     
-    @IBAction func nextButtonClicked(sender: UIBarButtonItem) {
+    @IBAction func nextButtonClicked(_ sender: UIBarButtonItem) {
         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let tbc: UITabBarController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
+        let tbc: UITabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
         (((tbc.viewControllers![1] as! UINavigationController).viewControllers[0]) as! SavedVideosViewController).model.service=self.model.service
-        let userDefaults=NSUserDefaults.standardUserDefaults()
-        if userDefaults.objectForKey("SelectedVideos") as? NSData == nil {
+        let userDefaults=UserDefaults.standard
+        if userDefaults.object(forKey: "SelectedVideos") as? Data == nil {
             VideoStatus.selectedVideos=[]
             (((tbc.viewControllers![1] as! UINavigationController).viewControllers[0]) as! SavedVideosViewController).videos=VideoStatus.selectedVideos
             
@@ -32,71 +33,86 @@ class KeywordVC: UIViewController, UITextViewDelegate {
         let end = textView.text.endIndex
         print(start)
         print(end)
-        textView.text=textView.text.lowercaseString
+        textView.text=textView.text.lowercased()
+        let characterset = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ0123456789")
+        keywords=((textView.text).components(separatedBy: characterset.inverted) as [NSString])
+        print(keywords)
+        /*
+        let t : PKTokenizer = PKTokenizer(string: textView.text)
+        let eof : PKToken = PKToken.eof()
+        var tok : PKToken? = nil
+        while (eof != (tok = (t.nextToken()))) {
+            if (tok?.isQuotedString)! || (tok?.isWord)! || (tok?.isNumber)! || (tok?.isDelimitedString)! {
+                keywords.append((tok?.stringValue)!)
+            }
+        }
+         */
+        /*
         var range: Range<String.Index> = Range<String.Index>(start..<end)
-        while range.startIndex != end {
+        while range.lowerBound != end {
             keywords.append(textView.text.collectWord(&range))
             while textView.text.skipWhitespace(&range) {
             }
         }
-        userDefaults.setObject(keywords, forKey: "KeywordsArray")
+        */
+        userDefaults.set(keywords as [NSString], forKey: "KeywordsArray")
         if self.interestSelectionArray != [] {
-            userDefaults.setObject(self.interestSelectionArray, forKey: "InterestsArray")
+            userDefaults.set(self.interestSelectionArray as [NSString], forKey: "InterestsArray")
         }
         if self.skillSelectionArray != [] {
-            userDefaults.setObject(self.skillSelectionArray, forKey: "SkillsArray")
+            userDefaults.set(self.skillSelectionArray as [NSString], forKey: "SkillsArray")
         }
         ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).interestSelectionArray=self.interestSelectionArray+keywords
         ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).skillSelectionArray=self.skillSelectionArray
         ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).model=self.model
-        self.presentViewController(tbc, animated: true, completion: nil)
+        self.present(tbc, animated: true, completion: nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         print(interestSelectionArray)
         print(skillSelectionArray)
-        let userDefaults=NSUserDefaults.standardUserDefaults()
-        if userDefaults.objectForKey("SkillsArray") != nil {
+        let userDefaults=UserDefaults.standard
+        if userDefaults.object(forKey: "SkillsArray") as? [NSString] != nil {
             self.navigationItem.hidesBackButton=true
         }
         textView.text = "Please enter some keywords!"
-        textView.textColor = UIColor.lightGrayColor()
+        textView.textColor = UIColor.lightGray
         textView.delegate=self
         
-        navigationController!.navigationBar.barTintColor = UIColor.blackColor()
-        navigationController!.navigationBar.tintColor=UIColor.whiteColor()
-        navigationController!.navigationBar.titleTextAttributes=[NSForegroundColorAttributeName : UIColor.whiteColor()]
-        navigationController!.navigationBar.opaque=true
-        self.navigationController!.navigationBar.barStyle = .Black
+        navigationController!.navigationBar.barTintColor = UIColor.black
+        navigationController!.navigationBar.tintColor=UIColor.white
+        navigationController!.navigationBar.titleTextAttributes=[NSForegroundColorAttributeName : UIColor.white]
+        navigationController!.navigationBar.isOpaque=true
+        self.navigationController!.navigationBar.barStyle = .black
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(animated: Bool) {
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        if userDefaults.objectForKey("SkillsArray") != nil {
+    override func viewWillAppear(_ animated: Bool) {
+        let userDefaults = UserDefaults.standard
+        if userDefaults.object(forKey: "SkillsArray") as? [NSString] != nil {
             self.navigationItem.hidesBackButton=true
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
-        let alert = UIAlertController(title: "Keyword Entry", message: "Please enter keywords related to your interests and skills. Keywords should be separated only by spaces and contain no special characters!", preferredStyle: .Alert)
+    override func viewDidAppear(_ animated: Bool) {
+        let alert = UIAlertController(title: "Keyword Entry", message: "Please enter keywords related to your interests and skills. Keywords should be separated only by spaces and contain no special characters!", preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "Got it!", style: .Cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Got it!", style: .cancel, handler: nil))
         
-        self.presentViewController(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)
     }
     
-    func textViewDidBeginEditing(textView: UITextView) {
-        if textView.textColor == UIColor.lightGrayColor() {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
             textView.text = ""
-            textView.textColor = UIColor.blackColor()
+            textView.textColor = UIColor.black
         }
     }
     
-    func textViewDidEndEditing(textView: UITextView) {
+    func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             textView.text = "Please enter some keywords!"
-            textView.textColor = UIColor.lightGrayColor()
+            textView.textColor = UIColor.lightGray
         }
     }
     
@@ -118,10 +134,11 @@ class KeywordVC: UIViewController, UITextViewDelegate {
     
 }
 
+/*
 public extension Character {
     /// Determine if the character is a space, tab or newline
     public func isSpace() -> Bool {
-        return self == " " || self == "\t" || self == "\n" || self == "\r" || self == "," || self == ";" || self == "'" || self == "/" || self == ":"
+        return self == " " || self == "\t" || self == "\n" || self == "\r"
     }
     
     /// Conver the character to a UTF16 code unit
@@ -135,7 +152,7 @@ public extension Character {
     /// Convert the character to lowercase
     public var lowercaseCharacter: Character {
         get {
-            let s = String(self).lowercaseString
+            let s = String(self).lowercased()
             return s[s.startIndex]
         }
     }
@@ -143,7 +160,7 @@ public extension Character {
     /// Convert the character to uppercase
     public var uppercaseCharacter: Character {
         get {
-            let s = String(self).uppercaseString
+            let s = String(self).uppercased()
             return s[s.startIndex]
         }
     }
@@ -189,15 +206,18 @@ public extension String {
     /**
      Skip whitespace characters. Updates the range and returns true is characters were skipped.
      */
-    public func skipWhitespace(inout range: Range<Index>) -> Bool {
+    public func skipWhitespace( range: inout Range<Index>) -> Bool {
         var skipped = false
-        while range.startIndex != range.endIndex {
-            if !self[range.startIndex].isSpace() {
+        while range.lowerBound != range.upperBound {
+            if !self[range.lowerBound].isSpace() {
                 return skipped
             }
             
             skipped = true
             range.startIndex = range.startIndex.successor()
+            range=range.lowerBound.index(range, offset: 1)..<range.upperBound
+            range.clamped(to: Range<Index>(uncheckedBounds: range.lowerBound.advancedBy(1), range.upperBound))
+            range=Range<String.Index>.init(uncheckedBounds: range.lowerBound, range.upperBound)
         }
         return skipped
     }
@@ -205,7 +225,7 @@ public extension String {
     /**
      Skip a particular character. Updates the range and returns true if the character was found.
      */
-    public func skipCharacter(inout range: Range<Index>, skip: Character) -> Bool {
+    public func skipCharacter( range: inout Range<Index>, skip: Character) -> Bool {
         if range.startIndex != range.endIndex && self[range.startIndex] == skip {
             range.startIndex = range.startIndex.successor()
             return true
@@ -278,7 +298,7 @@ public extension String {
     /**
      Collect characters into a string until a stop character is found or the end of the string is reached.
      */
-    public func collect(stop: Character) -> String {
+    public func collect(#stop: Character) -> String {
         var range = startIndex..<endIndex
         return collect(&range, stop: stop)
     }
@@ -300,7 +320,7 @@ public extension String {
     /**
      Collect characters into a string until an of the stop characters is found.
      */
-    public func collect(stop: [Character]) -> String {
+    public func collect(#stop: [Character]) -> String {
         var range = startIndex..<endIndex
         return collect(&range, stop: stop)
     }
@@ -311,7 +331,7 @@ public extension String {
      */
     public func collect(inout range: Range<Index>, stop: [Character]) -> String {
         var word = String()
-        while range.startIndex != range.endIndex && !stop.contains(self[range.startIndex]) {
+        while range.startIndex != range.endIndex && !contains(stop, self[range.startIndex]) {
             word.append(self[range.startIndex])
             range.startIndex = range.startIndex.successor()
         }
@@ -484,3 +504,4 @@ public extension String {
         return result
     }
 }
+*/

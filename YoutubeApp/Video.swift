@@ -13,9 +13,9 @@ import AlamofireObjectMapper
 class VideoStatus: NSObject {
     static var selectedVideos = [Video]() {
         didSet {
-            let userDefaults = NSUserDefaults.standardUserDefaults()
-            let data = NSKeyedArchiver.archivedDataWithRootObject(selectedVideos)
-            userDefaults.setObject(data, forKey: "SelectedVideos")
+            let userDefaults = UserDefaults.standard
+            let data = NSKeyedArchiver.archivedData(withRootObject: selectedVideos)
+            userDefaults.set(data, forKey: "SelectedVideos")
         }
     }
 }
@@ -24,7 +24,7 @@ class SkillsVideoResponse: NSObject, Mappable {
     
     var videos: [Video] = []
     
-    convenience required init?(_ map: Map){
+    convenience required init?(map: Map){
         self.init()
     }
     
@@ -39,7 +39,7 @@ class VideoResponse: NSObject, Mappable {
     
     var videos: [Video] = []
     
-    convenience required init?(_ map: Map){
+    convenience required init?(map: Map){
         self.init()
     }
     
@@ -56,20 +56,20 @@ class Video: NSObject, NSCoding, Mappable {
     
     override init() {}
     
-    convenience required init?(_ map: Map){
+    convenience required init?(map: Map){
         self.init()
-        mapping(map)
+        mapping(map: map)
     }
     
     required init?(coder aDecoder: NSCoder) {
         
-        self.videoId = aDecoder.decodeObjectForKey("videoId") as? String
-        self.snippet = aDecoder.decodeObjectForKey("snippet") as? Snippet
+        self.videoId = aDecoder.decodeObject(forKey: "videoId") as? String
+        self.snippet = aDecoder.decodeObject(forKey: "snippet") as? Snippet
     }
     
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(self.videoId, forKey: "videoId")
-        aCoder.encodeObject(self.snippet, forKey: "snippet")
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.videoId, forKey: "videoId")
+        aCoder.encode(self.snippet, forKey: "snippet")
     }
     
     func mapping(map: Map) {
@@ -90,22 +90,22 @@ class Snippet: NSObject, NSCoding, Mappable {
     
     override init() {}
     
-    convenience required init?(_ map: Map){
+    convenience required init?(map: Map){
         self.init()
-        mapping(map)
+        mapping(map: map)
     }
     
     required init?(coder aDecoder: NSCoder) {
         
-        self.title = aDecoder.decodeObjectForKey("title") as? String
-        self.descriptionn = aDecoder.decodeObjectForKey("description") as? String
-        self.thumbnailUrlString = aDecoder.decodeObjectForKey("thumbnailUrlString") as? String
+        self.title = aDecoder.decodeObject(forKey: "title") as? String
+        self.descriptionn = aDecoder.decodeObject(forKey: "description") as? String
+        self.thumbnailUrlString = aDecoder.decodeObject(forKey: "thumbnailUrlString") as? String
     }
     
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(self.title, forKey: "title")
-        aCoder.encodeObject(self.descriptionn, forKey: "description")
-        aCoder.encodeObject(self.thumbnailUrlString, forKey: "thumbnailUrlString")
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.title, forKey: "title")
+        aCoder.encode(self.descriptionn, forKey: "description")
+        aCoder.encode(self.thumbnailUrlString, forKey: "thumbnailUrlString")
     }
     
     func mapping(map: Map) {
