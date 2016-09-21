@@ -37,7 +37,7 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         let userDefaults = UserDefaults.standard
         if userDefaults.object(forKey: "KeywordsArray") as? [NSString] == nil {
-            userDefaults.set(self.skillSelectionArray, forKey: "SkillsArray")
+            //userDefaults.set(self.skillSelectionArray, forKey: "SkillsArray")
             self.performSegue(withIdentifier: "showKeywords", sender: self)
         } else {
             print(userDefaults.object(forKey: "KeywordsArray") as! [NSString])

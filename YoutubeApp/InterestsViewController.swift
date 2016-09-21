@@ -64,7 +64,7 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
             ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).model=self.model
             self.present(tbc, animated: true, completion: nil)
         } else {
-            userDefaults.set(self.interestSelectionArray as [NSString], forKey: "InterestsArray")
+            //userDefaults.set(self.interestSelectionArray as [NSString], forKey: "InterestsArray")
             self.performSegue(withIdentifier: "showSkills", sender: self)
         }
     }
