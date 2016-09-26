@@ -96,7 +96,7 @@ class VideoModel: NSObject {
     }
     
     func makeSubVideosRequest(_ categoryId: Int, keywordArray: [String]) {
-        Alamofire.request("https://www.googleapis.com/youtube/v3/search", parameters: ["part":"snippet","regionCode":"US","q":keywordArray[Int(arc4random_uniform(UInt32(keywordArray.count)))],"maxResults":3,"type":"video","videoDuration":"short","videoCategoryId":categoryId, "key": self.API_KEY], encoding: URLEncoding.default, headers: nil).responseObject { (response: DataResponse<VideoResponse>) in
+        Alamofire.request("https://www.googleapis.com/youtube/v3/search", parameters: ["part":"snippet","regionCode":"US","q":keywordArray[Int(arc4random_uniform(UInt32(keywordArray.count)))],"maxResults":0,"type":"video","videoDuration":"short","videoCategoryId":categoryId, "key": self.API_KEY], encoding: URLEncoding.default, headers: nil).responseObject { (response: DataResponse<VideoResponse>) in
             DispatchQueue.main.async {
                 let videoResponse = response.result.value
                 if let videos = videoResponse?.videos {
@@ -111,7 +111,7 @@ class VideoModel: NSObject {
     }
     
     func makeVideosRequest(_ categoryId: Int, keywordArray: [String], completionHandler:@escaping (_ data: AnyObject?) -> ()) -> () {
-        Alamofire.request("https://www.googleapis.com/youtube/v3/search", parameters: ["part":"snippet","regionCode":"US","q":keywordArray[Int(arc4random_uniform(UInt32(keywordArray.count)))],"maxResults":3,"type":"video","videoDuration":"short","videoCategoryId":categoryId, "key": self.API_KEY], encoding: URLEncoding.default, headers: nil).responseObject { (response: DataResponse<VideoResponse>) in
+        Alamofire.request("https://www.googleapis.com/youtube/v3/search", parameters: ["part":"snippet","regionCode":"US","q":keywordArray[Int(arc4random_uniform(UInt32(keywordArray.count)))],"maxResults":0,"type":"video","videoDuration":"short","videoCategoryId":categoryId, "key": self.API_KEY], encoding: URLEncoding.default, headers: nil).responseObject { (response: DataResponse<VideoResponse>) in
             DispatchQueue.main.async {
                 let videoResponse = response.result.value
                 if let videos = videoResponse?.videos {

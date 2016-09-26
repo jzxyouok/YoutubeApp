@@ -36,10 +36,10 @@ class ExampleOverlayView: OverlayView {
     var leadingConstraint: NSLayoutConstraint?
     var trailingConstraint: NSLayoutConstraint?
     
-    override var overlayState:OverlayMode  {
+    override var overlayState:SwipeResultDirection?  {
         didSet {
-            switch overlayState {
-            case .left :
+            switch overlayState! {
+            case .Left :
                 if leadingConstraint == nil {
                     leadingConstraint = extraOverlayImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20)
                 }
@@ -49,7 +49,7 @@ class ExampleOverlayView: OverlayView {
                 }
                 trailingConstraint!.isActive = true
                 extraOverlayImageView.image = UIImage(named: overlayLeftImageName)
-            case .right :
+            case .Right :
                 if trailingConstraint == nil {
                     trailingConstraint = self.trailingAnchor.constraint(equalTo: extraOverlayImageView.trailingAnchor, constant: 20)
                 }

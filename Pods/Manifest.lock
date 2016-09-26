@@ -76,7 +76,7 @@ CHECKOUT OPTIONS:
     :commit: 3a9bb8dfd27b303b34d514250ae06136ce240afb
     :git: https://github.com/google/gtm-oauth2.git
   Koloda:
-    :commit: 39215f0db5e4cbf2e8aa1191e567a9ee80bac53e
+    :commit: d0a588dc084ac265e1c887dcea2b4ae865f0bf57
     :git: https://github.com/LemonSpike/Koloda.git
   ObjectMapper:
     :commit: ddf2c721a9f6b63d4bfa97c1065c31d5fa8548d5
@@ -105,6 +105,6 @@ SPEC CHECKSUMS:
   TwitterCore: abc46da2bc4b76e2c68a74cd8671a071a8e3abbf
   TwitterKit: 38232c31f622db1f26a5952436eaa88d10763fd0
 
-PODFILE CHECKSUM: 4441741d86b0c141b4e8db2eb0b6a739bb373c9b
+PODFILE CHECKSUM: 4cffc45819ce02210422d5bf23472bc3e7be8fe1
 
 COCOAPODS: 1.0.0

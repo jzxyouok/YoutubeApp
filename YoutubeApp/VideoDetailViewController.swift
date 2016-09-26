@@ -13,7 +13,7 @@ import ReachabilitySwift
 
 
 extension Reachability {
-    
+    /*
     class func isConnectedToNetwork() -> Bool {
         var zeroAddress = sockaddr_in()
         zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
@@ -31,7 +31,7 @@ extension Reachability {
         let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
         return (isReachable && !needsConnection)
     }
-    
+    */
 }
 
 
@@ -74,15 +74,15 @@ class VideoDetailViewController: UIViewController {
             //Adjust the height of the webview constraint.
             self.webViewHeightConstraint.constant=height
             
-            if Reachability.isConnectedToNetwork() {
+            self.reachability = try Reachability()
+            
+            if (reachability?.isReachable)! {
                 var videoEmbedString = "<html><head><style type=\"text/css\">body {background-color: transparent;color: white;}</style></head><body style=\"margin:0\"><iframe frameBorder=\"0\" height=\""
                 videoEmbedString += String(describing: height) + "\" width=\"" + String(describing: width)
                 videoEmbedString += "\" src=\"http://www.youtube.com/embed/" + vid.videoId! + "?showinfo=0&modestbranding=1&frameborder=0&rel=0\"></iframe></body></html>"
                 
                 self.webView.loadHTMLString(videoEmbedString, baseURL: nil)
             }
-            
-                self.reachability = try Reachability()
             
         }
         
@@ -122,13 +122,14 @@ class VideoDetailViewController: UIViewController {
             }
             
         }
-        
+        /*
         NotificationCenter.default.addObserver(self, selector: #selector(VideoDetailViewController.reachabilityChanged(_:)),name: ReachabilityChangedNotification,object: reachability)
         do {
             try self.reachability!.startNotifier()
         } catch {
             print("Unable to start notifier")
         }
+         */
     }
     
     func reachabilityChanged(_ note: Notification) {

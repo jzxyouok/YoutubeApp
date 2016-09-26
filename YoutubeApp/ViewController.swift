@@ -88,7 +88,7 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         
         self.reachability!.whenReachable = { reachability in
             if reachability.isReachableViaWiFi {
-                DispatchQueue.main.async {
+                //DispatchQueue.main.async {
                     //                    let alertController = UIAlertController(title: "Alert", message: "Reachable via WiFi", preferredStyle: .Alert)
                     //                    
                     //                    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
@@ -100,9 +100,9 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
                         self.setupInitialViewState()
                         self.refresh()
                     }
-                }
+                //}
             } else {
-                DispatchQueue.main.async {
+                //DispatchQueue.main.async {
                     //                    let alertController = UIAlertController(title: "Alert", message: "Reachable via Cellular", preferredStyle: .Alert)
                     //                    
                     //                    let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
@@ -114,7 +114,7 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
                         self.setupInitialViewState()
                         self.refresh()
                     }
-                }
+                //}
             }
         }
         self.reachability!.whenUnreachable = { reachability in
@@ -170,11 +170,11 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     
     //MARK: IBActions
     @IBAction func leftButtonTapped() {
-        kolodaView?.swipe(SwipeResultDirection.left)
+        kolodaView?.swipe(SwipeResultDirection.Left)
     }
     
     @IBAction func rightButtonTapped() {
-        kolodaView?.swipe(SwipeResultDirection.right)
+        kolodaView?.swipe(SwipeResultDirection.Right)
     }
     
     @IBAction func undoButtonTapped() {
@@ -216,7 +216,7 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         
         startLoading()
         
-        if Reachability.isConnectedToNetwork() {
+        if (reachability?.isReachable)! {
             
             self.model.generateKeywords(interestSelectionArray as [String]) { data in
                 self.searchWords+=data
@@ -232,7 +232,7 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
                             
                         } else if self.model.delegate != nil {
                             self.numberOfCards = UInt(self.videos.count)
-                            self.koloda(kolodaNumberOfCards: self.kolodaView)
+                            self.kolodaNumberOfCards(self.kolodaView)
                             self.model.delegate!.dataReady()
                             self.endLoading()
                         }
@@ -246,19 +246,19 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     }
     
     func cacheLoad() {
-        if kolodaView?.currentCardNumber == 0 && counter<self.videos.count && videoCache.count != 0 {
+        if kolodaView?.currentCardIndex == 0 && counter<self.videos.count && videoCache.count != 0 {
             counter=counter+1
             if !(Set(videoCache).isSubset(of: Set(videos))) {
                 videos=videoCache+videos
             }
             self.numberOfCards = UInt(counter)
-            self.koloda(kolodaNumberOfCards: self.kolodaView)
+            self.kolodaNumberOfCards(self.kolodaView)
             self.value = self.videoCache.count - counter
         }
     }
     
     func koloda(kolodaShouldApplyAppearAnimation koloda: KolodaView) -> Bool {
-        return self.kolodaView.currentCardNumber==0
+        return self.kolodaView.currentCardIndex==0
     }
     
     func koloda(_ koloda: KolodaView, viewForCardAtIndex index: UInt) -> UIView {
@@ -308,7 +308,7 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         }
     }
     
-    func koloda(kolodaNumberOfCards koloda:KolodaView) -> UInt {
+    func kolodaNumberOfCards(_ koloda: KolodaView) -> UInt {
         return self.numberOfCards
     }
     
@@ -319,7 +319,7 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
             VideoStatus.selectedVideos=NSKeyedUnarchiver.unarchiveObject(with: self.data) as! [Video]
             self.selectedVideos=VideoStatus.selectedVideos
         }
-        if direction == .right {
+        if direction == SwipeResultDirection.Right {
             var videoIds: [String] = []
             for video in self.selectedVideos {
                 videoIds.append(video.videoId!)
@@ -338,9 +338,9 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         let overlay = Bundle.main.loadNibNamed("OverlayView",
                                                          owner: self, options: nil)?[0] as? ExampleOverlayView
         
-        if (self.kolodaView.viewForCardAtIndex(self.kolodaView.currentCardNumber) != UIView(frame: self.kolodaView.frame) && self.kolodaView.delegate != nil && self.done==1 && self.kolodaView.countOfVisibleCards != 0 && self.kolodaView.visibleCards != []) {
+        if (self.kolodaView.viewForCardAtIndex(self.kolodaView.currentCardIndex) != UIView(frame: self.kolodaView.frame) && self.kolodaView.delegate != nil && self.done==1 && self.kolodaView.countOfVisibleCards != 0 && self.kolodaView.visibleCards != []) {
             
-            let image = (self.kolodaView.viewForCardAtIndex(self.kolodaView.currentCardNumber+self.value) as! Thumbnail).iv.image
+            let image = (self.kolodaView.viewForCardAtIndex(self.kolodaView.currentCardIndex+self.value) as! Thumbnail).iv.image
             
             overlay?.overlayImageView.image = image
         }
@@ -359,26 +359,26 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
             self.done=0
             self.videoCache=self.videos
             self.model.videoArray = []
-            if Reachability.isConnectedToNetwork() {
+            if (reachability?.isReachable)! {
                 self.getVideos()
             }
-            self.kolodaView.resetCurrentCardNumber()
+            self.kolodaView.resetCurrentCardIndex()
         } else {
-            if (self.kolodaView.currentCardNumber + self.value == self.videoCache.count) {
+            if (self.kolodaView.currentCardIndex + self.value == self.videoCache.count) {
                 self.numberOfCards = UInt(self.videos.count-self.videoCache.count)
-                self.koloda(kolodaNumberOfCards: self.kolodaView)
+                self.kolodaNumberOfCards(self.kolodaView)
                 self.value=self.videoCache.count
                 self.counter=0
-                self.kolodaView.resetCurrentCardNumber()
+                self.kolodaView.resetCurrentCardIndex()
             } else {
                 self.videoCache = Array(videos[self.videoCache.count..<self.videos.count])
                 self.value=0
                 self.done=0
                 self.model.videoArray=[]
-                if Reachability.isConnectedToNetwork() {
+                if (reachability?.isReachable)! {
                     self.getVideos()
                 }
-                self.kolodaView.resetCurrentCardNumber()
+                self.kolodaView.resetCurrentCardIndex()
             }
         }
     }
@@ -394,7 +394,7 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
                     
                     if self.model.delegate != nil {
                         self.numberOfCards = UInt(self.videos.count)
-                        self.koloda(kolodaNumberOfCards: self.kolodaView)
+                        self.kolodaNumberOfCards(self.kolodaView)
                         self.model.delegate!.dataReady()
                     }
                     

@@ -1,2202 +1,813 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>01DE22414C0014C5F9269321</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>&#128230; Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-YoutubeAppTests/Pods-YoutubeAppTests-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>0A176624DCB95C70460E2C5F</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>4ECA0C751D883A4E00E7EA88</string>
-				<string>4ECA0C731D8836FD00E7EA88</string>
-				<string>4ECA0C711D8836F200E7EA88</string>
-				<string>4ECA0C6F1D8836E900E7EA88</string>
-				<string>4ECA0C6C1D85D65400E7EA88</string>
-				<string>4ECA0C6A1D85D63600E7EA88</string>
-				<string>3F6CACAACEA1F7892C6351C0</string>
-				<string>8F02C9EEE558E92E84D6384D</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>110906C6BF1B24CFE64C2637</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-YoutubeApp.release.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-YoutubeApp/Pods-YoutubeApp.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>22B9ACEA2421852AEA5CA9EB</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>&#128230; Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>2B673EE87C095B79A726775A</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>&#128230; Embed Pods Frameworks</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-YoutubeAppTests/Pods-YoutubeAppTests-frameworks.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>3F6CACAACEA1F7892C6351C0</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Pods_YoutubeApp.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>4107211B07472069F8521C97</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3F6CACAACEA1F7892C6351C0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>42C881016821534CDDFED871</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-YoutubeAppTests.release.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-YoutubeAppTests/Pods-YoutubeAppTests.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E03E3911D47AD6E00872719</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>Background@3x.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E03E3921D47AD6E00872719</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4E03E3911D47AD6E00872719</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4E12E21C1D21A52300F44DB9</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>SignInViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E12E21D1D21A52300F44DB9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4E12E21C1D21A52300F44DB9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4E12E2201D21A86E00F44DB9</key>
-		<dict>
-			<key>children</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E12E2241D2272F200F44DB9</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>4ECA0C601D8433EB00E7EA88</string>
-				<string>4ECA0C5C1D8431D700E7EA88</string>
-				<string>4ECA0C5A1D842D9C00E7EA88</string>
-				<string>4ECA0C581D842D1E00E7EA88</string>
-				<string>4ECA0C561D842C0900E7EA88</string>
-				<string>4EC1FB721D7F2115009D9F91</string>
-				<string>4E03E3911D47AD6E00872719</string>
-				<string>4EFE25EE1C7377A7009E44CD</string>
-				<string>4E2999C91C6E650100563520</string>
-				<string>4EA8084C1C711785009398D3</string>
-				<string>4EA8084E1C711878009398D3</string>
-				<string>4EA808501C711D00009398D3</string>
-				<string>4EA808521C711EF0009398D3</string>
-				<string>4EFE25F01C737B4A009E44CD</string>
-				<string>4E322D571D7D971E00E5B1F6</string>
-				<string>4E322D591D7D97A300E5B1F6</string>
-				<string>4EA8084A1C7116BD009398D3</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>images</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E1B38081CEF6FA200568FB9</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.xib</string>
-			<key>path</key>
-			<string>Thumbnail.xib</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E1B38091CEF6FA200568FB9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4E1B38081CEF6FA200568FB9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4E1B380A1CF0FA3400568FB9</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>ExampleOverlayView.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E1B380B1CF0FA3400568FB9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4E1B380A1CF0FA3400568FB9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4E1B380C1CF0FA8700568FB9</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.xib</string>
-			<key>path</key>
-			<string>OverlayView.xib</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E1B380D1CF0FA8700568FB9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4E1B380C1CF0FA8700568FB9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4E1C99CB1D3D12720009F799</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>TableSectionHeader.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E1C99CC1D3D12720009F799</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4E1C99CB1D3D12720009F799</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4E1C99CD1D3D12C60009F799</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.xib</string>
-			<key>path</key>
-			<string>TableSectionHeader.xib</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E1C99CE1D3D12C60009F799</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4E1C99CD1D3D12C60009F799</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4E2999C71C6E613F00563520</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>InterestsViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E2999C81C6E613F00563520</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4E2999C71C6E613F00563520</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4E2999C91C6E650100563520</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.jpeg</string>
-			<key>path</key>
-			<string>maths.jpg</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E2999CA1C6E650100563520</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4E2999C91C6E650100563520</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4E322D571D7D971E00E5B1F6</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>settings-16.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E322D581D7D971E00E5B1F6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4E322D571D7D971E00E5B1F6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4E322D591D7D97A300E5B1F6</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>settings-24.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E322D5A1D7D97A300E5B1F6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4E322D591D7D97A300E5B1F6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4E322D5B1D7DC92200E5B1F6</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>LoadingViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E322D5C1D7DC92200E5B1F6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4E322D5B1D7DC92200E5B1F6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4E322D5D1D7DF36F00E5B1F6</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>EmptyView.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E322D5E1D7DF36F00E5B1F6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4E322D5D1D7DF36F00E5B1F6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4E322D5F1D7E1AD600E5B1F6</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>BasicPlaceholderView.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E322D601D7E1AD600E5B1F6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4E322D5F1D7E1AD600E5B1F6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4E322D611D7E4DF800E5B1F6</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>ErrorView.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E322D621D7E4DF800E5B1F6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4E322D611D7E4DF800E5B1F6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4E322D651D7EE2FE00E5B1F6</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>SettingsViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E322D661D7EE2FE00E5B1F6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4E322D651D7EE2FE00E5B1F6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4E676A651D228900007158ED</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>InterestView.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E676A661D228900007158ED</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4E676A651D228900007158ED</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4E6D8E041CECF95E00211D4B</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Thumbnail.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E6D8E051CECF95E00211D4B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4E6D8E041CECF95E00211D4B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4E72B84A1C58230A004592E7</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>4E72B8551C58230B004592E7</string>
-				<string>4EB2DD581D92C30A00F020C1</string>
-				<string>4E72B8541C58230B004592E7</string>
-				<string>A88962B5586CE59769A998F2</string>
-				<string>0A176624DCB95C70460E2C5F</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E72B84B1C58230A004592E7</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastSwiftUpdateCheck</key>
-				<string>0800</string>
-				<key>LastUpgradeCheck</key>
-				<string>0720</string>
-				<key>ORGANIZATIONNAME</key>
-				<string>Pranav Kasetti</string>
-				<key>TargetAttributes</key>
-				<dict>
-					<key>4E72B8521C58230A004592E7</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>7.2</string>
-						<key>DevelopmentTeam</key>
-						<string>C3BX32XR8J</string>
-						<key>LastSwiftMigration</key>
-						<string>0800</string>
-					</dict>
-					<key>4EB2DD561D92C30A00F020C1</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>8.0</string>
-						<key>DevelopmentTeam</key>
-						<string>C3BX32XR8J</string>
-						<key>ProvisioningStyle</key>
-						<string>Automatic</string>
-						<key>TestTargetID</key>
-						<string>4E72B8521C58230A004592E7</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>4E72B84E1C58230A004592E7</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-				<string>Base</string>
-			</array>
-			<key>mainGroup</key>
-			<string>4E72B84A1C58230A004592E7</string>
-			<key>productRefGroup</key>
-			<string>4E72B8541C58230B004592E7</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>4E72B8521C58230A004592E7</string>
-				<string>4EB2DD561D92C30A00F020C1</string>
-			</array>
-		</dict>
-		<key>4E72B84E1C58230A004592E7</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>4E72B8631C58230B004592E7</string>
-				<string>4E72B8641C58230B004592E7</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>4E72B84F1C58230A004592E7</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>4E72B8591C58230B004592E7</string>
-				<string>4E76B2AC1D55DF2C00223078</string>
-				<string>4ECA0C641D8434EA00E7EA88</string>
-				<string>4E322D621D7E4DF800E5B1F6</string>
-				<string>4E322D661D7EE2FE00E5B1F6</string>
-				<string>4E1C99CC1D3D12720009F799</string>
-				<string>4E322D5C1D7DC92200E5B1F6</string>
-				<string>4E88FF601C6B97DC00736678</string>
-				<string>4ECA0C671D858F6900E7EA88</string>
-				<string>4E676A661D228900007158ED</string>
-				<string>4E72B8571C58230B004592E7</string>
-				<string>4E856F4E1D4D403C00BED6D7</string>
-				<string>4E88FF641C6BDBF100736678</string>
-				<string>4EEC411A1C7B90BA0085FD59</string>
-				<string>4E322D5E1D7DF36F00E5B1F6</string>
-				<string>4E1B380B1CF0FA3400568FB9</string>
-				<string>4E2999C81C6E613F00563520</string>
-				<string>4E322D601D7E1AD600E5B1F6</string>
-				<string>4E6D8E051CECF95E00211D4B</string>
-				<string>4E12E21D1D21A52300F44DB9</string>
-				<string>4EAF1C7B1D4CD3F7003F4B0D</string>
-				<string>4E88FF621C6B993400736678</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>4E72B8501C58230A004592E7</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>4ECA0C6D1D85D65400E7EA88</string>
-				<string>4ECA0C701D8836E900E7EA88</string>
-				<string>4ECA0C741D8836FD00E7EA88</string>
-				<string>4ECA0C721D8836F300E7EA88</string>
-				<string>4ECA0C6B1D85D63600E7EA88</string>
-				<string>4107211B07472069F8521C97</string>
-				<string>4ECA0C761D883A4E00E7EA88</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>4E72B8511C58230A004592E7</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>4EC1FB731D7F2115009D9F91</string>
-				<string>4E72B8611C58230B004592E7</string>
-				<string>4ECA0C571D842C0900E7EA88</string>
-				<string>4EA8084D1C711785009398D3</string>
-				<string>4ECA0C5D1D8431D700E7EA88</string>
-				<string>4EA8084F1C711878009398D3</string>
-				<string>4E1C99CE1D3D12C60009F799</string>
-				<string>4E2999CA1C6E650100563520</string>
-				<string>4ECA0C5B1D842D9C00E7EA88</string>
-				<string>4EFE25EF1C7377A7009E44CD</string>
-				<string>4EA8084B1C7116BD009398D3</string>
-				<string>4ECA0C611D8433EB00E7EA88</string>
-				<string>4E322D581D7D971E00E5B1F6</string>
-				<string>4E72B85E1C58230B004592E7</string>
-				<string>4EFE25F11C737B4A009E44CD</string>
-				<string>4E322D5A1D7D97A300E5B1F6</string>
-				<string>4E72B85C1C58230B004592E7</string>
-				<string>4EA808511C711D00009398D3</string>
-				<string>4E1B380D1CF0FA8700568FB9</string>
-				<string>4ECA0C591D842D1E00E7EA88</string>
-				<string>4E1B38091CEF6FA200568FB9</string>
-				<string>4EA808531C711EF0009398D3</string>
-				<string>4E03E3921D47AD6E00872719</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>4E72B8521C58230A004592E7</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>4E72B8651C58230B004592E7</string>
-			<key>buildPhases</key>
-			<array>
-				<string>9808D409ADA1B0CDD8CB5CA3</string>
-				<string>4E72B84F1C58230A004592E7</string>
-				<string>4E72B8501C58230A004592E7</string>
-				<string>4E72B8511C58230A004592E7</string>
-				<string>9097580298A165DA280726C1</string>
-				<string>B4B78201DE1671E29DA415B7</string>
-				<string>4ECA0C771D8854E500E7EA88</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>YoutubeApp</string>
-			<key>productName</key>
-			<string>YoutubeApp</string>
-			<key>productReference</key>
-			<string>4E72B8531C58230B004592E7</string>
-			<key>productType</key>
-			<string>com.apple.product-type.application</string>
-		</dict>
-		<key>4E72B8531C58230B004592E7</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.application</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>YoutubeApp.app</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>4E72B8541C58230B004592E7</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>4E72B8531C58230B004592E7</string>
-				<string>4EB2DD571D92C30A00F020C1</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E72B8551C58230B004592E7</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>4E72B8561C58230B004592E7</string>
-				<string>4E2999C71C6E613F00563520</string>
-				<string>4E1B380A1CF0FA3400568FB9</string>
-				<string>4E1B380C1CF0FA8700568FB9</string>
-				<string>4EEC41191C7B90BA0085FD59</string>
-				<string>4E1C99CB1D3D12720009F799</string>
-				<string>4E1C99CD1D3D12C60009F799</string>
-				<string>4E72B8581C58230B004592E7</string>
-				<string>4E322D5B1D7DC92200E5B1F6</string>
-				<string>4E6D8E041CECF95E00211D4B</string>
-				<string>4ECA0C661D858F6900E7EA88</string>
-				<string>4E1B38081CEF6FA200568FB9</string>
-				<string>4E88FF5F1C6B97DC00736678</string>
-				<string>4EAF1C7A1D4CD3F7003F4B0D</string>
-				<string>4E88FF611C6B993400736678</string>
-				<string>4E88FF631C6BDBF000736678</string>
-				<string>4E72B85A1C58230B004592E7</string>
-				<string>4ECA0C631D8434EA00E7EA88</string>
-				<string>4ECA0C651D84351500E7EA88</string>
-				<string>4E322D651D7EE2FE00E5B1F6</string>
-				<string>4E76B2AB1D55DF2C00223078</string>
-				<string>4E322D5D1D7DF36F00E5B1F6</string>
-				<string>4E322D611D7E4DF800E5B1F6</string>
-				<string>4E856F4D1D4D403C00BED6D7</string>
-				<string>4E676A651D228900007158ED</string>
-				<string>4E12E21C1D21A52300F44DB9</string>
-				<string>4E72B85D1C58230B004592E7</string>
-				<string>4E12E2201D21A86E00F44DB9</string>
-				<string>4E12E2241D2272F200F44DB9</string>
-				<string>4E72B85F1C58230B004592E7</string>
-				<string>4E72B8621C58230B004592E7</string>
-				<string>4E322D5F1D7E1AD600E5B1F6</string>
-				<string>4ECA0C621D8434EA00E7EA88</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>YoutubeApp</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E72B8561C58230B004592E7</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>AppDelegate.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E72B8571C58230B004592E7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4E72B8561C58230B004592E7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4E72B8581C58230B004592E7</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>ViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E72B8591C58230B004592E7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4E72B8581C58230B004592E7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4E72B85A1C58230B004592E7</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>4E72B85B1C58230B004592E7</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>Main.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E72B85B1C58230B004592E7</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.storyboard</string>
-			<key>name</key>
-			<string>Base</string>
-			<key>path</key>
-			<string>Base.lproj/Main.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E72B85C1C58230B004592E7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4E72B85A1C58230B004592E7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4E72B85D1C58230B004592E7</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>folder.assetcatalog</string>
-			<key>path</key>
-			<string>Assets.xcassets</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E72B85E1C58230B004592E7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4E72B85D1C58230B004592E7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4E72B85F1C58230B004592E7</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>4E72B8601C58230B004592E7</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>LaunchScreen.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E72B8601C58230B004592E7</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.storyboard</string>
-			<key>name</key>
-			<string>Base</string>
-			<key>path</key>
-			<string>Base.lproj/LaunchScreen.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E72B8611C58230B004592E7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4E72B85F1C58230B004592E7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4E72B8621C58230B004592E7</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E72B8631C58230B004592E7</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>YES</string>
-				<key>CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>ENABLE_TESTABILITY</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.0</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>OTHER_LDFLAGS[arch=*]</key>
-				<string>-lc++</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-				<key>USER_HEADER_SEARCH_PATHS[arch=*]</key>
-				<string>$(SRCROOT)</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>4E72B8641C58230B004592E7</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>YES</string>
-				<key>CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf-with-dsym</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.0</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>OTHER_LDFLAGS[arch=*]</key>
-				<string>-lc++</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>USER_HEADER_SEARCH_PATHS[arch=*]</key>
-				<string>$(SRCROOT)</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>4E72B8651C58230B004592E7</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>4E72B8661C58230B004592E7</string>
-				<string>4E72B8671C58230B004592E7</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>4E72B8661C58230B004592E7</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>566F074387311FAF7E3AB17F</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY</key>
-				<string>iPhone Developer</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>$(PROJECT_DIR)</string>
-				</array>
-				<key>INFOPLIST_FILE</key>
-				<string>YoutubeApp/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>pranav.kasetti.YoutubeApp</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PROVISIONING_PROFILE</key>
-				<string></string>
-				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
-				<string>YoutubeApp/YoutubeApp-Bridging-Header.h</string>
-				<key>SWIFT_OBJC_BRIDGING_HEADER[arch=*]</key>
-				<string>YoutubeApp/YoutubeApp-Bridging-Header.h</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-				<key>SWIFT_VERSION</key>
-				<string>3.0</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>4E72B8671C58230B004592E7</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>110906C6BF1B24CFE64C2637</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY</key>
-				<string>iPhone Developer</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>$(PROJECT_DIR)</string>
-				</array>
-				<key>INFOPLIST_FILE</key>
-				<string>YoutubeApp/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>pranav.kasetti.YoutubeApp</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>PROVISIONING_PROFILE</key>
-				<string></string>
-				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
-				<string>YoutubeApp/YoutubeApp-Bridging-Header.h</string>
-				<key>SWIFT_OBJC_BRIDGING_HEADER[arch=*]</key>
-				<string>YoutubeApp/YoutubeApp-Bridging-Header.h</string>
-				<key>SWIFT_VERSION</key>
-				<string>3.0</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>4E76B2AB1D55DF2C00223078</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>SavedVideosViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-			<key>wrapsLines</key>
-			<string>0</string>
-		</dict>
-		<key>4E76B2AC1D55DF2C00223078</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4E76B2AB1D55DF2C00223078</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4E856F4D1D4D403C00BED6D7</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>NavigationController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E856F4E1D4D403C00BED6D7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4E856F4D1D4D403C00BED6D7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4E88FF5F1C6B97DC00736678</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Video.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E88FF601C6B97DC00736678</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4E88FF5F1C6B97DC00736678</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4E88FF611C6B993400736678</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>VideoModel.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E88FF621C6B993400736678</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4E88FF611C6B993400736678</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4E88FF631C6BDBF000736678</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>VideoDetailViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4E88FF641C6BDBF100736678</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4E88FF631C6BDBF000736678</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4EA8084A1C7116BD009398D3</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.jpeg</string>
-			<key>path</key>
-			<string>history.jpg</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4EA8084B1C7116BD009398D3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4EA8084A1C7116BD009398D3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4EA8084C1C711785009398D3</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.jpeg</string>
-			<key>path</key>
-			<string>physics.jpg</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4EA8084D1C711785009398D3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4EA8084C1C711785009398D3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4EA8084E1C711878009398D3</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.jpeg</string>
-			<key>path</key>
-			<string>chemistry.jpg</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4EA8084F1C711878009398D3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4EA8084E1C711878009398D3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4EA808501C711D00009398D3</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.jpeg</string>
-			<key>path</key>
-			<string>biology.jpg</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4EA808511C711D00009398D3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4EA808501C711D00009398D3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4EA808521C711EF0009398D3</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.jpeg</string>
-			<key>path</key>
-			<string>philosophy.jpg</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4EA808531C711EF0009398D3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4EA808521C711EF0009398D3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4EAF1C7A1D4CD3F7003F4B0D</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>KeywordVC.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4EAF1C7B1D4CD3F7003F4B0D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4EAF1C7A1D4CD3F7003F4B0D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4EB2DD531D92C30A00F020C1</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>4EB2DD5A1D92C30A00F020C1</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>4EB2DD541D92C30A00F020C1</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>A6C489F5661433858ACB2C84</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>4EB2DD551D92C30A00F020C1</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>4EB2DD561D92C30A00F020C1</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>4EB2DD601D92C30A00F020C1</string>
-			<key>buildPhases</key>
-			<array>
-				<string>22B9ACEA2421852AEA5CA9EB</string>
-				<string>4EB2DD531D92C30A00F020C1</string>
-				<string>4EB2DD541D92C30A00F020C1</string>
-				<string>4EB2DD551D92C30A00F020C1</string>
-				<string>2B673EE87C095B79A726775A</string>
-				<string>01DE22414C0014C5F9269321</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>4EB2DD5D1D92C30A00F020C1</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>YoutubeAppTests</string>
-			<key>productName</key>
-			<string>YoutubeAppTests</string>
-			<key>productReference</key>
-			<string>4EB2DD571D92C30A00F020C1</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.unit-test</string>
-		</dict>
-		<key>4EB2DD571D92C30A00F020C1</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>YoutubeAppTests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>4EB2DD581D92C30A00F020C1</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>4EB2DD591D92C30A00F020C1</string>
-				<string>4EB2DD5B1D92C30A00F020C1</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>YoutubeAppTests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4EB2DD591D92C30A00F020C1</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>YoutubeAppTests.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4EB2DD5A1D92C30A00F020C1</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4EB2DD591D92C30A00F020C1</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4EB2DD5B1D92C30A00F020C1</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4EB2DD5C1D92C30A00F020C1</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>4E72B84B1C58230A004592E7</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>4E72B8521C58230A004592E7</string>
-			<key>remoteInfo</key>
-			<string>YoutubeApp</string>
-		</dict>
-		<key>4EB2DD5D1D92C30A00F020C1</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>4E72B8521C58230A004592E7</string>
-			<key>targetProxy</key>
-			<string>4EB2DD5C1D92C30A00F020C1</string>
-		</dict>
-		<key>4EB2DD5E1D92C30A00F020C1</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>CD3BCF8576FB3C547DA7E860</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>BUNDLE_LOADER</key>
-				<string>$(TEST_HOST)</string>
-				<key>CLANG_ANALYZER_NONNULL</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DOCUMENTATION_COMMENTS</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INFINITE_RECURSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_SUSPICIOUS_MOVES</key>
-				<string>YES</string>
-				<key>DEVELOPMENT_TEAM</key>
-				<string>C3BX32XR8J</string>
-				<key>INFOPLIST_FILE</key>
-				<string>YoutubeAppTests/Info.plist</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>10.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>pranav.kasetti.YoutubeAppTests</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SWIFT_ACTIVE_COMPILATION_CONDITIONS</key>
-				<string>DEBUG</string>
-				<key>SWIFT_VERSION</key>
-				<string>3.0</string>
-				<key>TEST_HOST</key>
-				<string>$(BUILT_PRODUCTS_DIR)/YoutubeApp.app/YoutubeApp</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>4EB2DD5F1D92C30A00F020C1</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>42C881016821534CDDFED871</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>BUNDLE_LOADER</key>
-				<string>$(TEST_HOST)</string>
-				<key>CLANG_ANALYZER_NONNULL</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DOCUMENTATION_COMMENTS</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INFINITE_RECURSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_SUSPICIOUS_MOVES</key>
-				<string>YES</string>
-				<key>DEVELOPMENT_TEAM</key>
-				<string>C3BX32XR8J</string>
-				<key>INFOPLIST_FILE</key>
-				<string>YoutubeAppTests/Info.plist</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>10.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>pranav.kasetti.YoutubeAppTests</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Owholemodule</string>
-				<key>SWIFT_VERSION</key>
-				<string>3.0</string>
-				<key>TEST_HOST</key>
-				<string>$(BUILT_PRODUCTS_DIR)/YoutubeApp.app/YoutubeApp</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>4EB2DD601D92C30A00F020C1</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>4EB2DD5E1D92C30A00F020C1</string>
-				<string>4EB2DD5F1D92C30A00F020C1</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>4EC1FB721D7F2115009D9F91</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>Icon.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4EC1FB731D7F2115009D9F91</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4EC1FB721D7F2115009D9F91</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4ECA0C561D842C0900E7EA88</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>BG-Image.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4ECA0C571D842C0900E7EA88</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4ECA0C561D842C0900E7EA88</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4ECA0C581D842D1E00E7EA88</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>Sign-In-Google.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4ECA0C591D842D1E00E7EA88</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4ECA0C581D842D1E00E7EA88</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4ECA0C5A1D842D9C00E7EA88</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>Log In Button.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4ECA0C5B1D842D9C00E7EA88</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4ECA0C5A1D842D9C00E7EA88</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4ECA0C5C1D8431D700E7EA88</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>pwrdByYT-white.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4ECA0C5D1D8431D700E7EA88</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4ECA0C5C1D8431D700E7EA88</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4ECA0C601D8433EB00E7EA88</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.png</string>
-			<key>path</key>
-			<string>Log In Button Highlighted.png</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4ECA0C611D8433EB00E7EA88</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4ECA0C601D8433EB00E7EA88</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4ECA0C621D8434EA00E7EA88</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>YoutubeApp-Bridging-Header.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4ECA0C631D8434EA00E7EA88</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SSCheckmark.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4ECA0C641D8434EA00E7EA88</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4ECA0C631D8434EA00E7EA88</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4ECA0C651D84351500E7EA88</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SSCheckmark.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4ECA0C661D858F6900E7EA88</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>InsetLabel.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4ECA0C671D858F6900E7EA88</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4ECA0C661D858F6900E7EA88</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4ECA0C6A1D85D63600E7EA88</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Security.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/Security.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>4ECA0C6B1D85D63600E7EA88</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4ECA0C6A1D85D63600E7EA88</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4ECA0C6C1D85D65400E7EA88</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>SystemConfiguration.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/SystemConfiguration.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>4ECA0C6D1D85D65400E7EA88</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4ECA0C6C1D85D65400E7EA88</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4ECA0C6F1D8836E900E7EA88</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>path</key>
-			<string>FBSDKCoreKit.framework</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4ECA0C701D8836E900E7EA88</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4ECA0C6F1D8836E900E7EA88</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4ECA0C711D8836F200E7EA88</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>path</key>
-			<string>FBSDKShareKit.framework</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4ECA0C721D8836F300E7EA88</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4ECA0C711D8836F200E7EA88</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4ECA0C731D8836FD00E7EA88</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>path</key>
-			<string>FBSDKLoginKit.framework</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4ECA0C741D8836FD00E7EA88</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4ECA0C731D8836FD00E7EA88</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4ECA0C751D883A4E00E7EA88</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>path</key>
-			<string>Bolts.framework</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4ECA0C761D883A4E00E7EA88</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4ECA0C751D883A4E00E7EA88</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4ECA0C771D8854E500E7EA88</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${PODS_ROOT}/Fabric/run" b92bf746efb613cf8988e7aa537eee425f7dde13 51681f508126a369ea722a1bbd0af8e8b225b8a219ed4451027e6dfd83353223</string>
-		</dict>
-		<key>4EEC41191C7B90BA0085FD59</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>SkillsViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4EEC411A1C7B90BA0085FD59</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4EEC41191C7B90BA0085FD59</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4EFE25EE1C7377A7009E44CD</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.jpeg</string>
-			<key>path</key>
-			<string>geography.jpg</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4EFE25EF1C7377A7009E44CD</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4EFE25EE1C7377A7009E44CD</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4EFE25F01C737B4A009E44CD</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>image.jpeg</string>
-			<key>path</key>
-			<string>technology.jpg</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4EFE25F11C737B4A009E44CD</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4EFE25F01C737B4A009E44CD</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>566F074387311FAF7E3AB17F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-YoutubeApp.debug.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-YoutubeApp/Pods-YoutubeApp.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8F02C9EEE558E92E84D6384D</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Pods_YoutubeAppTests.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>9097580298A165DA280726C1</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>&#128230; Embed Pods Frameworks</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-YoutubeApp/Pods-YoutubeApp-frameworks.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>9808D409ADA1B0CDD8CB5CA3</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>&#128230; Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>A6C489F5661433858ACB2C84</key>
-		<dict>
-			<key>fileRef</key>
-			<string>8F02C9EEE558E92E84D6384D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A88962B5586CE59769A998F2</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>566F074387311FAF7E3AB17F</string>
-				<string>110906C6BF1B24CFE64C2637</string>
-				<string>CD3BCF8576FB3C547DA7E860</string>
-				<string>42C881016821534CDDFED871</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B4B78201DE1671E29DA415B7</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>&#128230; Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-YoutubeApp/Pods-YoutubeApp-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>CD3BCF8576FB3C547DA7E860</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-YoutubeAppTests.debug.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-YoutubeAppTests/Pods-YoutubeAppTests.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>4E72B84B1C58230A004592E7</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4107211B07472069F8521C97 /* Pods_YoutubeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6CACAACEA1F7892C6351C0 /* Pods_YoutubeApp.framework */; };
+		4E03E3921D47AD6E00872719 /* Background@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E03E3911D47AD6E00872719 /* Background@3x.png */; };
+		4E12E21D1D21A52300F44DB9 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E12E21C1D21A52300F44DB9 /* SignInViewController.swift */; };
+		4E1B38091CEF6FA200568FB9 /* Thumbnail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E1B38081CEF6FA200568FB9 /* Thumbnail.xib */; };
+		4E1B380B1CF0FA3400568FB9 /* ExampleOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1B380A1CF0FA3400568FB9 /* ExampleOverlayView.swift */; };
+		4E1B380D1CF0FA8700568FB9 /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E1B380C1CF0FA8700568FB9 /* OverlayView.xib */; };
+		4E1C99CC1D3D12720009F799 /* TableSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1C99CB1D3D12720009F799 /* TableSectionHeader.swift */; };
+		4E1C99CE1D3D12C60009F799 /* TableSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E1C99CD1D3D12C60009F799 /* TableSectionHeader.xib */; };
+		4E2999C81C6E613F00563520 /* InterestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2999C71C6E613F00563520 /* InterestsViewController.swift */; };
+		4E2999CA1C6E650100563520 /* maths.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4E2999C91C6E650100563520 /* maths.jpg */; };
+		4E322D581D7D971E00E5B1F6 /* settings-16.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E322D571D7D971E00E5B1F6 /* settings-16.png */; };
+		4E322D5A1D7D97A300E5B1F6 /* settings-24.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E322D591D7D97A300E5B1F6 /* settings-24.png */; };
+		4E322D5C1D7DC92200E5B1F6 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E322D5B1D7DC92200E5B1F6 /* LoadingViewController.swift */; };
+		4E322D5E1D7DF36F00E5B1F6 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E322D5D1D7DF36F00E5B1F6 /* EmptyView.swift */; };
+		4E322D601D7E1AD600E5B1F6 /* BasicPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E322D5F1D7E1AD600E5B1F6 /* BasicPlaceholderView.swift */; };
+		4E322D621D7E4DF800E5B1F6 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E322D611D7E4DF800E5B1F6 /* ErrorView.swift */; };
+		4E322D661D7EE2FE00E5B1F6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E322D651D7EE2FE00E5B1F6 /* SettingsViewController.swift */; };
+		4E676A661D228900007158ED /* InterestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E676A651D228900007158ED /* InterestView.swift */; };
+		4E6D8E051CECF95E00211D4B /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6D8E041CECF95E00211D4B /* Thumbnail.swift */; };
+		4E72B8571C58230B004592E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E72B8561C58230B004592E7 /* AppDelegate.swift */; };
+		4E72B8591C58230B004592E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E72B8581C58230B004592E7 /* ViewController.swift */; };
+		4E72B85C1C58230B004592E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E72B85A1C58230B004592E7 /* Main.storyboard */; };
+		4E72B85E1C58230B004592E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E72B85D1C58230B004592E7 /* Assets.xcassets */; };
+		4E72B8611C58230B004592E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E72B85F1C58230B004592E7 /* LaunchScreen.storyboard */; };
+		4E76B2AC1D55DF2C00223078 /* SavedVideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E76B2AB1D55DF2C00223078 /* SavedVideosViewController.swift */; };
+		4E856F4E1D4D403C00BED6D7 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E856F4D1D4D403C00BED6D7 /* NavigationController.swift */; };
+		4E88FF601C6B97DC00736678 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E88FF5F1C6B97DC00736678 /* Video.swift */; };
+		4E88FF621C6B993400736678 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E88FF611C6B993400736678 /* VideoModel.swift */; };
+		4E88FF641C6BDBF100736678 /* VideoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E88FF631C6BDBF000736678 /* VideoDetailViewController.swift */; };
+		4EA8084B1C7116BD009398D3 /* history.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4EA8084A1C7116BD009398D3 /* history.jpg */; };
+		4EA8084D1C711785009398D3 /* physics.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4EA8084C1C711785009398D3 /* physics.jpg */; };
+		4EA8084F1C711878009398D3 /* chemistry.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4EA8084E1C711878009398D3 /* chemistry.jpg */; };
+		4EA808511C711D00009398D3 /* biology.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4EA808501C711D00009398D3 /* biology.jpg */; };
+		4EA808531C711EF0009398D3 /* philosophy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4EA808521C711EF0009398D3 /* philosophy.jpg */; };
+		4EAF1C7B1D4CD3F7003F4B0D /* KeywordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAF1C7A1D4CD3F7003F4B0D /* KeywordVC.swift */; };
+		4EB2DD5A1D92C30A00F020C1 /* YoutubeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2DD591D92C30A00F020C1 /* YoutubeAppTests.swift */; };
+		4EC1FB731D7F2115009D9F91 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EC1FB721D7F2115009D9F91 /* Icon.png */; };
+		4ECA0C571D842C0900E7EA88 /* BG-Image.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ECA0C561D842C0900E7EA88 /* BG-Image.png */; };
+		4ECA0C591D842D1E00E7EA88 /* Sign-In-Google.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ECA0C581D842D1E00E7EA88 /* Sign-In-Google.png */; };
+		4ECA0C5B1D842D9C00E7EA88 /* Log In Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ECA0C5A1D842D9C00E7EA88 /* Log In Button.png */; };
+		4ECA0C5D1D8431D700E7EA88 /* pwrdByYT-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ECA0C5C1D8431D700E7EA88 /* pwrdByYT-white.png */; };
+		4ECA0C611D8433EB00E7EA88 /* Log In Button Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ECA0C601D8433EB00E7EA88 /* Log In Button Highlighted.png */; };
+		4ECA0C641D8434EA00E7EA88 /* SSCheckmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ECA0C631D8434EA00E7EA88 /* SSCheckmark.m */; };
+		4ECA0C671D858F6900E7EA88 /* InsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECA0C661D858F6900E7EA88 /* InsetLabel.swift */; };
+		4ECA0C6B1D85D63600E7EA88 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECA0C6A1D85D63600E7EA88 /* Security.framework */; };
+		4ECA0C6D1D85D65400E7EA88 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECA0C6C1D85D65400E7EA88 /* SystemConfiguration.framework */; };
+		4ECA0C701D8836E900E7EA88 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECA0C6F1D8836E900E7EA88 /* FBSDKCoreKit.framework */; };
+		4ECA0C721D8836F300E7EA88 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECA0C711D8836F200E7EA88 /* FBSDKShareKit.framework */; };
+		4ECA0C741D8836FD00E7EA88 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECA0C731D8836FD00E7EA88 /* FBSDKLoginKit.framework */; };
+		4ECA0C761D883A4E00E7EA88 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECA0C751D883A4E00E7EA88 /* Bolts.framework */; };
+		4EEC411A1C7B90BA0085FD59 /* SkillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC41191C7B90BA0085FD59 /* SkillsViewController.swift */; };
+		4EFE25EF1C7377A7009E44CD /* geography.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4EFE25EE1C7377A7009E44CD /* geography.jpg */; };
+		4EFE25F11C737B4A009E44CD /* technology.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4EFE25F01C737B4A009E44CD /* technology.jpg */; };
+		A6C489F5661433858ACB2C84 /* Pods_YoutubeAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F02C9EEE558E92E84D6384D /* Pods_YoutubeAppTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4EB2DD5C1D92C30A00F020C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4E72B84B1C58230A004592E7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4E72B8521C58230A004592E7;
+			remoteInfo = YoutubeApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		110906C6BF1B24CFE64C2637 /* Pods-YoutubeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoutubeApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-YoutubeApp/Pods-YoutubeApp.release.xcconfig"; sourceTree = "<group>"; };
+		3F6CACAACEA1F7892C6351C0 /* Pods_YoutubeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YoutubeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		42C881016821534CDDFED871 /* Pods-YoutubeAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoutubeAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YoutubeAppTests/Pods-YoutubeAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		4E03E3911D47AD6E00872719 /* Background@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background@3x.png"; sourceTree = "<group>"; };
+		4E12E21C1D21A52300F44DB9 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		4E1B38081CEF6FA200568FB9 /* Thumbnail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Thumbnail.xib; sourceTree = "<group>"; };
+		4E1B380A1CF0FA3400568FB9 /* ExampleOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleOverlayView.swift; sourceTree = "<group>"; };
+		4E1B380C1CF0FA8700568FB9 /* OverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayView.xib; sourceTree = "<group>"; };
+		4E1C99CB1D3D12720009F799 /* TableSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableSectionHeader.swift; sourceTree = "<group>"; };
+		4E1C99CD1D3D12C60009F799 /* TableSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableSectionHeader.xib; sourceTree = "<group>"; };
+		4E2999C71C6E613F00563520 /* InterestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestsViewController.swift; sourceTree = "<group>"; };
+		4E2999C91C6E650100563520 /* maths.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = maths.jpg; sourceTree = "<group>"; };
+		4E322D571D7D971E00E5B1F6 /* settings-16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-16.png"; sourceTree = "<group>"; };
+		4E322D591D7D97A300E5B1F6 /* settings-24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-24.png"; sourceTree = "<group>"; };
+		4E322D5B1D7DC92200E5B1F6 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		4E322D5D1D7DF36F00E5B1F6 /* EmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		4E322D5F1D7E1AD600E5B1F6 /* BasicPlaceholderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicPlaceholderView.swift; sourceTree = "<group>"; };
+		4E322D611D7E4DF800E5B1F6 /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		4E322D651D7EE2FE00E5B1F6 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		4E676A651D228900007158ED /* InterestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestView.swift; sourceTree = "<group>"; };
+		4E6D8E041CECF95E00211D4B /* Thumbnail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
+		4E72B8531C58230B004592E7 /* YoutubeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoutubeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E72B8561C58230B004592E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4E72B8581C58230B004592E7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4E72B85B1C58230B004592E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4E72B85D1C58230B004592E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4E72B8601C58230B004592E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4E72B8621C58230B004592E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E76B2AB1D55DF2C00223078 /* SavedVideosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedVideosViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
+		4E856F4D1D4D403C00BED6D7 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		4E88FF5F1C6B97DC00736678 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		4E88FF611C6B993400736678 /* VideoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
+		4E88FF631C6BDBF000736678 /* VideoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoDetailViewController.swift; sourceTree = "<group>"; };
+		4EA8084A1C7116BD009398D3 /* history.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = history.jpg; sourceTree = "<group>"; };
+		4EA8084C1C711785009398D3 /* physics.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = physics.jpg; sourceTree = "<group>"; };
+		4EA8084E1C711878009398D3 /* chemistry.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chemistry.jpg; sourceTree = "<group>"; };
+		4EA808501C711D00009398D3 /* biology.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = biology.jpg; sourceTree = "<group>"; };
+		4EA808521C711EF0009398D3 /* philosophy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = philosophy.jpg; sourceTree = "<group>"; };
+		4EAF1C7A1D4CD3F7003F4B0D /* KeywordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordVC.swift; sourceTree = "<group>"; };
+		4EB2DD571D92C30A00F020C1 /* YoutubeAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YoutubeAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EB2DD591D92C30A00F020C1 /* YoutubeAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeAppTests.swift; sourceTree = "<group>"; };
+		4EB2DD5B1D92C30A00F020C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4EC1FB721D7F2115009D9F91 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		4ECA0C561D842C0900E7EA88 /* BG-Image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BG-Image.png"; sourceTree = "<group>"; };
+		4ECA0C581D842D1E00E7EA88 /* Sign-In-Google.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Sign-In-Google.png"; sourceTree = "<group>"; };
+		4ECA0C5A1D842D9C00E7EA88 /* Log In Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Log In Button.png"; sourceTree = "<group>"; };
+		4ECA0C5C1D8431D700E7EA88 /* pwrdByYT-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pwrdByYT-white.png"; sourceTree = "<group>"; };
+		4ECA0C601D8433EB00E7EA88 /* Log In Button Highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Log In Button Highlighted.png"; sourceTree = "<group>"; };
+		4ECA0C621D8434EA00E7EA88 /* YoutubeApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YoutubeApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		4ECA0C631D8434EA00E7EA88 /* SSCheckmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSCheckmark.m; sourceTree = "<group>"; };
+		4ECA0C651D84351500E7EA88 /* SSCheckmark.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSCheckmark.h; sourceTree = "<group>"; };
+		4ECA0C661D858F6900E7EA88 /* InsetLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsetLabel.swift; sourceTree = "<group>"; };
+		4ECA0C6A1D85D63600E7EA88 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		4ECA0C6C1D85D65400E7EA88 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4ECA0C6F1D8836E900E7EA88 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		4ECA0C711D8836F200E7EA88 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		4ECA0C731D8836FD00E7EA88 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		4ECA0C751D883A4E00E7EA88 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		4EEC41191C7B90BA0085FD59 /* SkillsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillsViewController.swift; sourceTree = "<group>"; };
+		4EFE25EE1C7377A7009E44CD /* geography.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = geography.jpg; sourceTree = "<group>"; };
+		4EFE25F01C737B4A009E44CD /* technology.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = technology.jpg; sourceTree = "<group>"; };
+		566F074387311FAF7E3AB17F /* Pods-YoutubeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoutubeApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YoutubeApp/Pods-YoutubeApp.debug.xcconfig"; sourceTree = "<group>"; };
+		8F02C9EEE558E92E84D6384D /* Pods_YoutubeAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YoutubeAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD3BCF8576FB3C547DA7E860 /* Pods-YoutubeAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoutubeAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YoutubeAppTests/Pods-YoutubeAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4E72B8501C58230A004592E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4ECA0C6D1D85D65400E7EA88 /* SystemConfiguration.framework in Frameworks */,
+				4ECA0C701D8836E900E7EA88 /* FBSDKCoreKit.framework in Frameworks */,
+				4ECA0C741D8836FD00E7EA88 /* FBSDKLoginKit.framework in Frameworks */,
+				4ECA0C721D8836F300E7EA88 /* FBSDKShareKit.framework in Frameworks */,
+				4ECA0C6B1D85D63600E7EA88 /* Security.framework in Frameworks */,
+				4107211B07472069F8521C97 /* Pods_YoutubeApp.framework in Frameworks */,
+				4ECA0C761D883A4E00E7EA88 /* Bolts.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4EB2DD541D92C30A00F020C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6C489F5661433858ACB2C84 /* Pods_YoutubeAppTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0A176624DCB95C70460E2C5F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4ECA0C751D883A4E00E7EA88 /* Bolts.framework */,
+				4ECA0C731D8836FD00E7EA88 /* FBSDKLoginKit.framework */,
+				4ECA0C711D8836F200E7EA88 /* FBSDKShareKit.framework */,
+				4ECA0C6F1D8836E900E7EA88 /* FBSDKCoreKit.framework */,
+				4ECA0C6C1D85D65400E7EA88 /* SystemConfiguration.framework */,
+				4ECA0C6A1D85D63600E7EA88 /* Security.framework */,
+				3F6CACAACEA1F7892C6351C0 /* Pods_YoutubeApp.framework */,
+				8F02C9EEE558E92E84D6384D /* Pods_YoutubeAppTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4E12E2201D21A86E00F44DB9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4E12E2241D2272F200F44DB9 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				4ECA0C601D8433EB00E7EA88 /* Log In Button Highlighted.png */,
+				4ECA0C5C1D8431D700E7EA88 /* pwrdByYT-white.png */,
+				4ECA0C5A1D842D9C00E7EA88 /* Log In Button.png */,
+				4ECA0C581D842D1E00E7EA88 /* Sign-In-Google.png */,
+				4ECA0C561D842C0900E7EA88 /* BG-Image.png */,
+				4EC1FB721D7F2115009D9F91 /* Icon.png */,
+				4E03E3911D47AD6E00872719 /* Background@3x.png */,
+				4EFE25EE1C7377A7009E44CD /* geography.jpg */,
+				4E2999C91C6E650100563520 /* maths.jpg */,
+				4EA8084C1C711785009398D3 /* physics.jpg */,
+				4EA8084E1C711878009398D3 /* chemistry.jpg */,
+				4EA808501C711D00009398D3 /* biology.jpg */,
+				4EA808521C711EF0009398D3 /* philosophy.jpg */,
+				4EFE25F01C737B4A009E44CD /* technology.jpg */,
+				4E322D571D7D971E00E5B1F6 /* settings-16.png */,
+				4E322D591D7D97A300E5B1F6 /* settings-24.png */,
+				4EA8084A1C7116BD009398D3 /* history.jpg */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+		4E72B84A1C58230A004592E7 = {
+			isa = PBXGroup;
+			children = (
+				4E72B8551C58230B004592E7 /* YoutubeApp */,
+				4EB2DD581D92C30A00F020C1 /* YoutubeAppTests */,
+				4E72B8541C58230B004592E7 /* Products */,
+				A88962B5586CE59769A998F2 /* Pods */,
+				0A176624DCB95C70460E2C5F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4E72B8541C58230B004592E7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4E72B8531C58230B004592E7 /* YoutubeApp.app */,
+				4EB2DD571D92C30A00F020C1 /* YoutubeAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4E72B8551C58230B004592E7 /* YoutubeApp */ = {
+			isa = PBXGroup;
+			children = (
+				4E72B8561C58230B004592E7 /* AppDelegate.swift */,
+				4E2999C71C6E613F00563520 /* InterestsViewController.swift */,
+				4E1B380A1CF0FA3400568FB9 /* ExampleOverlayView.swift */,
+				4E1B380C1CF0FA8700568FB9 /* OverlayView.xib */,
+				4EEC41191C7B90BA0085FD59 /* SkillsViewController.swift */,
+				4E1C99CB1D3D12720009F799 /* TableSectionHeader.swift */,
+				4E1C99CD1D3D12C60009F799 /* TableSectionHeader.xib */,
+				4E72B8581C58230B004592E7 /* ViewController.swift */,
+				4E322D5B1D7DC92200E5B1F6 /* LoadingViewController.swift */,
+				4E6D8E041CECF95E00211D4B /* Thumbnail.swift */,
+				4ECA0C661D858F6900E7EA88 /* InsetLabel.swift */,
+				4E1B38081CEF6FA200568FB9 /* Thumbnail.xib */,
+				4E88FF5F1C6B97DC00736678 /* Video.swift */,
+				4EAF1C7A1D4CD3F7003F4B0D /* KeywordVC.swift */,
+				4E88FF611C6B993400736678 /* VideoModel.swift */,
+				4E88FF631C6BDBF000736678 /* VideoDetailViewController.swift */,
+				4E72B85A1C58230B004592E7 /* Main.storyboard */,
+				4ECA0C631D8434EA00E7EA88 /* SSCheckmark.m */,
+				4ECA0C651D84351500E7EA88 /* SSCheckmark.h */,
+				4E322D651D7EE2FE00E5B1F6 /* SettingsViewController.swift */,
+				4E76B2AB1D55DF2C00223078 /* SavedVideosViewController.swift */,
+				4E322D5D1D7DF36F00E5B1F6 /* EmptyView.swift */,
+				4E322D611D7E4DF800E5B1F6 /* ErrorView.swift */,
+				4E856F4D1D4D403C00BED6D7 /* NavigationController.swift */,
+				4E676A651D228900007158ED /* InterestView.swift */,
+				4E12E21C1D21A52300F44DB9 /* SignInViewController.swift */,
+				4E72B85D1C58230B004592E7 /* Assets.xcassets */,
+				4E12E2201D21A86E00F44DB9 /* Supporting Files */,
+				4E12E2241D2272F200F44DB9 /* images */,
+				4E72B85F1C58230B004592E7 /* LaunchScreen.storyboard */,
+				4E72B8621C58230B004592E7 /* Info.plist */,
+				4E322D5F1D7E1AD600E5B1F6 /* BasicPlaceholderView.swift */,
+				4ECA0C621D8434EA00E7EA88 /* YoutubeApp-Bridging-Header.h */,
+			);
+			path = YoutubeApp;
+			sourceTree = "<group>";
+		};
+		4EB2DD581D92C30A00F020C1 /* YoutubeAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				4EB2DD591D92C30A00F020C1 /* YoutubeAppTests.swift */,
+				4EB2DD5B1D92C30A00F020C1 /* Info.plist */,
+			);
+			path = YoutubeAppTests;
+			sourceTree = "<group>";
+		};
+		A88962B5586CE59769A998F2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				566F074387311FAF7E3AB17F /* Pods-YoutubeApp.debug.xcconfig */,
+				110906C6BF1B24CFE64C2637 /* Pods-YoutubeApp.release.xcconfig */,
+				CD3BCF8576FB3C547DA7E860 /* Pods-YoutubeAppTests.debug.xcconfig */,
+				42C881016821534CDDFED871 /* Pods-YoutubeAppTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4E72B8521C58230A004592E7 /* YoutubeApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4E72B8651C58230B004592E7 /* Build configuration list for PBXNativeTarget "YoutubeApp" */;
+			buildPhases = (
+				9808D409ADA1B0CDD8CB5CA3 /* 📦 Check Pods Manifest.lock */,
+				4E72B84F1C58230A004592E7 /* Sources */,
+				4E72B8501C58230A004592E7 /* Frameworks */,
+				4E72B8511C58230A004592E7 /* Resources */,
+				9097580298A165DA280726C1 /* 📦 Embed Pods Frameworks */,
+				B4B78201DE1671E29DA415B7 /* 📦 Copy Pods Resources */,
+				4ECA0C771D8854E500E7EA88 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YoutubeApp;
+			productName = YoutubeApp;
+			productReference = 4E72B8531C58230B004592E7 /* YoutubeApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4EB2DD561D92C30A00F020C1 /* YoutubeAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4EB2DD601D92C30A00F020C1 /* Build configuration list for PBXNativeTarget "YoutubeAppTests" */;
+			buildPhases = (
+				22B9ACEA2421852AEA5CA9EB /* 📦 Check Pods Manifest.lock */,
+				4EB2DD531D92C30A00F020C1 /* Sources */,
+				4EB2DD541D92C30A00F020C1 /* Frameworks */,
+				4EB2DD551D92C30A00F020C1 /* Resources */,
+				2B673EE87C095B79A726775A /* 📦 Embed Pods Frameworks */,
+				01DE22414C0014C5F9269321 /* 📦 Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4EB2DD5D1D92C30A00F020C1 /* PBXTargetDependency */,
+			);
+			name = YoutubeAppTests;
+			productName = YoutubeAppTests;
+			productReference = 4EB2DD571D92C30A00F020C1 /* YoutubeAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4E72B84B1C58230A004592E7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Pranav Kasetti";
+				TargetAttributes = {
+					4E72B8521C58230A004592E7 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = C3BX32XR8J;
+						LastSwiftMigration = 0800;
+					};
+					4EB2DD561D92C30A00F020C1 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = C3BX32XR8J;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 4E72B8521C58230A004592E7;
+					};
+				};
+			};
+			buildConfigurationList = 4E72B84E1C58230A004592E7 /* Build configuration list for PBXProject "YoutubeApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4E72B84A1C58230A004592E7;
+			productRefGroup = 4E72B8541C58230B004592E7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4E72B8521C58230A004592E7 /* YoutubeApp */,
+				4EB2DD561D92C30A00F020C1 /* YoutubeAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4E72B8511C58230A004592E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EC1FB731D7F2115009D9F91 /* Icon.png in Resources */,
+				4E72B8611C58230B004592E7 /* LaunchScreen.storyboard in Resources */,
+				4ECA0C571D842C0900E7EA88 /* BG-Image.png in Resources */,
+				4EA8084D1C711785009398D3 /* physics.jpg in Resources */,
+				4ECA0C5D1D8431D700E7EA88 /* pwrdByYT-white.png in Resources */,
+				4EA8084F1C711878009398D3 /* chemistry.jpg in Resources */,
+				4E1C99CE1D3D12C60009F799 /* TableSectionHeader.xib in Resources */,
+				4E2999CA1C6E650100563520 /* maths.jpg in Resources */,
+				4ECA0C5B1D842D9C00E7EA88 /* Log In Button.png in Resources */,
+				4EFE25EF1C7377A7009E44CD /* geography.jpg in Resources */,
+				4EA8084B1C7116BD009398D3 /* history.jpg in Resources */,
+				4ECA0C611D8433EB00E7EA88 /* Log In Button Highlighted.png in Resources */,
+				4E322D581D7D971E00E5B1F6 /* settings-16.png in Resources */,
+				4E72B85E1C58230B004592E7 /* Assets.xcassets in Resources */,
+				4EFE25F11C737B4A009E44CD /* technology.jpg in Resources */,
+				4E322D5A1D7D97A300E5B1F6 /* settings-24.png in Resources */,
+				4E72B85C1C58230B004592E7 /* Main.storyboard in Resources */,
+				4EA808511C711D00009398D3 /* biology.jpg in Resources */,
+				4E1B380D1CF0FA8700568FB9 /* OverlayView.xib in Resources */,
+				4ECA0C591D842D1E00E7EA88 /* Sign-In-Google.png in Resources */,
+				4E1B38091CEF6FA200568FB9 /* Thumbnail.xib in Resources */,
+				4EA808531C711EF0009398D3 /* philosophy.jpg in Resources */,
+				4E03E3921D47AD6E00872719 /* Background@3x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4EB2DD551D92C30A00F020C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		01DE22414C0014C5F9269321 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YoutubeAppTests/Pods-YoutubeAppTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		22B9ACEA2421852AEA5CA9EB /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2B673EE87C095B79A726775A /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YoutubeAppTests/Pods-YoutubeAppTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4ECA0C771D8854E500E7EA88 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" b92bf746efb613cf8988e7aa537eee425f7dde13 51681f508126a369ea722a1bbd0af8e8b225b8a219ed4451027e6dfd83353223";
+		};
+		9097580298A165DA280726C1 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YoutubeApp/Pods-YoutubeApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9808D409ADA1B0CDD8CB5CA3 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B4B78201DE1671E29DA415B7 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YoutubeApp/Pods-YoutubeApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4E72B84F1C58230A004592E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E72B8591C58230B004592E7 /* ViewController.swift in Sources */,
+				4E76B2AC1D55DF2C00223078 /* SavedVideosViewController.swift in Sources */,
+				4ECA0C641D8434EA00E7EA88 /* SSCheckmark.m in Sources */,
+				4E322D621D7E4DF800E5B1F6 /* ErrorView.swift in Sources */,
+				4E322D661D7EE2FE00E5B1F6 /* SettingsViewController.swift in Sources */,
+				4E1C99CC1D3D12720009F799 /* TableSectionHeader.swift in Sources */,
+				4E322D5C1D7DC92200E5B1F6 /* LoadingViewController.swift in Sources */,
+				4E88FF601C6B97DC00736678 /* Video.swift in Sources */,
+				4ECA0C671D858F6900E7EA88 /* InsetLabel.swift in Sources */,
+				4E676A661D228900007158ED /* InterestView.swift in Sources */,
+				4E72B8571C58230B004592E7 /* AppDelegate.swift in Sources */,
+				4E856F4E1D4D403C00BED6D7 /* NavigationController.swift in Sources */,
+				4E88FF641C6BDBF100736678 /* VideoDetailViewController.swift in Sources */,
+				4EEC411A1C7B90BA0085FD59 /* SkillsViewController.swift in Sources */,
+				4E322D5E1D7DF36F00E5B1F6 /* EmptyView.swift in Sources */,
+				4E1B380B1CF0FA3400568FB9 /* ExampleOverlayView.swift in Sources */,
+				4E2999C81C6E613F00563520 /* InterestsViewController.swift in Sources */,
+				4E322D601D7E1AD600E5B1F6 /* BasicPlaceholderView.swift in Sources */,
+				4E6D8E051CECF95E00211D4B /* Thumbnail.swift in Sources */,
+				4E12E21D1D21A52300F44DB9 /* SignInViewController.swift in Sources */,
+				4EAF1C7B1D4CD3F7003F4B0D /* KeywordVC.swift in Sources */,
+				4E88FF621C6B993400736678 /* VideoModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4EB2DD531D92C30A00F020C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EB2DD5A1D92C30A00F020C1 /* YoutubeAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4EB2DD5D1D92C30A00F020C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4E72B8521C58230A004592E7 /* YoutubeApp */;
+			targetProxy = 4EB2DD5C1D92C30A00F020C1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4E72B85A1C58230B004592E7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E72B85B1C58230B004592E7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4E72B85F1C58230B004592E7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E72B8601C58230B004592E7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4E72B8631C58230B004592E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_LDFLAGS[arch=*]" = "-lc++";
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)";
+			};
+			name = Debug;
+		};
+		4E72B8641C58230B004592E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				"OTHER_LDFLAGS[arch=*]" = "-lc++";
+				SDKROOT = iphoneos;
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4E72B8661C58230B004592E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 566F074387311FAF7E3AB17F /* Pods-YoutubeApp.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = YoutubeApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = pranav.kasetti.YoutubeApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "YoutubeApp/YoutubeApp-Bridging-Header.h";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "YoutubeApp/YoutubeApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		4E72B8671C58230B004592E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 110906C6BF1B24CFE64C2637 /* Pods-YoutubeApp.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = YoutubeApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = pranav.kasetti.YoutubeApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "YoutubeApp/YoutubeApp-Bridging-Header.h";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "YoutubeApp/YoutubeApp-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		4EB2DD5E1D92C30A00F020C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD3BCF8576FB3C547DA7E860 /* Pods-YoutubeAppTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEVELOPMENT_TEAM = C3BX32XR8J;
+				INFOPLIST_FILE = YoutubeAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = pranav.kasetti.YoutubeAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YoutubeApp.app/YoutubeApp";
+			};
+			name = Debug;
+		};
+		4EB2DD5F1D92C30A00F020C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42C881016821534CDDFED871 /* Pods-YoutubeAppTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEVELOPMENT_TEAM = C3BX32XR8J;
+				INFOPLIST_FILE = YoutubeAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = pranav.kasetti.YoutubeAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YoutubeApp.app/YoutubeApp";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4E72B84E1C58230A004592E7 /* Build configuration list for PBXProject "YoutubeApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E72B8631C58230B004592E7 /* Debug */,
+				4E72B8641C58230B004592E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4E72B8651C58230B004592E7 /* Build configuration list for PBXNativeTarget "YoutubeApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E72B8661C58230B004592E7 /* Debug */,
+				4E72B8671C58230B004592E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4EB2DD601D92C30A00F020C1 /* Build configuration list for PBXNativeTarget "YoutubeAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4EB2DD5E1D92C30A00F020C1 /* Debug */,
+				4EB2DD5F1D92C30A00F020C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4E72B84B1C58230A004592E7 /* Project object */;
+}
