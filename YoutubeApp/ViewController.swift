@@ -312,7 +312,7 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         return self.numberOfCards
     }
     
-    func koloda(_ koloda: KolodaView, didSwipedCardAtIndex index: UInt, inDirection direction: SwipeResultDirection) {
+    func koloda(_ koloda: KolodaView, didSwipeCardAtIndex index: UInt, inDirection direction: SwipeResultDirection) {
         let userDefaults = UserDefaults.standard
         if userDefaults.object(forKey: "SelectedVideos") as? Data != nil {
             self.data=(userDefaults.object(forKey: "SelectedVideos") as? Data)!
@@ -349,11 +349,11 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         
     }
     
-    func koloda(kolodaShouldTransparentizeNextCard koloda: KolodaView) -> Bool {
+    func kolodaShouldTransparentizeNextCard(_ koloda: KolodaView) -> Bool {
         return false
     }
     
-    func koloda(kolodaDidRunOutOfCards koloda: KolodaView) {
+    func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
         if (videos.count<Int(self.numberOfCards)+1) {
             //Example: reloading
             self.done=0
@@ -403,7 +403,6 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
             self.done=1
         }
     }
-    
     
     
     func koloda(_ koloda: KolodaView, didSelectCardAtIndex index: UInt) {

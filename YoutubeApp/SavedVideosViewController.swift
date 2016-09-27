@@ -68,12 +68,12 @@ class SavedVideosViewController: UITableViewController, VideoModelDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         let userDefaults = UserDefaults.standard
-        if userDefaults.object(forKey: "SelectedVideos") as? Data != nil {
-            let data=(userDefaults.object(forKey: "SelectedVideos") as? Data)!
-            VideoStatus.selectedVideos=NSKeyedUnarchiver.unarchiveObject(with: data) as! [Video]
+        let data=userDefaults.data(forKey: "SelectedVideos")!
+        if let selectedVideos = (NSKeyedUnarchiver.unarchiveObject(with: data) as? [Video]) {
+            VideoStatus.selectedVideos=selectedVideos
             self.videos=VideoStatus.selectedVideos
         }
-        print(self.model.service.authorizer?.canAuthorize)
+        //print(self.model.service.authorizer?.canAuthorize)
         tableView.reloadData()
     }
     
