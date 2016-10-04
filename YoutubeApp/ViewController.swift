@@ -50,7 +50,7 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     var counter: Int = 0
     var value: Int = 0
     var numberOfCards: UInt = 3
-    var data: Data = Data()
+    var data: Data? = Data()
     var reachability: Reachability?
     //let refreshControl = UIRefreshControl()
     
@@ -188,6 +188,9 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
+        videos.removeAll()
+        
     }
     
     //MARK:- VideoModel Delegate Methods
@@ -220,11 +223,8 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
             
             self.model.generateKeywords(interestSelectionArray as [String]) { data in
                 self.searchWords+=data
-                self.model.getFeedVideos(self.interestSelectionArray as [String], keywordArray: self.searchWords) { data in
-                    //Notify the delegate that the data is ready
-                    print("test")
-                    print(self.skillSelectionArray)
-                    self.model.getSkillsFeedVideos(self.skillSelectionArray as [String], keywordArray: self.searchWords) { data in
+                self.model.getSkillsFeedVideos(self.skillSelectionArray as [String], keywordArray: self.searchWords) { data in
+                    self.model.getFeedVideos(self.interestSelectionArray as [String], keywordArray: self.searchWords) { data in
                         
                         self.videos = data as! [Video]
                         if self.videos.isEmpty {
@@ -314,9 +314,9 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     
     func koloda(_ koloda: KolodaView, didSwipeCardAtIndex index: UInt, inDirection direction: SwipeResultDirection) {
         let userDefaults = UserDefaults.standard
-        if userDefaults.object(forKey: "SelectedVideos") as? Data != nil {
-            self.data=(userDefaults.object(forKey: "SelectedVideos") as? Data)!
-            VideoStatus.selectedVideos=NSKeyedUnarchiver.unarchiveObject(with: self.data) as! [Video]
+        self.data=userDefaults.data(forKey: "SelectedVideos")
+        if (NSKeyedUnarchiver.unarchiveObject(with: self.data!) as? [Video]) != nil {
+            VideoStatus.selectedVideos=(NSKeyedUnarchiver.unarchiveObject(with: self.data!) as? [Video])!
             self.selectedVideos=VideoStatus.selectedVideos
         }
         if direction == SwipeResultDirection.Right {
@@ -385,10 +385,10 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     
     func getVideos() {
         for _ in interestSelectionArray {
-            self.model.getFeedVideos(self.interestSelectionArray as [String], keywordArray: self.searchWords) { data in
                 //Notify the delegate that the data is ready
-                
-                self.model.getSkillsFeedVideos(self.skillSelectionArray as [String], keywordArray: self.searchWords) { data in
+                    
+            self.model.getSkillsFeedVideos(self.skillSelectionArray as [String], keywordArray: self.searchWords) { data in
+                self.model.getFeedVideos(self.interestSelectionArray as [String], keywordArray: self.searchWords) { data in
                     
                     self.videos = data as! [Video]
                     
