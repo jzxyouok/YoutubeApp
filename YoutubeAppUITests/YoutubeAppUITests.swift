@@ -54,6 +54,13 @@ class YoutubeAppUITests: XCTestCase {
             app.tabBars.buttons["Favorites"].tap()
             XCTAssert(app.tables.element.cells.count>=2, "Liked videos didn't save")
         } else {
+            let tabBarsQuery = app.tabBars
+            tabBarsQuery.buttons["Favorites"].tap()
+            app.navigationBars["Saved Videos"].children(matching: .button).element(boundBy: 0).tap()
+            app.tables.staticTexts["Reset saved videos"].tap()
+            app.alerts["Are you sure?"].buttons["Ok"].tap()
+            app.navigationBars["Settings"].buttons["Saved Videos"].tap()
+            tabBarsQuery.buttons["Search"].tap()
             browsingVideosUserFlow(app: app)
             app.tabBars.buttons["Favorites"].tap()
             XCTAssert(app.tables.element.cells.count>=2, "Liked videos didn't save")
