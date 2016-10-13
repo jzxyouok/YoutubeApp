@@ -483,7 +483,7 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //Get a reference for the destination view controller.
         let detailViewController = segue.destination as! VideoDetailViewController
-        
+        print(videos.count)
         //Set the selectedVideo property of the destination view controller.
         detailViewController.selectedVideo = self.selectedVideo
         

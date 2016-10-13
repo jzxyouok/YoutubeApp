@@ -26,19 +26,20 @@ class InterestView: UICollectionViewCell {
         label.font = UIFont.systemFont(ofSize: 17.0, weight: UIFontWeightRegular)
         return label
     }()
+    
     /*
     lazy var checkmark : SSCheckMark = {
         let checkmark = SSCheckMark()
-        checkmark.checkMarkStyle = .OpenCircle
+        checkmark.checkMarkStyle = .openCircle
         checkmark.checked = false
-        checkmark.backgroundColor=UIColor.clearColor()
+        checkmark.backgroundColor=UIColor.clear
         let gesture = UITapGestureRecognizer(target: self, action: #selector(InterestView.checkmarkTapped(_:)))
         checkmark.addGestureRecognizer(gesture)
         checkmark.translatesAutoresizingMaskIntoConstraints = false
         return checkmark
     }()
     
-    func checkmarkTapped(recognizer: UITapGestureRecognizer) {
+    func checkmarkTapped(_ recognizer: UITapGestureRecognizer) {
         if !checkmark.checked {
             checkmark.checked=true
         } else {
@@ -52,7 +53,7 @@ class InterestView: UICollectionViewCell {
         swich.translatesAutoresizingMaskIntoConstraints = false
         return swich
     }()
-    
+ 
     fileprivate var spaceConstraint : NSLayoutConstraint!
     
     @IBInspectable
@@ -124,11 +125,11 @@ extension InterestView {
                 label.leadingAnchor.constraint(equalTo: imageView.leadingAnchor),
                 label.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 0),
                 label.trailingAnchor.constraint(equalTo: imageView.trailingAnchor),
-                //checkmark.heightAnchor.constraintEqualToConstant(31),
-                //checkmark.widthAnchor.constraintEqualToConstant(31),
+                //checkmark.heightAnchor.constraint(equalToConstant: 31),
+                //checkmark.widthAnchor.constraint(equalToConstant: 31),
                 swich.heightAnchor.constraint(equalToConstant: 31),
-                //imageView.trailingAnchor.constraintEqualToAnchor(checkmark.trailingAnchor, constant: 8),
-                //checkmark.topAnchor.constraintEqualToAnchor(imageView.topAnchor, constant: 8)
+                //imageView.trailingAnchor.constraint(equalTo: checkmark.trailingAnchor, constant: 8),
+                //checkmark.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 8)
                 imageView.trailingAnchor.constraint(equalTo: swich.trailingAnchor, constant: 8),
                 swich.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 8)
             ]

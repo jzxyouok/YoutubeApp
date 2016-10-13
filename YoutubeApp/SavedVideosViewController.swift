@@ -17,7 +17,7 @@ class SavedVideosViewController: UITableViewController, VideoModelDelegate {
     var videos: [Video] = []
     var finished = 0
     let model = VideoModel()
-    var selectedVideo = Video()
+    var selectedVideo: Video!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +79,7 @@ class SavedVideosViewController: UITableViewController, VideoModelDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         self.finished=0
+        self.videos=[]
     }
     
     // MARK: - Table view data source
