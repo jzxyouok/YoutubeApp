@@ -81,6 +81,9 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
         navigationController!.navigationBar.isOpaque=true
         self.navigationController!.navigationBar.barStyle = .black
         
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(InterestsViewController.cellTapped(_:)))
+        self.collectionView.addGestureRecognizer(gesture)
+        
     }
     
     
@@ -116,11 +119,28 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String((indexPath as NSIndexPath).row), for: indexPath) as! InterestView
-        cell.swich.addTarget(self, action: #selector(InterestsViewController.switchChanged(_:)), for: UIControlEvents.valueChanged)
+        //cell.swich.addTarget(self, action: #selector(InterestsViewController.switchChanged(_:)), for: UIControlEvents.valueChanged)
         return cell
     }
     
+    func cellTapped(_ gesture: UITapGestureRecognizer) {
+        let pointInCollectionView: CGPoint = gesture.location(in: self.collectionView)
+        let selectedIndexPath: IndexPath = self.collectionView.indexPathForItem(at: pointInCollectionView)!
+        let selectedCell: UICollectionViewCell = self.collectionView.cellForItem(at: selectedIndexPath)!
+        (selectedCell as! InterestView).checkmark.checked = !((selectedCell as! InterestView).checkmark.checked)
+        let checked = (selectedCell as! InterestView).checkmark.checked
+        if checked && switchArray.contains(selectedCell.tag){
+            
+        } else if checked {
+            switchArray.append(selectedCell.tag)
+        } else if !checked && switchArray.contains(selectedCell.tag) {
+            switchArray = switchArray.filter{$0 != selectedCell.tag}
+        } else {
+            
+        }
+    }
     
+    /*
     func switchChanged(_ swich: UISwitch) {
         
         if swich.isOn && switchArray.contains(swich.tag){
@@ -134,6 +154,7 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
         }
         print(switchArray)
     }
+    */
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0

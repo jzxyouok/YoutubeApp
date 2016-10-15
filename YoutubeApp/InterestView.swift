@@ -27,18 +27,18 @@ class InterestView: UICollectionViewCell {
         return label
     }()
     
-    /*
+    
     lazy var checkmark : SSCheckMark = {
         let checkmark = SSCheckMark()
         checkmark.checkMarkStyle = .openCircle
         checkmark.checked = false
         checkmark.backgroundColor=UIColor.clear
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(InterestView.checkmarkTapped(_:)))
-        checkmark.addGestureRecognizer(gesture)
+        //let gesture = UITapGestureRecognizer(target: self, action: #selector(InterestView.checkmarkTapped(_:)))
+        //checkmark.addGestureRecognizer(gesture)
         checkmark.translatesAutoresizingMaskIntoConstraints = false
         return checkmark
     }()
-    
+    /*
     func checkmarkTapped(_ recognizer: UITapGestureRecognizer) {
         if !checkmark.checked {
             checkmark.checked=true
@@ -47,13 +47,14 @@ class InterestView: UICollectionViewCell {
         }
     }
     */
-    
+    /*
     lazy var swich : UISwitch = {
         let swich = UISwitch()
         swich.translatesAutoresizingMaskIntoConstraints = false
         return swich
     }()
- 
+    */
+    
     fileprivate var spaceConstraint : NSLayoutConstraint!
     
     @IBInspectable
@@ -66,7 +67,8 @@ class InterestView: UICollectionViewCell {
     @IBInspectable
     override var tag: Int {
         didSet {
-            swich.tag = tag
+            //swich.tag=tag
+            checkmark.tag = tag
         }
     }
     
@@ -107,8 +109,8 @@ extension InterestView {
     fileprivate func initialization() {
         translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(imageView)
-        //imageView.addSubview(checkmark)
-        imageView.addSubview(swich)
+        imageView.addSubview(checkmark)
+        //imageView.addSubview(swich)
         imageView.addSubview(label)
         self.isUserInteractionEnabled = true
         imageView.isUserInteractionEnabled = true
@@ -125,13 +127,15 @@ extension InterestView {
                 label.leadingAnchor.constraint(equalTo: imageView.leadingAnchor),
                 label.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 0),
                 label.trailingAnchor.constraint(equalTo: imageView.trailingAnchor),
-                //checkmark.heightAnchor.constraint(equalToConstant: 31),
-                //checkmark.widthAnchor.constraint(equalToConstant: 31),
-                swich.heightAnchor.constraint(equalToConstant: 31),
+                checkmark.heightAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: 0.3),
+                checkmark.widthAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 0.3),
+                //swich.heightAnchor.constraint(equalToConstant: 31),
                 //imageView.trailingAnchor.constraint(equalTo: checkmark.trailingAnchor, constant: 8),
-                //checkmark.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 8)
-                imageView.trailingAnchor.constraint(equalTo: swich.trailingAnchor, constant: 8),
-                swich.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 8)
+                checkmark.centerYAnchor.constraint(equalTo: imageView.centerYAnchor, constant: 0),
+                //checkmark.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 8),
+                checkmark.centerXAnchor.constraint(equalTo: imageView.centerXAnchor, constant: 0),
+                //imageView.trailingAnchor.constraint(equalTo: swich.trailingAnchor, constant: 8),
+                //swich.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 8)
             ]
             
         )

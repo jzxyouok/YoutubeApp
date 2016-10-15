@@ -34,6 +34,7 @@ class YoutubeAppUITests: XCTestCase {
     func testGetStartedFunctionality() {
         
         let app = XCUIApplication()
+        sleep(2)
         
         if app.buttons["Log In Button"].exists {
             getStartedUserFlow(app: app)
@@ -137,8 +138,8 @@ class YoutubeAppUITests: XCTestCase {
         app.buttons["Log In Button"].tap()
         
         let collectionViewsQuery = app.collectionViews
-        collectionViewsQuery.images["philosophy.jpg"].switches["0"].tap()
-        collectionViewsQuery.images["physics.jpg"].switches["0"].tap()
+        collectionViewsQuery.images["philosophy.jpg"].tap()
+        collectionViewsQuery.images["physics.jpg"].tap()
         app.navigationBars["YoutubeApp.InterestsView"].buttons["Next"].tap()
         
         let tablesQuery = app.tables
