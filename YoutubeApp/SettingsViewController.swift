@@ -33,39 +33,39 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
         if (indexPath as NSIndexPath).section == 0 {
             if ((indexPath as NSIndexPath).row == 0) {
-                cell.textLabel!.text = "Reselect Interests, Skills and Keywords"
+                cell.textLabel!.text = NSLocalizedString("Reselect Interests, Skills and Keywords", comment: "")
             }
             if ((indexPath as NSIndexPath).row == 1){
-                cell.textLabel!.text = "Reselect Interests only"
+                cell.textLabel!.text = NSLocalizedString("Reselect Interests only", comment: "")
             }
             if ((indexPath as NSIndexPath).row == 2){
-                cell.textLabel!.text = "Reselect Skills only"
+                cell.textLabel!.text = NSLocalizedString("Reselect Skills only", comment: "")
             }
             if ((indexPath as NSIndexPath).row == 3){
-                cell.textLabel!.text = "Reselect Keywords only"
+                cell.textLabel!.text = NSLocalizedString("Reselect Keywords only", comment: "")
             }
             if ((indexPath as NSIndexPath).row == 4) {
-                cell.textLabel!.text = "Reset saved videos"
+                cell.textLabel!.text = NSLocalizedString("Reset saved videos", comment: "")
             }
             if ((indexPath as NSIndexPath).row == 5) {
-                cell.textLabel!.text = "Sign In With Google"
+                cell.textLabel!.text = NSLocalizedString("Sign In With Google", comment: "")
             }
             return cell
         } else if (indexPath as NSIndexPath).section==1 {
             if ((indexPath as NSIndexPath).row == 0){
                 let cell2 = tableView.dequeueReusableCell(withIdentifier: "Cell2")!
-                cell2.textLabel!.text = "Rate us on the App Store!"
+                cell2.textLabel!.text = NSLocalizedString("Rate us on the App Store!", comment: "")
                 cell2.accessoryType = .disclosureIndicator
                 return cell2
             }
             if ((indexPath as NSIndexPath).row == 1){
                 let cell3 = tableView.dequeueReusableCell(withIdentifier: "Cell3")!
-                cell3.textLabel!.text = "Share this app on Facebook!"
+                cell3.textLabel!.text = NSLocalizedString("Share this app on Facebook!", comment: "")
                 let shareButton = FBSDKShareButton()
                 shareButton.translatesAutoresizingMaskIntoConstraints = false
                 let shareCont = FBSDKShareLinkContent()
                 shareCont.contentURL=URL(string:"https://itunes.apple.com/us/app/discovr-youtube-video-discovery/id1154077470")
-                shareCont.contentTitle="Check out this awesome app!"
+                shareCont.contentTitle=NSLocalizedString("Check out this awesome app!", comment: "")
                 shareButton.shareContent = shareCont
                 cell3.addSubview(shareButton)
                 cell3.addConstraint(NSLayoutConstraint(item: cell3, attribute: .trailing, relatedBy: .equal, toItem: shareButton, attribute: .trailing, multiplier: 1.0, constant: 30))
@@ -80,7 +80,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             }
             if ((indexPath as NSIndexPath).row==2) {
                 let cell4 = tableView.dequeueReusableCell(withIdentifier: "Cell4")!
-                cell4.textLabel!.text = "Share this app on Twitter!"
+                cell4.textLabel!.text = NSLocalizedString("Share this app on Twitter!", comment: "")
                 cell4.accessoryType = .disclosureIndicator
                 return cell4
             }
@@ -99,9 +99,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section==0 {
-            return "General"
+            return NSLocalizedString("General", comment: "")
         } else {
-            return "About"
+            return NSLocalizedString("About", comment: "")
         }
     }
     
@@ -148,17 +148,17 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                 nvc.pushViewController(kvc, animated: false)
                 self.present(nvc, animated: true, completion: nil)
             } else if (indexPath as NSIndexPath).row == 4 {
-                let alert = UIAlertController(title: "Are you sure?", message: "You are about to reset your saved videos. This action cannot be undone.", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {(alert: UIAlertAction!) in
+                let alert = UIAlertController(title: NSLocalizedString("Are you sure?", comment: ""), message: NSLocalizedString("You are about to reset your saved videos. This action cannot be undone.", comment: ""), preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default, handler: {(alert: UIAlertAction!) in
                     VideoStatus.selectedVideos=[]
                 }))
-                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             } else if (indexPath as NSIndexPath).row == 5 {
                 if ((self.model.service.authorizer?.canAuthorize) == true) {
-                    let alert = UIAlertController(title: "Error", message: "You are already signed in! If you wish to sign in with a different account, please sign out and sign in with different credentials.", preferredStyle: .alert)
+                    let alert = UIAlertController(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("You are already signed in! If you wish to sign in with a different account, please sign out and sign in with different credentials.", comment: ""), preferredStyle: .alert)
                     
-                    alert.addAction(UIAlertAction(title: "Got it!", style: .cancel, handler: nil))
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("Got it!", comment: ""), style: .cancel, handler: nil))
                     
                     self.present(alert, animated: true, completion: nil)
                 } else {
@@ -192,7 +192,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             } else if (indexPath as NSIndexPath).row==2 {
                 let composer = TWTRComposer()
                 
-                composer.setText("Check out this cool new app!")
+                composer.setText(NSLocalizedString("Check out this cool new app!", comment: ""))
                 composer.setURL(URL(string: "https://itunes.apple.com/us/app/discovr-youtube-video-discovery/id1154077470"))
                 
                 // Called from a UIViewController

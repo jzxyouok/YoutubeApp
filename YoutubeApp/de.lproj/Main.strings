@@ -1,0 +1,50 @@
+
+/* Class = "UILabel"; text = "Please select all your skills:"; ObjectID = "1k2-b9-hHv"; */
+"1k2-b9-hHv.text" = "Bitte wählen Sie Ihre Fähigkeiten:";
+
+/* Class = "UILabel"; text = "Please select all your interests:"; ObjectID = "5PU-Ry-2OS"; */
+"5PU-Ry-2OS.text" = "Bitte wählen Sie Ihre Interessen:";
+
+/* Class = "UINavigationItem"; title = "Saved Videos"; ObjectID = "98w-vL-fKb"; */
+"98w-vL-fKb.title" = "Meine Videos";
+
+/* Class = "UIBarButtonItem"; title = "Next"; ObjectID = "Bw1-fH-ei3"; */
+"Bw1-fH-ei3.title" = "Nächster";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "GkO-8z-2uO"; */
+"GkO-8z-2uO.text" = "Titel";
+
+/* Class = "UIBarButtonItem"; title = "Sign Out"; ObjectID = "Ryg-jh-zu2"; */
+"Ryg-jh-zu2.title" = "Ausloggen";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "Taa-6K-oxa"; */
+"Taa-6K-oxa.text" = "Titel";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "ayD-Gm-C1g"; */
+"ayD-Gm-C1g.text" = "Titel";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "cMd-4K-6JC"; */
+"vVi-Bd-4IG.title" = "Nächster";
+
+/* Class = "UILabel"; text = "Discover"; ObjectID = "hdf-Lh-E06"; */
+"hdf-Lh-E06.text" = "Entdecken";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "jfB-Xe-Wl0"; */
+"jfB-Xe-Wl0.text" = "Titel";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "lF3-xw-sFl"; */
+"lF3-xw-sFl.text" = "Titel";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "oPO-30-M04"; */
+"oPO-30-M04.title" = "Einstellungen";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "qL6-kX-R6D"; */
+"fh6-Sr-cRF.title" = "Nächster";
+
+/* Class = "UILabel"; text = "Please enter some related keywords:"; ObjectID = "vhd-o8-EHZ"; */
+"vhd-o8-EHZ.text" = "Bitte geben Sie einige verwandte Keywords:";
+
+/* Class = "UINavigationItem"; title = "Discover"; ObjectID = "zYF-fG-nNB"; */
+"zYF-fG-nNB.title" = "Entdecken";
+
+

@@ -11,6 +11,8 @@
 		4E03E3921D47AD6E00872719 /* Background@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E03E3911D47AD6E00872719 /* Background@3x.png */; };
 		4E0E90E91D9ADDE2000B24EF /* YoutubeAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0E90E81D9ADDE2000B24EF /* YoutubeAppUITests.swift */; };
 		4E12E21D1D21A52300F44DB9 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E12E21C1D21A52300F44DB9 /* SignInViewController.swift */; };
+		4E1742D31DBB98E1009D7B7D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E1742CD1DBB980A009D7B7D /* Localizable.strings */; };
+		4E1742D51DBB9CCE009D7B7D /* Log In Button_DE.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E1742D41DBB9CCE009D7B7D /* Log In Button_DE.png */; };
 		4E1B38091CEF6FA200568FB9 /* Thumbnail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E1B38081CEF6FA200568FB9 /* Thumbnail.xib */; };
 		4E1B380B1CF0FA3400568FB9 /* ExampleOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1B380A1CF0FA3400568FB9 /* ExampleOverlayView.swift */; };
 		4E1B380D1CF0FA8700568FB9 /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E1B380C1CF0FA8700568FB9 /* OverlayView.xib */; };
@@ -90,6 +92,8 @@
 		4E0E90E81D9ADDE2000B24EF /* YoutubeAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeAppUITests.swift; sourceTree = "<group>"; };
 		4E0E90EA1D9ADDE2000B24EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E12E21C1D21A52300F44DB9 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		4E1742CE1DBB980A009D7B7D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = YoutubeApp/de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4E1742D41DBB9CCE009D7B7D /* Log In Button_DE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Log In Button_DE.png"; sourceTree = "<group>"; };
 		4E1B38081CEF6FA200568FB9 /* Thumbnail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Thumbnail.xib; sourceTree = "<group>"; };
 		4E1B380A1CF0FA3400568FB9 /* ExampleOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleOverlayView.swift; sourceTree = "<group>"; };
 		4E1B380C1CF0FA8700568FB9 /* OverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayView.xib; sourceTree = "<group>"; };
@@ -105,6 +109,8 @@
 		4E322D611D7E4DF800E5B1F6 /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		4E322D651D7EE2FE00E5B1F6 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4E676A651D228900007158ED /* InterestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestView.swift; sourceTree = "<group>"; };
+		4E6C86FA1DBA79A300F96F64 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		4E6C86FB1DBA79A400F96F64 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		4E6D8E041CECF95E00211D4B /* Thumbnail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
 		4E72B8531C58230B004592E7 /* YoutubeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoutubeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E72B8561C58230B004592E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -218,6 +224,7 @@
 		4E12E2241D2272F200F44DB9 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				4E1742D41DBB9CCE009D7B7D /* Log In Button_DE.png */,
 				4ECA0C601D8433EB00E7EA88 /* Log In Button Highlighted.png */,
 				4ECA0C5C1D8431D700E7EA88 /* pwrdByYT-white.png */,
 				4ECA0C5A1D842D9C00E7EA88 /* Log In Button.png */,
@@ -280,6 +287,7 @@
 				4EAF1C7A1D4CD3F7003F4B0D /* KeywordVC.swift */,
 				4E88FF611C6B993400736678 /* VideoModel.swift */,
 				4E88FF631C6BDBF000736678 /* VideoDetailViewController.swift */,
+				4E1742CD1DBB980A009D7B7D /* Localizable.strings */,
 				4E72B85A1C58230B004592E7 /* Main.storyboard */,
 				4ECA0C631D8434EA00E7EA88 /* SSCheckmark.m */,
 				4ECA0C651D84351500E7EA88 /* SSCheckmark.h */,
@@ -420,6 +428,7 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = 4E72B84A1C58230A004592E7;
 			productRefGroup = 4E72B8541C58230B004592E7 /* Products */;
@@ -445,6 +454,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E1742D31DBB98E1009D7B7D /* Localizable.strings in Resources */,
 				4EC1FB731D7F2115009D9F91 /* Icon.png in Resources */,
 				4E72B8611C58230B004592E7 /* LaunchScreen.storyboard in Resources */,
 				4ECA0C571D842C0900E7EA88 /* BG-Image.png in Resources */,
@@ -465,6 +475,7 @@
 				4EA808511C711D00009398D3 /* biology.jpg in Resources */,
 				4E1B380D1CF0FA8700568FB9 /* OverlayView.xib in Resources */,
 				4ECA0C591D842D1E00E7EA88 /* Sign-In-Google.png in Resources */,
+				4E1742D51DBB9CCE009D7B7D /* Log In Button_DE.png in Resources */,
 				4E1B38091CEF6FA200568FB9 /* Thumbnail.xib in Resources */,
 				4EA808531C711EF0009398D3 /* philosophy.jpg in Resources */,
 				4E03E3921D47AD6E00872719 /* Background@3x.png in Resources */,
@@ -648,10 +659,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4E1742CD1DBB980A009D7B7D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E1742CE1DBB980A009D7B7D /* de */,
+			);
+			name = Localizable.strings;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		4E72B85A1C58230B004592E7 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4E72B85B1C58230B004592E7 /* Base */,
+				4E6C86FA1DBA79A300F96F64 /* de */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -660,6 +681,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4E72B8601C58230B004592E7 /* Base */,
+				4E6C86FB1DBA79A400F96F64 /* de */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -710,6 +732,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -757,6 +780,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;

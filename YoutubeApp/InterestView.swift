@@ -88,7 +88,7 @@ class InterestView: UICollectionViewCell {
             return label.text
         }
         set(newText) {
-            label.text = newText
+            label.text = NSLocalizedString(newText!, comment: "")
         }
     }
     

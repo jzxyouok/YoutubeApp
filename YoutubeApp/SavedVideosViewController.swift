@@ -43,7 +43,7 @@ class SavedVideosViewController: UITableViewController, VideoModelDelegate {
         //The request below is for uploading videos to a personal watch later playlist.
         if let authorizer = self.model.service.authorizer,
             let canAuth = authorizer.canAuthorize , canAuth {
-            let alert = UIAlertController(title: "Sync Saved Videos to YouTube", message: "Click Sync to add your saved videos with your YouTube Watch Later Playlist", preferredStyle: .alert)
+            let alert = UIAlertController(title: NSLocalizedString("Sync Saved Videos to YouTube", comment: ""), message: NSLocalizedString("Click Sync to add your saved videos with your YouTube Watch Later Playlist", comment: ""), preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "Sync", style: .default, handler: { (action: UIAlertAction) in
                 self.model.addVideosToPlaylist(self.videos)
@@ -54,7 +54,7 @@ class SavedVideosViewController: UITableViewController, VideoModelDelegate {
             self.present(alert, animated: true, completion: nil)
             
         } else {
-            let alert = UIAlertController(title: "Sync Saved Videos to YouTube", message: "Please sign in to Google first in settings", preferredStyle: .alert)
+            let alert = UIAlertController(title: NSLocalizedString("Sync Saved Videos to YouTube", comment: ""), message: NSLocalizedString("Please sign in to Google first in settings", comment: ""), preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
             

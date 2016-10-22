@@ -30,7 +30,7 @@ class LoadingView: BasicPlaceholderView, StatefulPlaceholderView, NVActivityIndi
         let activityIndicatorView = NVActivityIndicatorView(frame: frame,
                                                             type: NVActivityIndicatorType(rawValue: loader)!)
         let animationTypeLabel = UILabel(frame: frame)
-        animationTypeLabel.text = "Please wait while your videos are loading."
+        animationTypeLabel.text = NSLocalizedString("Please wait while your videos are loading.", comment: "")
         animationTypeLabel.sizeToFit()
         animationTypeLabel.numberOfLines=0
         animationTypeLabel.textColor = UIColor.white

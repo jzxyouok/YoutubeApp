@@ -75,7 +75,7 @@ class KeywordVC: UIViewController, UITextViewDelegate {
         if userDefaults.object(forKey: "SkillsArray") as? [NSString] != nil {
             self.navigationItem.hidesBackButton=true
         }
-        textView.text = "Please enter some keywords!"
+        textView.text = NSLocalizedString("Please enter some keywords!", comment: "")
         textView.textColor = UIColor.lightGray
         textView.delegate=self
         
@@ -95,9 +95,9 @@ class KeywordVC: UIViewController, UITextViewDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let alert = UIAlertController(title: "Keyword Entry", message: "Please enter keywords related to your interests and skills. Keywords should be separated only by spaces and contain no special characters!", preferredStyle: .alert)
+        let alert = UIAlertController(title: NSLocalizedString("Keyword Entry", comment: ""), message: NSLocalizedString("Please enter keywords related to your interests and skills. Keywords should be separated only by spaces and contain no special characters!", comment: ""), preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "Got it!", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Got it!", comment: ""), style: .cancel, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
     }
@@ -111,7 +111,7 @@ class KeywordVC: UIViewController, UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.text = "Please enter some keywords!"
+            textView.text = NSLocalizedString("Please enter some keywords!", comment: "")
             textView.textColor = UIColor.lightGray
         }
     }

@@ -27,7 +27,7 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
     
     @IBOutlet weak var collectionViewFlowLayout: UICollectionViewFlowLayout!
     
-    @IBAction func nextButtonClicked(_ sender: AnyObject) {
+    @IBAction func nextButtonClicked(_ sender: UIBarButtonItem) {
         
         if (interestSelectionArray == []){
             for index in switchArray {

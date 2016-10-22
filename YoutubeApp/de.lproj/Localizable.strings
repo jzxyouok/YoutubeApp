@@ -1,0 +1,47 @@
+/* 
+  Localizable.strings
+  YoutubeApp
+
+  Created by Pranav Kasetti on 22/10/2016.
+  Copyright © 2016 Pranav Kasetti. All rights reserved.
+*/
+
+"Keyword Entry" = "Stichwort Eintrag";
+"Please enter keywords related to your interests and skills. Keywords should be separated only by spaces and contain no special characters!" = "Bitte geben Sie die Keywords, um Ihre Interessen und Fähigkeiten in Bezug. Keywords sollten nur durch Leerzeichen und enthalten keine Sonderzeichen getrennt werden!";
+"Got it!" = "Ich habs!";
+"Please enter some keywords!" = "Bitte einige Stichworte eingeben!";
+"Please wait while your videos are loading." = "Bitte warten Sie, während Videos geladen werden.";
+"Sync Saved Videos to YouTube" = "Sync gespeicherte Videos auf YouTube";
+"Please sign in to Google first in settings" = "Bitte melden Sie sich an, um Google zunächst in den Einstellungen";
+"Click Sync to add your saved videos with your YouTube Watch Later Playlist"="Klicken Sie auf Synchronisieren Sie Ihre gespeicherten Videos hinzufügen mit Ihrem YouTube Später ansehen Playlist";
+"Log In Button" = "Log In Button_DE";
+"Philosophy" = "Philosophie";
+"Biology" = "Biologie";
+"Chemistry" = "Chemie";
+"Physics" = "Physik";
+"History" = "Geschichte";
+"Maths" = "Mathe";
+"Geography" = "Erdkunde";
+"Technology" = "Technologie";
+"Beginner" = "Anfänger";
+"Intermediate" = "Mittlere";
+"Expert" = "Experte";
+"General" = "General";
+"About" = "Etwa";
+"Reselect Interests, Skills and Keywords" = "Wählen Sie erneut Interessen, Fähigkeiten und Keywords";
+"Reselect Interests only" = "Wählen Sie erneut Interessen nur";
+"Reselect Skills only" = "Reselect Fähigkeiten nur";
+"Reset saved videos" = "Reset gespeicherten Videos";
+"Reselect Keywords only" = "Reselect Keywords nur";
+"Sign In With Google" = "Anmeldung mit Google";
+"Rate us on the App Store!" = "Bewerten Sie uns im App Store!";
+"Share this app on Facebook!" = "Teilen Sie diese App auf Facebook!";
+"Check out this awesome app!" = "Überprüfen Sie dieses tolle App heraus!";
+"Share this app on Twitter!" = "Teilen Sie diese App auf Twitter!";
+"Are you sure?" = "Bist du sicher?";
+"You are about to reset your saved videos. This action cannot be undone." = "Sie sind über Ihre gespeicherten Videos zu setzen. Diese Aktion kann nicht rückgängig gemacht werden.";
+"Ok" = "OK";
+"Cancel" = "Stornieren";
+"Error" = "Fehler";
+"You are already signed in! If you wish to sign in with a different account, please sign out and sign in with different credentials." = "Sie sind bereits angemeldet! ​​Wenn Sie mit einem anderen Konto anmelden möchten, melden Sie sich ab und melden Sie sich mit anderen Anmeldeinformationen.";
+"Check out this cool new app!" = "Sehen Sie sich diese coole neue App heraus!";

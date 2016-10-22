@@ -17,6 +17,8 @@ class SignInViewController: UIViewController {
     
     @IBOutlet weak var googleSignInButton: UIButton!
     
+    @IBOutlet weak var getStartedButton: UIButton!
+    
     @IBAction func signInButtonPressed(_ sender: UIButton) {
         self.navigationController!.pushViewController(createAuthController(), animated: true)
     }
@@ -60,6 +62,7 @@ class SignInViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.getStartedButton.setImage(UIImage(named: NSLocalizedString("Log In Button", comment: "")+".png"), for: UIControlState.normal)
         self.navigationController!.setNavigationBarHidden(true, animated: false)
     }
     

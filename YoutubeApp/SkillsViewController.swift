@@ -111,7 +111,7 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Dequeue with the reuse identifier
         let cell = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "TableSectionHeader")
         let header = cell as! TableSectionHeader
-        header.titleLabel.text = title
+        header.titleLabel.text = NSLocalizedString(title, comment: "")
         header.image.image = UIImage(named: imageArray[section])
         
         return header
@@ -133,11 +133,11 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //cell.backgroundColor=UIColor.blackColor()
         
         if (indexPath as NSIndexPath).row % 3 == 0 {
-            cell.textLabel!.text = "Beginner"
+            cell.textLabel!.text = NSLocalizedString("Beginner", comment: "")
         } else if (indexPath as NSIndexPath).row % 3 == 1 {
-            cell.textLabel!.text = "Intermediate"
+            cell.textLabel!.text = NSLocalizedString("Intermediate", comment: "")
         } else {
-            cell.textLabel!.text = "Expert"
+            cell.textLabel!.text = NSLocalizedString("Expert", comment: "")
         }
         
         if selectedData[(indexPath as NSIndexPath).section] == (indexPath as NSIndexPath).row+1 {

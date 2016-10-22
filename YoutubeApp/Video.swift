@@ -93,6 +93,10 @@ class Snippet: NSObject, NSCoding, Mappable {
     convenience required init?(map: Map){
         self.init()
         mapping(map: map)
+        if self.title != nil && self.descriptionn != nil {
+            self.title=NSLocalizedString(self.title!, comment: "")
+            self.descriptionn=NSLocalizedString(self.descriptionn!, comment: "")
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
