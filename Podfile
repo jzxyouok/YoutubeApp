@@ -19,6 +19,8 @@ def testing_pods
     pod 'TwitterKit'
     pod 'TwitterCore'
     pod 'PEGKit', '~> 0.4.2'
+    pod 'Flurry-iOS-SDK/FlurrySDK'
+    pod 'Flurry-iOS-SDK/FlurryAds'
     
     post_install do |installer|
         `find Pods -regex 'Pods/pop.*\\.h' -print0 | xargs -0 sed -i '' 's/\\(<\\)pop\\/\\(.*\\)\\(>\\)/\\"\\2\\"/'`

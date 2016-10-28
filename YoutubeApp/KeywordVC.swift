@@ -34,7 +34,7 @@ class KeywordVC: UIViewController, UITextViewDelegate {
         print(start)
         print(end)
         textView.text=textView.text.lowercased()
-        let characterset = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ0123456789")
+        let characterset = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ0123456789 ")
         keywords=((textView.text).components(separatedBy: characterset.inverted) as [NSString])
         print(keywords)
         /*
@@ -95,7 +95,7 @@ class KeywordVC: UIViewController, UITextViewDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let alert = UIAlertController(title: NSLocalizedString("Keyword Entry", comment: ""), message: NSLocalizedString("Please enter keywords related to your interests and skills. Keywords should be separated only by spaces and contain no special characters!", comment: ""), preferredStyle: .alert)
+        let alert = UIAlertController(title: NSLocalizedString("Keyword Entry", comment: ""), message: NSLocalizedString("Please enter some keywords which relate to your interests and skills. Please separate phrases or individual keywords by a comma or any other special character!", comment: ""), preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("Got it!", comment: ""), style: .cancel, handler: nil))
         

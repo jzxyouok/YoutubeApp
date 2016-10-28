@@ -38,7 +38,7 @@ extension Reachability {
 
 class VideoDetailViewController: UIViewController {
     
-    @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var webView: CustomWebView!
     
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -77,6 +77,7 @@ class VideoDetailViewController: UIViewController {
             self.reachability = try Reachability()
             
             if (reachability?.isReachable)! {
+                self.webView.videoId = vid.videoId!
                 var videoEmbedString = "<html><head><style type=\"text/css\">body {background-color: transparent;color: white;}</style></head><body style=\"margin:0\"><iframe frameBorder=\"0\" height=\""
                 videoEmbedString += String(describing: height) + "\" width=\"" + String(describing: width)
                 videoEmbedString += "\" src=\"http://www.youtube.com/embed/" + vid.videoId! + "?showinfo=0&modestbranding=1&frameborder=0&rel=0\"></iframe></body></html>"

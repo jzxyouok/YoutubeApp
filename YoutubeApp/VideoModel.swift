@@ -55,6 +55,44 @@ class VideoModel: NSObject {
         
     }
     
+    func getKeywordFeedVideos(_ keywordArray: [String], completionHandler:@escaping (_ data: AnyObject?) -> ()) -> () {
+        for i in 0..<keywordArray.count-1 {
+            makeSubKeywordVideosRequest(keywordArray[i])
+        }
+        makeKeywordVideosRequest(keywordArray[keywordArray.count-1], completionHandler: completionHandler)
+    }
+    
+    func makeSubKeywordVideosRequest(_ keyword: String) {
+        Alamofire.request("https://www.googleapis.com/youtube/v3/search", parameters: ["part":"snippet","regionCode":"US","q":keyword,"maxResults":Int(arc4random_uniform(UInt32(2))),"type":"video","videoDuration":"short","key": self.API_KEY], encoding: URLEncoding.default, headers: nil).responseObject { (response: DataResponse<VideoResponse>) in
+            DispatchQueue.main.async {
+                let videoResponse = response.result.value
+                if let videos = videoResponse?.videos {
+                    for video in videos {
+                        self.videoArray.append(video)
+                    }
+                    print(self.videoArray)
+                    print("KeywordVideos: \(self.videoArray.count)")
+                }
+            }
+        }
+    }
+    
+    func makeKeywordVideosRequest(_ keyword: String, completionHandler:@escaping (_ data: AnyObject?) -> ()) -> () {
+        Alamofire.request("https://www.googleapis.com/youtube/v3/search", parameters: ["part":"snippet","regionCode":"US","q":keyword,"maxResults":Int(arc4random_uniform(UInt32(2))),"type":"video","videoDuration":"short", "key": self.API_KEY], encoding: URLEncoding.default, headers: nil).responseObject { (response: DataResponse<VideoResponse>) in
+            DispatchQueue.main.async {
+                let videoResponse = response.result.value
+                if let videos = videoResponse?.videos {
+                    for video in videos {
+                        self.videoArray.append(video)
+                    }
+                    print(self.videoArray)
+                    print("KeywordVideos: \(self.videoArray.count)")
+                    completionHandler(self.videoArray as AnyObject?)
+                }
+            }
+        }
+    }
+    
     func getFeedVideos(_ interestArray: [String], keywordArray: [String], completionHandler:@escaping (_ data: AnyObject?) -> ()) -> () {
         
         //Category Id's: 35 - Documentary, 34 - Comedy, 28 - Science & Technology, 27 - Education, 26 - Howto & Style, 21 - Videoblogging, 2 - Autos & Vehicles,

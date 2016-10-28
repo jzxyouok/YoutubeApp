@@ -15,6 +15,7 @@ import SystemConfiguration
 import ReachabilitySwift
 import StatefulViewController
 import NVActivityIndicatorView
+import Flurry_iOS_SDK
 
 //class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, VideoModelDelegate {
 
@@ -44,6 +45,7 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     var model:VideoModel = VideoModel()
     var searchWords: [String] = []
     var interestSelectionArray = [NSString]()
+    var keywordsArray = [NSString]()
     var skillSelectionArray = [NSString]()
     var done: Int = 0
     //New variables
@@ -55,6 +57,8 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     //let refreshControl = UIRefreshControl()
     
     override func viewDidAppear(_ animated: Bool) {
+        let parameters = ["InterestsArray" : self.interestSelectionArray, "SkillsArray" : self.skillSelectionArray, "KeywordsArray" : self.keywordsArray]
+        Flurry.logEvent("Completed Interests, Skills and Keywords Selection", withParameters: parameters)
     }
     
     override var prefersStatusBarHidden : Bool {
@@ -80,7 +84,8 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
              userDefaults.setObject(self.skillSelectionArray, forKey: "SkillsArray")
              */
         } else if userDefaults.object(forKey: "InterestsArray") as? [NSString] != nil && userDefaults.object(forKey: "SkillsArray") as? [NSString] != nil && userDefaults.object(forKey: "KeywordsArray") as? [NSString] != nil {
-            self.interestSelectionArray=(userDefaults.object(forKey: "InterestsArray") as! [NSString])+(userDefaults.object(forKey: "KeywordsArray") as! [NSString])
+            self.interestSelectionArray=(userDefaults.object(forKey: "InterestsArray") as! [NSString])
+            self.keywordsArray = (userDefaults.object(forKey: "KeywordsArray") as! [NSString])
             self.skillSelectionArray=userDefaults.object(forKey: "SkillsArray") as! [NSString]
         }
         
@@ -223,6 +228,8 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
             
             self.model.generateKeywords(interestSelectionArray as [String]) { data in
                 self.searchWords+=data
+                self.model.getKeywordFeedVideos(self.keywordsArray as [String]) { data in
+                    
                 self.model.getSkillsFeedVideos(self.skillSelectionArray as [String], keywordArray: self.searchWords) { data in
                     self.model.getFeedVideos(self.interestSelectionArray as [String], keywordArray: self.searchWords) { data in
                         
@@ -240,6 +247,7 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
                         //self.refreshControl.endRefreshing()
                     }
                 }
+            }
                 self.done=1
             }
         }

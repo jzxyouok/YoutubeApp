@@ -27,6 +27,7 @@
 		4E322D601D7E1AD600E5B1F6 /* BasicPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E322D5F1D7E1AD600E5B1F6 /* BasicPlaceholderView.swift */; };
 		4E322D621D7E4DF800E5B1F6 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E322D611D7E4DF800E5B1F6 /* ErrorView.swift */; };
 		4E322D661D7EE2FE00E5B1F6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E322D651D7EE2FE00E5B1F6 /* SettingsViewController.swift */; };
+		4E49B15C1DC2523600EB6ED4 /* CustomWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E49B15B1DC2523600EB6ED4 /* CustomWebView.swift */; };
 		4E676A661D228900007158ED /* InterestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E676A651D228900007158ED /* InterestView.swift */; };
 		4E6D8E051CECF95E00211D4B /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6D8E041CECF95E00211D4B /* Thumbnail.swift */; };
 		4E72B8571C58230B004592E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E72B8561C58230B004592E7 /* AppDelegate.swift */; };
@@ -94,6 +95,7 @@
 		4E12E21C1D21A52300F44DB9 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		4E1742CE1DBB980A009D7B7D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = YoutubeApp/de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4E1742D41DBB9CCE009D7B7D /* Log In Button_DE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Log In Button_DE.png"; sourceTree = "<group>"; };
+		4E1742D61DBED202009D7B7D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = YoutubeApp/en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4E1B38081CEF6FA200568FB9 /* Thumbnail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Thumbnail.xib; sourceTree = "<group>"; };
 		4E1B380A1CF0FA3400568FB9 /* ExampleOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleOverlayView.swift; sourceTree = "<group>"; };
 		4E1B380C1CF0FA8700568FB9 /* OverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayView.xib; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 		4E322D5F1D7E1AD600E5B1F6 /* BasicPlaceholderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicPlaceholderView.swift; sourceTree = "<group>"; };
 		4E322D611D7E4DF800E5B1F6 /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		4E322D651D7EE2FE00E5B1F6 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		4E49B15B1DC2523600EB6ED4 /* CustomWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomWebView.swift; sourceTree = "<group>"; };
 		4E676A651D228900007158ED /* InterestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestView.swift; sourceTree = "<group>"; };
 		4E6C86FA1DBA79A300F96F64 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		4E6C86FB1DBA79A400F96F64 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -287,6 +290,7 @@
 				4EAF1C7A1D4CD3F7003F4B0D /* KeywordVC.swift */,
 				4E88FF611C6B993400736678 /* VideoModel.swift */,
 				4E88FF631C6BDBF000736678 /* VideoDetailViewController.swift */,
+				4E49B15B1DC2523600EB6ED4 /* CustomWebView.swift */,
 				4E1742CD1DBB980A009D7B7D /* Localizable.strings */,
 				4E72B85A1C58230B004592E7 /* Main.storyboard */,
 				4ECA0C631D8434EA00E7EA88 /* SSCheckmark.m */,
@@ -626,6 +630,7 @@
 				4EEC411A1C7B90BA0085FD59 /* SkillsViewController.swift in Sources */,
 				4E322D5E1D7DF36F00E5B1F6 /* EmptyView.swift in Sources */,
 				4E1B380B1CF0FA3400568FB9 /* ExampleOverlayView.swift in Sources */,
+				4E49B15C1DC2523600EB6ED4 /* CustomWebView.swift in Sources */,
 				4E2999C81C6E613F00563520 /* InterestsViewController.swift in Sources */,
 				4E322D601D7E1AD600E5B1F6 /* BasicPlaceholderView.swift in Sources */,
 				4E6D8E051CECF95E00211D4B /* Thumbnail.swift in Sources */,
@@ -663,6 +668,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4E1742CE1DBB980A009D7B7D /* de */,
+				4E1742D61DBED202009D7B7D /* en */,
 			);
 			name = Localizable.strings;
 			path = ..;

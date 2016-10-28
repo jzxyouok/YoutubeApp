@@ -4,6 +4,9 @@ PODS:
     - Alamofire (~> 4.0)
     - ObjectMapper (~> 2.0)
   - Fabric (1.6.7)
+  - Flurry-iOS-SDK/FlurryAds (7.6.6):
+    - Flurry-iOS-SDK/FlurrySDK
+  - Flurry-iOS-SDK/FlurrySDK (7.6.6)
   - GoogleAPIClientForREST/Core (1.0.3):
     - GTMSessionFetcher (>= 1.1.3, ~> 1.1)
   - GoogleAPIClientForREST/YouTube (1.0.3):
@@ -33,6 +36,8 @@ DEPENDENCIES:
   - Alamofire (from `https://github.com/Alamofire/Alamofire`)
   - AlamofireObjectMapper (from `https://github.com/tristanhimmelman/AlamofireObjectMapper.git`)
   - Fabric
+  - Flurry-iOS-SDK/FlurryAds
+  - Flurry-iOS-SDK/FlurrySDK
   - GoogleAPIClientForREST/YouTube (from `https://github.com/google/google-api-objectivec-client-for-rest.git`)
   - GTMOAuth2 (from `https://github.com/google/gtm-oauth2.git`)
   - Koloda (from `https://github.com/LemonSpike/Koloda.git`)
@@ -92,6 +97,7 @@ SPEC CHECKSUMS:
   Alamofire: fef59f00388f267e52d9b432aa5d93dc97190f14
   AlamofireObjectMapper: 9faa3ce5a240efda1b209009a2d6e1e949227abc
   Fabric: caf7580c725e64db144f610ac65cd60956911dc7
+  Flurry-iOS-SDK: 97bbeec09cca666c2f1772f6e161c4f8ccff611e
   GoogleAPIClientForREST: 0b72399da5a108ba42a7fe0f8559edd7c49ea96a
   GTMOAuth2: 1707e2f7fe3a6d7240223c23c473ba5a2d104474
   GTMSessionFetcher: 174bc61d5238f81f9ddb807b0b0170420f67de85
@@ -105,6 +111,6 @@ SPEC CHECKSUMS:
   TwitterCore: abc46da2bc4b76e2c68a74cd8671a071a8e3abbf
   TwitterKit: 38232c31f622db1f26a5952436eaa88d10763fd0
 
-PODFILE CHECKSUM: 3daf83985220a23427c379233874aa93a0a954de
+PODFILE CHECKSUM: 41468891fd672070a324429e9a38acee6d492a12
 
 COCOAPODS: 1.0.0

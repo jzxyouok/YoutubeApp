@@ -1,0 +1,47 @@
+/* 
+  Localizable.strings
+  YoutubeApp
+
+  Created by Pranav Kasetti on 22/10/2016.
+  Copyright © 2016 Pranav Kasetti. All rights reserved.
+*/
+
+"Keyword Entry" = "Keyword Entry";
+"Please enter some keywords which relate to your interests and skills. Please separate phrases or individual keywords by a comma or any other special character!" = "Please enter some keywords which relate to your interests and skills. Please separate phrases or individual keywords by a comma or any other special character!";
+"Got it!" = "Got it!!";
+"Please enter some keywords!" = "Please enter some keywords!";
+"Please wait while your videos are loading." = "Please wait while your videos are loading.";
+"Sync Saved Videos to YouTube" = "Sync Saved Videos to YouTube";
+"Please sign in to Google first in settings" = "Please sign in to Google first in settings";
+"Click Sync to add your saved videos with your YouTube Watch Later Playlist"="Click Sync to add your saved videos with your YouTube Watch Later Playlist";
+"Log In Button" = "Log In Button";
+"Philosophy" = "Philosophy";
+"Biology" = "Biology";
+"Chemistry" = "Chemistry";
+"Physics" = "Physics";
+"History" = "History";
+"Maths" = "Maths";
+"Geography" = "Geography";
+"Technology" = "Technology";
+"Beginner" = "Beginner";
+"Intermediate" = "Intermediate";
+"Expert" = "Expert";
+"General" = "General";
+"About" = "About";
+"Reselect Interests, Skills and Keywords" = "Reselect Interests, Skills and Keywords";
+"Reselect Interests only" = "Reselect Interests only";
+"Reselect Skills only" = "Reselect Skills only";
+"Reset saved videos" = "Reset saved videos";
+"Reselect Keywords only" = "Reselect Keywords only";
+"Sign In With Google" = "Sign In With Google";
+"Rate us on the App Store!" = "Rate us on the App Store!";
+"Share this app on Facebook!" = "Share this app on Facebook!";
+"Check out this awesome app!" = "Check out this awesome app!";
+"Share this app on Twitter!" = "Share this app on Twitter!";
+"Are you sure?" = "Are you sure?";
+"You are about to reset your saved videos. This action cannot be undone." = "You are about to reset your saved videos. This action cannot be undone.";
+"Ok" = "Ok";
+"Cancel" = "Cancel";
+"Error" = "Error";
+"You are already signed in! If you wish to sign in with a different account, please sign out and sign in with different credentials." = "You are already signed in! If you wish to sign in with a different account, please sign out and sign in with different credentials.";
+"Check out this cool new app!" = "Check out this cool new app!";
