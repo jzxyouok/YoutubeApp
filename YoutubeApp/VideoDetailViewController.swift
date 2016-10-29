@@ -53,10 +53,10 @@ class VideoDetailViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tapRecognizer = UITapGestureRecognizer(target: self.webView, action: Selector("handleSingleTap"))
+        self.tapRecognizer = UITapGestureRecognizer(target: self, action: Selector("handleSingleTap"))
         tapRecognizer.delegate=self
         self.tapRecognizer.numberOfTapsRequired = 1
-        self.view.addGestureRecognizer(tapRecognizer)
+        self.webView.addGestureRecognizer(tapRecognizer)
     }
     
     func handleSingleTap() {
@@ -71,13 +71,13 @@ class VideoDetailViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        
+        /*
         if (otherGestureRecognizer is UITapGestureRecognizer) {
             otherGestureRecognizer.require(toFail: gestureRecognizer)
             
             print("added failure requirement to: %@", otherGestureRecognizer)
         }
-        
+        */
         return true
     }
     override func didReceiveMemoryWarning() {
