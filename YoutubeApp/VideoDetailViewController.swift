@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 import SystemConfiguration
 import ReachabilitySwift
-
+import Flurry_iOS_SDK
 
 extension Reachability {
     /*
@@ -36,9 +36,9 @@ extension Reachability {
 
 
 
-class VideoDetailViewController: UIViewController {
+class VideoDetailViewController: UIViewController, UIGestureRecognizerDelegate {
     
-    @IBOutlet weak var webView: CustomWebView!
+    @IBOutlet weak var webView: UIWebView!
     
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -48,13 +48,38 @@ class VideoDetailViewController: UIViewController {
     
     var selectedVideo:Video?
     var reachability: Reachability?
+    var tapRecognizer: UITapGestureRecognizer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        self.tapRecognizer = UITapGestureRecognizer(target: self.webView, action: Selector("handleSingleTap"))
+        tapRecognizer.delegate=self
+        self.tapRecognizer.numberOfTapsRequired = 1
+        self.view.addGestureRecognizer(tapRecognizer)
     }
     
+    func handleSingleTap() {
+        
+        if ((self.tapRecognizer.delegate) != nil) {
+            print("Removing delegate...")
+            self.tapRecognizer.delegate = nil
+        }
+        
+        let parameters = ["YouTubeVideoID" : self.selectedVideo!.videoId]
+        Flurry.logEvent("Video Opened", withParameters: parameters)
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        
+        if (otherGestureRecognizer is UITapGestureRecognizer) {
+            otherGestureRecognizer.require(toFail: gestureRecognizer)
+            
+            print("added failure requirement to: %@", otherGestureRecognizer)
+        }
+        
+        return true
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -77,12 +102,11 @@ class VideoDetailViewController: UIViewController {
             self.reachability = try Reachability()
             
             if (reachability?.isReachable)! {
-                self.webView.videoId = vid.videoId!
-                var videoEmbedString = "<html><head><style type=\"text/css\">body {background-color: transparent;color: white;}</style></head><body style=\"margin:0\"><iframe frameBorder=\"0\" height=\""
+                var videoEmbedString = "<html><head><style type=\"text/css\">body {background-color: transparent;color: black;}</style></head><body style=\"margin:0\"><iframe frameBorder=\"0\" height=\""
                 videoEmbedString += String(describing: height) + "\" width=\"" + String(describing: width)
                 videoEmbedString += "\" src=\"http://www.youtube.com/embed/" + vid.videoId! + "?showinfo=0&modestbranding=1&frameborder=0&rel=0\"></iframe></body></html>"
-                
                 self.webView.loadHTMLString(videoEmbedString, baseURL: nil)
+                //self.webView.videoId=vid.videoId!
             }
             
         }

@@ -56,10 +56,14 @@ class VideoModel: NSObject {
     }
     
     func getKeywordFeedVideos(_ keywordArray: [String], completionHandler:@escaping (_ data: AnyObject?) -> ()) -> () {
-        for i in 0..<keywordArray.count-1 {
-            makeSubKeywordVideosRequest(keywordArray[i])
+        if keywordArray.count != 0 {
+            for i in 0..<keywordArray.count-1 {
+                makeSubKeywordVideosRequest(keywordArray[i])
+            }
+            makeKeywordVideosRequest(keywordArray[keywordArray.count-1], completionHandler: completionHandler)
+        } else {
+            makeKeywordVideosRequest("entrepreneurship", completionHandler: completionHandler)
         }
-        makeKeywordVideosRequest(keywordArray[keywordArray.count-1], completionHandler: completionHandler)
     }
     
     func makeSubKeywordVideosRequest(_ keyword: String) {

@@ -36,16 +36,30 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
         let userDefaults = UserDefaults.standard
+        /*
         if userDefaults.object(forKey: "KeywordsArray") as? [NSString] == nil {
             //userDefaults.set(self.skillSelectionArray, forKey: "SkillsArray")
             self.performSegue(withIdentifier: "showKeywords", sender: self)
         } else {
-            print(userDefaults.object(forKey: "KeywordsArray") as! [NSString])
+        */
+        if userDefaults.object(forKey: "InterestsArray") as? [NSString] != nil {
+        
             let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let tbc: UITabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
             (((tbc.viewControllers![1] as! UINavigationController).viewControllers[0]) as! SavedVideosViewController).model.service=self.model.service
             let interests = userDefaults.object(forKey: "InterestsArray") as! [NSString]
             ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).interestSelectionArray = interests
+            userDefaults.set(self.skillSelectionArray as [NSString], forKey: "SkillsArray")
+            ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).skillSelectionArray=self.skillSelectionArray
+            ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).model=self.model
+            self.present(tbc, animated: true, completion: nil)
+            
+        } else {
+            let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let tbc: UITabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+            (((tbc.viewControllers![1] as! UINavigationController).viewControllers[0]) as! SavedVideosViewController).model.service=self.model.service
+            ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).interestSelectionArray = self.interestSelectionArray
+            userDefaults.set(self.interestSelectionArray as [NSString], forKey: "InterestsArray")
             userDefaults.set(self.skillSelectionArray as [NSString], forKey: "SkillsArray")
             ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).skillSelectionArray=self.skillSelectionArray
             ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).model=self.model

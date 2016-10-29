@@ -11,12 +11,14 @@ import Flurry_iOS_SDK
 
 class CustomWebView: UIWebView {
 
-    var videoId = String()
+    //var videoId: String!
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
-        let parameters = ["YouTubeVideoID" : videoId]
-        Flurry.logEvent("Video Opened", withParameters: parameters)
+        DispatchQueue.main.async {
+        //let parameters = ["YouTubeVideoID" : self.videoId]
+        //Flurry.logEvent("Video Opened", withParameters: parameters)
+        }
     }
     
 }

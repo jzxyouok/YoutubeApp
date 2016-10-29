@@ -36,7 +36,7 @@ class Thumbnail: UIView {
         self.border.layer.borderColor=UIColor.orange.cgColor
         self.border.layer.borderWidth=3
         videoLabel.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.8)
-        videoLabel.textColor = UIColor.init(red: 255, green: 255, blue: 255, alpha: 1)
+        videoLabel.textColor = UIColor.init(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
         videoLabel.font = UIFont(name: "Helvetica", size: 20)
         videoLabel.textAlignment = .center
         videoLabel.lineBreakMode = NSLineBreakMode.byWordWrapping

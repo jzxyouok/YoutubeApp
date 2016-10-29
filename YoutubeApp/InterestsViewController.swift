@@ -18,14 +18,14 @@ extension Array where Element: Equatable {
 
 class InterestsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    var initialArray: [NSString] = ["philosophy","biology","chemistry","physics","history","mathematics","geography","technology"]
+    var initialArray: [NSString] = ["philosophy","biology","chemistry","physics","history","mathematics","geography","technology",]
     var interestSelectionArray = [NSString]()
     var model = VideoModel()
     var switchArray: [Int] = []
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    @IBOutlet weak var collectionViewFlowLayout: UICollectionViewFlowLayout!
+    @IBOutlet weak var collectionViewFlowLayout: CustomViewFlowLayout!
     
     @IBAction func nextButtonClicked(_ sender: UIBarButtonItem) {
         
@@ -114,12 +114,14 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
      */
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return 9
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String((indexPath as NSIndexPath).row), for: indexPath) as! InterestView
         //cell.swich.addTarget(self, action: #selector(InterestsViewController.switchChanged(_:)), for: UIControlEvents.valueChanged)
+        cell.layer.masksToBounds = true
+        cell.layer.cornerRadius = 6
         return cell
     }
     
@@ -157,20 +159,17 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
     */
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.frame.width
+        let width = collectionView.frame.size.width
         var number = CGFloat(2.0)
         if width > 561 {
             number = 3.0
         }
-        return CGSize(width: ((width-(number-1)*(collectionViewFlowLayout.minimumInteritemSpacing))/number), height: ((width-(number-1)*(collectionViewFlowLayout.minimumInteritemSpacing))/number))
+        return CGSize(width: ((width-(number-1)*(10))/number), height: ((width-(number-1)*(10))/number))
+        
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

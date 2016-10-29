@@ -100,7 +100,6 @@ class Snippet: NSObject, NSCoding, Mappable {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        
         self.title = aDecoder.decodeObject(forKey: "title") as? String
         self.descriptionn = aDecoder.decodeObject(forKey: "description") as? String
         self.thumbnailUrlString = aDecoder.decodeObject(forKey: "thumbnailUrlString") as? String
@@ -115,7 +114,7 @@ class Snippet: NSObject, NSCoding, Mappable {
     func mapping(map: Map) {
         title <- map["title"]
         descriptionn <- map["description"]
-        thumbnailUrlString <- map["thumbnails.default.url"]
+        thumbnailUrlString <- map["thumbnails.high.url"]
     }
     
 }

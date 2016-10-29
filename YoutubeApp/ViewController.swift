@@ -78,14 +78,16 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         self.reachability = Reachability()
         
         let userDefaults = UserDefaults.standard
-        if userDefaults.object(forKey: "InterestsArray") as? [NSString] == nil || userDefaults.object(forKey: "SkillsArray") as? [NSString] == nil || userDefaults.object(forKey: "KeywordsArray") as? [NSString] == nil {
+        if userDefaults.object(forKey: "InterestsArray") as? [NSString] == nil || userDefaults.object(forKey: "SkillsArray") as? [NSString] == nil {
             /*
              userDefaults.setObject(self.interestSelectionArray, forKey: "InterestsArray")
              userDefaults.setObject(self.skillSelectionArray, forKey: "SkillsArray")
              */
-        } else if userDefaults.object(forKey: "InterestsArray") as? [NSString] != nil && userDefaults.object(forKey: "SkillsArray") as? [NSString] != nil && userDefaults.object(forKey: "KeywordsArray") as? [NSString] != nil {
+        } else if userDefaults.object(forKey: "InterestsArray") as? [NSString] != nil && userDefaults.object(forKey: "SkillsArray") as? [NSString] != nil {
             self.interestSelectionArray=(userDefaults.object(forKey: "InterestsArray") as! [NSString])
+            if userDefaults.object(forKey: "KeywordsArray") as? [NSString] != nil {
             self.keywordsArray = (userDefaults.object(forKey: "KeywordsArray") as! [NSString])
+            }
             self.skillSelectionArray=userDefaults.object(forKey: "SkillsArray") as! [NSString]
         }
         
@@ -323,9 +325,11 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     func koloda(_ koloda: KolodaView, didSwipeCardAtIndex index: UInt, inDirection direction: SwipeResultDirection) {
         let userDefaults = UserDefaults.standard
         self.data=userDefaults.data(forKey: "SelectedVideos")
-        if (NSKeyedUnarchiver.unarchiveObject(with: self.data!) as? [Video]) != nil {
-            VideoStatus.selectedVideos=(NSKeyedUnarchiver.unarchiveObject(with: self.data!) as? [Video])!
-            self.selectedVideos=VideoStatus.selectedVideos
+        if self.data != nil {
+            if (NSKeyedUnarchiver.unarchiveObject(with: self.data!) as? [Video]) != nil {
+                VideoStatus.selectedVideos=(NSKeyedUnarchiver.unarchiveObject(with: self.data!) as? [Video])!
+                self.selectedVideos=VideoStatus.selectedVideos
+            }
         }
         if direction == SwipeResultDirection.Right {
             var videoIds: [String] = []
