@@ -11,14 +11,14 @@ import UIKit
 
 /// Represents the state of the view state machine
 public enum ViewStateMachineState : Equatable {
-    case none			// No view shown
-    case view(String)	// View with specific key is shown
+    case None			// No view shown
+    case View(String)	// View with specific key is shown
 }
 
 public func == (lhs: ViewStateMachineState, rhs: ViewStateMachineState) -> Bool {
     switch (lhs, rhs) {
-    case (.none, .none): return true
-    case (.view(let lName), .view(let rName)): return lName == rName
+    case (.None, .None): return true
+    case (.View(let lName), .View(let rName)): return lName == rName
     default: return false
     }
 }
@@ -31,18 +31,18 @@ public func == (lhs: ViewStateMachineState, rhs: ViewStateMachineState) -> Bool 
 ///		* Show a specific placeholder view, represented by a key
 ///		* Hide all managed views
 ///
-open class ViewStateMachine {
-    fileprivate var viewStore: [String: UIView]
-    fileprivate let queue = DispatchQueue(label: "com.aschuch.viewStateMachine.queue", attributes: [])
+public class ViewStateMachine {
+    private var viewStore: [String: UIView]
+    private let queue = dispatch_queue_create("com.aschuch.viewStateMachine.queue", DISPATCH_QUEUE_SERIAL)
     
     /// The view that should act as the superview for any added views
-    open let view: UIView
+    public let view: UIView
     
     /// The current display state of views
-    open fileprivate(set) var currentState: ViewStateMachineState = .none
+    public private(set) var currentState: ViewStateMachineState = .None
     
     /// The last state that was enqueued
-    open fileprivate(set) var lastState: ViewStateMachineState = .none
+    public private(set) var lastState: ViewStateMachineState = .None
     
     
     // MARK: Init
@@ -71,24 +71,24 @@ open class ViewStateMachine {
     // MARK: Add and remove view states
     
     /// - returns: the view for a given state
-    open func viewForState(_ state: String) -> UIView? {
+    public func viewForState(state: String) -> UIView? {
         return viewStore[state]
     }
     
     /// Associates a view for the given state
-    open func addView(_ view: UIView, forState state: String) {
+    public func addView(view: UIView, forState state: String) {
         viewStore[state] = view
     }
     
     ///  Removes the view for the given state
-    open func removeViewForState(_ state: String) {
+    public func removeViewForState(state: String) {
         viewStore[state] = nil
     }
     
     
     // MARK: Subscripting
     
-    open subscript(state: String) -> UIView? {
+    public subscript(state: String) -> UIView? {
         get {
             return viewForState(state)
         }
@@ -111,29 +111,29 @@ open class ViewStateMachine {
     /// - parameter animated:	true if the transition should fade views in and out
     /// - parameter campletion:	called when all animations are finished and the view has been updated
     ///
-    open func transitionToState(_ state: ViewStateMachineState, animated: Bool = true, completion: (() -> ())? = nil) {
+    public func transitionToState(state: ViewStateMachineState, animated: Bool = true, completion: (() -> ())? = nil) {
         lastState = state
         
-        queue.async {
+        dispatch_async(queue) {
             if state == self.currentState {
                 return
             }
             
             // Suspend the queue, it will be resumed in the completion block
-            self.queue.suspend()
+            dispatch_suspend(self.queue)
             self.currentState = state
             
             let c: () -> () = {
-                self.queue.resume()
+                dispatch_resume(self.queue)
                 completion?()
             }
             
             // Switch state and update the view
-            DispatchQueue.main.sync {
+            dispatch_sync(dispatch_get_main_queue()) {
                 switch state {
-                case .none:
+                case .None:
                     self.hideAllViews(animated: animated, completion: c)
-                case .view(let viewKey):
+                case .View(let viewKey):
                     self.showViewWithKey(viewKey, animated: animated, completion: c)
                 }
             }
@@ -143,7 +143,7 @@ open class ViewStateMachine {
     
     // MARK: Private view updates
     
-    fileprivate func showViewWithKey(_ state: String, animated: Bool, completion: (() -> ())? = nil) {
+    private func showViewWithKey(state: String, animated: Bool, completion: (() -> ())? = nil) {
         if let newView = self.viewStore[state] {
             // Add new view using AutoLayout
             newView.alpha = animated ? 0.0 : 1.0
@@ -154,8 +154,8 @@ open class ViewStateMachine {
             let metrics = ["top": insets.top, "bottom": insets.bottom, "left": insets.left, "right": insets.right]
             let views = ["view": newView]
 
-            let hConstraints = NSLayoutConstraint.constraints(withVisualFormat: "|-left-[view]-right-|", options: [], metrics: metrics, views: views)
-            let vConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-top-[view]-bottom-|", options: [], metrics: metrics, views: views)
+            let hConstraints = NSLayoutConstraint.constraintsWithVisualFormat("|-left-[view]-right-|", options: [], metrics: metrics, views: views)
+            let vConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-top-[view]-bottom-|", options: [], metrics: metrics, views: views)
             self.view.addConstraints(hConstraints)
             self.view.addConstraints(vConstraints)
         }
@@ -179,7 +179,7 @@ open class ViewStateMachine {
         animateChanges(animated: animated, animations: animations, animationCompletion: animationCompletion)
     }
     
-    fileprivate func hideAllViews(animated: Bool, completion: (() -> ())? = nil) {
+    private func hideAllViews(animated animated: Bool, completion: (() -> ())? = nil) {
         let animations: () -> () = {
             for (_, view) in self.viewStore {
                 view.alpha = 0.0
@@ -197,9 +197,9 @@ open class ViewStateMachine {
         animateChanges(animated: animated, animations: animations, animationCompletion: animationCompletion)
     }
     
-    fileprivate func animateChanges(animated: Bool, animations: @escaping () -> (), animationCompletion: @escaping (Bool) -> ()) {
+    private func animateChanges(animated animated: Bool, animations: () -> (), animationCompletion: (Bool) -> ()) {
         if animated {
-            UIView.animate(withDuration: 0.3, animations: animations, completion: animationCompletion)
+            UIView.animateWithDuration(0.3, animations: animations, completion: animationCompletion)
         } else {
             animationCompletion(true)
         }
