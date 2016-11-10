@@ -18,6 +18,10 @@
 		4E1B380D1CF0FA8700568FB9 /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E1B380C1CF0FA8700568FB9 /* OverlayView.xib */; };
 		4E1C99CC1D3D12720009F799 /* TableSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1C99CB1D3D12720009F799 /* TableSectionHeader.swift */; };
 		4E1C99CE1D3D12C60009F799 /* TableSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E1C99CD1D3D12C60009F799 /* TableSectionHeader.xib */; };
+		4E1E52201DC6005A00E9058B /* food-science.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4E1E521F1DC6005A00E9058B /* food-science.jpg */; };
+		4E1E52221DC600E800E9058B /* fauna-and-flora.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4E1E52211DC600E800E9058B /* fauna-and-flora.jpg */; };
+		4E1E52241DC6016E00E9058B /* inventions.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4E1E52231DC6016E00E9058B /* inventions.jpg */; };
+		4E1E52261DC6021800E9058B /* energy-and-space.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4E1E52251DC6021800E9058B /* energy-and-space.jpg */; };
 		4E27A83F1DC4EBED0007BAC6 /* CustomViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E27A83E1DC4EBED0007BAC6 /* CustomViewFlowLayout.swift */; };
 		4E27A84A1DC4F2160007BAC6 /* action.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4E27A8401DC4F2160007BAC6 /* action.jpg */; };
 		4E27A84B1DC4F2160007BAC6 /* animals.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4E27A8411DC4F2160007BAC6 /* animals.jpg */; };
@@ -39,6 +43,19 @@
 		4E322D621D7E4DF800E5B1F6 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E322D611D7E4DF800E5B1F6 /* ErrorView.swift */; };
 		4E322D661D7EE2FE00E5B1F6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E322D651D7EE2FE00E5B1F6 /* SettingsViewController.swift */; };
 		4E49B15C1DC2523600EB6ED4 /* CustomWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E49B15B1DC2523600EB6ED4 /* CustomWebView.swift */; };
+		4E4A5D111DCBBD7300F4F78A /* bg_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4E4A5D101DCBBD7300F4F78A /* bg_image.jpg */; };
+		4E4A5D131DCBC26500F4F78A /* GoogleLogoRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E4A5D121DCBC26500F4F78A /* GoogleLogoRed.png */; };
+		4E4A5D151DCBC2FE00F4F78A /* GoogleLogoBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E4A5D141DCBC2FE00F4F78A /* GoogleLogoBlue.png */; };
+		4E4A5D171DCBCAF200F4F78A /* bg_image_2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4E4A5D161DCBCAF200F4F78A /* bg_image_2.jpeg */; };
+		4E4A5D191DCBCF5300F4F78A /* earth.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4E4A5D181DCBCF5300F4F78A /* earth.jpg */; };
+		4E4A5D1F1DCD1B1600F4F78A /* InterestsNavBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E4A5D1D1DCD1B1600F4F78A /* InterestsNavBar@2x.png */; };
+		4E4A5D211DCD1B5600F4F78A /* InterestsNavBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E4A5D201DCD1B5600F4F78A /* InterestsNavBar.png */; };
+		4E4A5D251DCFB3C800F4F78A /* NextButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E4A5D241DCFB3C800F4F78A /* NextButton.png */; };
+		4E4A5D271DD36AF400F4F78A /* Backgd.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E4A5D261DD36AF400F4F78A /* Backgd.png */; };
+		4E4A5D291DD36B2300F4F78A /* Backgnd.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E4A5D281DD36B2300F4F78A /* Backgnd.png */; };
+		4E4A5D2B1DD4CE9A00F4F78A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4A5D2A1DD4CE9A00F4F78A /* StoreKit.framework */; };
+		4E4A5D2D1DD4D1C700F4F78A /* UpgradeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4A5D2C1DD4D1C700F4F78A /* UpgradeManager.swift */; };
+		4E4A5D2F1DD4D3FE00F4F78A /* UpgradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4A5D2E1DD4D3FE00F4F78A /* UpgradeViewController.swift */; };
 		4E676A661D228900007158ED /* InterestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E676A651D228900007158ED /* InterestView.swift */; };
 		4E6D8E051CECF95E00211D4B /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6D8E041CECF95E00211D4B /* Thumbnail.swift */; };
 		4E72B8571C58230B004592E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E72B8561C58230B004592E7 /* AppDelegate.swift */; };
@@ -112,6 +129,10 @@
 		4E1B380C1CF0FA8700568FB9 /* OverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayView.xib; sourceTree = "<group>"; };
 		4E1C99CB1D3D12720009F799 /* TableSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableSectionHeader.swift; sourceTree = "<group>"; };
 		4E1C99CD1D3D12C60009F799 /* TableSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableSectionHeader.xib; sourceTree = "<group>"; };
+		4E1E521F1DC6005A00E9058B /* food-science.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "food-science.jpg"; sourceTree = "<group>"; };
+		4E1E52211DC600E800E9058B /* fauna-and-flora.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fauna-and-flora.jpg"; sourceTree = "<group>"; };
+		4E1E52231DC6016E00E9058B /* inventions.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = inventions.jpg; sourceTree = "<group>"; };
+		4E1E52251DC6021800E9058B /* energy-and-space.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "energy-and-space.jpg"; sourceTree = "<group>"; };
 		4E27A83E1DC4EBED0007BAC6 /* CustomViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomViewFlowLayout.swift; sourceTree = "<group>"; };
 		4E27A8401DC4F2160007BAC6 /* action.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = action.jpg; sourceTree = "<group>"; };
 		4E27A8411DC4F2160007BAC6 /* animals.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = animals.jpg; sourceTree = "<group>"; };
@@ -133,6 +154,19 @@
 		4E322D611D7E4DF800E5B1F6 /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		4E322D651D7EE2FE00E5B1F6 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4E49B15B1DC2523600EB6ED4 /* CustomWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomWebView.swift; sourceTree = "<group>"; };
+		4E4A5D101DCBBD7300F4F78A /* bg_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_image.jpg; sourceTree = "<group>"; };
+		4E4A5D121DCBC26500F4F78A /* GoogleLogoRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoogleLogoRed.png; sourceTree = "<group>"; };
+		4E4A5D141DCBC2FE00F4F78A /* GoogleLogoBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoogleLogoBlue.png; sourceTree = "<group>"; };
+		4E4A5D161DCBCAF200F4F78A /* bg_image_2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_image_2.jpeg; sourceTree = "<group>"; };
+		4E4A5D181DCBCF5300F4F78A /* earth.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = earth.jpg; sourceTree = "<group>"; };
+		4E4A5D1D1DCD1B1600F4F78A /* InterestsNavBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "InterestsNavBar@2x.png"; sourceTree = "<group>"; };
+		4E4A5D201DCD1B5600F4F78A /* InterestsNavBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InterestsNavBar.png; sourceTree = "<group>"; };
+		4E4A5D241DCFB3C800F4F78A /* NextButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NextButton.png; sourceTree = "<group>"; };
+		4E4A5D261DD36AF400F4F78A /* Backgd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Backgd.png; sourceTree = "<group>"; };
+		4E4A5D281DD36B2300F4F78A /* Backgnd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Backgnd.png; sourceTree = "<group>"; };
+		4E4A5D2A1DD4CE9A00F4F78A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		4E4A5D2C1DD4D1C700F4F78A /* UpgradeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpgradeManager.swift; sourceTree = "<group>"; };
+		4E4A5D2E1DD4D3FE00F4F78A /* UpgradeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpgradeViewController.swift; sourceTree = "<group>"; };
 		4E676A651D228900007158ED /* InterestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestView.swift; sourceTree = "<group>"; };
 		4E6C86FA1DBA79A300F96F64 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		4E6C86FB1DBA79A400F96F64 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -197,6 +231,7 @@
 				4ECA0C6D1D85D65400E7EA88 /* SystemConfiguration.framework in Frameworks */,
 				4ECA0C701D8836E900E7EA88 /* FBSDKCoreKit.framework in Frameworks */,
 				4ECA0C741D8836FD00E7EA88 /* FBSDKLoginKit.framework in Frameworks */,
+				4E4A5D2B1DD4CE9A00F4F78A /* StoreKit.framework in Frameworks */,
 				4ECA0C721D8836F300E7EA88 /* FBSDKShareKit.framework in Frameworks */,
 				4ECA0C6B1D85D63600E7EA88 /* Security.framework in Frameworks */,
 				4107211B07472069F8521C97 /* Pods_YoutubeApp.framework in Frameworks */,
@@ -218,6 +253,7 @@
 		0A176624DCB95C70460E2C5F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4E4A5D2A1DD4CE9A00F4F78A /* StoreKit.framework */,
 				4ECA0C751D883A4E00E7EA88 /* Bolts.framework */,
 				4ECA0C731D8836FD00E7EA88 /* FBSDKLoginKit.framework */,
 				4ECA0C711D8836F200E7EA88 /* FBSDKShareKit.framework */,
@@ -251,9 +287,23 @@
 			children = (
 				4E1742D41DBB9CCE009D7B7D /* Log In Button_DE.png */,
 				4ECA0C601D8433EB00E7EA88 /* Log In Button Highlighted.png */,
+				4E4A5D261DD36AF400F4F78A /* Backgd.png */,
+				4E4A5D281DD36B2300F4F78A /* Backgnd.png */,
+				4E4A5D121DCBC26500F4F78A /* GoogleLogoRed.png */,
+				4E4A5D141DCBC2FE00F4F78A /* GoogleLogoBlue.png */,
+				4E4A5D241DCFB3C800F4F78A /* NextButton.png */,
+				4E1E521F1DC6005A00E9058B /* food-science.jpg */,
+				4E1E52251DC6021800E9058B /* energy-and-space.jpg */,
+				4E4A5D201DCD1B5600F4F78A /* InterestsNavBar.png */,
+				4E4A5D1D1DCD1B1600F4F78A /* InterestsNavBar@2x.png */,
 				4ECA0C5C1D8431D700E7EA88 /* pwrdByYT-white.png */,
+				4E4A5D101DCBBD7300F4F78A /* bg_image.jpg */,
+				4E1E52231DC6016E00E9058B /* inventions.jpg */,
+				4E4A5D181DCBCF5300F4F78A /* earth.jpg */,
 				4E27A8401DC4F2160007BAC6 /* action.jpg */,
+				4E1E52211DC600E800E9058B /* fauna-and-flora.jpg */,
 				4E27A8411DC4F2160007BAC6 /* animals.jpg */,
+				4E4A5D161DCBCAF200F4F78A /* bg_image_2.jpeg */,
 				4E27A8421DC4F2160007BAC6 /* comedy.jpg */,
 				4E27A8431DC4F2160007BAC6 /* film.jpg */,
 				4E27A8441DC4F2160007BAC6 /* gaming.jpg */,
@@ -308,6 +358,8 @@
 			children = (
 				4E72B8561C58230B004592E7 /* AppDelegate.swift */,
 				4E2999C71C6E613F00563520 /* InterestsViewController.swift */,
+				4E4A5D2C1DD4D1C700F4F78A /* UpgradeManager.swift */,
+				4E4A5D2E1DD4D3FE00F4F78A /* UpgradeViewController.swift */,
 				4E27A83E1DC4EBED0007BAC6 /* CustomViewFlowLayout.swift */,
 				4E1B380A1CF0FA3400568FB9 /* ExampleOverlayView.swift */,
 				4E1B380C1CF0FA8700568FB9 /* OverlayView.xib */,
@@ -449,6 +501,11 @@
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = C3BX32XR8J;
 						LastSwiftMigration = 0800;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 					4EB2DD561D92C30A00F020C1 = {
 						CreatedOnToolsVersion = 8.0;
@@ -491,29 +548,40 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E4A5D191DCBCF5300F4F78A /* earth.jpg in Resources */,
 				4E1742D31DBB98E1009D7B7D /* Localizable.strings in Resources */,
+				4E4A5D291DD36B2300F4F78A /* Backgnd.png in Resources */,
 				4EC1FB731D7F2115009D9F91 /* Icon.png in Resources */,
 				4E27A84F1DC4F2160007BAC6 /* music.jpg in Resources */,
 				4E72B8611C58230B004592E7 /* LaunchScreen.storyboard in Resources */,
+				4E4A5D111DCBBD7300F4F78A /* bg_image.jpg in Resources */,
 				4ECA0C571D842C0900E7EA88 /* BG-Image.png in Resources */,
 				4EA8084D1C711785009398D3 /* physics.jpg in Resources */,
+				4E4A5D1F1DCD1B1600F4F78A /* InterestsNavBar@2x.png in Resources */,
 				4ECA0C5D1D8431D700E7EA88 /* pwrdByYT-white.png in Resources */,
 				4EA8084F1C711878009398D3 /* chemistry.jpg in Resources */,
 				4E1C99CE1D3D12C60009F799 /* TableSectionHeader.xib in Resources */,
 				4E27A84B1DC4F2160007BAC6 /* animals.jpg in Resources */,
+				4E1E52261DC6021800E9058B /* energy-and-space.jpg in Resources */,
 				4E2999CA1C6E650100563520 /* maths.jpg in Resources */,
 				4ECA0C5B1D842D9C00E7EA88 /* Log In Button.png in Resources */,
 				4E27A84D1DC4F2160007BAC6 /* film.jpg in Resources */,
 				4EFE25EF1C7377A7009E44CD /* geography.jpg in Resources */,
+				4E4A5D131DCBC26500F4F78A /* GoogleLogoRed.png in Resources */,
 				4EA8084B1C7116BD009398D3 /* history.jpg in Resources */,
+				4E4A5D171DCBCAF200F4F78A /* bg_image_2.jpeg in Resources */,
 				4ECA0C611D8433EB00E7EA88 /* Log In Button Highlighted.png in Resources */,
 				4E27A8531DC4F2160007BAC6 /* vlogging.jpg in Resources */,
 				4E27A84C1DC4F2160007BAC6 /* comedy.jpg in Resources */,
+				4E1E52201DC6005A00E9058B /* food-science.jpg in Resources */,
 				4E27A8511DC4F2160007BAC6 /* sports.jpg in Resources */,
+				4E1E52241DC6016E00E9058B /* inventions.jpg in Resources */,
 				4E322D581D7D971E00E5B1F6 /* settings-16.png in Resources */,
+				4E4A5D151DCBC2FE00F4F78A /* GoogleLogoBlue.png in Resources */,
 				4E72B85E1C58230B004592E7 /* Assets.xcassets in Resources */,
 				4EFE25F11C737B4A009E44CD /* technology.jpg in Resources */,
 				4E27A8501DC4F2160007BAC6 /* social.jpg in Resources */,
+				4E4A5D251DCFB3C800F4F78A /* NextButton.png in Resources */,
 				4E322D5A1D7D97A300E5B1F6 /* settings-24.png in Resources */,
 				4E72B85C1C58230B004592E7 /* Main.storyboard in Resources */,
 				4EA808511C711D00009398D3 /* biology.jpg in Resources */,
@@ -522,10 +590,13 @@
 				4E1B380D1CF0FA8700568FB9 /* OverlayView.xib in Resources */,
 				4ECA0C591D842D1E00E7EA88 /* Sign-In-Google.png in Resources */,
 				4E27A84A1DC4F2160007BAC6 /* action.jpg in Resources */,
+				4E4A5D271DD36AF400F4F78A /* Backgd.png in Resources */,
 				4E1742D51DBB9CCE009D7B7D /* Log In Button_DE.png in Resources */,
+				4E4A5D211DCD1B5600F4F78A /* InterestsNavBar.png in Resources */,
 				4E1B38091CEF6FA200568FB9 /* Thumbnail.xib in Resources */,
 				4EA808531C711EF0009398D3 /* philosophy.jpg in Resources */,
 				4E03E3921D47AD6E00872719 /* Background@3x.png in Resources */,
+				4E1E52221DC600E800E9058B /* fauna-and-flora.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,6 +732,7 @@
 				4E76B2AC1D55DF2C00223078 /* SavedVideosViewController.swift in Sources */,
 				4ECA0C641D8434EA00E7EA88 /* SSCheckmark.m in Sources */,
 				4E322D621D7E4DF800E5B1F6 /* ErrorView.swift in Sources */,
+				4E4A5D2D1DD4D1C700F4F78A /* UpgradeManager.swift in Sources */,
 				4E322D661D7EE2FE00E5B1F6 /* SettingsViewController.swift in Sources */,
 				4E1C99CC1D3D12720009F799 /* TableSectionHeader.swift in Sources */,
 				4E322D5C1D7DC92200E5B1F6 /* LoadingViewController.swift in Sources */,
@@ -679,6 +751,7 @@
 				4E322D601D7E1AD600E5B1F6 /* BasicPlaceholderView.swift in Sources */,
 				4E6D8E051CECF95E00211D4B /* Thumbnail.swift in Sources */,
 				4E12E21D1D21A52300F44DB9 /* SignInViewController.swift in Sources */,
+				4E4A5D2F1DD4D3FE00F4F78A /* UpgradeViewController.swift in Sources */,
 				4EAF1C7B1D4CD3F7003F4B0D /* KeywordVC.swift in Sources */,
 				4E88FF621C6B993400736678 /* VideoModel.swift in Sources */,
 			);

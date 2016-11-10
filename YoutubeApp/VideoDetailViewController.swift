@@ -71,13 +71,6 @@ class VideoDetailViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        /*
-        if (otherGestureRecognizer is UITapGestureRecognizer) {
-            otherGestureRecognizer.require(toFail: gestureRecognizer)
-            
-            print("added failure requirement to: %@", otherGestureRecognizer)
-        }
-        */
         return true
     }
     override func didReceiveMemoryWarning() {

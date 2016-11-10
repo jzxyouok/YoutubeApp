@@ -127,6 +127,66 @@ class VideoModel: NSObject {
                 } else {
                     makeSubVideosRequest(26, keywordArray: keywordArray)
                 }
+            } else if (interest=="film and animation") {
+                if interest==interestArray.last {
+                    makeVideosRequest(1, keywordArray: keywordArray, completionHandler: completionHandler)
+                } else {
+                    makeSubVideosRequest(1, keywordArray: keywordArray)
+                }
+            } else if (interest=="sports") {
+                if interest==interestArray.last {
+                    makeVideosRequest(17, keywordArray: keywordArray, completionHandler: completionHandler)
+                } else {
+                    makeSubVideosRequest(17, keywordArray: keywordArray)
+                }
+            } else if (interest=="music") {
+                if interest==interestArray.last {
+                    makeVideosRequest(10, keywordArray: keywordArray, completionHandler: completionHandler)
+                } else {
+                    makeSubVideosRequest(10, keywordArray: keywordArray)
+                }
+            } else if (interest=="animals") {
+                if interest==interestArray.last {
+                    makeVideosRequest(15, keywordArray: keywordArray, completionHandler: completionHandler)
+                } else {
+                    makeSubVideosRequest(15, keywordArray: keywordArray)
+                }
+            } else if (interest=="comedy") {
+                if interest==interestArray.last {
+                    makeVideosRequest(23, keywordArray: keywordArray, completionHandler: completionHandler)
+                } else {
+                    makeSubVideosRequest(34, keywordArray: keywordArray)
+                }
+            } else if (interest=="action") {
+                if interest==interestArray.last {
+                    makeVideosRequest(32, keywordArray: keywordArray, completionHandler: completionHandler)
+                } else {
+                    makeSubVideosRequest(32, keywordArray: keywordArray)
+                }
+            } else if (interest=="gaming") {
+                if interest==interestArray.last {
+                    makeVideosRequest(20, keywordArray: keywordArray, completionHandler: completionHandler)
+                } else {
+                    makeSubVideosRequest(20, keywordArray: keywordArray)
+                }
+            } else if (interest=="vlogging") {
+                if interest==interestArray.last {
+                    makeVideosRequest(21, keywordArray: keywordArray, completionHandler: completionHandler)
+                } else {
+                    makeSubVideosRequest(21, keywordArray: keywordArray)
+                }
+            } else if (interest=="travel and events") {
+                if interest==interestArray.last {
+                    makeVideosRequest(19, keywordArray: keywordArray, completionHandler: completionHandler)
+                } else {
+                    makeSubVideosRequest(19, keywordArray: keywordArray)
+                }
+            } else if (interest=="social") {
+                if interest==interestArray.last {
+                    makeVideosRequest(24, keywordArray: keywordArray, completionHandler: completionHandler)
+                } else {
+                    makeSubVideosRequest(24, keywordArray: keywordArray)
+                }
             } else {
                 if interest==interestArray.last {
                     makeVideosRequest(27, keywordArray: keywordArray, completionHandler: completionHandler)
@@ -173,21 +233,21 @@ class VideoModel: NSObject {
             switch skill{
             case "biology":
                 if skill==skillArray.last {
-                    makeSkillsVideosRequest(biology, keywordArray: keywordArray, completionHandler: completionHandler)
+                    makeSkillsVideosRequest(["biology"], keywordArray: keywordArray, completionHandler: completionHandler)
                 } else {
-                    makeSubSkillsVideosRequest(biology, keywordArray: keywordArray)
+                    makeSubSkillsVideosRequest(["biology"], keywordArray: keywordArray)
                 }
             case "chemistry":
                 if skill==skillArray.last {
-                    makeSkillsVideosRequest(chemistry, keywordArray: keywordArray, completionHandler: completionHandler)
+                    makeSkillsVideosRequest(["chemistry"], keywordArray: keywordArray, completionHandler: completionHandler)
                 } else {
-                    makeSubSkillsVideosRequest(chemistry, keywordArray: keywordArray)
+                    makeSubSkillsVideosRequest(["chemistry"], keywordArray: keywordArray)
                 }
             case "physics":
                 if skill==skillArray.last {
-                    makeSkillsVideosRequest(physics, keywordArray: keywordArray, completionHandler: completionHandler)
+                    makeSkillsVideosRequest(["physics"], keywordArray: keywordArray, completionHandler: completionHandler)
                 } else {
-                    makeSubSkillsVideosRequest(physics, keywordArray: keywordArray)
+                    makeSubSkillsVideosRequest(["physics"], keywordArray: keywordArray)
                 }
             case "philosophy":
                 if skill==skillArray.last {
@@ -195,30 +255,48 @@ class VideoModel: NSObject {
                 } else {
                     makeSubSkillsVideosRequest(philosophy, keywordArray: keywordArray)
                 }
-            case "mathematics":
+            case "computer science and math":
                 if skill==skillArray.last {
-                    makeSkillsVideosRequest(mathematics, keywordArray: keywordArray, completionHandler: completionHandler)
+                    makeSkillsVideosRequest(["maths and computer science"], keywordArray: keywordArray, completionHandler: completionHandler)
                 } else {
-                    makeSubSkillsVideosRequest(physics, keywordArray: keywordArray)
+                    makeSubSkillsVideosRequest(["maths and computer science"], keywordArray: keywordArray)
                 }
-            case "geography":
+            case "food science":
                 if skill==skillArray.last {
-                    makeSkillsVideosRequest(geography, keywordArray: keywordArray, completionHandler: completionHandler)
+                    makeSkillsVideosRequest(["food science"], keywordArray: keywordArray, completionHandler: completionHandler)
                 } else {
-                    makeSubSkillsVideosRequest(geography, keywordArray: keywordArray)
+                    makeSubSkillsVideosRequest(["food science"], keywordArray: keywordArray)
                 }
                 
-            case "history":
+            case "fauna and flora":
                 if skill==skillArray.last {
-                    makeSkillsVideosRequest(history, keywordArray: keywordArray, completionHandler: completionHandler)
+                    makeSkillsVideosRequest(["fauna and flora"], keywordArray: keywordArray, completionHandler: completionHandler)
                 } else {
-                    makeSubSkillsVideosRequest(history, keywordArray: keywordArray)
+                    makeSubSkillsVideosRequest(["fauna and flora"], keywordArray: keywordArray)
                 }
-            case "technology":
+            case "inventions and innovation":
                 if skill==skillArray.last {
-                    makeSkillsVideosRequest(technology, keywordArray: keywordArray, completionHandler: completionHandler)
+                    makeSkillsVideosRequest(["inventions and innovation"], keywordArray: keywordArray, completionHandler: completionHandler)
                 } else {
-                    makeSubSkillsVideosRequest(technology, keywordArray: keywordArray)
+                    makeSubSkillsVideosRequest(["inventions and innovation"], keywordArray: keywordArray)
+                }
+            case "energy and space":
+                if skill==skillArray.last {
+                    makeSkillsVideosRequest(["energy and space"], keywordArray: keywordArray, completionHandler: completionHandler)
+                } else {
+                    makeSubSkillsVideosRequest(["energy and space"], keywordArray: keywordArray)
+                }
+            case "earth and environmental studies":
+                if skill==skillArray.last {
+                    makeSkillsVideosRequest(["earth and environmental studies"], keywordArray: keywordArray, completionHandler: completionHandler)
+                } else {
+                    makeSubSkillsVideosRequest(["earth and environmental studies"], keywordArray: keywordArray)
+                }
+            case "electricity and electronics":
+                if skill==skillArray.last {
+                    makeSkillsVideosRequest(["electricity and electronics"], keywordArray: keywordArray, completionHandler: completionHandler)
+                } else {
+                    makeSubSkillsVideosRequest(["electricity and electronics"], keywordArray: keywordArray)
                 }
             default: break
             }

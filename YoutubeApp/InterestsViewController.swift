@@ -18,7 +18,7 @@ extension Array where Element: Equatable {
 
 class InterestsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    var initialArray: [NSString] = ["philosophy","biology","chemistry","physics","history","mathematics","geography","technology",]
+    var initialArray: [NSString] = ["philosophy","biology","chemistry","physics","history","mathematics","geography","technology","film and animation", "sports","music","animals","comedy","action","gaming","vlogging","travel and events","social"]
     var interestSelectionArray = [NSString]()
     var model = VideoModel()
     var switchArray: [Int] = []
@@ -27,7 +27,7 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
     
     @IBOutlet weak var collectionViewFlowLayout: CustomViewFlowLayout!
     
-    @IBAction func nextButtonClicked(_ sender: UIBarButtonItem) {
+    @IBAction func nextButtonClicked(_ sender: UIButton) {
         
         if (interestSelectionArray == []){
             for index in switchArray {
@@ -57,7 +57,7 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
             let keywords=userDefaults.object(forKey: "KeywordsArray") as? [NSString]
             print(keywords)
             if keywords != nil {
-                ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).interestSelectionArray=self.interestSelectionArray+keywords!
+                ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).interestSelectionArray=self.interestSelectionArray
             } else {
                 ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).interestSelectionArray=self.interestSelectionArray
             }
@@ -80,7 +80,8 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
         navigationController!.navigationBar.titleTextAttributes=[NSForegroundColorAttributeName : UIColor.white]
         navigationController!.navigationBar.isOpaque=true
         self.navigationController!.navigationBar.barStyle = .black
-        
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(named: "InterestsNavBar.png")?.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 0, 0, 0), resizingMode: .stretch), for: .default)
+        self.navigationController!.navigationBar.backgroundColor=UIColor.clear
         let gesture = UITapGestureRecognizer(target: self, action: #selector(InterestsViewController.cellTapped(_:)))
         self.collectionView.addGestureRecognizer(gesture)
         
@@ -114,7 +115,7 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
      */
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
+        return 8
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

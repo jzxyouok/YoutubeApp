@@ -62,7 +62,7 @@ class SignInViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.getStartedButton.setImage(UIImage(named: NSLocalizedString("Log In Button", comment: "")+".png"), for: UIControlState.normal)
+        self.getStartedButton.setImage(nil, for: UIControlState.normal)
         self.navigationController!.setNavigationBarHidden(true, animated: false)
     }
     

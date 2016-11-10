@@ -185,9 +185,31 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     }
     
     @IBAction func undoButtonTapped() {
+        if !UpgradeManager.sharedInstance.hasUpgraded() {
+            
+            let alertController = UIAlertController(title: "Upgrade",
+                                                    message: "Please upgrade to be able to undo selections",
+                                                    preferredStyle: .alert)
+            
+            let upgradeAction = UIAlertAction(title: "Upgrade",
+                                              style: .default,
+                                              handler: { (action) in
+                                                self.performSegue(withIdentifier: "ShowUpgradeViewController", sender: nil)
+            })
+            
+            let laterAction = UIAlertAction(title: "Later",
+                                            style: .cancel,
+                                            handler: nil)
+            
+            alertController.addAction(upgradeAction)
+            alertController.addAction(laterAction)
+            
+            present(alertController, animated: true, completion: nil)
+        } else {
         kolodaView?.revertAction()
         cacheLoad()
         self.kolodaView.reloadData()
+        }
     }
     
     
@@ -494,11 +516,15 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
      */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //Get a reference for the destination view controller.
-        let detailViewController = segue.destination as! VideoDetailViewController
-        print(videos.count)
-        //Set the selectedVideo property of the destination view controller.
-        detailViewController.selectedVideo = self.selectedVideo
         
+        if segue.identifier == "goToDetail" {
+        
+            let detailViewController = segue.destination as! VideoDetailViewController
+            print(videos.count)
+            //Set the selectedVideo property of the destination view controller.
+            detailViewController.selectedVideo = self.selectedVideo
+        
+        }
     }
     
 }

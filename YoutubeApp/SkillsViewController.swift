@@ -12,9 +12,10 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var tableView: UITableView!
     
-    var initialArray: [NSString] = ["philosophy","biology","chemistry","physics","history","mathematics","geography","technology"]
-    var imageArray: [String] = ["philosophy.jpg","biology.jpg","chemistry.jpg","physics.jpg","history.jpg","maths.jpg","geography.jpg","technology.jpg"]
-    var selectedData = [0,0,0,0,0,0,0,0]
+    var initialArray: [NSString] = ["philosophy","biology","chemistry","physics","computer science and math","electricity and electronics","food science","fauna and flora","invention and innovation","energy and space","earth and environmental studies"]
+    
+    var imageArray: [String] = ["philosophy.jpg","biology.jpg","chemistry.jpg","physics.jpg","maths.jpg","technology.jpg","food-science.jpg","fauna-and-flora.jpg","inventions.jpg","energy-and-space.jpg","earth.jpg"]
+    var selectedData = [0,0,0,0,0,0,0,0,0,0,0]
     var interestSelectionArray = [NSString]()
     var skillSelectionArray = [NSString]()
     var numbersArray = [Int]()
@@ -164,7 +165,7 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 8
+        return 11
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

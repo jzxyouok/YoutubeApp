@@ -33,7 +33,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
         if (indexPath as NSIndexPath).section == 0 {
             if ((indexPath as NSIndexPath).row == 0) {
-                cell.textLabel!.text = NSLocalizedString("Reselect Interests, Skills and Keywords", comment: "")
+                cell.textLabel!.text = NSLocalizedString("Reselect Interests and Skills", comment: "")
             }
             if ((indexPath as NSIndexPath).row == 1){
                 cell.textLabel!.text = NSLocalizedString("Reselect Interests only", comment: "")
@@ -125,7 +125,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             if (indexPath as NSIndexPath).row == 0 {
                 userDefaults.set(nil, forKey: "InterestsArray")
                 userDefaults.set(nil, forKey: "SkillsArray")
-                userDefaults.set(nil, forKey: "KeywordsArray")
                 let nvc = storyboard.instantiateViewController(withIdentifier: "NavigationController2") as! UINavigationController
                 (nvc.viewControllers[0] as! InterestsViewController).model.service=self.model.service
                 self.present(nvc, animated: true, completion: nil)
