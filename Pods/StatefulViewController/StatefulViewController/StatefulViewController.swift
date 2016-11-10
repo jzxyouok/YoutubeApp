@@ -62,7 +62,7 @@ public protocol StatefulViewController: class, BackingViewProvider {
     ///
     /// - parameter animated: 	true if the switch to the placeholder view should be animated, false otherwise
     /// - parameter error:		An error that might have occured whilst loading
-    func endLoading(animated: Bool, error: ErrorType?, completion: (() -> Void)?)
+    func endLoading(animated: Bool, error: Error?, completion: (() -> Void)?)
     
     /// Transitions the view to the appropriate state based on the `loading` and `error`
     /// input parameters and shows/hides corresponding placeholder views.
@@ -70,7 +70,7 @@ public protocol StatefulViewController: class, BackingViewProvider {
     /// - parameter loading:		true if the controller is currently loading
     /// - parameter error:		An error that might have occured whilst loading
     /// - parameter animated:	true if the switch to the placeholder view should be animated, false otherwise
-    func transitionViewStates(loading: Bool, error: ErrorType?, animated: Bool, completion: (() -> Void)?)
+    func transitionViewStates(loading: Bool, error: Error?, animated: Bool, completion: (() -> Void)?)
     
     
     // MARK: Content and error handling
@@ -85,5 +85,5 @@ public protocol StatefulViewController: class, BackingViewProvider {
     /// for the user to continue browsing content.
     ///
     /// - parameter error:	The error that occured
-    func handleErrorWhenContentAvailable(error: ErrorType)
+    func handleErrorWhenContentAvailable(error: Error)
 }

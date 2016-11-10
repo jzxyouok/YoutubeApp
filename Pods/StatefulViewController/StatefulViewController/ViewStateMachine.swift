@@ -33,7 +33,8 @@ public func == (lhs: ViewStateMachineState, rhs: ViewStateMachineState) -> Bool 
 ///
 public class ViewStateMachine {
     private var viewStore: [String: UIView]
-    private let queue = dispatch_queue_create("com.aschuch.viewStateMachine.queue", DISPATCH_QUEUE_SERIAL)
+    private let queue = DispatchQueue(label: "com.aschuch.viewStateMachine.queue")
+    //private let queue = dispatch_queue_create("com.aschuch.viewStateMachine.queue", DISPATCH_QUEUE_SERIAL)
     
     /// The view that should act as the superview for any added views
     public let view: UIView
@@ -90,13 +91,13 @@ public class ViewStateMachine {
     
     public subscript(state: String) -> UIView? {
         get {
-            return viewForState(state)
+            return viewForState(state: state)
         }
         set(newValue) {
             if let value = newValue {
-                addView(value, forState: state)
+                addView(view: value, forState: state)
             } else {
-                removeViewForState(state)
+                removeViewForState(state: state)
             }
         }
     }
@@ -114,27 +115,27 @@ public class ViewStateMachine {
     public func transitionToState(state: ViewStateMachineState, animated: Bool = true, completion: (() -> ())? = nil) {
         lastState = state
         
-        dispatch_async(queue) {
+        queue.async {
             if state == self.currentState {
                 return
             }
             
             // Suspend the queue, it will be resumed in the completion block
-            dispatch_suspend(self.queue)
+            self.queue.suspend()
             self.currentState = state
             
             let c: () -> () = {
-                dispatch_resume(self.queue)
+                self.queue.resume()
                 completion?()
             }
             
             // Switch state and update the view
-            dispatch_sync(dispatch_get_main_queue()) {
+            DispatchQueue.main.sync() {
                 switch state {
                 case .None:
                     self.hideAllViews(animated: animated, completion: c)
                 case .View(let viewKey):
-                    self.showViewWithKey(viewKey, animated: animated, completion: c)
+                    self.showViewWithKey(state: viewKey, animated: animated, completion: c)
                 }
             }
         }
@@ -154,8 +155,8 @@ public class ViewStateMachine {
             let metrics = ["top": insets.top, "bottom": insets.bottom, "left": insets.left, "right": insets.right]
             let views = ["view": newView]
 
-            let hConstraints = NSLayoutConstraint.constraintsWithVisualFormat("|-left-[view]-right-|", options: [], metrics: metrics, views: views)
-            let vConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-top-[view]-bottom-|", options: [], metrics: metrics, views: views)
+            let hConstraints = NSLayoutConstraint.constraints(withVisualFormat: "|-left-[view]-right-|", options: [], metrics: metrics, views: views)
+            let vConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-top-[view]-bottom-|", options: [], metrics: metrics, views: views)
             self.view.addConstraints(hConstraints)
             self.view.addConstraints(vConstraints)
         }
@@ -197,9 +198,9 @@ public class ViewStateMachine {
         animateChanges(animated: animated, animations: animations, animationCompletion: animationCompletion)
     }
     
-    private func animateChanges(animated animated: Bool, animations: () -> (), animationCompletion: (Bool) -> ()) {
+    private func animateChanges(animated animated: Bool, animations: @escaping () -> (), animationCompletion: @escaping (Bool) -> ()) {
         if animated {
-            UIView.animateWithDuration(0.3, animations: animations, completion: animationCompletion)
+            UIView.animate(withDuration: 0.3, animations: animations, completion: animationCompletion)
         } else {
             animationCompletion(true)
         }

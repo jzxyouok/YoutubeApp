@@ -22,7 +22,7 @@ extension BackingViewProvider where Self: UIView {
 extension StatefulViewController {
     
     public var stateMachine: ViewStateMachine {
-        return associatedObject(self, key: &stateMachineKey) { [unowned self] in
+        return associatedObject(host: self, key: &stateMachineKey) { [unowned self] in
             return ViewStateMachine(view: self.backingView)
         }
     }
@@ -45,18 +45,18 @@ extension StatefulViewController {
     // MARK: Views
     
     public var loadingView: UIView? {
-        get { return placeholderView(.Loading) }
-        set { setPlaceholderView(newValue, forState: .Loading) }
+        get { return placeholderView(state: .Loading) }
+        set { setPlaceholderView(view: newValue, forState: .Loading) }
     }
     
     public var errorView: UIView? {
-        get { return placeholderView(.Error) }
-        set { setPlaceholderView(newValue, forState: .Error) }
+        get { return placeholderView(state: .Error) }
+        set { setPlaceholderView(view: newValue, forState: .Error) }
     }
     
     public var emptyView: UIView? {
-        get { return placeholderView(.Empty) }
-        set { setPlaceholderView(newValue, forState: .Empty) }
+        get { return placeholderView(state: .Empty) }
+        set { setPlaceholderView(view: newValue, forState: .Empty) }
     }
     
     
@@ -65,25 +65,25 @@ extension StatefulViewController {
     public func setupInitialViewState(completion: (() -> Void)? = nil) {
         let isLoading = (lastState == .Loading)
         let error: NSError? = (lastState == .Error) ? NSError(domain: "com.aschuch.StatefulViewController.ErrorDomain", code: -1, userInfo: nil) : nil
-        transitionViewStates(isLoading, error: error, animated: false, completion: completion)
+        transitionViewStates(loading: isLoading, error: error, animated: false, completion: completion)
     }
     
     public func startLoading(animated: Bool = false, completion: (() -> Void)? = nil) {
-        transitionViewStates(true, animated: animated, completion: completion)
+        transitionViewStates(loading: true, error: nil, animated: animated, completion: completion)
     }
     
-    public func endLoading(animated: Bool = true, error: ErrorType? = nil, completion: (() -> Void)? = nil) {
-        transitionViewStates(false, animated: animated, error: error, completion: completion)
+    public func endLoading(animated: Bool = true, error: Error? = nil, completion: (() -> Void)? = nil) {
+        transitionViewStates(loading: false, error: error, animated: animated, completion: completion)
     }
     
-    public func transitionViewStates(loading: Bool = false, error: ErrorType? = nil, animated: Bool = true, completion: (() -> Void)? = nil) {
+    public func transitionViewStates(loading: Bool = false, error: Error? = nil, animated: Bool = true, completion: (() -> Void)? = nil) {
         // Update view for content (i.e. hide all placeholder views)
         if hasContent() {
             if let e = error {
                 // show unobstrusive error
-                handleErrorWhenContentAvailable(e)
+                handleErrorWhenContentAvailable(error: e)
             }
-            self.stateMachine.transitionToState(.None, animated: animated, completion: completion)
+            self.stateMachine.transitionToState(state: .None, animated: animated, completion: completion)
             return
         }
         
@@ -94,7 +94,7 @@ extension StatefulViewController {
         } else if let _ = error {
             newState = .Error
         }
-        self.stateMachine.transitionToState(.View(newState.rawValue), animated: animated, completion: completion)
+        self.stateMachine.transitionToState(state: .View(newState.rawValue), animated: animated, completion: completion)
     }
     
     
@@ -104,7 +104,7 @@ extension StatefulViewController {
         return true
     }
     
-    public func handleErrorWhenContentAvailable(error: ErrorType) {
+    public func handleErrorWhenContentAvailable(error: Error) {
         // Default implementation does nothing.
     }
     

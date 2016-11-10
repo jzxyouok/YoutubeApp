@@ -488,7 +488,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Pranav Kasetti";
 				TargetAttributes = {
 					4E0E90E51D9ADDE2000B24EF = {
@@ -865,8 +865,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -913,8 +915,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -934,6 +938,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				"OTHER_LDFLAGS[arch=*]" = "-lc++";
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -943,6 +948,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 566F074387311FAF7E3AB17F /* Pods-YoutubeApp.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
@@ -956,6 +962,66 @@
 				INFOPLIST_FILE = YoutubeApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"LIBRARY_SEARCH_PATHS[arch=*]" = "";
+				OTHER_LDFLAGS = "$(inherited)";
+				"OTHER_LDFLAGS[arch=*]" = (
+					"$(inherited)",
+					"-ObjC",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"Accounts\"",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"AlamofireObjectMapper\"",
+					"-framework",
+					"\"CoreData\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"Fabric\"",
+					"-framework",
+					"\"Flurry_iOS_SDK\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GTMOAuth2\"",
+					"-framework",
+					"\"GTMSessionFetcher\"",
+					"-framework",
+					"\"GoogleAPIClientForREST\"",
+					"-framework",
+					"\"Koloda\"",
+					"-framework",
+					"\"NVActivityIndicatorView\"",
+					"-framework",
+					"\"ObjectMapper\"",
+					"-framework",
+					"\"PEGKit\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"ReachabilitySwift\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"Social\"",
+					"-framework",
+					"\"StatefulViewController\"",
+					"-framework",
+					"\"TwitterCore\"",
+					"-framework",
+					"\"TwitterKit\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"pop\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = pranav.kasetti.YoutubeApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -971,6 +1037,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 110906C6BF1B24CFE64C2637 /* Pods-YoutubeApp.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
@@ -984,6 +1051,8 @@
 				INFOPLIST_FILE = YoutubeApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = pranav.kasetti.YoutubeApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -998,6 +1067,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CD3BCF8576FB3C547DA7E860 /* Pods-YoutubeAppTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1020,6 +1090,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 42C881016821534CDDFED871 /* Pods-YoutubeAppTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;

@@ -105,7 +105,7 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //self.tableView.backgroundColor=UIColor.blackColor()
         
         navigationController!.navigationBar.barTintColor = UIColor.black
-        navigationController!.navigationBar.tintColor=UIColor.white
+        navigationController!.navigationBar.tintColor=UIColor.black
         navigationController!.navigationBar.titleTextAttributes=[NSForegroundColorAttributeName : UIColor.black]
         navigationController!.navigationBar.isOpaque=true
         self.navigationController!.navigationBar.barStyle = .black

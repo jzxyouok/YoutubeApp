@@ -10,6 +10,32 @@
 	<string>46</string>
 	<key>objects</key>
 	<dict>
+		<key>00000C51D0E79F7E4EBE680398A7FD36</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>F2737A4B9C2F4C09E7E451FB9640699A</string>
+				<string>F5451579B12BFBB9A6DB7C213CA86F98</string>
+				<string>C7A8FB64167A9C3ED7BE95A0B0297CBB</string>
+				<string>4807D0FA9BC1C586ADA78B632CE22350</string>
+				<string>7441FD60CA2EEC313C80CAEA6E6AEFD9</string>
+				<string>7761CD8F68B4AC86D2036905418CF6D5</string>
+				<string>EDD301B255B520F56FFFEAFA00D61AA2</string>
+				<string>5BDF24E4143DDBF4F334373DA6384B6D</string>
+				<string>4A9B2129D00393EEC286FC4077418566</string>
+				<string>A35D564715FD8639D19DE0451452B725</string>
+				<string>391653AA42CAB2E3B3990C94E2C8C1A9</string>
+				<string>9FE7F54C956047211B100029418B29B4</string>
+				<string>2812710D4D378A6244C98CC7B02BE089</string>
+				<string>6938D57419A80499D080BFFCDDDC80F7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>FlurryAds</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>007ACAE8D8E44A3D8AD926F444FED1B9</key>
 		<dict>
 			<key>fileRef</key>
@@ -119,21 +145,6 @@
 					<string>Public</string>
 				</array>
 			</dict>
-		</dict>
-		<key>02BBF8DB03DB4D92AABF70783D815CED</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>FlurryAdNativeStyle.h</string>
-			<key>path</key>
-			<string>FlurryAds/FlurryAdNative/FlurryAdNativeStyle.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>034014829C1E4434983CF3A690C12017</key>
 		<dict>
@@ -579,7 +590,7 @@
 		<key>0AF63253F46EBCC1381F820861338D0A</key>
 		<dict>
 			<key>fileRef</key>
-			<string>AD6726A97166E57D4EEFDACDBD66C93F</string>
+			<string>F5451579B12BFBB9A6DB7C213CA86F98</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -689,7 +700,7 @@
 		<key>0BB4C932784F1856AEE4E8B42ACA3D64</key>
 		<dict>
 			<key>fileRef</key>
-			<string>02BBF8DB03DB4D92AABF70783D815CED</string>
+			<string>A35D564715FD8639D19DE0451452B725</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -780,6 +791,21 @@
 			<string>ED57BBBA16B95400404D026DCA161B19</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+		</dict>
+		<key>0C628C371B49D7DA6D15F1C70FBF80DC</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BB0913893E7EF2F6ACF446278D22FE14</string>
+				<string>E6F8858BBB83558E83A4A6156637DDF1</string>
+				<string>E8B0DDE195BD3CABCE158F9E1018153A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>FlurrySDK</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>0C91E43B52D8F9B9E1A9B0C49C0E96C2</key>
 		<dict>
@@ -1300,6 +1326,21 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>177A097050CAD4FFECCF0FCCA8613933</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>archive.ar</string>
+			<key>name</key>
+			<string>libFlurry_7.6.6.a</string>
+			<key>path</key>
+			<string>Flurry/libFlurry_7.6.6.a</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>18022A519718AD6E08E285D35F742961</key>
 		<dict>
 			<key>fileRef</key>
@@ -1313,6 +1354,17 @@
 					<string>Public</string>
 				</array>
 			</dict>
+		</dict>
+		<key>1827041B909830742FFECBA8E3768AAF</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Flurry-iOS-SDK.modulemap</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>18559A537120BBE9D2AFCE93AF3415C5</key>
 		<dict>
@@ -1431,6 +1483,19 @@
 			<string>Support Files</string>
 			<key>path</key>
 			<string>../Target Support Files/PEGKit</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1A38C456B0D1F46EC519E44872EBCDC8</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Flurry-iOS-SDK-prefix.pch</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -1561,21 +1626,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>1C1CCAF39F33A7146EB9DC9FD781F269</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>FlurryAds.h</string>
-			<key>path</key>
-			<string>FlurryAds/StaticAPI/FlurryAds.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>1CA169C1842A2E3345D483A41F948623</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -1631,7 +1681,7 @@
 		<key>1E04F6335DE79C2863B97D07933AC626</key>
 		<dict>
 			<key>fileRef</key>
-			<string>3C2345665DB0F60461ED0A03F8616931</string>
+			<string>9FE7F54C956047211B100029418B29B4</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -2047,21 +2097,6 @@
 				</array>
 			</dict>
 		</dict>
-		<key>24233569E0B07CCF1727F7AC4AD68591</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>258D7555372B1994D005195F781014A8</string>
-				<string>BB4415C11A1F8EC24F38E51C6F8A4F92</string>
-				<string>E6A891204486193BC63805893768ABEF</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>FlurrySDK</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>24508B3FDCD0C474F1C39E6E26B71749</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -2154,21 +2189,6 @@
 			<string>ED57BBBA16B95400404D026DCA161B19</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-		</dict>
-		<key>258D7555372B1994D005195F781014A8</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>Flurry.h</string>
-			<key>path</key>
-			<string>Flurry/Flurry.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>264B0544BCABAD51AFC05068A093DCB7</key>
 		<dict>
@@ -2279,7 +2299,7 @@
 		<key>27A782990388A51435130381A8B8F318</key>
 		<dict>
 			<key>fileRef</key>
-			<string>A40EA555D83F0FD36BA3B37540D207BD</string>
+			<string>EDD301B255B520F56FFFEAFA00D61AA2</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -2322,6 +2342,21 @@
 			<string>POPDecayAnimationInternal.h</string>
 			<key>path</key>
 			<string>pop/POPDecayAnimationInternal.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>2812710D4D378A6244C98CC7B02BE089</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>FlurryAdTargeting.h</string>
+			<key>path</key>
+			<string>FlurryAds/Shared/FlurryAdTargeting.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -2475,19 +2510,6 @@
 					<string>Public</string>
 				</array>
 			</dict>
-		</dict>
-		<key>2BA668305B165385B3721A0F278E3192</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Flurry-iOS-SDK-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>2C071A03D8284F829448CF6D2B90E9E2</key>
 		<dict>
@@ -2672,7 +2694,7 @@
 		<key>2F75B28855C19EB9426E5E391B6E49A5</key>
 		<dict>
 			<key>fileRef</key>
-			<string>733DE7625DFC606303D65277A3E3BF0E</string>
+			<string>2812710D4D378A6244C98CC7B02BE089</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -2868,6 +2890,21 @@
 			<string>2692A60CA9509B2E2A543556E170DCB4</string>
 			<key>remoteInfo</key>
 			<string>Koloda</string>
+		</dict>
+		<key>332020A875E15266483DF90DCDF5BB12</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>archive.ar</string>
+			<key>name</key>
+			<string>libFlurryAds_7.6.6.a</string>
+			<key>path</key>
+			<string>FlurryAds/libFlurryAds_7.6.6.a</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>33E8C08B5C1CEA88B9B6482DA3B17A4D</key>
 		<dict>
@@ -3065,6 +3102,21 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>391653AA42CAB2E3B3990C94E2C8C1A9</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>FlurryAds.h</string>
+			<key>path</key>
+			<string>FlurryAds/StaticAPI/FlurryAds.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>394063B75C105C43C9E38172880CD28D</key>
 		<dict>
 			<key>fileRef</key>
@@ -3215,7 +3267,7 @@
 		<key>3A0E6867CCA7E78DE0CCC8596992506C</key>
 		<dict>
 			<key>fileRef</key>
-			<string>A3301F06DF85F164AE18538D1CE778F0</string>
+			<string>5BDF24E4143DDBF4F334373DA6384B6D</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -3263,7 +3315,7 @@
 		<key>3B2A9A7208EE20D2ED534D60FE9E66AB</key>
 		<dict>
 			<key>fileRef</key>
-			<string>814777C0B9DB79F410CCD1D9C9A2019F</string>
+			<string>7441FD60CA2EEC313C80CAEA6E6AEFD9</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -3323,21 +3375,6 @@
 			<string>BABD8884D34DB907BAF9647D6329A20A</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-		</dict>
-		<key>3C2345665DB0F60461ED0A03F8616931</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>FlurryAdsEmpty.m</string>
-			<key>path</key>
-			<string>FlurryAds/FlurryAdsEmpty.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>3C7AAD08AE605FEBBD0EA79132589A70</key>
 		<dict>
@@ -3723,14 +3760,14 @@
 		<key>4329B253A8B9A210E277E97DB2C9B04F</key>
 		<dict>
 			<key>fileRef</key>
-			<string>2BA668305B165385B3721A0F278E3192</string>
+			<string>690A44735D3463531A8E95E053C41260</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
 		<key>439591F642F5C2275A0BBA74458A77E5</key>
 		<dict>
 			<key>fileRef</key>
-			<string>258D7555372B1994D005195F781014A8</string>
+			<string>BB0913893E7EF2F6ACF446278D22FE14</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -4046,6 +4083,21 @@
 				</array>
 			</dict>
 		</dict>
+		<key>4807D0FA9BC1C586ADA78B632CE22350</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>FlurryAdError.h</string>
+			<key>path</key>
+			<string>FlurryAds/Shared/FlurryAdError.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>48119A9BF66C111AA7033231E23EDC70</key>
 		<dict>
 			<key>isa</key>
@@ -4135,6 +4187,21 @@
 			<key>remoteInfo</key>
 			<string>GTMSessionFetcher</string>
 		</dict>
+		<key>4A9B2129D00393EEC286FC4077418566</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>FlurryAdNativeDelegate.h</string>
+			<key>path</key>
+			<string>FlurryAds/FlurryAdNative/FlurryAdNativeDelegate.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>4AD8A149644C4731DF9376D4DBBDF61E</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -4188,21 +4255,6 @@
 					<string>Public</string>
 				</array>
 			</dict>
-		</dict>
-		<key>4C6BDEE47C035D1E95D2676EC599BD6D</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>FlurryAdDelegate.h</string>
-			<key>path</key>
-			<string>FlurryAds/StaticAPI/FlurryAdDelegate.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>4C9152973598E17026481CB7108A14B5</key>
 		<dict>
@@ -4569,7 +4621,7 @@
 				<string>9AF66DB1CFEB46A8B86CD279565128D0</string>
 				<string>B06323854712D0EDDF6F713334F6C9BE</string>
 				<string>D4DB7EBEB7B62BF1C63350BA9F885894</string>
-				<string>D431E632061D1602F2219C0322A3E18C</string>
+				<string>D9922EE28B4CA460C374943F6037997C</string>
 				<string>73A96B7FD550F83B94F62786A9D6950A</string>
 				<string>82C02FFF16C3DBE7F5CB6392CE0453A9</string>
 				<string>E3BB6FB6E2FAA1050C3E85A3473C0EAC</string>
@@ -4881,7 +4933,7 @@
 		<key>5433E2F47FFB64C49D8541BB7D46E18C</key>
 		<dict>
 			<key>fileRef</key>
-			<string>771B635BF7D0AADD4BB345D8D9D00887</string>
+			<string>4807D0FA9BC1C586ADA78B632CE22350</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -5055,19 +5107,6 @@
 			<string>4D36C59C6283A87F83DEAFA458FDF8B2</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-		</dict>
-		<key>56AF38ABED52912BCBB7751D9E490324</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>56CF179D3887CCAB5DAF25FCAEF00CB5</key>
 		<dict>
@@ -5395,6 +5434,21 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>5BDF24E4143DDBF4F334373DA6384B6D</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>FlurryAdNativeAsset.h</string>
+			<key>path</key>
+			<string>FlurryAds/FlurryAdNative/FlurryAdNativeAsset.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>5BEEF0E031E8B1DCA4D184F70D5F14EF</key>
 		<dict>
 			<key>fileRef</key>
@@ -5419,19 +5473,6 @@
 			<string>text.script.sh</string>
 			<key>path</key>
 			<string>Pods-YoutubeAppTests-resources.sh</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5C8452E134B410A41034F9FBDE2BD075</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Flurry-iOS-SDK.xcconfig</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -5511,7 +5552,7 @@
 		<key>5F77C732A065EC1C9F639D9536226700</key>
 		<dict>
 			<key>fileRef</key>
-			<string>BB4415C11A1F8EC24F38E51C6F8A4F92</string>
+			<string>E6F8858BBB83558E83A4A6156637DDF1</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -5722,21 +5763,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>64D8730E77D3B60C39E4F2B765F63B0F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>archive.ar</string>
-			<key>name</key>
-			<string>libFlurry_7.6.6.a</string>
-			<key>path</key>
-			<string>Flurry/libFlurry_7.6.6.a</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>652F14E7B70B10C2EEBF31512ECCB0E3</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -5885,6 +5911,19 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
+		<key>690A44735D3463531A8E95E053C41260</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>Flurry-iOS-SDK-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>6918747F05C15810BCB1D30083A17469</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -5895,6 +5934,32 @@
 			<string>sourcecode.c.objc</string>
 			<key>path</key>
 			<string>ObjectMapper-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6938D57419A80499D080BFFCDDDC80F7</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>332020A875E15266483DF90DCDF5BB12</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>69729D4D6B8FDA1508AB31287AA01441</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -6302,21 +6367,6 @@
 				</array>
 			</dict>
 		</dict>
-		<key>733DE7625DFC606303D65277A3E3BF0E</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>FlurryAdTargeting.h</string>
-			<key>path</key>
-			<string>FlurryAds/Shared/FlurryAdTargeting.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>735A086680DC47DC1B47D77D7C9ABF7B</key>
 		<dict>
 			<key>fileRef</key>
@@ -6371,6 +6421,21 @@
 			<string>Support Files</string>
 			<key>path</key>
 			<string>../Target Support Files/GTMSessionFetcher</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7441FD60CA2EEC313C80CAEA6E6AEFD9</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>FlurryAdInterstitial.h</string>
+			<key>path</key>
+			<string>FlurryAds/FlurryAdInterstitial/FlurryAdInterstitial.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -6464,21 +6529,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>771B635BF7D0AADD4BB345D8D9D00887</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>FlurryAdError.h</string>
-			<key>path</key>
-			<string>FlurryAds/Shared/FlurryAdError.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>775D92426AF005164A046DE99CA3A339</key>
 		<dict>
 			<key>children</key>
@@ -6489,6 +6539,21 @@
 			<string>PBXGroup</string>
 			<key>name</key>
 			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7761CD8F68B4AC86D2036905418CF6D5</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>FlurryAdInterstitialDelegate.h</string>
+			<key>path</key>
+			<string>FlurryAds/FlurryAdInterstitial/FlurryAdInterstitialDelegate.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -6745,7 +6810,7 @@
 		<key>7C59B98BF293748D46FA8237F0F9FC00</key>
 		<dict>
 			<key>fileRef</key>
-			<string>AA2A709AE2EAAD42987AE1FCCFE76353</string>
+			<string>4A9B2129D00393EEC286FC4077418566</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -7081,7 +7146,7 @@
 		<key>80BE1F2D14C00EA87B0E399EC2C3B295</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>5C8452E134B410A41034F9FBDE2BD075</string>
+			<string>BD6381D35B3E45FD9FFF952447876022</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
@@ -7139,21 +7204,6 @@
 			<string>XCBuildConfiguration</string>
 			<key>name</key>
 			<string>Release</string>
-		</dict>
-		<key>814777C0B9DB79F410CCD1D9C9A2019F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>FlurryAdInterstitial.h</string>
-			<key>path</key>
-			<string>FlurryAds/FlurryAdInterstitial/FlurryAdInterstitial.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>8169B9CEAEE7875D35EFC9659EBEAB2A</key>
 		<dict>
@@ -7585,31 +7635,6 @@
 				</array>
 			</dict>
 		</dict>
-		<key>881544A5FA0EC3614EB73C8972D40C99</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>E57D9A244E03B8BC56DE8685F2BDB780</string>
-				<string>AD6726A97166E57D4EEFDACDBD66C93F</string>
-				<string>4C6BDEE47C035D1E95D2676EC599BD6D</string>
-				<string>771B635BF7D0AADD4BB345D8D9D00887</string>
-				<string>814777C0B9DB79F410CCD1D9C9A2019F</string>
-				<string>C84A416580B40FB8BD42AA343F49EC0F</string>
-				<string>A40EA555D83F0FD36BA3B37540D207BD</string>
-				<string>A3301F06DF85F164AE18538D1CE778F0</string>
-				<string>AA2A709AE2EAAD42987AE1FCCFE76353</string>
-				<string>02BBF8DB03DB4D92AABF70783D815CED</string>
-				<string>1C1CCAF39F33A7146EB9DC9FD781F269</string>
-				<string>3C2345665DB0F60461ED0A03F8616931</string>
-				<string>733DE7625DFC606303D65277A3E3BF0E</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>FlurryAds</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>88875C5CCF1D9A25334F3026887A1137</key>
 		<dict>
 			<key>fileRef</key>
@@ -7842,6 +7867,19 @@
 			<string>PKTokenizerState.m</string>
 			<key>path</key>
 			<string>src/PKTokenizerState.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8D820852C052EDFB3A986F7D4A793D48</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Flurry-iOS-SDK-umbrella.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -8508,17 +8546,6 @@
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
-		<key>996D629E645475B4FE820F912DAFCD47</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Flurry-iOS-SDK.modulemap</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>9987F5D887FFAAC8B9B4A933B5A28CB2</key>
 		<dict>
 			<key>buildActionMask</key>
@@ -8784,6 +8811,21 @@
 				<string>-fno-objc-arc</string>
 			</dict>
 		</dict>
+		<key>9FE7F54C956047211B100029418B29B4</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>FlurryAdsEmpty.m</string>
+			<key>path</key>
+			<string>FlurryAds/FlurryAdsEmpty.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>9FF157A61C0C5609A00DE8DA147F76DD</key>
 		<dict>
 			<key>fileRef</key>
@@ -8981,21 +9023,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>A3301F06DF85F164AE18538D1CE778F0</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>FlurryAdNativeAsset.h</string>
-			<key>path</key>
-			<string>FlurryAds/FlurryAdNative/FlurryAdNativeAsset.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>A338955CA4C6773EB11263DA3602D048</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -9004,6 +9031,21 @@
 			<string>PBXFileReference</string>
 			<key>path</key>
 			<string>ReachabilitySwift.modulemap</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A35D564715FD8639D19DE0451452B725</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>FlurryAdNativeStyle.h</string>
+			<key>path</key>
+			<string>FlurryAds/FlurryAdNative/FlurryAdNativeStyle.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -9112,21 +9154,6 @@
 			<string>sourcecode.c.h</string>
 			<key>path</key>
 			<string>Pods-YoutubeApp-umbrella.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A40EA555D83F0FD36BA3B37540D207BD</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>FlurryAdNative.h</string>
-			<key>path</key>
-			<string>FlurryAds/FlurryAdNative/FlurryAdNative.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -9471,21 +9498,6 @@
 				</array>
 			</dict>
 		</dict>
-		<key>AA2A709AE2EAAD42987AE1FCCFE76353</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>FlurryAdNativeDelegate.h</string>
-			<key>path</key>
-			<string>FlurryAds/FlurryAdNative/FlurryAdNativeDelegate.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>AAB98178170CEFD45B1A80873884004E</key>
 		<dict>
 			<key>fileRef</key>
@@ -9593,21 +9605,6 @@
 			<key>targetProxy</key>
 			<string>138CAF46200C422DA60BDD8CF98D727B</string>
 		</dict>
-		<key>AD6726A97166E57D4EEFDACDBD66C93F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>FlurryAdBannerDelegate.h</string>
-			<key>path</key>
-			<string>FlurryAds/FlurryAdBanner/FlurryAdBannerDelegate.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>ADFD1B878091620F281D7AB7E21FDDAC</key>
 		<dict>
 			<key>fileRef</key>
@@ -9685,7 +9682,7 @@
 		<key>AFB1CDF9F2FEB1B30EF02C16541BAF03</key>
 		<dict>
 			<key>fileRef</key>
-			<string>E57D9A244E03B8BC56DE8685F2BDB780</string>
+			<string>F2737A4B9C2F4C09E7E451FB9640699A</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -10186,7 +10183,7 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>BB1080DDFA35A8D3730907C5F7AB3EE2</key>
+		<key>BB0913893E7EF2F6ACF446278D22FE14</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -10194,8 +10191,10 @@
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>Flurry.h</string>
 			<key>path</key>
-			<string>Flurry-iOS-SDK-umbrella.h</string>
+			<string>Flurry/Flurry.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -10226,21 +10225,6 @@
 			<string>DataTransform.swift</string>
 			<key>path</key>
 			<string>ObjectMapper/Transforms/DataTransform.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BB4415C11A1F8EC24F38E51C6F8A4F92</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>FlurryEmpty.m</string>
-			<key>path</key>
-			<string>Flurry/FlurryEmpty.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -10327,6 +10311,19 @@
 			<string>D468777BEC2DE5127A16239373FFD11F</string>
 			<key>targetProxy</key>
 			<string>1900E75B8210FBF2B6A0510DB2818040</string>
+		</dict>
+		<key>BD6381D35B3E45FD9FFF952447876022</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Flurry-iOS-SDK.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>BD753055076986F466E12C7E3685CFAA</key>
 		<dict>
@@ -10781,6 +10778,21 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
+		<key>C7A8FB64167A9C3ED7BE95A0B0297CBB</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>FlurryAdDelegate.h</string>
+			<key>path</key>
+			<string>FlurryAds/StaticAPI/FlurryAdDelegate.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>C7E474A03CAE21F1CB6046E7344C59BD</key>
 		<dict>
 			<key>buildSettings</key>
@@ -10872,25 +10884,10 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>C84A416580B40FB8BD42AA343F49EC0F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>FlurryAdInterstitialDelegate.h</string>
-			<key>path</key>
-			<string>FlurryAds/FlurryAdInterstitial/FlurryAdInterstitialDelegate.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>C8ACB50DF670EB104E919EE1BFBA12F9</key>
 		<dict>
 			<key>fileRef</key>
-			<string>1C1CCAF39F33A7146EB9DC9FD781F269</string>
+			<string>391653AA42CAB2E3B3990C94E2C8C1A9</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -11409,26 +11406,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>CFB63C260E2E70B606EFB08A65479F69</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>996D629E645475B4FE820F912DAFCD47</string>
-				<string>5C8452E134B410A41034F9FBDE2BD075</string>
-				<string>2BA668305B165385B3721A0F278E3192</string>
-				<string>DC9BF686CE7B3AEAF3F0C1CFD3C484C6</string>
-				<string>BB1080DDFA35A8D3730907C5F7AB3EE2</string>
-				<string>56AF38ABED52912BCBB7751D9E490324</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Support Files</string>
-			<key>path</key>
-			<string>../Target Support Files/Flurry-iOS-SDK</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>D07BD11FCC7104CCA48D33ABC88EBE19</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -11488,7 +11465,7 @@
 		<key>D1067355F7FA88F8C0F34B5FFFCDEBAA</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>5C8452E134B410A41034F9FBDE2BD075</string>
+			<string>BD6381D35B3E45FD9FFF952447876022</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
@@ -11746,23 +11723,6 @@
 				<string>E332E5B451D7D0D2E7AE828F967F8AF1</string>
 				<string>5A2ABB3D5E294E045905907D00A11363</string>
 			</array>
-		</dict>
-		<key>D431E632061D1602F2219C0322A3E18C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>881544A5FA0EC3614EB73C8972D40C99</string>
-				<string>24233569E0B07CCF1727F7AC4AD68591</string>
-				<string>CFB63C260E2E70B606EFB08A65479F69</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Flurry-iOS-SDK</string>
-			<key>path</key>
-			<string>Flurry-iOS-SDK</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>D468777BEC2DE5127A16239373FFD11F</key>
 		<dict>
@@ -12186,6 +12146,23 @@
 			<key>name</key>
 			<string>Debug</string>
 		</dict>
+		<key>D9922EE28B4CA460C374943F6037997C</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>00000C51D0E79F7E4EBE680398A7FD36</string>
+				<string>0C628C371B49D7DA6D15F1C70FBF80DC</string>
+				<string>DA2071D112DC2DFF7C35E7207C06642F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Flurry-iOS-SDK</string>
+			<key>path</key>
+			<string>Flurry-iOS-SDK</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>D9C9EBD2F38F852124E74703800679F9</key>
 		<dict>
 			<key>explicitFileType</key>
@@ -12213,6 +12190,26 @@
 			<string>NSString+PEGKitAdditions.m</string>
 			<key>path</key>
 			<string>src/NSString+PEGKitAdditions.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>DA2071D112DC2DFF7C35E7207C06642F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1827041B909830742FFECBA8E3768AAF</string>
+				<string>BD6381D35B3E45FD9FFF952447876022</string>
+				<string>690A44735D3463531A8E95E053C41260</string>
+				<string>1A38C456B0D1F46EC519E44872EBCDC8</string>
+				<string>8D820852C052EDFB3A986F7D4A793D48</string>
+				<string>69729D4D6B8FDA1508AB31287AA01441</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Support Files</string>
+			<key>path</key>
+			<string>../Target Support Files/Flurry-iOS-SDK</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -12291,19 +12288,6 @@
 			<string>PBXSourcesBuildPhase</string>
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
-		</dict>
-		<key>DC9BF686CE7B3AEAF3F0C1CFD3C484C6</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Flurry-iOS-SDK-prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>DCC347ED180FB81C88BC0FEC4F2E5B2F</key>
 		<dict>
@@ -12514,7 +12498,7 @@
 		<key>DFC7DD59E04331E716327A20F9768408</key>
 		<dict>
 			<key>fileRef</key>
-			<string>BB1080DDFA35A8D3730907C5F7AB3EE2</string>
+			<string>8D820852C052EDFB3A986F7D4A793D48</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -12595,7 +12579,7 @@
 		<key>E060218FFB9A36950220D0C12805D7E0</key>
 		<dict>
 			<key>fileRef</key>
-			<string>4C6BDEE47C035D1E95D2676EC599BD6D</string>
+			<string>C7A8FB64167A9C3ED7BE95A0B0297CBB</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -12859,21 +12843,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>E57D9A244E03B8BC56DE8685F2BDB780</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>FlurryAdBanner.h</string>
-			<key>path</key>
-			<string>FlurryAds/FlurryAdBanner/FlurryAdBanner.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>E59BF19C0AFA68B741552319FC478C7B</key>
 		<dict>
 			<key>fileRef</key>
@@ -12935,16 +12904,18 @@
 			<key>productType</key>
 			<string>com.apple.product-type.framework</string>
 		</dict>
-		<key>E6A891204486193BC63805893768ABEF</key>
+		<key>E6F8858BBB83558E83A4A6156637DDF1</key>
 		<dict>
-			<key>children</key>
-			<array>
-				<string>64D8730E77D3B60C39E4F2B765F63B0F</string>
-			</array>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXGroup</string>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
 			<key>name</key>
-			<string>Frameworks</string>
+			<string>FlurryEmpty.m</string>
+			<key>path</key>
+			<string>Flurry/FlurryEmpty.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -13101,6 +13072,19 @@
 			<string>Alamofire.framework</string>
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>E8B0DDE195BD3CABCE158F9E1018153A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>177A097050CAD4FFECCF0FCCA8613933</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>E8BD55836A2DF88AC954C41D0702EDF6</key>
 		<dict>
@@ -13502,6 +13486,21 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>EDD301B255B520F56FFFEAFA00D61AA2</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>FlurryAdNative.h</string>
+			<key>path</key>
+			<string>FlurryAds/FlurryAdNative/FlurryAdNative.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>EDFB878AABC4E5AB5BEFB463497B8B72</key>
 		<dict>
 			<key>fileRef</key>
@@ -13689,6 +13688,21 @@
 				</array>
 			</dict>
 		</dict>
+		<key>F2737A4B9C2F4C09E7E451FB9640699A</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>FlurryAdBanner.h</string>
+			<key>path</key>
+			<string>FlurryAds/FlurryAdBanner/FlurryAdBanner.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>F3478694D98ACAE6B6B7DA523AA60EC3</key>
 		<dict>
 			<key>fileRef</key>
@@ -13825,6 +13839,21 @@
 			<string>PKDelimitDescriptor.m</string>
 			<key>path</key>
 			<string>src/PKDelimitDescriptor.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F5451579B12BFBB9A6DB7C213CA86F98</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>FlurryAdBannerDelegate.h</string>
+			<key>path</key>
+			<string>FlurryAds/FlurryAdBanner/FlurryAdBannerDelegate.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -14169,7 +14198,7 @@
 		<key>FC641CE8B756CD324A4E32416C9A82EE</key>
 		<dict>
 			<key>fileRef</key>
-			<string>C84A416580B40FB8BD42AA343F49EC0F</string>
+			<string>7761CD8F68B4AC86D2036905418CF6D5</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
