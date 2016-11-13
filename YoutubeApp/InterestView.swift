@@ -27,7 +27,7 @@ class InterestView: UICollectionViewCell {
         return label
     }()
     
-    fileprivate lazy var labelGradient : UIView = {
+    lazy var labelGradient : UIView = {
         var view = UIView()
         let layer : CAGradientLayer = CAGradientLayer()
         layer.frame.size = CGSize(width: self.frame.width, height: self.frame.height/5)
@@ -39,6 +39,7 @@ class InterestView: UICollectionViewCell {
         
         layer.colors = [color0,color1]
         view.layer.insertSublayer(layer, at: 0)
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
