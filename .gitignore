@@ -5,6 +5,7 @@
 ## Build generated
 build/
 DerivedData
+.DS_Store
 
 ## Various settings
 *.pbxuser
@@ -15,6 +16,7 @@ DerivedData
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
+.DS
 
 ## Other
 *.xccheckout
