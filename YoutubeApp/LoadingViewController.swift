@@ -44,7 +44,7 @@ class LoadingView: BasicPlaceholderView, StatefulPlaceholderView, NVActivityIndi
         
         self.addSubview(activityIndicatorView)
         self.addSubview(animationTypeLabel)
-        activityIndicatorView.startAnimation()
+        activityIndicatorView.startAnimating()
         
         let button:UIButton = UIButton(frame: frame)
         button.tag = loader
@@ -73,7 +73,7 @@ class LoadingView: BasicPlaceholderView, StatefulPlaceholderView, NVActivityIndi
             padding: 10)
         
         activityIndicatorView.center = activityContainer.center
-        activityIndicatorView.startAnimation()
+        activityIndicatorView.startAnimating()
         activityContainer.addSubview(activityIndicatorView)
         
         let width = activityContainer.frame.size.width / 3

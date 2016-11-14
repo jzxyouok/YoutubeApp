@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>EasyTipView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Flurry-iOS-SDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -82,7 +87,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>250B10E34501899CDA235B13E914A9ED</key>
+		<key>062B92C2A1B8FBAD7F03900D16E4EB64</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>070374204E491EF7E794313D14C6950B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>25F60E5EE761C6088D7FD9FEBC58F89E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,12 +107,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>37B21DC092382F9D048642D0C52436E9</key>
+		<key>5579BAD702E8654A6336C8C983581E71</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5A2ABB3D5E294E045905907D00A11363</key>
+		<key>6B681C4250D73148442CCFCEB9FE79ED</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6BFC545261EAE2E154662BC2955FDA38</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -107,17 +127,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8D9082159A5ADBB80883E78CFE7E686A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>BDDC4DBF7654960710F7FF7B28F35033</key>
+		<key>B441EF6A60D97D87590084AB17B26175</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>C45290004E0078130C91A71711094467</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C4D2871E87DBB4644A3B0293DDF465DD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -137,22 +157,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E332E5B451D7D0D2E7AE828F967F8AF1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E5EC9F5F9DEDE40D65B90C46FB583032</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E9954DD48D41FE78C4998FA5D579BB32</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>FBD082A0D35F7917EAB9DD9D3CCA9976</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FC974B1947D32BE19D7F42F661FEAC9D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

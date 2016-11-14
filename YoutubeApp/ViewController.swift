@@ -16,16 +16,19 @@ import ReachabilitySwift
 import StatefulViewController
 import NVActivityIndicatorView
 import Flurry_iOS_SDK
+import EasyTipView
 
 //class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, VideoModelDelegate {
 
-class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate, VideoModelDelegate, StatefulViewController {
+class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate, VideoModelDelegate, StatefulViewController, EasyTipViewDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var kolodaView: KolodaView!
+    @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var dismissButton: UIButton!
     
-    @IBAction func signOutButtonPressed(_ sender: UIBarButtonItem) {
+    @IBAction func signOutButtonPressed(_ sender: UIButton) {
         GTMOAuth2ViewControllerTouch.removeAuthFromKeychain(forName: kKeychainItemName)
         let userDefaults = UserDefaults.standard
         userDefaults.set(nil, forKey: "InterestsArray")
@@ -55,6 +58,7 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     var data: Data? = Data()
     var reachability: Reachability?
     //let refreshControl = UIRefreshControl()
+    var preferences = EasyTipView.Preferences()
     
     override func viewDidAppear(_ animated: Bool) {
         let parameters = ["InterestsArray" : self.interestSelectionArray, "SkillsArray" : self.skillSelectionArray, "KeywordsArray" : self.keywordsArray]
@@ -69,11 +73,13 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(named: "DiscovrNavBar.png")?.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 0, 0, 0), resizingMode: .stretch), for: .default)
+        navigationController!.navigationBar.titleTextAttributes=[NSForegroundColorAttributeName : UIColor.black]
         navigationController!.navigationBar.barTintColor = UIColor.black
-        navigationController!.navigationBar.tintColor=UIColor.white
-        navigationController!.navigationBar.titleTextAttributes=[NSForegroundColorAttributeName : UIColor.white]
+        navigationController!.navigationBar.tintColor=UIColor.black
         navigationController!.navigationBar.isOpaque=true
         self.navigationController!.navigationBar.barStyle = .black
+        self.navigationController!.navigationBar.backgroundColor=UIColor.clear
         
         self.reachability = Reachability()
         
@@ -158,6 +164,18 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         }
     }
     
+    public func easyTipViewDidDismiss(_ tipView: EasyTipView) {
+        if tipView.text == "If you liked this video you can tap me!" {
+        EasyTipView.show(forView: self.dismissButton, withinSuperview: self.view, text: "Otherwise you can tap me! No hard feelings! ;)", preferences: self.preferences, delegate: self)
+        } else if tipView.text == "You can swipe to save me for later, and tap me to watch the video!" {
+            EasyTipView.show(forView: self.likeButton,
+                             withinSuperview: self.view,
+                             text: "If you liked this video you can tap me!",
+                             preferences: self.preferences,
+                             delegate: self)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -173,6 +191,26 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
         
         self.kolodaView.dataSource = self
         self.kolodaView.delegate = self
+        
+        
+        self.preferences.drawing.font = UIFont(name: "Helvetica Neue", size: 17)!
+        self.preferences.drawing.foregroundColor = UIColor.white
+        //self.preferences.drawing.backgroundColor = UIColor(hue:0.46, saturation:0.99, brightness:0.6, alpha:1)
+        self.preferences.drawing.backgroundColor = UIColor.init(red: 208/255, green: 2/255, blue: 27/255, alpha: 1)
+        self.preferences.drawing.arrowPosition = EasyTipView.ArrowPosition.top
+        
+        var prefrences = EasyTipView.Preferences()
+        prefrences.drawing.font = UIFont(name: "Helvetica Neue", size: 17)!
+        prefrences.drawing.foregroundColor = UIColor.white
+        prefrences.drawing.backgroundColor = UIColor.init(red: 208/255, green: 2/255, blue: 27/255, alpha: 1)
+        //prefrences.drawing.backgroundColor = UIColor(hue:0.46, saturation:0.99, brightness:0.6, alpha:1)
+        prefrences.drawing.arrowPosition = EasyTipView.ArrowPosition.bottom
+        
+        EasyTipView.show(forView: self.kolodaView,
+                         withinSuperview: self.view,
+                         text: "You can swipe to save me for later, and tap me to watch the video!",
+                         preferences: prefrences,
+                         delegate: self)
     }
     
     //MARK: IBActions

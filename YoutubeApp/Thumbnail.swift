@@ -31,9 +31,11 @@ class Thumbnail: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        iv.image = videoImage
+        self.backgroundColor = UIColor.clear
+        self.iv.image = videoImage
+        self.iv.backgroundColor = UIColor.clear
         self.border.backgroundColor=UIColor.clear
-        self.border.layer.borderColor=UIColor.orange.cgColor
+        self.border.layer.borderColor=UIColor.init(red: 208/255, green: 2/255, blue: 27/255, alpha: 1).cgColor
         self.border.layer.borderWidth=3
         videoLabel.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.8)
         videoLabel.textColor = UIColor.init(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
@@ -78,11 +80,18 @@ class Thumbnail: UIView {
          }
          */
         let borderFrame = imageFrame.insetBy(dx: 10, dy: 10)
+        
         let labelFrame = CGRect(x: 0, y: imageSize-labelSize-10, width: Int(borderFrame.width), height: labelSize-10)
         
         self.border.frame=borderFrame
         
+        self.border.layer.masksToBounds = true
+        self.border.layer.cornerRadius = 50
+        
         self.iv.frame = imageFrame
+        
+        self.iv.layer.masksToBounds = true
+        self.iv.layer.cornerRadius = 50
         
         self.videoLabel.frame = labelFrame
         

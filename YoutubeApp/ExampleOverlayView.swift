@@ -20,6 +20,8 @@ class ExampleOverlayView: OverlayView {
         [unowned self] in
         
         var imageView = UIImageView(frame: self.bounds)
+        imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = 50
         self.addSubview(imageView)
         
         return imageView
@@ -29,6 +31,8 @@ class ExampleOverlayView: OverlayView {
         [unowned self] in
         
         var imageView = UIImageView(frame: self.bounds)
+        imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = 50
         self.addSubview(imageView)
         
         return imageView

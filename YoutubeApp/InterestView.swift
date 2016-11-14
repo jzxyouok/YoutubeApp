@@ -27,19 +27,8 @@ class InterestView: UICollectionViewCell {
         return label
     }()
     
-    lazy var labelGradient : UIView = {
-        var view = UIView()
-        let layer : CAGradientLayer = CAGradientLayer()
-        layer.frame.size = CGSize(width: self.frame.width, height: self.frame.height/5)
-        layer.frame.origin = CGPoint(x: 0.0, y: 0.0)
-        //layer.cornerRadius = CGFloat(frame.width / 20)
-        
-        let color0 = UIColor.black.cgColor
-        let color1 = UIColor.clear.cgColor
-        
-        layer.colors = [color0,color1]
-        view.layer.insertSublayer(layer, at: 0)
-        view.translatesAutoresizingMaskIntoConstraints = false
+    lazy var labelGradient : GradientView = {
+        var view = GradientView()
         return view
     }()
     
@@ -126,8 +115,8 @@ extension InterestView {
         contentView.addSubview(imageView)
         imageView.addSubview(checkmark)
         //imageView.addSubview(swich)
-        imageView.addSubview(label)
         imageView.addSubview(labelGradient)
+        imageView.addSubview(label)
         self.isUserInteractionEnabled = true
         imageView.isUserInteractionEnabled = true
         
@@ -146,7 +135,7 @@ extension InterestView {
                 labelGradient.heightAnchor.constraint(equalTo: label.heightAnchor, multiplier: 1),
                 labelGradient.leadingAnchor.constraint(equalTo: imageView.leadingAnchor),
                 labelGradient.topAnchor.constraint(equalTo: label.topAnchor, constant: 0),
-                labelGradient.trailingAnchor.constraint(equalTo: imageView.trailingAnchor),
+                labelGradient.trailingAnchor.constraint(equalTo:imageView.trailingAnchor),
                 checkmark.heightAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: 0.3),
                 checkmark.widthAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 0.3),
                 //swich.heightAnchor.constraint(equalToConstant: 31),

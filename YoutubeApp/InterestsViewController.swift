@@ -80,13 +80,23 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
         navigationController!.navigationBar.titleTextAttributes=[NSForegroundColorAttributeName : UIColor.white]
         navigationController!.navigationBar.isOpaque=true
         self.navigationController!.navigationBar.barStyle = .black
-        self.navigationController!.navigationBar.setBackgroundImage(UIImage(named: "InterestsNavBar.png")?.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 0, 0, 0), resizingMode: .stretch), for: .default)
         self.navigationController!.navigationBar.backgroundColor=UIColor.clear
         let gesture = UITapGestureRecognizer(target: self, action: #selector(InterestsViewController.cellTapped(_:)))
         self.collectionView.addGestureRecognizer(gesture)
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(named: "InterestsNavBar.png")?.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 0, 0, 0), resizingMode: .stretch), for: .default)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController!.navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 64)
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

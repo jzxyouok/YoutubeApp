@@ -22,22 +22,22 @@ extension BackingViewProvider where Self: UIView {
 extension StatefulViewController {
     
     public var stateMachine: ViewStateMachine {
-        return associatedObject(host: self, key: &stateMachineKey) { [unowned self] in
+        return associatedObject(self, key: &stateMachineKey) { [unowned self] in
             return ViewStateMachine(view: self.backingView)
         }
     }
     
     public var currentState: StatefulViewControllerState {
         switch stateMachine.currentState {
-        case .None: return .Content
-        case .View(let viewKey): return StatefulViewControllerState(rawValue: viewKey)!
+        case .none: return .Content
+        case .view(let viewKey): return StatefulViewControllerState(rawValue: viewKey)!
         }
     }
     
     public var lastState: StatefulViewControllerState {
         switch stateMachine.lastState {
-        case .None: return .Content
-        case .View(let viewKey): return StatefulViewControllerState(rawValue: viewKey)!
+        case .none: return .Content
+        case .view(let viewKey): return StatefulViewControllerState(rawValue: viewKey)!
         }
     }
     
@@ -45,31 +45,31 @@ extension StatefulViewController {
     // MARK: Views
     
     public var loadingView: UIView? {
-        get { return placeholderView(state: .Loading) }
-        set { setPlaceholderView(view: newValue, forState: .Loading) }
+        get { return placeholderView(.Loading) }
+        set { setPlaceholderView(newValue, forState: .Loading) }
     }
     
     public var errorView: UIView? {
-        get { return placeholderView(state: .Error) }
-        set { setPlaceholderView(view: newValue, forState: .Error) }
+        get { return placeholderView(.Error) }
+        set { setPlaceholderView(newValue, forState: .Error) }
     }
     
     public var emptyView: UIView? {
-        get { return placeholderView(state: .Empty) }
-        set { setPlaceholderView(view: newValue, forState: .Empty) }
+        get { return placeholderView(.Empty) }
+        set { setPlaceholderView(newValue, forState: .Empty) }
     }
     
     
     // MARK: Transitions
     
-    public func setupInitialViewState(completion: (() -> Void)? = nil) {
+    public func setupInitialViewState(_ completion: (() -> Void)? = nil) {
         let isLoading = (lastState == .Loading)
         let error: NSError? = (lastState == .Error) ? NSError(domain: "com.aschuch.StatefulViewController.ErrorDomain", code: -1, userInfo: nil) : nil
         transitionViewStates(loading: isLoading, error: error, animated: false, completion: completion)
     }
     
     public func startLoading(animated: Bool = false, completion: (() -> Void)? = nil) {
-        transitionViewStates(loading: true, error: nil, animated: animated, completion: completion)
+        transitionViewStates(loading: true, animated: animated, completion: completion)
     }
     
     public func endLoading(animated: Bool = true, error: Error? = nil, completion: (() -> Void)? = nil) {
@@ -81,9 +81,9 @@ extension StatefulViewController {
         if hasContent() {
             if let e = error {
                 // show unobstrusive error
-                handleErrorWhenContentAvailable(error: e)
+                handleErrorWhenContentAvailable(e)
             }
-            self.stateMachine.transitionToState(state: .None, animated: animated, completion: completion)
+            self.stateMachine.transitionToState(.none, animated: animated, completion: completion)
             return
         }
         
@@ -94,7 +94,7 @@ extension StatefulViewController {
         } else if let _ = error {
             newState = .Error
         }
-        self.stateMachine.transitionToState(state: .View(newState.rawValue), animated: animated, completion: completion)
+        self.stateMachine.transitionToState(.view(newState.rawValue), animated: animated, completion: completion)
     }
     
     
@@ -104,18 +104,18 @@ extension StatefulViewController {
         return true
     }
     
-    public func handleErrorWhenContentAvailable(error: Error) {
+    public func handleErrorWhenContentAvailable(_ error: Error) {
         // Default implementation does nothing.
     }
     
     
     // MARK: Helper
     
-    private func placeholderView(state: StatefulViewControllerState) -> UIView? {
+    fileprivate func placeholderView(_ state: StatefulViewControllerState) -> UIView? {
         return stateMachine[state.rawValue]
     }
     
-    private func setPlaceholderView(view: UIView?, forState state: StatefulViewControllerState) {
+    fileprivate func setPlaceholderView(_ view: UIView?, forState state: StatefulViewControllerState) {
         stateMachine[state.rawValue] = view
     }
 }
@@ -125,7 +125,7 @@ extension StatefulViewController {
 
 private var stateMachineKey: UInt8 = 0
 
-private func associatedObject<T: AnyObject>(host: AnyObject, key: UnsafePointer<Void>, initial: () -> T) -> T {
+private func associatedObject<T: AnyObject>(_ host: AnyObject, key: UnsafeRawPointer, initial: () -> T) -> T {
     var value = objc_getAssociatedObject(host, key) as? T
     if value == nil {
         value = initial()

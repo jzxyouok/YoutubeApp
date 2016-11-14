@@ -21,6 +21,7 @@ def testing_pods
     pod 'PEGKit', '~> 0.4.2'
     pod 'Flurry-iOS-SDK/FlurrySDK'
     pod 'Flurry-iOS-SDK/FlurryAds'
+    pod 'EasyTipView', '~> 1.0.2'
     
     post_install do |installer|
         `find Pods -regex 'Pods/pop.*\\.h' -print0 | xargs -0 sed -i '' 's/\\(<\\)pop\\/\\(.*\\)\\(>\\)/\\"\\2\\"/'`

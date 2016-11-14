@@ -1,6 +1,6 @@
 {
   "name": "GoogleAPIClientForREST",
-  "version": "1.0.3",
+  "version": "1.1.1",
   "authors": "Google Inc.",
   "homepage": "https://github.com/google/google-api-objectivec-client-for-rest",
   "license": {
@@ -9,7 +9,7 @@
   },
   "source": {
     "git": "https://github.com/google/google-api-objectivec-client-for-rest.git",
-    "tag": "v1.0.3"
+    "tag": "v1.1.1"
   },
   "summary": "Google APIs Client Library for Objective-C (REST)",
   "description": "Written by Google, this library is a flexible and efficient Objective-C\nframework for accessing JSON REST APIs.  This is the recommended library\nfor accessing JSON-based Google APIs for iOS, OS X, and tvOS applications.\n\nThis version can be used with iOS ≥ 7.0, OS X ≥ 10.9, tvOS ≥ 9.0.",
@@ -26,8 +26,7 @@
   },
   "dependencies": {
     "GTMSessionFetcher": [
-      "~> 1.1",
-      ">= 1.1.3"
+      ">= 1.1.7"
     ]
   },
   "default_subspecs": "Core",
@@ -221,6 +220,15 @@
       "source_files": "Source/GeneratedServices/CloudDebugger/*.{h,m}"
     },
     {
+      "name": "CloudMachineLearning",
+      "dependencies": {
+        "GoogleAPIClientForREST/Core": [
+
+        ]
+      },
+      "source_files": "Source/GeneratedServices/CloudMachineLearning/*.{h,m}"
+    },
+    {
       "name": "CloudMonitoring",
       "dependencies": {
         "GoogleAPIClientForREST/Core": [
@@ -230,13 +238,13 @@
       "source_files": "Source/GeneratedServices/CloudMonitoring/*.{h,m}"
     },
     {
-      "name": "CloudNaturalLanguageAPI",
+      "name": "CloudNaturalLanguage",
       "dependencies": {
         "GoogleAPIClientForREST/Core": [
 
         ]
       },
-      "source_files": "Source/GeneratedServices/CloudNaturalLanguageAPI/*.{h,m}"
+      "source_files": "Source/GeneratedServices/CloudNaturalLanguage/*.{h,m}"
     },
     {
       "name": "CloudResourceManager",
@@ -255,15 +263,6 @@
         ]
       },
       "source_files": "Source/GeneratedServices/CloudRuntimeConfig/*.{h,m}"
-    },
-    {
-      "name": "CloudSpeechAPI",
-      "dependencies": {
-        "GoogleAPIClientForREST/Core": [
-
-        ]
-      },
-      "source_files": "Source/GeneratedServices/CloudSpeechAPI/*.{h,m}"
     },
     {
       "name": "CloudTrace",
@@ -410,6 +409,15 @@
       "source_files": "Source/GeneratedServices/Drive/*.{h,m}"
     },
     {
+      "name": "FirebaseDynamicLinks",
+      "dependencies": {
+        "GoogleAPIClientForREST/Core": [
+
+        ]
+      },
+      "source_files": "Source/GeneratedServices/FirebaseDynamicLinks/*.{h,m}"
+    },
+    {
       "name": "FirebaseRulesAPI",
       "dependencies": {
         "GoogleAPIClientForREST/Core": [
@@ -426,15 +434,6 @@
         ]
       },
       "source_files": "Source/GeneratedServices/Fitness/*.{h,m}"
-    },
-    {
-      "name": "Freebase",
-      "dependencies": {
-        "GoogleAPIClientForREST/Core": [
-
-        ]
-      },
-      "source_files": "Source/GeneratedServices/Freebase/*.{h,m}"
     },
     {
       "name": "FusionTables",
@@ -525,6 +524,15 @@
         ]
       },
       "source_files": "Source/GeneratedServices/Logging/*.{h,m}"
+    },
+    {
+      "name": "ManufacturerCenter",
+      "dependencies": {
+        "GoogleAPIClientForREST/Core": [
+
+        ]
+      },
+      "source_files": "Source/GeneratedServices/ManufacturerCenter/*.{h,m}"
     },
     {
       "name": "Mirror",
@@ -716,6 +724,15 @@
       "source_files": "Source/GeneratedServices/SiteVerification/*.{h,m}"
     },
     {
+      "name": "Slides",
+      "dependencies": {
+        "GoogleAPIClientForREST/Core": [
+
+        ]
+      },
+      "source_files": "Source/GeneratedServices/Slides/*.{h,m}"
+    },
+    {
       "name": "Spectrum",
       "dependencies": {
         "GoogleAPIClientForREST/Core": [
@@ -723,6 +740,15 @@
         ]
       },
       "source_files": "Source/GeneratedServices/Spectrum/*.{h,m}"
+    },
+    {
+      "name": "Speech",
+      "dependencies": {
+        "GoogleAPIClientForREST/Core": [
+
+        ]
+      },
+      "source_files": "Source/GeneratedServices/Speech/*.{h,m}"
     },
     {
       "name": "Storage",
@@ -741,6 +767,15 @@
         ]
       },
       "source_files": "Source/GeneratedServices/StorageTransfer/*.{h,m}"
+    },
+    {
+      "name": "Surveys",
+      "dependencies": {
+        "GoogleAPIClientForREST/Core": [
+
+        ]
+      },
+      "source_files": "Source/GeneratedServices/Surveys/*.{h,m}"
     },
     {
       "name": "TagManager",

@@ -102,20 +102,25 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.tableView.allowsMultipleSelection = true
         let nib = UINib(nibName: "TableSectionHeader", bundle: nil)
         tableView.register(nib, forHeaderFooterViewReuseIdentifier: "TableSectionHeader")
-        //self.tableView.backgroundColor=UIColor.blackColor()
-        
+        self.tableView.backgroundColor=UIColor.lightGray
         navigationController!.navigationBar.barTintColor = UIColor.black
         navigationController!.navigationBar.tintColor=UIColor.black
         navigationController!.navigationBar.titleTextAttributes=[NSForegroundColorAttributeName : UIColor.black]
         navigationController!.navigationBar.isOpaque=true
         self.navigationController!.navigationBar.barStyle = .black
+        self.navigationController!.navigationBar.backgroundColor=UIColor.clear
     }
     
     override func viewWillAppear(_ animated: Bool) {
         let userDefaults = UserDefaults.standard
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(named: "SkillsNavBar.png")?.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 0, 0, 0), resizingMode: .stretch), for: .default)
         if userDefaults.object(forKey: "InterestsArray") as? [NSString] != nil {
             self.navigationItem.hidesBackButton=true
         }
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -128,7 +133,9 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let header = cell as! TableSectionHeader
         header.titleLabel.text = NSLocalizedString(title, comment: "")
         header.image.image = UIImage(named: imageArray[section])
-        
+        let backgroundView = UIView(frame: header.bounds)
+        backgroundView.backgroundColor = UIColor(white: 0, alpha: 1)
+        header.backgroundView = backgroundView
         return header
     }
     

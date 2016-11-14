@@ -11,14 +11,14 @@ import UIKit
 
 /// Represents the state of the view state machine
 public enum ViewStateMachineState : Equatable {
-    case None			// No view shown
-    case View(String)	// View with specific key is shown
+    case none			// No view shown
+    case view(String)	// View with specific key is shown
 }
 
 public func == (lhs: ViewStateMachineState, rhs: ViewStateMachineState) -> Bool {
     switch (lhs, rhs) {
-    case (.None, .None): return true
-    case (.View(let lName), .View(let rName)): return lName == rName
+    case (.none, .none): return true
+    case (.view(let lName), .view(let rName)): return lName == rName
     default: return false
     }
 }
@@ -32,18 +32,17 @@ public func == (lhs: ViewStateMachineState, rhs: ViewStateMachineState) -> Bool 
 ///		* Hide all managed views
 ///
 public class ViewStateMachine {
-    private var viewStore: [String: UIView]
-    private let queue = DispatchQueue(label: "com.aschuch.viewStateMachine.queue")
-    //private let queue = dispatch_queue_create("com.aschuch.viewStateMachine.queue", DISPATCH_QUEUE_SERIAL)
+    fileprivate var viewStore: [String: UIView]
+    fileprivate let queue = DispatchQueue(label: "com.aschuch.viewStateMachine.queue", attributes: [])
     
     /// The view that should act as the superview for any added views
     public let view: UIView
     
     /// The current display state of views
-    public private(set) var currentState: ViewStateMachineState = .None
-    
+    public fileprivate(set) var currentState: ViewStateMachineState = .none
+
     /// The last state that was enqueued
-    public private(set) var lastState: ViewStateMachineState = .None
+    public fileprivate(set) var lastState: ViewStateMachineState = .none
     
     
     // MARK: Init
@@ -72,17 +71,17 @@ public class ViewStateMachine {
     // MARK: Add and remove view states
     
     /// - returns: the view for a given state
-    public func viewForState(state: String) -> UIView? {
+    public func viewForState(_ state: String) -> UIView? {
         return viewStore[state]
     }
     
     /// Associates a view for the given state
-    public func addView(view: UIView, forState state: String) {
+    public func addView(_ view: UIView, forState state: String) {
         viewStore[state] = view
     }
     
     ///  Removes the view for the given state
-    public func removeViewForState(state: String) {
+    public func removeViewForState(_ state: String) {
         viewStore[state] = nil
     }
     
@@ -91,13 +90,13 @@ public class ViewStateMachine {
     
     public subscript(state: String) -> UIView? {
         get {
-            return viewForState(state: state)
+            return viewForState(state)
         }
         set(newValue) {
             if let value = newValue {
-                addView(view: value, forState: state)
+                addView(value, forState: state)
             } else {
-                removeViewForState(state: state)
+                removeViewForState(state)
             }
         }
     }
@@ -112,7 +111,7 @@ public class ViewStateMachine {
     /// - parameter animated:	true if the transition should fade views in and out
     /// - parameter campletion:	called when all animations are finished and the view has been updated
     ///
-    public func transitionToState(state: ViewStateMachineState, animated: Bool = true, completion: (() -> ())? = nil) {
+    public func transitionToState(_ state: ViewStateMachineState, animated: Bool = true, completion: (() -> ())? = nil) {
         lastState = state
         
         queue.async {
@@ -130,12 +129,12 @@ public class ViewStateMachine {
             }
             
             // Switch state and update the view
-            DispatchQueue.main.sync() {
+            DispatchQueue.main.sync {
                 switch state {
-                case .None:
+                case .none:
                     self.hideAllViews(animated: animated, completion: c)
-                case .View(let viewKey):
-                    self.showViewWithKey(state: viewKey, animated: animated, completion: c)
+                case .view(let viewKey):
+                    self.showView(forKey: viewKey, animated: animated, completion: c)
                 }
             }
         }
@@ -144,7 +143,7 @@ public class ViewStateMachine {
     
     // MARK: Private view updates
     
-    private func showViewWithKey(state: String, animated: Bool, completion: (() -> ())? = nil) {
+    fileprivate func showView(forKey state: String, animated: Bool, completion: (() -> ())? = nil) {
         if let newView = self.viewStore[state] {
             // Add new view using AutoLayout
             newView.alpha = animated ? 0.0 : 1.0
@@ -177,10 +176,10 @@ public class ViewStateMachine {
             completion?()
         }
         
-        animateChanges(animated: animated, animations: animations, animationCompletion: animationCompletion)
+        animateChanges(animated: animated, animations: animations, completion: animationCompletion)
     }
     
-    private func hideAllViews(animated animated: Bool, completion: (() -> ())? = nil) {
+    fileprivate func hideAllViews(animated: Bool, completion: (() -> ())? = nil) {
         let animations: () -> () = {
             for (_, view) in self.viewStore {
                 view.alpha = 0.0
@@ -195,14 +194,14 @@ public class ViewStateMachine {
             completion?()
         }
         
-        animateChanges(animated: animated, animations: animations, animationCompletion: animationCompletion)
+        animateChanges(animated: animated, animations: animations, completion: animationCompletion)
     }
     
-    private func animateChanges(animated animated: Bool, animations: @escaping () -> (), animationCompletion: @escaping (Bool) -> ()) {
+    fileprivate func animateChanges(animated: Bool, animations: @escaping () -> (), completion: ((Bool) -> Void)?) {
         if animated {
-            UIView.animate(withDuration: 0.3, animations: animations, completion: animationCompletion)
+            UIView.animate(withDuration: 0.3, animations: animations, completion: completion)
         } else {
-            animationCompletion(true)
+            completion?(true)
         }
     }
 }
