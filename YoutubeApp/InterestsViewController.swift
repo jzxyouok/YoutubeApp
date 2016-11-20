@@ -41,6 +41,14 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
         }
         let userDefaults=UserDefaults.standard
         
+        if interestSelectionArray.isEmpty {
+            let alert = UIAlertController(title: NSLocalizedString("Please select some interests!", comment: ""), message: NSLocalizedString("Tap an image to select an interest", comment: ""), preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Ok, got it!", style: .cancel, handler: nil))
+            
+            self.present(alert, animated: true, completion: nil)
+        } else {
+        
         if userDefaults.object(forKey: "SkillsArray") as? [NSString] != nil {
             let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let tbc: UITabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
@@ -66,6 +74,7 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
         } else {
             //userDefaults.set(self.interestSelectionArray as [NSString], forKey: "InterestsArray")
             self.performSegue(withIdentifier: "showSkills", sender: self)
+        }
         }
     }
     

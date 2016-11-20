@@ -20,15 +20,7 @@ class KeywordVC: UIViewController, UITextViewDelegate {
     @IBOutlet weak var textView: UITextView!
     
     @IBAction func nextButtonClicked(_ sender: UIBarButtonItem) {
-        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let tbc: UITabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-        (((tbc.viewControllers![1] as! UINavigationController).viewControllers[0]) as! SavedVideosViewController).model.service=self.model.service
-        let userDefaults=UserDefaults.standard
-        if userDefaults.object(forKey: "SelectedVideos") as? Data == nil {
-            VideoStatus.selectedVideos=[]
-            (((tbc.viewControllers![1] as! UINavigationController).viewControllers[0]) as! SavedVideosViewController).videos=VideoStatus.selectedVideos
-            
-        }
+        
         let start =  textView.text.startIndex
         let end = textView.text.endIndex
         print(start)
@@ -55,6 +47,24 @@ class KeywordVC: UIViewController, UITextViewDelegate {
             }
         }
         */
+        
+        if keywords.isEmpty {
+            let alert = UIAlertController(title: NSLocalizedString("Please enter some keywords!", comment: ""), message: NSLocalizedString("Type some words in the space below, and separate search terms with special characters!", comment: ""), preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Ok, got it!", style: .cancel, handler: nil))
+            
+            self.present(alert, animated: true, completion: nil)
+        } else {
+        
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let tbc: UITabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+        (((tbc.viewControllers![1] as! UINavigationController).viewControllers[0]) as! SavedVideosViewController).model.service=self.model.service
+        let userDefaults=UserDefaults.standard
+        if userDefaults.object(forKey: "SelectedVideos") as? Data == nil {
+            VideoStatus.selectedVideos=[]
+            (((tbc.viewControllers![1] as! UINavigationController).viewControllers[0]) as! SavedVideosViewController).videos=VideoStatus.selectedVideos
+            
+        }
         userDefaults.set(keywords as [NSString], forKey: "KeywordsArray")
         if self.interestSelectionArray != [] {
             userDefaults.set(self.interestSelectionArray as [NSString], forKey: "InterestsArray")
@@ -66,6 +76,7 @@ class KeywordVC: UIViewController, UITextViewDelegate {
         ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).skillSelectionArray=self.skillSelectionArray
         ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).model=self.model
         self.present(tbc, animated: true, completion: nil)
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()

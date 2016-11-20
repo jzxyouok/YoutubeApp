@@ -42,9 +42,9 @@
 		4E322D601D7E1AD600E5B1F6 /* BasicPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E322D5F1D7E1AD600E5B1F6 /* BasicPlaceholderView.swift */; };
 		4E322D621D7E4DF800E5B1F6 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E322D611D7E4DF800E5B1F6 /* ErrorView.swift */; };
 		4E322D661D7EE2FE00E5B1F6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E322D651D7EE2FE00E5B1F6 /* SettingsViewController.swift */; };
+		4E32F4881DDD1B7D00EE1C3B /* GoogleLogoRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E32F4871DDD1B7D00EE1C3B /* GoogleLogoRed.png */; };
 		4E49B15C1DC2523600EB6ED4 /* CustomWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E49B15B1DC2523600EB6ED4 /* CustomWebView.swift */; };
 		4E4A5D111DCBBD7300F4F78A /* bg_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4E4A5D101DCBBD7300F4F78A /* bg_image.jpg */; };
-		4E4A5D131DCBC26500F4F78A /* GoogleLogoRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E4A5D121DCBC26500F4F78A /* GoogleLogoRed.png */; };
 		4E4A5D151DCBC2FE00F4F78A /* GoogleLogoBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E4A5D141DCBC2FE00F4F78A /* GoogleLogoBlue.png */; };
 		4E4A5D171DCBCAF200F4F78A /* bg_image_2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4E4A5D161DCBCAF200F4F78A /* bg_image_2.jpeg */; };
 		4E4A5D191DCBCF5300F4F78A /* earth.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4E4A5D181DCBCF5300F4F78A /* earth.jpg */; };
@@ -167,9 +167,9 @@
 		4E322D5F1D7E1AD600E5B1F6 /* BasicPlaceholderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicPlaceholderView.swift; sourceTree = "<group>"; };
 		4E322D611D7E4DF800E5B1F6 /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		4E322D651D7EE2FE00E5B1F6 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		4E32F4871DDD1B7D00EE1C3B /* GoogleLogoRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoogleLogoRed.png; sourceTree = "<group>"; };
 		4E49B15B1DC2523600EB6ED4 /* CustomWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomWebView.swift; sourceTree = "<group>"; };
 		4E4A5D101DCBBD7300F4F78A /* bg_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_image.jpg; sourceTree = "<group>"; };
-		4E4A5D121DCBC26500F4F78A /* GoogleLogoRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoogleLogoRed.png; sourceTree = "<group>"; };
 		4E4A5D141DCBC2FE00F4F78A /* GoogleLogoBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoogleLogoBlue.png; sourceTree = "<group>"; };
 		4E4A5D161DCBCAF200F4F78A /* bg_image_2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_image_2.jpeg; sourceTree = "<group>"; };
 		4E4A5D181DCBCF5300F4F78A /* earth.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = earth.jpg; sourceTree = "<group>"; };
@@ -327,8 +327,8 @@
 				4EFAAE891DDA1EBF000354C2 /* btn_skip_2@2x.png */,
 				4EFAAE8A1DDA1EBF000354C2 /* btn_skip_2@3x.png */,
 				4E72B85D1C58230B004592E7 /* Assets.xcassets */,
-				4E4A5D121DCBC26500F4F78A /* GoogleLogoRed.png */,
 				4E4A5D141DCBC2FE00F4F78A /* GoogleLogoBlue.png */,
+				4E32F4871DDD1B7D00EE1C3B /* GoogleLogoRed.png */,
 				4EFAAE3D1DD8F540000354C2 /* SkillsNavBar.png */,
 				4EFAAE3E1DD8F540000354C2 /* SkillsNavBar@2x.png */,
 				4EFAAE411DD91851000354C2 /* DiscovrNavBar.png */,
@@ -620,7 +620,6 @@
 				4ECA0C5B1D842D9C00E7EA88 /* Log In Button.png in Resources */,
 				4E27A84D1DC4F2160007BAC6 /* film.jpg in Resources */,
 				4EFE25EF1C7377A7009E44CD /* geography.jpg in Resources */,
-				4E4A5D131DCBC26500F4F78A /* GoogleLogoRed.png in Resources */,
 				4EA8084B1C7116BD009398D3 /* history.jpg in Resources */,
 				4E4A5D171DCBCAF200F4F78A /* bg_image_2.jpeg in Resources */,
 				4ECA0C611D8433EB00E7EA88 /* Log In Button Highlighted.png in Resources */,
@@ -633,6 +632,7 @@
 				4E322D581D7D971E00E5B1F6 /* settings-16.png in Resources */,
 				4E4A5D151DCBC2FE00F4F78A /* GoogleLogoBlue.png in Resources */,
 				4E72B85E1C58230B004592E7 /* Assets.xcassets in Resources */,
+				4E32F4881DDD1B7D00EE1C3B /* GoogleLogoRed.png in Resources */,
 				4EFE25F11C737B4A009E44CD /* technology.jpg in Resources */,
 				4E27A8501DC4F2160007BAC6 /* social.jpg in Resources */,
 				4E4A5D251DCFB3C800F4F78A /* NextButton.png in Resources */,

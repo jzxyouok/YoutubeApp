@@ -43,6 +43,15 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.performSegue(withIdentifier: "showKeywords", sender: self)
         } else {
         */
+        
+        if skillSelectionArray.isEmpty {
+            let alert = UIAlertController(title: NSLocalizedString("Please select some skills!", comment: ""), message: NSLocalizedString("Select a skill level in a particular area. Please note that one skill must be intermediate or expert.", comment: ""), preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Ok, got it!", style: .cancel, handler: nil))
+            
+            self.present(alert, animated: true, completion: nil)
+        } else {
+        
         if userDefaults.object(forKey: "InterestsArray") as? [NSString] != nil {
         
             let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -66,7 +75,7 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).model=self.model
             self.present(tbc, animated: true, completion: nil)
         }
-        
+        }
         /*
          let alert = UIAlertController(title: "Keyword Entry", message: "Please enter keywords related to your interests and skills. Keywords should be all lowercase, and separated only by spaces with no other characters!", preferredStyle: .Alert)
          
