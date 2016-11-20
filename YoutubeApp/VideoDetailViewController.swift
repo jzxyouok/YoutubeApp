@@ -53,7 +53,7 @@ class VideoDetailViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tapRecognizer = UITapGestureRecognizer(target: self, action: Selector("handleSingleTap"))
+        self.tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(VideoDetailViewController.handleSingleTap))
         tapRecognizer.delegate=self
         self.tapRecognizer.numberOfTapsRequired = 1
         self.webView.addGestureRecognizer(tapRecognizer)
@@ -92,7 +92,7 @@ class VideoDetailViewController: UIViewController, UIGestureRecognizerDelegate {
             //Adjust the height of the webview constraint.
             self.webViewHeightConstraint.constant=height
             
-            self.reachability = try Reachability()
+            self.reachability = Reachability()!
             
             if (reachability?.isReachable)! {
                 var videoEmbedString = "<html><head><style type=\"text/css\">body {background-color: transparent;color: black;}</style></head><body style=\"margin:0\"><iframe frameBorder=\"0\" height=\""

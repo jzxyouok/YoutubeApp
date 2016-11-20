@@ -21,7 +21,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         self.automaticallyAdjustsScrollViewInsets=false
-        print(self.model.service.authorizer?.canAuthorize)
+        print(self.model.service.authorizer?.canAuthorize as AnyObject)
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

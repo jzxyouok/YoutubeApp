@@ -366,7 +366,7 @@ class ViewController: UIViewController, KolodaViewDataSource, KolodaViewDelegate
                         cell!.iv.image = UIImage(data: data!)
                         
                     })
-                } as! (Data?, URLResponse?, Error?) -> Void)
+                } )
                 
                 dataTask.resume()
                 

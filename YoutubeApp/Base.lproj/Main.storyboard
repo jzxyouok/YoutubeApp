@@ -992,7 +992,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dms-Hl-8tO">
-                                        <rect key="frame" x="82" y="483" width="212" height="49"/>
+                                        <rect key="frame" x="82" y="453" width="212" height="49"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="49" id="QmD-We-dx1"/>
                                             <constraint firstAttribute="width" constant="212" id="gP9-tv-0oQ"/>
@@ -1003,7 +1003,7 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pwrdByYT-white.png" translatesAutoresizingMaskIntoConstraints="NO" id="h25-sV-M0l">
-                                        <rect key="frame" x="20" y="588" width="335" height="90"/>
+                                        <rect key="frame" x="20" y="558" width="335" height="90"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="90" id="Ng2-ol-Lxw"/>
                                             <constraint firstAttribute="width" constant="335" id="wn8-FH-YzA"/>
@@ -1019,7 +1019,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M1h-lp-u3E">
-                                        <rect key="frame" x="33" y="554" width="310" height="34"/>
+                                        <rect key="frame" x="33" y="524" width="310" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="310" id="UeZ-PY-hXv"/>
                                         </constraints>
@@ -1046,7 +1046,7 @@
                                     <constraint firstItem="hdf-Lh-E06" firstAttribute="top" secondItem="CDp-3G-FkP" secondAttribute="bottom" constant="10" id="hHk-JG-cNc"/>
                                     <constraint firstItem="CDp-3G-FkP" firstAttribute="centerX" secondItem="ohE-3x-XQ8" secondAttribute="centerX" id="nRw-GC-fkc"/>
                                     <constraint firstItem="dms-Hl-8tO" firstAttribute="centerX" secondItem="ohE-3x-XQ8" secondAttribute="centerX" id="otT-iu-CBO"/>
-                                    <constraint firstItem="dms-Hl-8tO" firstAttribute="top" secondItem="mCx-3T-uQ0" secondAttribute="bottom" constant="180" id="qlV-TI-1Z3"/>
+                                    <constraint firstItem="dms-Hl-8tO" firstAttribute="top" secondItem="mCx-3T-uQ0" secondAttribute="bottom" constant="150" id="qlV-TI-1Z3"/>
                                 </constraints>
                             </scrollView>
                         </subviews>

@@ -141,7 +141,7 @@ class SavedVideosViewController: UITableViewController, VideoModelDelegate {
                     }
                 })
                 
-            } as! (Data?, URLResponse?, Error?) -> Void)
+            } )
             
             dataTask.resume()
             

@@ -16,7 +16,7 @@ typedef NS_ENUM( NSUInteger, SSCheckMarkStyle )
 
 @interface SSCheckMark : UIView
 
-@property (readwrite) bool checked;
-@property (readwrite) SSCheckMarkStyle checkMarkStyle;
+@property (nonatomic, readwrite) bool checked;
+@property (nonatomic, readwrite) SSCheckMarkStyle checkMarkStyle;
 
 @end

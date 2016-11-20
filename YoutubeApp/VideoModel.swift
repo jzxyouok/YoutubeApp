@@ -425,7 +425,7 @@ class VideoModel: NSObject {
             showAlert("Error", message: error.localizedDescription)
             return
         }
-        print(playlistItem.snippet?.resourceId?.videoId!)
+        print(playlistItem.snippet?.resourceId?.videoId! as AnyObject)
         print("added playlist item")
     }
     

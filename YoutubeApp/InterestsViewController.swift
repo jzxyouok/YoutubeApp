@@ -63,7 +63,7 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
                 
             }
             let keywords=userDefaults.object(forKey: "KeywordsArray") as? [NSString]
-            print(keywords)
+            print(keywords as AnyObject)
             if keywords != nil {
                 ((tbc.viewControllers![0] as! UINavigationController).viewControllers.first as! ViewController).interestSelectionArray=self.interestSelectionArray
             } else {
