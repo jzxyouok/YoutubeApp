@@ -149,6 +149,7 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        //Added dynamic height calculation.
         return self.tableView.bounds.height/5
     }
     
