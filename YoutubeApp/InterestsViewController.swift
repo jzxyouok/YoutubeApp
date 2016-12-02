@@ -16,12 +16,17 @@ extension Array where Element: Equatable {
     }
 }
 
-class InterestsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class InterestsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIViewControllerTransitioningDelegate, UINavigationControllerDelegate {
     
     var initialArray: [NSString] = ["philosophy","biology","chemistry","physics","history","mathematics","geography","technology","film and animation", "sports","music","animals","comedy","action","gaming","vlogging","travel and events","social"]
     var interestSelectionArray = [NSString]()
     var model = VideoModel()
     var switchArray: [Int] = []
+    let customInteractionAnimator = CustomInteractionAnimator()
+    
+    @IBOutlet weak var nextButtonCenterXConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var nextButton: UIButton!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -42,6 +47,25 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
         let userDefaults=UserDefaults.standard
         
         if interestSelectionArray.isEmpty {
+            
+            UIButton.animateKeyframes(withDuration: 0.5, delay: 0, options: [.calculationModeCubic], animations: {
+                UIButton.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.3, animations: {
+                    self.nextButtonCenterXConstraint.constant += 50
+                    self.view.layoutIfNeeded()
+                })
+                
+                UIButton.addKeyframe(withRelativeStartTime: 0.3, relativeDuration: 0.4, animations: {
+                    self.nextButtonCenterXConstraint.constant -= 100
+                    self.view.layoutIfNeeded()
+                })
+                
+                UIButton.addKeyframe(withRelativeStartTime: 0.7, relativeDuration: 0.3, animations: {
+                    self.nextButtonCenterXConstraint.constant += 50
+                    self.view.layoutIfNeeded()
+                })
+            }, completion: nil)
+            
+            
             let alert = UIAlertController(title: NSLocalizedString("Please select some interests!", comment: ""), message: NSLocalizedString("Tap an image to select an interest", comment: ""), preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "Ok, got it!", style: .cancel, handler: nil))
@@ -83,6 +107,7 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
         self.collectionView.backgroundColor = nil
         //collectionView.delegate = self
         collectionView.dataSource = self
+        navigationController?.delegate = self
         
         navigationController!.navigationBar.barTintColor = UIColor.black
         navigationController!.navigationBar.tintColor=UIColor.white
@@ -95,12 +120,33 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
         
     }
     
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        let customNavigationAnimator = CustomNavigationAnimator()
+        
+        if operation == .push {
+            customNavigationAnimator.pushing = true
+            customInteractionAnimator.addToViewController(viewController: toVC)
+        }
+        
+        return customNavigationAnimator
+    }
+    
+    private func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return customInteractionAnimator.transitionInProgress ? customInteractionAnimator : nil
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController!.navigationBar.setBackgroundImage(UIImage(named: "InterestsNavBar.png")?.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 0, 0, 0), resizingMode: .stretch), for: .default)
+        self.nextButton.alpha=0
     }
     
     override func viewDidAppear(_ animated: Bool) {
         self.navigationController!.navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 64)
+        
+        UIButton.animate(withDuration:1) {
+            self.nextButton.alpha=1
+        }
+        
     }
     
     override var prefersStatusBarHidden: Bool {

@@ -553,6 +553,8 @@
                     <connections>
                         <outlet property="collectionView" destination="cev-RK-XeY" id="Xic-eF-UMp"/>
                         <outlet property="collectionViewFlowLayout" destination="roH-QV-HgG" id="YYI-oR-QEE"/>
+                        <outlet property="nextButton" destination="qTV-gx-97S" id="ral-et-Gs6"/>
+                        <outlet property="nextButtonCenterXConstraint" destination="Xjy-jM-35d" id="1BG-Ah-Vpi"/>
                         <segue destination="9HB-Tt-MgF" kind="show" identifier="showSkills" id="jL5-7c-HJP"/>
                     </connections>
                 </viewController>

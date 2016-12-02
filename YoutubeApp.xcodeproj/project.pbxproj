@@ -64,6 +64,8 @@
 		4E72B85E1C58230B004592E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E72B85D1C58230B004592E7 /* Assets.xcassets */; };
 		4E72B8611C58230B004592E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E72B85F1C58230B004592E7 /* LaunchScreen.storyboard */; };
 		4E76B2AC1D55DF2C00223078 /* SavedVideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E76B2AB1D55DF2C00223078 /* SavedVideosViewController.swift */; };
+		4E7E22051DF1EEA500126D6F /* CustomNavigationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7E22041DF1EEA500126D6F /* CustomNavigationAnimator.swift */; };
+		4E7E22071DF1F5B900126D6F /* CustomInteractionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7E22061DF1F5B900126D6F /* CustomInteractionAnimator.swift */; };
 		4E856F4E1D4D403C00BED6D7 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E856F4D1D4D403C00BED6D7 /* NavigationController.swift */; };
 		4E88FF601C6B97DC00736678 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E88FF5F1C6B97DC00736678 /* Video.swift */; };
 		4E88FF621C6B993400736678 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E88FF611C6B993400736678 /* VideoModel.swift */; };
@@ -193,6 +195,8 @@
 		4E72B8601C58230B004592E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E72B8621C58230B004592E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E76B2AB1D55DF2C00223078 /* SavedVideosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedVideosViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
+		4E7E22041DF1EEA500126D6F /* CustomNavigationAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationAnimator.swift; sourceTree = "<group>"; };
+		4E7E22061DF1F5B900126D6F /* CustomInteractionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInteractionAnimator.swift; sourceTree = "<group>"; };
 		4E856F4D1D4D403C00BED6D7 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		4E88FF5F1C6B97DC00736678 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		4E88FF611C6B993400736678 /* VideoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
@@ -400,6 +404,8 @@
 			children = (
 				4E72B8561C58230B004592E7 /* AppDelegate.swift */,
 				4E2999C71C6E613F00563520 /* InterestsViewController.swift */,
+				4E7E22041DF1EEA500126D6F /* CustomNavigationAnimator.swift */,
+				4E7E22061DF1F5B900126D6F /* CustomInteractionAnimator.swift */,
 				4E4A5D2C1DD4D1C700F4F78A /* UpgradeManager.swift */,
 				4E4A5D2E1DD4D3FE00F4F78A /* UpgradeViewController.swift */,
 				4E27A83E1DC4EBED0007BAC6 /* CustomViewFlowLayout.swift */,
@@ -792,6 +798,7 @@
 				4E322D661D7EE2FE00E5B1F6 /* SettingsViewController.swift in Sources */,
 				4E1C99CC1D3D12720009F799 /* TableSectionHeader.swift in Sources */,
 				4E322D5C1D7DC92200E5B1F6 /* LoadingViewController.swift in Sources */,
+				4E7E22071DF1F5B900126D6F /* CustomInteractionAnimator.swift in Sources */,
 				4EFAAE381DD8E87E000354C2 /* GradientView.swift in Sources */,
 				4E88FF601C6B97DC00736678 /* Video.swift in Sources */,
 				4ECA0C671D858F6900E7EA88 /* InsetLabel.swift in Sources */,
@@ -807,6 +814,7 @@
 				4E2999C81C6E613F00563520 /* InterestsViewController.swift in Sources */,
 				4E322D601D7E1AD600E5B1F6 /* BasicPlaceholderView.swift in Sources */,
 				4E6D8E051CECF95E00211D4B /* Thumbnail.swift in Sources */,
+				4E7E22051DF1EEA500126D6F /* CustomNavigationAnimator.swift in Sources */,
 				4E12E21D1D21A52300F44DB9 /* SignInViewController.swift in Sources */,
 				4E4A5D2F1DD4D3FE00F4F78A /* UpgradeViewController.swift in Sources */,
 				4EAF1C7B1D4CD3F7003F4B0D /* KeywordVC.swift in Sources */,
@@ -1012,6 +1020,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = C3BX32XR8J;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

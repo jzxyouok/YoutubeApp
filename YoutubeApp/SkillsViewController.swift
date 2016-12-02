@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIViewControllerTransitioningDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -22,6 +22,7 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var numbersArray2 = [Int]()
     var counter: Int = 0
     var model = VideoModel()
+    let customInteractionAnimator = CustomInteractionAnimator()
     
     @IBAction func nextButtonClicked(_ sender: AnyObject) {
         
@@ -112,6 +113,7 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let nib = UINib(nibName: "TableSectionHeader", bundle: nil)
         tableView.register(nib, forHeaderFooterViewReuseIdentifier: "TableSectionHeader")
         self.tableView.backgroundColor=UIColor.lightGray
+        navigationController?.delegate = self
         navigationController!.navigationBar.barTintColor = UIColor.black
         navigationController!.navigationBar.tintColor=UIColor.black
         navigationController!.navigationBar.titleTextAttributes=[NSForegroundColorAttributeName : UIColor.black]
@@ -126,6 +128,16 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if userDefaults.object(forKey: "InterestsArray") as? [NSString] != nil {
             self.navigationItem.hidesBackButton=true
         }
+    }
+    
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        let customNavigationAnimator = CustomNavigationAnimator()
+        
+        if operation == .push {
+            customNavigationAnimator.pushing = true
+        }
+        
+        return customNavigationAnimator
     }
     
     override var prefersStatusBarHidden: Bool {
