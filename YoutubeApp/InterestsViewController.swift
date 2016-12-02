@@ -107,7 +107,6 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
         self.collectionView.backgroundColor = nil
         //collectionView.delegate = self
         collectionView.dataSource = self
-        navigationController?.delegate = self
         
         navigationController!.navigationBar.barTintColor = UIColor.black
         navigationController!.navigationBar.tintColor=UIColor.white
@@ -137,6 +136,7 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController!.navigationBar.setBackgroundImage(UIImage(named: "InterestsNavBar.png")?.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 0, 0, 0), resizingMode: .stretch), for: .default)
+        navigationController?.delegate = self
         self.nextButton.alpha=0
     }
     

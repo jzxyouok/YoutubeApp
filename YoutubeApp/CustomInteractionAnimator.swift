@@ -15,7 +15,19 @@ class CustomInteractionAnimator: UIPercentDrivenInteractiveTransition {
     
     func addToViewController(viewController: UIViewController) {
         navigationController = viewController.navigationController
-        addGestureRecognizer(view: viewController.view)
+        var found=0
+        if let recognizers = viewController.view.gestureRecognizers {
+            for gr in recognizers {
+                // This check for UIPanGestureRecognizer but you can check for the one you need
+                if let gRecognizer = gr as? UIPanGestureRecognizer {
+                    found=1
+                }
+            }
+        }
+        
+        if found==0 {
+            addGestureRecognizer(view: viewController.view)
+        }
     }
     
     private func addGestureRecognizer(view: UIView) {
