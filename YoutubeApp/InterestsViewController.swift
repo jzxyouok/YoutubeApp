@@ -135,14 +135,18 @@ class InterestsViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         self.navigationController!.navigationBar.setBackgroundImage(UIImage(named: "InterestsNavBar.png")?.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 0, 0, 0), resizingMode: .stretch), for: .default)
         navigationController?.delegate = self
         self.nextButton.alpha=0
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.navigationController!.navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 64)
-        
+        if (UIDevice.current.model.contains("iPad")) {
+            self.navigationController!.navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 150)
+        } else {
+            self.navigationController!.navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 64)
+        }
         UIButton.animate(withDuration:1) {
             self.nextButton.alpha=1
         }
